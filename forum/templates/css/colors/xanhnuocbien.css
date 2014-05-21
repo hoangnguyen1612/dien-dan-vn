@@ -1,0 +1,151 @@
+/* CSS Document */
+
+/* --------------------------------------------------------------
+Global Color Change
+-------------------------------------------------------------- */
+.table-primary thead th {
+    background-color: #00CBD4;
+	border-color: #00CBD4;
+}
+
+footer .navList a {
+  color: #00CBD4 !important;
+}
+
+.subheader {
+    border-top: 4px solid #00CBD4 !important;
+}
+
+.submenu {
+    border-bottom: 4px solid #00CBD4;
+}
+
+.submenu li:hover > a {
+  color: #00CBD4;
+}
+.submenu li:hover > span {
+  background-color: #00CBD4;
+}
+
+.logo-transition a:after {
+    color: #00CBD4;
+}
+
+.label-info, .badge-info {
+    background-color: #00CBD4 !important;
+}
+
+#navBtn {
+    background-color: #00CBD4;
+}
+
+#navBtn:hover {
+    background-color: #00E3EE;
+}
+
+.pagination.pagination-small a {
+    color: #00CBD4;
+}
+
+.pagination.pagination-small a:hover {
+    color: #00E3EE;
+}
+
+.tabbable-custom .nav-tabs > li.active {
+    border-top: 3px solid #00CBD4;
+}
+
+.ver-inline-menu li.active a, .ver-inline-menu li.active i {
+    background: none repeat scroll 0 0 #00CBD4;
+    border-left: 1px solid #00CBD4;
+}
+
+.ver-inline-menu li.active:after {
+    border-left: 6px solid #00CBD4;
+}
+
+.ver-inline-menu li.active i {
+    background: none repeat scroll 0 0 #00E3EE !important;
+}
+
+.alert.alert-info {
+    background-color: #00CBD4;
+}
+
+
+
+.nav-icon:hover [class*="has-sub"] {
+color: #00CBD4;
+}
+
+.mainnav-mob > ul > li:hover > a,
+.mainnav-mob > ul > li.current > a {
+    color: #00E3EE;
+  }
+
+#footerContent blockquote p span {
+    color: #00CBD4;
+}
+
+.logo span {
+    color: #00CBD4;
+}
+
+#top-line {
+    background: none repeat scroll 0 0 #00CBD4;
+}
+
+.side-segment h3:after, .side-segment h2:after {
+    background-color: #00CBD4;
+}
+
+
+.twitter-layout:before {
+    color: #00CBD4;
+}
+
+footer .bottomLinks small a {
+    color: #00CBD4;
+}
+
+#scrollUp {
+    background-color: #00CBD4;
+    background-image: linear-gradient(#00CBD4, #00CBD4 85%, #00E3EE);
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a {
+  color: #00E3EE !important;
+}
+
+
+#page-body .bar{
+color: #8C8C8C;
+}
+
+
+.postbody h3 a {
+    color: #00CBD4 !important;
+}
+
+/* Links for forum/topic lists */
+a.forumtitle {
+	color: #00CBD4;
+}
+
+
+a.topictitle {
+	color: #00CBD4;
+}
+
+footer {
+    border-top: 3px solid #00CBD4;
+}
+
+
+
+/* --------------------------------------------------------------
+Global Color Change
+-------------------------------------------------------------- */

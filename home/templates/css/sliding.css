@@ -1,0 +1,226 @@
+#msform{
+	width:100%;
+	text-align:center;
+	position:relative;
+}
+
+#msform fieldset{
+	background:white;
+	border:0 none;
+	border-radius:3px;
+	box-shadow:0 0 15px 1px rgba(0,0,0,0.4);
+	padding:20px 30px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	width:90%;
+	margin:0 5%;
+}
+fieldset{
+	background:white;
+	border:0 none;
+	border-radius:3px;
+	box-shadow:0 0 15px 1px rgba(0,0,0,0.4);
+	padding:20px 30px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	width:90%;
+	margin:0 5%;
+}
+
+/* headings */
+.fs-title{
+	font-size:15px;
+	text-transform:uppercase;
+	color: crimson;
+	margin-bottom:10px;
+	font-weight:bold;
+}
+
+.fs-subtitle{
+	font-weight:normal;
+	font-size:13px;
+	color:#666;
+	margin-bottom:20px;
+}
+
+/* progress bar */
+#progressbar{
+	margin-bottom:30px;
+	overflow:hidden;
+	/* CSS counters to number the steps */
+	counter-reset:sothutu;
+}
+
+#progressbar li{
+	list-style-type:none;
+	color:white;
+	text-transform:uppercase;
+	font-size:9px;
+	width:33.33%;
+	float:left;
+	position:relative;
+}
+
+#progressbar li:before{
+	content:counter(sothutu);
+	counter-increment:sothutu;
+	width:20px;
+	line-height:20px;
+	font-size:10px;
+	background: #999;
+	color: white;
+	font-weight:bold;
+	border-radius:3px;
+	margin:0 auto 5px auto;
+	display:block;
+}
+
+/* progressbar connectors */
+#progressbar li:after{
+	content:'';
+	width:83%; /*94*/
+	height:2px;
+	background: #CCC;
+	position:absolute;
+	left:-42%; /*47*/
+	top:9px;
+}
+
+#progressbar li:first-child:after{
+	/*connector not needed before the first step*/
+	content:none;
+}
+
+/*marking active/completed steps green*/
+#progressbar li.active:before,#progressbar li.active:after{
+	background:green;
+	color:#fff;
+}
+
+/* Hide all except first fieldset */
+#msform fieldset:not(:first-of-type){
+	display:none;
+}
+
+/* inputs */
+#msform input[type=text], #msform input[type=email], #msform input[type=password], #msform textarea, select{
+	padding:10px;
+	border:1px solid #ccc;
+	border-radius:3px;
+	margin-bottom:10px;
+	width:70%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* for Firefox */
+	color: #2C3E50;
+}
+.textbox{
+	padding:8px;
+	border:1px solid #ccc;
+	border-radius:3px;
+	margin-bottom:10px;
+	width:60%;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* for Firefox */
+	color: #2C3E50;
+}
+
+/* buttons */
+#msform .action-button{
+	width:100px;
+	background: #15A285;
+	font-weight: bold;
+	color: white;
+	border:0 none;
+	border-radius:1px;
+	cursor:pointer;
+	padding:10px 5px;
+	margin:10px 5px;
+}
+
+#msform .action-button:hover,#msform .action-button:focus{
+	box-shadow:0 0 0 2px white,0 0 0 3px #27AE60;
+}
+.action-button{
+	width:100px;
+	background: #15A285;
+	font-weight: bold;
+	color: white;
+	border:0 none;
+	border-radius:1px;
+	cursor:pointer;
+	padding:10px 5px;
+	margin:10px 5px;
+}
+
+.action-button:hover, .action-button:focus{
+	box-shadow:0 0 0 2px white,0 0 0 3px #27AE60;
+}
+
+/********* design div like fieldset **********/
+.fieldset {
+	width: 68%;
+    border: 1px solid #ccc;
+    border-top: none;
+    padding: 0.5em;
+    margin: auto;
+	font: 1em normal;
+}
+.fieldset > h1 {
+    font: 1em normal;
+    margin: -1em -0.5em 0;
+}   
+.fieldset > h1 > span {
+    float: left;
+}
+    .fieldset > h1:before {
+        border-top:1px solid #ccc;
+        content: ' ';
+        float: left;
+        margin: 0.5em 2px 0 -1px;
+        width: 0.75em;
+    }
+    .fieldset > h1:after {
+        border-top: 1px solid #ccc;
+        content: ' ';
+        display: block;
+        height: 1.5em;
+        left: 2px;
+        margin: 0 1px 0 0;
+        overflow: hidden;
+        position: relative;
+        top: 0.5em;
+    }
+
+.color{
+	display:block;
+	width: 5%;
+	height: 30px;
+	float:left;
+	margin-right: 30px;
+	margin-bottom: 30px;
+}
+.color-1{ background-color: #169FE6;}
+.color-2{ background-color: #F47221;}
+.color-3{ background-color: #E82A50;}
+.color-4{ background-color: #26D483;}
+
+.color-5{ background-color: #103636;}
+.color-6{ background-color: #6ACEEB;}
+.color-7{ background-color: #FF876C;}
+.color-8{ background-color: #592643;}
+
+.color-9{ background-color: #E59E09;}
+.color-10{ background-color: #1B4175;}
+.color-11{ background-color: #D1CF96;}
+.color-12{ background-color: #45B29D;}
+
+.color-13{ background-color: #F8CC0C;}
+.color-14{ background-color: #325DB3;}
+.color-15{ background-color: #8AAED0;}
+.color-16{ background-color: #00CBD4;}
+
+.color-17{ background-color: #D91A2A;}
+.color-18{ background-color: #A24205;}
+.color-19{ background-color: #F69B9A;}
+.color-20{ background-color: #8C8C8C;} 
+

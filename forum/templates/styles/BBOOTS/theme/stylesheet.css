@@ -1,0 +1,14 @@
+/*  phpBB3 Stylesheet
+    --------------------------------------------------------------
+	Style name:			BBOOTS
+	Based on style:		PROSILVER (the default phpBB 3.0.x style)
+	Original author:	ThemeSplat ( http://www.sitesplat.com/ )
+	Modified by:		SiteSplat ( https://www.sitesplat.com/ )
+    --------------------------------------------------------------
+*/
+
+@import url("common.css");
+@import url("links.css");
+@import url("content.css");
+@import url("colours.css");
+@import url("basics.css");

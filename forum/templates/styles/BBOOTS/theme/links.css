@@ -1,0 +1,148 @@
+/* Link Styles
+---------------------------------------- */
+
+/* Links adjustment to correctly display an order of rtl/ltr mixed content */
+a {
+	direction: ltr;
+	unicode-bidi: embed;
+}
+
+/* Coloured usernames */
+.username-coloured {
+	font-weight: bold;
+	display: inline !important;
+	padding: 0 !important;
+}
+
+/* Links on gradient backgrounds */
+th a:link {
+	color: #FFFFFF;
+	text-decoration: none;
+		font-style: normal;
+    font-weight: 400;
+	  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering, well at least for the time being */
+	-webkit-text-stroke: 0.2px; /* Fix for webkit rendering, well at least for the time being */
+}
+
+th a:visited {
+	color: #FFFFFF;
+	text-decoration: none;
+		font-style: normal;
+    font-weight: 400;
+	  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering, well at least for the time being */
+	-webkit-text-stroke: 0.2px; /* Fix for webkit rendering, well at least for the time being */
+}
+
+th a:hover {
+	color: #FAFAFA;
+	text-decoration: none;
+		font-style: normal;
+    font-weight: 400;
+	  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering, well at least for the time being */
+	-webkit-text-stroke: 0.2px; /* Fix for webkit rendering, well at least for the time being */
+}
+
+th a:active {
+	color: #FFFFFF;
+	text-decoration: none;
+		font-style: normal;
+    font-weight: 400;
+	  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering, well at least for the time being */
+	-webkit-text-stroke: 0.2px; /* Fix for webkit rendering, well at least for the time being */
+}
+
+/* invisible skip link, used for accessibility  */
+.skiplink {
+	position: absolute;
+	left: -999px;
+	width: 990px;
+}
+
+/* Feed icon in forumlist_body.html */
+a.feed-icon-forum {
+	float: right;
+	margin: 3px;
+}
+
+
+/*  	
+--------------------------------------------------------------
+Colours and backgrounds for links.css
+-------------------------------------------------------------- */
+
+a:link	{ color: #8C8C8C; }
+a:visited	{ color: #8C8C8C; }
+a:hover	{ color: #EB3613; }
+a:active	{ color: #62D935; }
+
+
+/* Links for forum/topic lists */
+
+a.forumtitle:hover {
+	color: #8C8C8C;
+}
+
+a.forumtitle:active {
+	color: #105289;
+}
+
+/* Links for forum/topic lists */
+a.forumtitle {
+	font-family: inherit;
+	font-style: normal;
+	font-weight: 700;
+	  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering, well at least for the time being */
+	-webkit-text-stroke: 0.2px; /* Fix for webkit rendering, well at least for the time being */
+	text-decoration: none;
+	color: #148FCF;
+}
+
+a.forumtitle:hover {
+	text-decoration: none;
+}
+
+a.topictitle {
+	font-family: inherit;
+	font-style: normal;
+	font-weight: 700;
+	  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering, well at least for the time being */
+	-webkit-text-stroke: 0.2px; /* Fix for webkit rendering, well at least for the time being */
+	text-decoration: none;
+	color: #148FCF;
+}
+
+a.topictitle:hover {
+	color: #8C8C8C;
+	text-decoration: none;
+}
+
+a.topictitle:active {
+	color: #105289;
+}
+
+/* Post body links */
+.postlink {
+	color: #368AD2;
+	border-bottom-color: #368AD2;
+}
+
+.postlink:visited {
+	color: #5D8FBD;
+	border-bottom-color: #5D8FBD;
+}
+
+.postlink:active {
+	color: #368AD2;
+}
+
+.postlink:hover {
+	color: #8C8C8C;
+	text-decoration: none;
+}
+
+.signature a, .signature a:visited, .signature a:hover, .signature a:active {
+	background-color: transparent;
+	border: none;
+	text-decoration: none;
+}
+
