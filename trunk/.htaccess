@@ -1,0 +1,8 @@
+RewriteEngine on
+
+#home
+RewriteRule ^/?$ home/trang_chu/index.php [L]
+
+
+#forum
+RewriteRule ^([0-9a-zA-z_-]+) forum/trang_chu/index.php?forum=$1 [L,QSA]

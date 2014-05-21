@@ -1,0 +1,99 @@
+/* THEME SWITCH STYLES */
+
+#switcher-icon:hover {
+    opacity:0.8;
+	transition: all 0.2s ease 0s;
+}
+
+#switcher-icon {
+	position:fixed;
+	top:30px;
+	right:10px; 
+	height:55px;
+	width:55px;	
+	display:block;
+	margin-top:95px;	
+	background: none repeat scroll 0 0 #FFFFFF;
+    border: 4px solid #E6E6E6;
+	z-index: 100000;
+	cursor:pointer;
+}
+	
+#switcher-icon i {
+    color: #8C8C8C;
+    display: block;
+    font-size: 30px;
+    padding: 12px 10px 5px 13px;
+}
+
+#switcher-icon a:focus {
+    outline: medium none !important;
+
+}
+ 
+.theme-switcher {
+    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.3);
+	box-shadow: 0 0 4px rgba(50, 50, 50, 0.5);
+    border: 1px solid #F3F3F3;
+    border-radius: 5px;
+    height: 328px;
+    padding: 5px 0 5px 4px;
+    position: fixed;
+    right: 5px;
+    top: 192px;
+    width: 70px;
+    z-index: 100000;
+}
+
+.theme-switcher ul li { float:left; 
+list-style-type:none;
+}
+
+
+.subnav {
+    margin: 0 !important;
+}
+
+.theme-switcher ul li a {
+    border: 1px solid #444444;
+    border-radius: 3px;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 25px;
+    margin: 3px;
+    outline: medium none;
+    overflow: hidden;
+    text-indent: -999px;
+    width: 25px;
+}
+
+.theme-switcher ul li a:hover {
+    opacity:0.8;
+	transition: all 0.2s ease 0s;
+}
+	
+.theme-switcher ul li.color-1 a{ background-color: #169FE6;}
+.theme-switcher ul li.color-2 a{ background-color: #F47221;}
+.theme-switcher ul li.color-3 a{ background-color: #E82A50;}
+.theme-switcher ul li.color-4 a{ background-color: #26D483;}
+
+.theme-switcher ul li.color-5 a{ background-color: #103636;}
+.theme-switcher ul li.color-6 a{ background-color: #6ACEEB;}
+.theme-switcher ul li.color-7 a{ background-color: #FF876C;}
+.theme-switcher ul li.color-8 a{ background-color: #592643;}
+
+.theme-switcher ul li.color-9 a{ background-color: #E59E09;}
+.theme-switcher ul li.color-10 a{ background-color: #1B4175;}
+.theme-switcher ul li.color-11 a{ background-color: #D1CF96;}
+.theme-switcher ul li.color-12 a{ background-color: #45B29D;}
+
+.theme-switcher ul li.color-13 a{ background-color: #F8CC0C;}
+.theme-switcher ul li.color-14 a{ background-color: #325DB3;}
+.theme-switcher ul li.color-15 a{ background-color: #8AAED0;}
+.theme-switcher ul li.color-16 a{ background-color: #00CBD4;}
+
+.theme-switcher ul li.color-17 a{ background-color: #D91A2A;}
+.theme-switcher ul li.color-18 a{ background-color: #A24205;}
+.theme-switcher ul li.color-19 a{ background-color: #F69B9A;}
+.theme-switcher ul li.color-20 a{ background-color: #8C8C8C;} 
