@@ -23,7 +23,7 @@
             {nocache}
             <tr>
               <td rowspan="3">
-              <div id="img" style="background: url(../upload/hinh_dai_dien/{if $nguoi_dung.hinh_dai_dien!=NULL}{$nguoi_dung.hinh_dai_dien}{else if $nguoi_dung.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}); position:relative" onmouseover="document.getElementById('edit-image').style.display = 'block'"
+              <div id="img" style="background: url(/home/upload/hinh_dai_dien/{if $nguoi_dung.hinh_dai_dien!=NULL}{$nguoi_dung.hinh_dai_dien}{else if $nguoi_dung.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}) no-repeat center top; background-size: 168px; position:relative" onmouseover="document.getElementById('edit-image').style.display = 'block'"
                     onmouseout="document.getElementById('edit-image').style.display = 'none'">
               	<div style="width:100%; height:100%; background: #999; opacity:0.5; position:absolute; display:none" id="edit-image">
                 	<a id="change" rel="leanModal" href="#change-image" style="display: block; color: white; width:80px; padding:10px; font-size:15px; background-color:#15A285; text-align:center; margin-top:50%; margin-left:20%">Thay Đổi</a>
@@ -172,7 +172,7 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="../templates/scripts/sliding.js"></script>
+<script type="text/javascript" src="/home/templates/scripts/sliding.js"></script>
 
 <div id="change-image" class="form" style="width:45%;">
   <div class="form-header">
@@ -183,10 +183,10 @@
 <div id="upload-wrapper">
 <div align="center">
 <span class="" style="font-size:15px">Các File hình ảnh: JPEG, JPG, PNG and GIF. <br /> Kích thước tối đa 2 MB</span>
-<form action="upload.php" onSubmit="return false" method="post" enctype="multipart/form-data" id="MyUploadForm">
+<form action="/home/nguoi_dung/upload.php" onSubmit="return false" method="post" enctype="multipart/form-data" id="MyUploadForm">
 <input name="ImageFile" id="imageInput" type="file" />
 <input type="submit"  id="submit-btn" value="Tải Lên" class="action-button" />
-<img src="../templates/images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Vui lòng đợi"/>
+<img src="/home/templates/images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Vui lòng đợi"/>
 </form>
 <div id="progressbox" style="display:none;"><div id="progressbar"></div ><div id="statustxt">0%</div></div>
 <div id="output"></div>
@@ -297,7 +297,7 @@ function bytesToSize(bytes) {
 }); 
 
 </script>
-<link href="../templates/css/upload.css" rel="stylesheet" type="text/css">
+<link href="/home/templates/css/upload.css" rel="stylesheet" type="text/css">
 
   </div>
 </div>

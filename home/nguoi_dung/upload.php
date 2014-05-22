@@ -83,7 +83,7 @@ if(isset($_POST))
 		*/
 		echo '<table width="100%" border="0" cellpadding="4" cellspacing="0">';
 		echo '<tr>';
-		echo '<td align="center"><img src="../upload/hinh_dai_dien/'.$NewImageName.'" alt="Thumbnail"></td>';
+		echo '<td align="center"><img src="/home/upload/hinh_dai_dien/'.$NewImageName.'" alt="Thumbnail"></td>';
 		//echo '</tr><tr>';
 		//echo '<td align="center"><img src="../upload/hinh_dai_dien/'.$ThumbPrefix.$NewImageName.'" alt="Resized Image"></td>';
 		echo '</tr>';

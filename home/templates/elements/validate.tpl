@@ -21,7 +21,7 @@ $(document).ready(function(){
                 required: true, 
                 email: true,
 				remote:{   //gọi AJAX tương tự $.ajax của jquery
-					url: "../nguoi_dung/kiem_tra_email.php",// gọi đến trang kiểm tra username
+					url: "/home/nguoi_dung/kiem_tra_email.php",// gọi đến trang kiểm tra username
 					type: "post",
 					//data :  nếu cần
    				 }
@@ -53,7 +53,7 @@ $(document).ready(function(){
 			$("#loading").show();
 			$.ajax({
 				type: "POST",
-				url: "../nguoi_dung/dang_ky_sm.php",
+				url: "/home/nguoi_dung/dang_ky_sm.php",
 				dataType: "json",
 				data: $("#signup_form").serialize(),
 				success: function(data){
@@ -126,7 +126,7 @@ $(document).ready(function(){
 			$("#loading").show();
 			$.ajax({
 				type: "POST",
-				url: "../nguoi_dung/dang_nhap_sm.php",
+				url: "/home/nguoi_dung/dang_nhap_sm.php",
 				dataType: "json",
 				data: $("#login_form").serialize(),
 				success: function(data){
@@ -164,7 +164,7 @@ $(document).ready(function(){
 			$("#loading").show();
 			$.ajax({
 				type: "POST",
-				url: "co_ban_sm.php",
+				url: "/home/nguoi_dung/co_ban_sm.php",
 				dataType: "json",
 				data: $("#co_ban_form").serialize(),
 				success: function(data){
@@ -190,7 +190,6 @@ $(document).ready(function(){
 					else
 					{
 						$("#loading").hide();
-						alert(data.message);
 						location.reload();	
 					}
 				}
@@ -221,7 +220,7 @@ $(document).ready(function(){
 			$("#loading").show();
 			$.ajax({
 				type: "POST",
-				url: "lien_he_sm.php",
+				url: "/home/nguoi_dung/lien_he_sm.php",
 				dataType: "json",
 				data: $("#lien_he_form").serialize(),
 				success: function(data){
@@ -233,7 +232,6 @@ $(document).ready(function(){
 					else
 					{
 						$("#loading").hide();
-						alert(data.message);
 						location.reload();	
 					}
 				}

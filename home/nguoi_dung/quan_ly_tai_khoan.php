@@ -1,4 +1,4 @@
-<?php
+<?php 
 try{
 	include '../ini.php';
 	//debug($login);
@@ -12,7 +12,7 @@ try{
 	$nguoi_dung = $_SESSION['login'];
 	$dt_smarty->assign('nguoi_dung', $nguoi_dung);
 	
-	$contentForLayout = $dt_smarty->fetch('nguoi_dung/index.tpl');
+	$contentForLayout = $dt_smarty->fetch('nguoi_dung/quan_ly_tai_khoan.tpl');
 	$dt_smarty->assign('contentForLayout', $contentForLayout);
 	
 	$dt_smarty->display('layouts/default.tpl');

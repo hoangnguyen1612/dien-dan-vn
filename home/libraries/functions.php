@@ -17,7 +17,6 @@ function tao_chuoi($do_dai, $do_phuc_tap=0)
 	
 	return $ket_qua;
 }
-
 function debug($arr)
 {
 	echo '<pre>';

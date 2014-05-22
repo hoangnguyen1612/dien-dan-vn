@@ -6,7 +6,7 @@
 	}
 </script>
 {/if}
-<link rel="stylesheet" type="text/css" href="../templates/css/sliding.css" />
+<link rel="stylesheet" type="text/css" href="/home/templates/css/sliding.css" />
 </div>
 </div>
 <!-- start slider -->
@@ -58,7 +58,7 @@
                 
                 </div>
                 </div>
-<link href="../templates/css/upload.css" rel="stylesheet" type="text/css"><br />
+<link href="/home/templates/css/upload.css" rel="stylesheet" type="text/css"><br />
             <input type="button" name="previous" class="previous action-button" value="Về Trước" />
             <input type="button" name="next" class="next action-button" value="Kế Tiếp"/>
             </fieldset>
@@ -68,8 +68,8 @@
             <h2 class="fs-title">Bước 3</h2>
             <h3 class="fs-subtitle">Chọn màu sắc cho diễn đàn của bạn.<br />
             Dưới đây là mẫu thử để bạn chọn màu sắc, màu sắc bạn chọn trong mẫu thử này sẽ hiện thực trong diễn đàn của bạn.</h3>
-            <iframe id="demo-color" src="../demo.html" style="width:100%; height:700px;"></iframe>
-            <input type="hidden" name="color" id="color" />
+            <iframe name="select_frame" id="demo-color" src="http://diendan.vn/home/demo.html" style="width:100%; height:700px;"></iframe>
+            <input type="hidden" name="color" id="color" value="color-1" />
             <div class="clear"></div>
             <br />
             <input type="button" name="previous" class="previous action-button" value="Về Trước" />
@@ -79,8 +79,8 @@
 <script>
 	function get_css()
 	{
-		var css = $('iframe').contents().find('#css').val();
-		$("#color") = css;
+		var name = $('iframe[name=select_frame]').contents().find('#css').val();
+		$('input[name="color"]').val(name);
 		return true;
 	}
 </script>
@@ -91,5 +91,5 @@
 </div>
 
 
-<script type="text/javascript" src="../templates/scripts/sliding.js"></script>
+<script type="text/javascript" src="/home/templates/scripts/sliding.js"></script>
 

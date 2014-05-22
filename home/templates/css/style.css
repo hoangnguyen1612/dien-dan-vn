@@ -324,7 +324,7 @@ body {
 }
 /*start main */
 .main_bg{
-	background: cadetblue;/*#34495E; */
+	background: cadetblue;/*#34495E;*/ 
 }
 .main{
 	padding: 4%;

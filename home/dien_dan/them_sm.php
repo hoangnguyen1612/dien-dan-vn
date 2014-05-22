@@ -18,12 +18,14 @@ try{
 	{
 		throw new Exception('Vui lòng nhập câu khẩu hiện (câu slogan) cho diễn đàn của bạn');
 	}
-	
+
 	require_once '../classes/xl_dien_dan.php';
 	$xl_dien_dan = new xl_dien_dan;
 	
 	$dbh->beginTransaction();
-	$ma_dien_dan = tao_chuoi(15);
+	$ma_dien_dan = time();
+	
+	$hinh = '';
 	
 	#upload hình ảnh
 	if($_FILES['image']['name']!='')
@@ -59,12 +61,12 @@ try{
 	if(!$xl_dien_dan->them(array('ma'=>$ma_dien_dan, 'ten'=>$_POST['ten_dien_dan'], 'mo_ta'=>$_POST['mo_ta'], 'slogan'=>$_POST['slogan'], 
 	'ngay_tao'=>date('Y-m-d H:i:s'), 'ma_nguoi_tao'=>$_SESSION['login']['ma'], 'hinh_dai_dien'=>$hinh)))
 	{
-		throw new Excpetion('Đã có lỗi trong quá trình tạo diễn đàn, vui lòng quay lại sau hoặc liên hệ với ban quản trị để được giải quyết. Chân thành cảm ơn bạn!');
+		throw new Exception('Đã có lỗi trong quá trình tạo diễn đàn, vui lòng quay lại sau hoặc liên hệ với ban quản trị để được giải quyết. Chân thành cảm ơn bạn!');
 	}
 	
 	# thành viên diễn đàn
 	require_once '../classes/xl_thanh_vien_dien_dan.php';
-	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;echo 111;exit;
+	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	if(!$xl_thanh_vien_dien_dan->them(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$login['ma'], 'loai_thanh_vien'=>0, 
 	'ngay_gia_nhap'=>date('Y-m-d H:i:s'), 'trang_thai'=>1)))
 	{
@@ -74,9 +76,8 @@ try{
 	# cấu hình
 	require_once '../classes/xl_cau_hinh.php';
 	$xl_cau_hinh = new xl_cau_hinh;
-	$data = array('TEN'=>$_POST['ten_dien_dan'], 'SLOGAN'=>$_POST['slogan'], 'CSS'=>$_POST['color'],'.css'
-	);
-	
+	$data = array('TEN'=>$_POST['ten_dien_dan'], 'CSS'=>$_POST['color']);
+
 	if(!empty($_POST['dien_thoai']))
 	{
 		$data['DIEN_THOAI'] = $_POST['dien_thoai'];
@@ -86,7 +87,7 @@ try{
 	{
 		$data['DIA_CHI'] = $_POST['dia_chi'];
 	}
-	
+
 	foreach($data as $tu_khoa=>$noi_dung)
 	{
 		if(!$xl_cau_hinh->them(array('tu_khoa'=>$tu_khoa, 'noi_dung'=>$noi_dung, 'ma_dien_dan'=>$ma_dien_dan)))
@@ -99,7 +100,7 @@ try{
 	
 	$_SESSION['message']['type'] = 'success';
 	$_SESSION['message']['content'] = 'Chúc mừng! Diễn đàn của bạn đã được tạo thành công, hãy sử dụng ngay bây giờ :)';
-	header('Location: ../trang_chu/index.php'); 
+	header('Location: /'.$ma_dien_dan); 
 	
 }catch(Exception $e)
 {

@@ -7,13 +7,13 @@
 		</div>-->
   <div class="h_right">
     <ul class="menu">
-      <li class="active"><a href="../trang_chu/">trang chủ</a></li>
+      <li class="active"><a href="/">trang chủ</a></li>
       <li><a href="../gioi_thieu/">giới thiệu</a></li>
-      <li><a href="../dien_dan/">diễn đàn</a></li>
+      <li><a href="../dien_dan/tao_moi.html">diễn đàn</a></li>
       <li><a href="../lien_he/">liên hệ</a></li>
      {if isset($smarty.session.login)}
-     	 <li><a href="../nguoi_dung/">tài khoản</a></li>
-          <li><a href="../nguoi_dung/dang_xuat.php">đăng xuất</a></li>
+     	 <li><a href="../nguoi_dung/quan_ly_tai_khoan.html">tài khoản</a></li>
+          <li><a href="../nguoi_dung/dang_xuat.html">đăng xuất</a></li>
       {else if}   
       <li><a id="go" rel="leanModal" name="signup" href="#signup">đăng ký</a></li>
       <li><a id="go" rel="leanModal" name="signup" href="#login">đăng nhập</a></li>
@@ -190,7 +190,7 @@ left: 0px;
 height: 100%;
 width: 100%;
 background: #000;">
-	<img src="../templates/images/loading.gif" style="position: fixed;
+	<img src="/home/templates/images/loading.gif" style="position: fixed;
 left: 50%;
 top: 38%;" />
 </div>
