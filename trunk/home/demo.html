@@ -6,37 +6,37 @@
 <!-- WIN8 Tiles setup --><!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 <title>Màu Sắc Giao Diện</title>
-<link href="../diendan/templates/css/switcher.css" rel="stylesheet" type="text/css">
-<link href="../diendan/templates/styles/BBOOTS/theme/print.css" rel="stylesheet" type="text/css" media="print" title="printonly">
+<link href="/forum/templates/css/switcher.css" rel="stylesheet" type="text/css">
+<link href="/forum/templates/styles/BBOOTS/theme/print.css" rel="stylesheet" type="text/css" media="print" title="printonly">
 <!-- CSS files -->
 
-<link href="../diendan/templates/css/print.css" rel="stylesheet" type="text/css">
-<link href="../diendan/templates/css/stylesheet.css" rel="stylesheet" type="text/css">
-<link href="../diendan/templates/css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="/forum/templates/css/print.css" rel="stylesheet" type="text/css">
+<link href="/forum/templates/css/stylesheet.css" rel="stylesheet" type="text/css">
+<link href="/forum/templates/css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css">
 <!-- responsive css stylesheet  -->
-<link href="../diendan/templates/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" type="text/css">
+<link href="/forum/templates/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" type="text/css">
 <!-- bootstrap.css  --><!-- Footable CSS files -->
-<link href="../diendan/templates/css/footable/footable.core.css" rel="stylesheet" type="text/css">
+<link href="/forum/templates/css/footable/footable.core.css" rel="stylesheet" type="text/css">
 <!-- Footable CSS files --><!-- FontAwesome CSS files -->
-<link href="../diendan/templates/styles/BBOOTS/theme/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+<link href="/forum/templates/styles/BBOOTS/theme/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 <!-- FontAwesome CSS files --><!-- Custom Font CSS files -->
-<link href="../diendan/templates/css/style.css" rel="stylesheet" type="text/css">
-<link href="../diendan/templates/css/bootstrap/bootstrap-select.css" rel="stylesheet" type="text/css">
-<link href="../diendan/templates/css/colors/color-1.css" rel="stylesheet" id="color">
+<link href="/forum/templates/css/style.css" rel="stylesheet" type="text/css">
+<link href="/forum/templates/css/bootstrap/bootstrap-select.css" rel="stylesheet" type="text/css">
+<link href="/forum/templates/css/colors/color-1.css" rel="stylesheet" id="color">
 <!-- Custom Font CSS files -->
 
 <!-- Scripts start here after the jquery.js -->
-<script src="../diendan/templates/js/head.min.js"></script>
-<script type="text/javascript" src="../diendan/js/jquery.min.js">
-</script><script type="text/javascript" src="../diendan/templates/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../diendan/templates/js/bootstrap-select.min.js"></script>
-<script type="text/javascript" src="../diendan/templates/js/forum_fn.js"></script>
-<script type="text/javascript" src="../diendan/templates/js/footable.min.js"></script>
-<script type="text/javascript" src="../diendan/templates/js/jquery.cookie.min.js"></script>
-<script type="text/javascript" src="../diendan/templates/js/twitterFetcher_v10_min.js"></script>
+<script src="/forum/templates/js/head.min.js"></script>
+<script type="text/javascript" src="/forum/js/jquery.min.js">
+</script><script type="text/javascript" src="/forum/templates/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/forum/templates/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="/forum/templates/js/forum_fn.js"></script>
+<script type="text/javascript" src="/forum/templates/js/footable.min.js"></script>
+<script type="text/javascript" src="/forum/templates/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="/forum/templates/js/twitterFetcher_v10_min.js"></script>
 <script>
 // this loads jquery asyncrounously & in parallel
-head.load("../diendan/templates/js/jquery.min.js", "../diendan/templates/js/bootstrap/bootstrap.min.js", "../diendan/templates/js/bootstrap/bootstrap-select.min.js", "../diendan/templates/js/forum_fn.js", "../diendan/templates/js/footable/footable.min.js", "../diendan/templates/js/jquery.cookie.min.js", "../diendan/templates/js/twitterFetcher_v10_min.js", function() {
+head.load("/forum/templates/js/jquery.min.js", "/forum/templates/js/bootstrap/bootstrap.min.js", "/forum/templates/js/bootstrap/bootstrap-select.min.js", "/forum/templates/js/forum_fn.js", "/forum/templates/js/footable/footable.min.js", "/forum/templates/js/jquery.cookie.min.js", "/forum/templates/js/twitterFetcher_v10_min.js", function() {
     // Call a function when done
     // some callback stuff
    $('.footable').footable();
@@ -103,12 +103,12 @@ head.ready(function() {
 		<li class="color-20"><a href="#" onClick="changeColor('xamnhat')" data-color="./styles/BBOOTS/theme/style20.css" title="" data-original-title="">Eternal Gray</a></li>
 	</ul>	
 </div>
-<input type="hidden" name="css" id="css">
+<input type="hidden" name="css" id="css" value="color-1">
 
         <script>
 		function changeColor(color)
 		{
-			$("#color").attr("href", "../diendan/templates/css/colors/"+color+".css");
+			$("#color").attr("href", "/forum/templates/css/colors/"+color+".css");
 			$("#css").val(color);
 		}
 </script>
@@ -211,7 +211,7 @@ head.ready(function() {
               <li><a title="" href="./ucp.php?i=profile" data-original-title=""><i class="icon-user"></i>Thành Viên</a></li>
               <li><a title="" href="#" data-original-title=""><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info">0</span></a></li>
               <li><a title="" href="./ucp.php?i=profile&amp;mode=reg_details" data-original-title=""><i class="icon-cog"></i>Quản Lý Tài Khoản</a></li>
-              <li><a title="" href="../diendan/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>
+              <li><a title="" href="/forum/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>
               <li><a title="" href="./ucp.php?mode=logout&amp;sid=b3e0d35dad8925f9d80fb5a1387e5b2f" data-original-title=""><i class="icon-off"></i>Đăng Xuất</a></li>
             </ul>
           </li>

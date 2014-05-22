@@ -97,7 +97,7 @@ input[type=button]:hover,input[type=button]:focus{
 <p>
 	Bạn đã đăng ký tài khoản tại <span style="color: red; font-weight:bold">diendanvn.com.vn</span>, bạn hãy nhấp vào nút xác nhận bên dưới để kích hoạt tài khoản:
 </p>
-<p style="margin-left: 20%"><a href="http://localhost:88/DATN/forumvn/dien_dan_vn/nguoi_dung/kich_hoat.php?email='.$email.'&code='.$ma_kich_hoat.'"
+<p style="margin-left: 20%"><a href="http:diendan.vn/nguoi_dung/kich_hoat?email='.$email.'&code='.$ma_kich_hoat.'"
 
  style="
  	text-align: center;

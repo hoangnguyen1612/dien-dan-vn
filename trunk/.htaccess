@@ -1,8 +1,13 @@
 RewriteEngine on
 
 #home
+RewriteRule ^home/demo.html$ home/demo.html [L]
 RewriteRule ^/?$ home/trang_chu/index.php [L]
+RewriteRule ^nguoi_dung/kich_hoat$ home/nguoi_dung/kich_hoat.php [L,QSA]
+RewriteRule ^([a-z_]+)/([a-z_]+)\.html$ home/$1/$2.php [L]
+RewriteRule ^([a-z_]+)/([a-z_]+)\.php$ home/$1/$2.php [L]
+
 
 
 #forum
-RewriteRule ^([0-9a-zA-z_-]+) forum/trang_chu/index.php?forum=$1 [L,QSA]
+RewriteRule ^([0-9]+)/?$ forum/trang_chu/index.php?forum=$1 [L,QSA]

@@ -1,7 +1,7 @@
 <?php
-	include ('../libraries/smarty/Smarty.class.php');
-	include 'config.php';
-	include 'libraries/functions.php';
+	require '../libraries/smarty/Smarty.class.php';
+	require '../config.php';
+	require '../libraries/functions.php';
 	
 	session_start();
 	

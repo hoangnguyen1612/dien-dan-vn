@@ -1,4 +1,4 @@
-<?php
+<?php 
 try{
 require '../ini.php';
 require '../classes/xl_nguoi_dung.php';
@@ -37,10 +37,10 @@ $xl_nguoi_dung->cap_nhat(array('ma_kich_hoat'=>NULL, 'ma'=>$nguoi_dung['ma']));
 #thành công
 $_SESSION['login'] = $nguoi_dung;
 
-header('Location: ../trang_chu/index.php');
+header('Location: /');
 exit;
 
 }catch(Exception $e)
 {
-	header('Location: ../trang_chu/index.php');
+	header('Location: /');
 }

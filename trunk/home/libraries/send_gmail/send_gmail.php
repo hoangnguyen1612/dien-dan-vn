@@ -22,7 +22,6 @@ function send_gmail($from_email, $from_email_pass, $to_email, $to_name, $subject
 	$mail->IsHTML(true); // send as HTML
 	$mail->Subject = $subject;
 	$mail->Body = $content; //HTML Body
-
 	return $mail->Send();
 }
 ?>
