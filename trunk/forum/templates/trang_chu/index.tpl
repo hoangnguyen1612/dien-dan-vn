@@ -18,7 +18,7 @@
       	{foreach $ds_chuyen_muc as $chuyen_muc}
         	{if $chuyen_muc.ma_loai_cha == $lcm.ma}
         <tr>
-          <td title="No unread posts" class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(../templates/styles/BBOOTS/imageset/forum_read.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a class="feed-icon-forum hidden-phone" title="" href="../bai_viet/index.php?loai={$chuyen_muc.ma}" data-original-title="Feed - Your first forum"><i class="icon-rss rss-color-forum"></i></a> <a href="../bai_viet/index.php?loai={$chuyen_muc.ma}" class="forumtitle" data-original-title="" title="">{$chuyen_muc.ten}</a><br>
+          <td title="No unread posts" class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/styles/BBOOTS/imageset/forum_read.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a class="feed-icon-forum hidden-phone" title="" href="../bai_viet/index.php?loai={$chuyen_muc.ma}" data-original-title="Feed - Your first forum"><i class="icon-rss rss-color-forum"></i></a> <a href="../bai_viet/index.php?loai={$chuyen_muc.ma}" class="forumtitle" data-original-title="" title="">{$chuyen_muc.ten}</a><br>
             <small>{$chuyen_muc.ghi_chu|default:''}</small></td>
           <td class="center">{$chuyen_muc.so_luong_bai_viet}Chủ đề <br>
             9 Bài viết </td>
