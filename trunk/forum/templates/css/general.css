@@ -51,3 +51,29 @@ height: 20px !important;
 .username-coloured {
 font-weight: normal; 
 }
+
+ .myButton {
+	-moz-box-shadow:inset 0px 39px 0px -24px #169FE6;
+	-webkit-box-shadow:inset 0px 39px 0px -24px #169FE6;
+	box-shadow:inset 0px 39px 0px -24px #169FE6;
+	background-color:#169FE6;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer !important;
+	color:#ffffff !important;
+	font-family:arial;
+	font-size:15px;
+	padding:9px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #169FE6;
+}
+.myButton:hover {
+	background-color:#eb675e;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}

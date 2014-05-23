@@ -1,4 +1,38 @@
 <?php
+function connection()
+{
+	try{
+		$dbh = new PDO('mysql:host=localhost;dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
+		$dbh->exec('set names utf8');
+	}catch(Exception $e)
+	{
+		throw new Exception('Server is maintaining, please try again later!');
+	}
+	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERR_NONE);
+	return $dbh;
+}
+function get_subdomain()
+{
+	global $dbh;
+	if(empty($_GET['forum']))
+	{
+		throw new Exception('Forum error');
+	}
+	$ma_dien_dan = $_GET['forum']; 
+	$sql = 'select * from dien_dan where ma = :ma limit 0,1';
+	
+	$sth = $dbh->prepare($sql);
+	$sth->execute(array('ma'=>$ma_dien_dan));
+	
+	$dien_dan = $sth->fetch(PDO::FETCH_ASSOC);
+
+	if(!$dien_dan)
+	{
+		throw new Exception('This forum does not exist!');
+	}
+	
+	return $dien_dan;
+}
 function tao_chuoi($do_dai, $do_phuc_tap=0)
 {
 	$chuoi = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

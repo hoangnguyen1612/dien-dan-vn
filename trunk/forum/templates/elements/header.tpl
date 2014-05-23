@@ -4,14 +4,14 @@
 <header class="header" role="banner"> <!-- Header block -->
   <div class="topArea"> <!-- Logo block -->
     <div class="leftArea">
-      <div class="logo-transition"> <a class="logo" href="../trang_chu/index.php" title="" data-original-title=""><span>H</span>UTECH</a> </div>
-      <p class="site-info">Đại học Công Nghệ Tp.HCM <i class="icon-umbrella icon-large"></i></p>
+      <div class="logo-transition"> <a class="logo" href="../trang_chu/index.php" title="" data-original-title="" style="text-transform:uppercase"><span>{$dien_dan.ten[0]}</span>{$dien_dan.ten|substr:1:strlen($dien_dan.ten)}</a> </div>
+      <p class="site-info">{$dien_dan.slogan}&nbsp;<i class="icon-umbrella icon-large"></i></p>
       <div class="clearfix"></div>
     </div>
     <nav class="mainnav" role="navigation" aria-label="Primary"><!-- Main navigation block -->
       <ul>
-        <li class="nav-icon"> <a href="../trang_chu/index.php" data-original-title="" title="">TRANG CHỦ <span class="has-sub"><i class="icon-home"></i></span></a>
-          <p>Hutech</p>
+        <li class="nav-icon"> <a href="../trang_chu/index.php" data-original-title="" title="">TRANG CHỦ<span class="has-sub"><i class="icon-home"></i></span></a>
+          <p>{$dien_dan.ten}</p>
           <!--<ul class="submenu">
             <li><a href="./elements.php?sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-magic"></i> Bootstrap Elements</a><span></span></li>
             <li><a href="./faq.php?sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-question-sign"></i> FAQ</a><span></span></li>

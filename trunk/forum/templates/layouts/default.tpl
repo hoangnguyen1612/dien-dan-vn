@@ -71,17 +71,18 @@ head.ready(function() {
             <li class="index-title">
               <h1>trang chủ</h1>
             </li>
-            <li class="index-sub">Chào mừng bạn đến diễn đàn Hutech</li>
+            <li class="index-sub">Chào mừng bạn đến diễn đàn {$dien_dan.ten}</li>
           </ul>
           
           <!-- SEARCH block -->
           <div class="search-pos pull-right">
-          <div class="search-box"> 
+          <div class="search-box">
+           
           <form action="./search.php" method="get">
            <fieldset> 
-            <input name="keywords" id="keywords" type="text" maxlength="128" title="Search for keywords" placeholder="Search" value="Search…" onclick="if(this.value=='Search…')this.value='';" onblur="if(this.value=='')this.value='Search…';">
-           </fieldset> 
-          </form> 
+            <input name="keywords" id="keywords" type="text" maxlength="128" title="Search for keywords" placeholder="Search" value="Tìm kiếm bài viết…" onclick="if(this.value=='Search…')this.value='';" onblur="if(this.value=='')this.value='Search…';">
+           </fieldset>
+          </form>
          </div>	
         </div>
         </div>
@@ -92,15 +93,23 @@ head.ready(function() {
           <li class="active"> &nbsp;<i class="icon-long-arrow-right"></i> Trang chủ</li>
         </ul>
         <ul class="top-menu">
-          <li class="dropdown"> <a data-toggle="dropdown" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-globe"></i><span>Xin chào, Hoàng<i class="caret"></i></span></a>
+        {if $login!=''}
+     		{if $thanh_vien==''}
+        <li class="dropdown"> <a data-toggle="dropdown" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-globe"></i><span>Gửi yêu cầu tham gia diễn đàn</span></a></li>
+     		{else if $thanh_vien.loai_thanh_vien==3}
+         <li class="dropdown"><i class="icon-globe"></i><span>Yêu cầu tham gia diễn đàn của bạn đã được gửi</span></li>
+         	{else if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}
+          <li class="dropdown"> <a data-toggle="dropdown" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-globe"></i><span>Xin chào, {$login.ho_ten}<i class="caret"></i></span></a>
             <ul class="dropdown-menu" id="dropdown-menu">
               <li><a title="" href="./ucp.php?i=profile" data-original-title=""><i class="icon-user"></i>Thành Viên</a></li>
               <li><a title="" href="./ucp.php?i=pm" data-original-title=""><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info">0</span></a></li>
               <li><a title="" href="./ucp.php?i=profile&amp;mode=reg_details" data-original-title=""><i class="icon-cog"></i>Quản Lý Tài Khoản</a></li>
-              <li><a title="" href="../admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>
+              <li><a title="" href="/{$dien_dan.ma}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>
               <li><a title="" href="./ucp.php?mode=logout&amp;sid=b3e0d35dad8925f9d80fb5a1387e5b2f" data-original-title=""><i class="icon-off"></i>Đăng Xuất</a></li>
             </ul>
           </li>
+          	{/if}
+         {/if}   
         </ul>
       </div>
       <!-- Lower Breadcrumb block -->

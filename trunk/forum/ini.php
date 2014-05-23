@@ -1,43 +1,45 @@
 <?php
 	#Tạo kết nối
-	session_start();	
-	date_default_timezone_set('Asia/Ho_Chi_Minh');
-	
-	include '../config.php';
-	include '../../home/libraries/functions.php';
+	include '../../config.php';
+	include '../../libraries/functions.php';
 		
-	try{
-		$dbh = new PDO('mysql:host=localhost;dbname=dien_dan_vn','root','');
-		$dbh->exec('set names utf8');
-	}catch(Exception $e)
-	{
-		echo 'Server is maintaining, please try again later!';exit;
-	}
-	$login = '';
-	if(isset($_SESSION['login']))
-	{
-		$login = $_SESSION['login'];
-	}
-	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERR_NONE);
+	$dbh = connection();
+	$dien_dan = get_subdomain();
+	$ma_dien_dan = $dien_dan['ma'];
 	
+	# kiểm tra diễn đàn
 	if(empty($_GET['forum']))
 	{
 		echo 'This forum does not exist!!!';
 	}
-	$ma_dien_dan = $_GET['forum'];
-	
-	$sql = 'select * from dien_dan where ma = :ma limit 0,1';
+
+	# cấu hình
+	$sql = 'select * from cau_hinh where ma_dien_dan = :ma limit 0,1';
 	$sth = $dbh->prepare($sql);
 	$sth->execute(array('ma'=>$ma_dien_dan));
+	$ds_cau_hinh = $sth->fetch(PDO::FETCH_ASSOC);
+
 	
-	$forum = $sth->fetch(PDO::FETCH_ASSOC);
-	
-	if(!$forum)
+	#đăng nhập
+	$login = '';
+	$thanh_vien = '';
+	if(isset($_SESSION['login']))
 	{
-		echo 'This forum does not exist!!!';
-		exit;
+		$login = $_SESSION['login'];
+		
+		# loại thành viên
+		$sql = 'select * from thanh_vien_dien_dan where ma_dien_dan = :ma_dien_dan and ma_nguoi_dung = :ma_nguoi_dung limit 0,1';
+		$sth = $dbh->prepare($sql);
+		$sth->execute(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$login['ma']));
+		$thanh_vien = $sth->fetch(PDO::FETCH_ASSOC);
+
+		if(!$thanh_vien)
+		{
+			$thanh_vien = '';
+		}
+		
+		$_SESSION['thanh_vien'] = $thanh_vien;
 	}
-	
 	//debug($forum);
 	
 	

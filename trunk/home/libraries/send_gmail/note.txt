@@ -1,4 +1,0 @@
-cho nao can gui mail thi include send_gmail.php
-
-
-vao wampserver mo 3 extendstion : phpcurl, phpsorket, phpopenssl

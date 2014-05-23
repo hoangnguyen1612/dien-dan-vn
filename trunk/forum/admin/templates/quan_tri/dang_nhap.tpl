@@ -12,48 +12,48 @@
 		<!--                       CSS                       -->
 	  
 		<!-- Reset Stylesheet -->
-		<link rel="stylesheet" href="../templates/css/reset.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/forum/admin/templates/css/reset.css" type="text/css" media="screen" />
 	  
 		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="../templates/css/style.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/forum/admin/templates/css/style.css" type="text/css" media="screen" />
 		
 		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
-		<link rel="stylesheet" href="../templates/css/invalid.css" type="text/css" media="screen" />	
+		<link rel="stylesheet" href="/forum/admin/templates/css/invalid.css" type="text/css" media="screen" />	
 		
 		<!-- Colour Schemes
 	  
 		Default colour scheme is green. Uncomment prefered stylesheet to use it.
 		
-		<link rel="stylesheet" href="../templates/css/blue.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/forum/admin/templates/css/blue.css" type="text/css" media="screen" />
 		
-		<link rel="stylesheet" href="../templates/css/red.css" type="text/css" media="screen" />  
+		<link rel="stylesheet" href="/forum/admin/templates/css/red.css" type="text/css" media="screen" />  
 	 
 		-->
 		
 		<!-- Internet Explorer Fixes Stylesheet -->
 		
 		<!--[if lte IE 7]>
-			<link rel="stylesheet" href="../templates/css/ie.css" type="text/css" media="screen" />
+			<link rel="stylesheet" href="/forum/admin/templates/css/ie.css" type="text/css" media="screen" />
 		<![endif]-->
 		
 		<!--                       Javascripts                       -->
 	  
 		<!-- jQuery -->
-		<script type="text/javascript" src="../templates/scripts/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="/forum/admin/templates/scripts/jquery-1.3.2.min.js"></script>
 		
 		<!-- jQuery Configuration -->
-		<script type="text/javascript" src="../templates/scripts/simpla.jquery.configuration.js"></script>
+		<script type="text/javascript" src="/forum/admin/templates/scripts/simpla.jquery.configuration.js"></script>
 		
 		<!-- Facebox jQuery Plugin -->
-		<script type="text/javascript" src="../templates/scripts/facebox.js"></script>
+		<script type="text/javascript" src="/forum/admin/templates/scripts/facebox.js"></script>
 		
 		<!-- jQuery WYSIWYG Plugin -->
-		<script type="text/javascript" src="../templates/scripts/jquery.wysiwyg.js"></script>
+		<script type="text/javascript" src="/forum/admin/templates/scripts/jquery.wysiwyg.js"></script>
 		
 		<!-- Internet Explorer .png-fix -->
 		
 		<!--[if IE 6]>
-			<script type="text/javascript" src="../templates/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript" src="/forum/admin/templates/scripts/DD_belatedPNG_0.0.7a.js"></script>
 			<script type="text/javascript">
 				DD_belatedPNG.fix('.png_bg, img, li');
 			</script>
@@ -66,15 +66,15 @@
 		<div id="login-wrapper" class="png_bg">
 			<div id="login-top">
 			
-				<h1>Hệ Thống Quản Trị Diễn Đàn Hutech</h1>
+				<h1 style="text-transform:capitalize">Hệ Thống Quản Trị Diễn Đàn {$dien_dan.ten}</h1>
 				<!-- Logo (221px width) -->
-				<!--<img id="logo" src="../templates/images/logo.png" alt="Simpla Admin logo" />-->
+				<!--<img id="logo" src="/forum/admin/templates/images/logo.png" alt="Simpla Admin logo" />-->
                 <div id="logo" style="font-size: 24px; font-weight:bold">Hệ Thống Quản Trị Diễn Đàn Hutech</div>
 			</div> <!-- End #logn-top -->
 			
 			<div id="login-content">
 				
-				<form action="dang_nhap_sm.php" method="post">
+				<form action="/quan_tri/dang_nhap_sm.php" method="post">
 				<!--
 					<div class="{$smarty.session.style_msg_login}">
 						<div>

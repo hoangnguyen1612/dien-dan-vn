@@ -11,3 +11,7 @@ RewriteRule ^([a-z_]+)/([a-z_]+)\.php$ home/$1/$2.php [L]
 
 #forum
 RewriteRule ^([0-9]+)/?$ forum/trang_chu/index.php?forum=$1 [L,QSA]
+
+###
+RewriteRule ^([0-9]+)/admin/?$ forum/admin/quan_tri/dang_nhap.php?forum=$1 [L,QSA]
+RewriteRule ^([0-9]+)/admin/([a-z_]+)/([a-z_]+)\.php$ forum/admin/$2/$3.php?forum=$1 [L]
