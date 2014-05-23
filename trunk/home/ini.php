@@ -1,19 +1,11 @@
 <?php
-	require '../libraries/smarty/Smarty.class.php';
-	require '../config.php';
-	require '../libraries/functions.php';
-	
-	session_start();
-	
-	date_default_timezone_set('Asia/Ho_Chi_Minh');
+	require '../../libraries/smarty/Smarty.class.php';
+	require '../../config.php';
+	require '../../libraries/functions.php';
 
-	try{
-		$dbh = new PDO('mysql:host=localhost;dbname=dien_dan_vn','root','');
-		$dbh->exec('set names utf8');
-	}catch(Exception $e)
-	{
-		echo 'Server is maintaining, please try again later!';exit;
-	}
+	
+	$dbh = connection();
+	
 	$login = '';
 	if(isset($_SESSION['login']))
 	{
