@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-05-10 10:22:25
+<?php /* Smarty version Smarty-3.1.14, created on 2014-05-23 09:57:05
          compiled from "..\templates\loai_chuyen_muc\cap_nhat.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:26458536dfde18a89f9-51066118%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9c8626d6211e5572de0877bb1f49113d201dc709' => 
     array (
       0 => '..\\templates\\loai_chuyen_muc\\cap_nhat.tpl',
-      1 => 1399715226,
+      1 => 1400839005,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       'compiled' => '',
     ),
   ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_536dfde19910f9_68118619',
   'variables' => 
   array (
     'thong_bao' => 0,
@@ -31,12 +33,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ma' => 0,
     'kitu' => 0,
     'ds_chuyen_muc' => 0,
+    'rieng_tu' => 0,
   ),
   'has_nocache_code' => 0,
-  'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_536dfde19910f9_68118619',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_536dfde19910f9_68118619')) {function content_536dfde19910f9_68118619($_smarty_tpl) {?><div class="content-box-header">
+<?php if ($_valid && !is_callable('content_536dfde19910f9_68118619')) {function content_536dfde19910f9_68118619($_smarty_tpl) {?><?php if (!is_callable('smarty_function_html_options')) include 'D:\\wamp\\www\\dien-dan-vn\\libraries\\smarty\\plugins\\function.html_options.php';
+?><div class="content-box-header">
 					
 	<h3>Loại bài viết [Cập nhật]</h3>
 	
@@ -116,6 +118,11 @@ foreach (Smarty::$global_tpl_vars as $key => $value) if(!isset($_smarty_tpl->tpl
                 <label class="admin_tieu_de">Thứ Tự Hiển Thị</label>
                 <input type="text" name="data[thu_tu_hien_thi]" id="thu_tu_hien_thi" value="<?php echo $_smarty_tpl->tpl_vars['loai_chuyen_muc']->value['thu_tu_hien_thi'];?>
 " class="text-input small-input" onkeypress="return inputNumber(event)" >
+              </p>
+              <p>
+              	<label class="admin_tieu_de">Chuyên mục riêng tư</label>
+                <?php echo smarty_function_html_options(array('name'=>"data[rieng_tu]",'options'=>$_smarty_tpl->tpl_vars['rieng_tu']->value,'selected'=>$_smarty_tpl->tpl_vars['loai_chuyen_muc']->value['rieng_tu']),$_smarty_tpl);?>
+
               </p>
               <p style="text-align:center">
                 <input type="submit" value="Lưu Và Tiếp Tục" name="save-and-continue" class="button">

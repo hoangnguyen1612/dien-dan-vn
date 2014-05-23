@@ -28,19 +28,18 @@ try{
 	##############################
 	$ten = $data['ten']; 
 	if($data['ma_loai_cha'] != 0){	
-		$chuyen_muc = $dt_xl_chuyen_muc->doc(array('ma'=>$data['ma_loai_cha'],'ma_dien_dan'=>'abcd1234'),'*',PDO::FETCH_ASSOC,'');
+		$chuyen_muc = $dt_xl_chuyen_muc->doc(array('ma'=>$data['ma_loai_cha'],'ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'*',PDO::FETCH_ASSOC,'');
 		if($chuyen_muc == NULL){
 			throw new Exception('Mã loại cha không tồn tại, vui lòng kiểm tra lại');
 		}
 	}
 	
-	$data['ma_dien_dan'] = 'abcd1234';
+	$data['ma_dien_dan'] = $_SESSION['dien_dan']['ma'];
 	$result = $dt_xl_chuyen_muc->them($data);
 	if($result === false){
 		throw new Exception('Lỗi trong quá trình lưu dữ liệu , vui lòng thử lại');
 	}
 	
-	#Them thanh cong san pham
 	# Đóng kết nối
 	$dbh = NULL;
 	$_SESSION['msg']= 'Thêm thành công chuyên mục mới';

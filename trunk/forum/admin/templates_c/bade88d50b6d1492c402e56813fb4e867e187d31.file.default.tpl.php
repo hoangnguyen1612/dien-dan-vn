@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-04-25 20:57:23
+<?php /* Smarty version Smarty-3.1.14, created on 2014-05-23 10:37:04
          compiled from "..\templates\layouts\default.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:17501535ab4e7af7544-47391613%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bade88d50b6d1492c402e56813fb4e867e187d31' => 
     array (
       0 => '..\\templates\\layouts\\default.tpl',
-      1 => 1398459247,
+      1 => 1400841421,
       2 => 'file',
     ),
   ),
@@ -39,13 +39,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!--                       CSS                       -->
 	  
 		<!-- Reset Stylesheet -->
-		<link rel="stylesheet" href="../templates/css/reset.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/forum/admin/templates/css/reset.css" type="text/css" media="screen" />
 	  
 		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="../templates/css/style.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/forum/admin/templates/css/style.css" type="text/css" media="screen" />
 		
 		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
-		<link rel="stylesheet" href="../templates/css/invalid.css" type="text/css" media="screen" />	
+		<link rel="stylesheet" href="/forum/admin/templates/css/invalid.css" type="text/css" media="screen" />	
 		
 		<!-- Colour Schemes
 	  
@@ -66,13 +66,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!--                       Javascripts                       -->
   
 		<!-- jQuery -->
-		<script type="text/javascript" src="../templates/scripts/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="/forum/admin/templates/scripts/jquery-1.9.1.js"></script>
 		
 		<!-- jQuery Configuration -->
-		<script type="text/javascript" src="../templates/scripts/simpla.jquery.configuration.js"></script>
+		<script type="text/javascript" src="/forum/admin/templates/scripts/simpla.jquery.configuration.js"></script>
 		
 		<!-- Facebox jQuery Plugin -->
-		<script type="text/javascript" src="../templates/scripts/facebox.js"></script>
+		<script type="text/javascript" src="/forum/admin/templates/scripts/facebox.js"></script>
 				
 		<!-- Internet Explorer .png-fix -->
 		
@@ -92,11 +92,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<h1 id="sidebar-title"><a href="#">Simpla Admin</a></h1>
 		  
 			<!-- Logo (221px wide) -->
-			<a href="#"><img id="logo" src="../templates/images/logo.png" alt="Simpla Admin logo" /></a>
+			<a href="#"><img id="logo" src="/forum/admin/templates/images/logo.png" alt="Simpla Admin logo" /></a>
 		  
 			<!-- Sidebar Profile links -->
 			<div id="profile-links">
-				Chào, <a href="#" title="Edit your profile">Lâm Quốc Hùng</a><br/>
+				Chào, <a href="#" title="Edit your profile"><?php echo (($tmp = @$_SESSION['login']['ho_ten'])===null||$tmp==='' ? '' : $tmp);?>
+</a><br/>
 				Last login: 12-3-2014
 				<br /><br/>
 				<a href="../../index.php" title="View the Site">Xem trang</a> | <a href="../quan_tri/dang_xuat.php" title="Đăng xuất">Đăng xuất</a>
@@ -108,7 +109,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<ul>
 					  <li><a href="../thong_ke/tong_quat.php" id="thong_ke_tong_quat.php">Tổng quát</a></li>
 					</ul>
-				</li>				   
+				</li>	
+                <li><a class="nav-top-item" href="#" id="thanh_vien">Thành Viên</a>
+					<ul>
+					  <li><a href="../thanh_vien/them.php" id="loai_bai_viet_them.php">Thêm</a></li>
+				  	  <li><a href="../thanh_vien/danh_sach.php" id="loai_bai_viet_danh_sach.php">Xem Danh Sách</a></li>
+					</ul>
+				</li>			   
 				<li><a class="nav-top-item" href="#" id="bai_viet">Bài Viết</a>
 				<ul>
 				  <li><a href="../bai_viet/danh_sach.php" id="bai_viet_danh_sach.php">Xem Danh Sách</a></li>

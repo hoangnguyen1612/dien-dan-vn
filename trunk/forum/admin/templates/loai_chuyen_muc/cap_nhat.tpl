@@ -57,6 +57,10 @@
                 <label class="admin_tieu_de">Thứ Tự Hiển Thị</label>
                 <input type="text" name="data[thu_tu_hien_thi]" id="thu_tu_hien_thi" value="{$loai_chuyen_muc.thu_tu_hien_thi}" class="text-input small-input" onkeypress="return inputNumber(event)" >
               </p>
+              <p>
+              	<label class="admin_tieu_de">Chuyên mục riêng tư</label>
+                {html_options name = "data[rieng_tu]" options = $rieng_tu selected = $loai_chuyen_muc.rieng_tu}
+              </p>
               <p style="text-align:center">
                 <input type="submit" value="Lưu Và Tiếp Tục" name="save-and-continue" class="button">
                 <input type="submit" value="Lưu Và Thoát" name="save-and-end" class="button">

@@ -1,25 +1,25 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-04-25 23:56:42
+<?php /* Smarty version Smarty-3.1.14, created on 2014-05-23 08:28:23
          compiled from "..\templates\thong_ke\tong_quat.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:32308535ab4e794d850-90611143%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:11504537eed7e655d32-77684629%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '18e7fcb9f32c2819aa2891e072758cbd4088873d' => 
     array (
       0 => '..\\templates\\thong_ke\\tong_quat.tpl',
-      1 => 1398459301,
+      1 => 1400833695,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '32308535ab4e794d850-90611143',
+  'nocache_hash' => '11504537eed7e655d32-77684629',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_535ab4e7a9d7a5_20295867',
+  'unifunc' => 'content_537eed7e73c4e7_56524916',
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_535ab4e7a9d7a5_20295867')) {function content_535ab4e7a9d7a5_20295867($_smarty_tpl) {?><div class="content-box-header">
+<?php if ($_valid && !is_callable('content_537eed7e73c4e7_56524916')) {function content_537eed7e73c4e7_56524916($_smarty_tpl) {?><div class="content-box-header">
 					
 	<h3>Thống kê [Tổng quát]</h3>
 	
@@ -31,8 +31,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 	<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
 
-<script src="../templates/scripts/highcharts/js/highcharts.js"></script>
-<script src="../templates/scripts/highcharts/js/modules/exporting.js"></script>
+<script src="/forum/admin/templates/scripts/highcharts/js/highcharts.js"></script>
+<script src="/forum/admin/templates/scripts/highcharts/js/modules/exporting.js"></script>
 	
 
 <script type="text/javascript">

@@ -7,7 +7,6 @@ try{
 	# gan mang? data cho bien $data
 	$data = $_POST['data'];
 
-
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 
 	
@@ -29,7 +28,7 @@ try{
 		$data['ma_loai_cha'] = NULL;
 	} 
 	########################################################################
-	$data['ma_dien_dan'] = 'abcd1234';
+	$data['ma_dien_dan'] = $_SESSION['dien_dan']['ma'];
 
 	$chuyen_muc = $dt_xl_chuyen_muc->cap_nhat($data);
 

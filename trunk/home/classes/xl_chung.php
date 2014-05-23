@@ -2,7 +2,28 @@
 class xl_chung{
 	protected $bang = '';
 	protected $ds_cot = '';
-	
+	#Đếm
+	function dem($dieu_kien = array(), $ma = 'ma',$dinh_dang = PDO::FETCH_ASSOC ,$them_cau_truy_van = '')
+	{
+		global $dbh;
+		
+		$chuoi = " FROM `{$this->bang}` ";
+		$du_lieu = array();
+		
+		$chuoi_dieu_kien = $this->tao_chuoi_dieu_kien($dieu_kien, $du_lieu);
+		
+		if($chuoi_dieu_kien)
+		{
+			$chuoi .= " WHERE $chuoi_dieu_kien";
+		}
+		$sql = "SELECT Count(`{$ma}`) as so_luong {$chuoi} {$them_cau_truy_van}";
+
+		$sth = $dbh->prepare($sql);
+		$sth->execute($du_lieu);
+		$sl = $sth->fetchColumn(0);
+		return $sl;
+		
+	}
 	#đọc
 	function doc($dieu_kien = array(), $ds_cot = '*', $dinh_dang = PDO::FETCH_ASSOC, $them_cau_truy_van = '')
 	{
@@ -93,6 +114,24 @@ class xl_chung{
 		$chuoi = trim($chuoi, ',');
 		
 		$sql = "UPDATE `{$this->bang}` SET {$chuoi} WHERE `{$ma}` = :{$ma} LIMIT 1";
+		echo $sql;
+		$sth = $dbh->prepare($sql);
+		return $sth->execute($du_lieu);
+	}
+	#cập nhật có thêm câu truy vấn
+	function cap_nhat_truy_van($du_lieu,$them_cau_truy_van = '')
+	{
+		global $dbh;
+		
+		$chuoi = '';
+		foreach($du_lieu as $key=>$value)
+		{
+			$chuoi .= "`{$key}` = :{$key},";
+		}
+		$chuoi = trim($chuoi, ',');
+		
+		$sql = "UPDATE `{$this->bang}` SET {$chuoi} WHERE {$them_cau_truy_van} LIMIT 1";
+		echo $sql;
 		$sth = $dbh->prepare($sql);
 		return $sth->execute($du_lieu);
 	}
@@ -130,6 +169,7 @@ class xl_chung{
 		}
 		
 		$chuoi_ds = "SELECT {$ds_cot} {$chuoi} {$them_cau_truy_van} ORDER BY {$sap_xep} LIMIT {$vi_tri}, {$so_luong}";
+		
 		$sth = $dbh->prepare($chuoi_ds);
 		$sth->execute($du_lieu);
 		
@@ -139,18 +179,29 @@ class xl_chung{
 		$sth = $dbh->prepare($chuoi_sl);
 		$sth->execute($du_lieu);
 		$sl = $sth->fetchColumn(0);
-		
+		echo $sl;
 		return array($ds, $sl);
 	}
 	
 	#cập nhật trạng thái
-	function cap_nhat_trang_thai($ma, $cot = 'trang_thai')
+	function cap_nhat_trang_thai($ma, $cot = 'trang_thai',$them_cau_truy_van = '')
 	{
 		global $dbh;
 		
-		$sql = "UPDATE `{$this->bang}` SET `{$cot}` = 1-`{$cot}` WHERE `ma` = :ma LIMIT 1";
+		$sql = "UPDATE `{$this->bang}` SET `{$cot}` = 1-`{$cot}` WHERE `ma` = :ma {$them_cau_truy_van} LIMIT 1";
 		$sth = $dbh->prepare($sql);
+
 		return $sth->execute(array('ma'=>$ma));
+	}
+	#cập nhật trạng thái có thêm câu truy vấn 
+	function cap_nhat_trang_thai_1($cot = 'trang_thai',$them_cau_truy_van = '')
+	{
+		global $dbh;
+		
+		$sql = "UPDATE `{$this->bang}` SET `{$cot}` = 1-`{$cot}` WHERE {$them_cau_truy_van} LIMIT 1";
+		$sth = $dbh->prepare($sql);
+	
+		return $sth->execute();
 	}
 	
 	#cập nhật bộ đếm
