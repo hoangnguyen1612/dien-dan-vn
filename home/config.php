@@ -1,5 +1,11 @@
 <?php
-#dinh nghia ten website
-define('NAME_WEBSITE', 'diendanvn.com.vn');
+session_start();
 
+#ten website
+define('NAME_WEBSITE', 'diendanvn');
+
+#database
+define('DATABASE_NAME', 'dien_dan_vn');
+define('USERNAME', 'root');
+define('PASSWORD', '');
 

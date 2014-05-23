@@ -24,11 +24,10 @@
 <!-- FontAwesome CSS files --><!-- Custom Font CSS files -->
 <link href="/forum/templates/css/style.css" rel="stylesheet" type="text/css">
 <link href="/forum/templates/css/bootstrap/bootstrap-select.css" rel="stylesheet" type="text/css">
-<link href="/forum/templates/css/colors/cam.css" rel="stylesheet" id="color">
 <!-- Footable CSS files --><!-- FontAwesome CSS files -->
 <link href="/forum/templates/styles/BBOOTS/theme/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="/forum/templates/css/general.css" rel="stylesheet" type="text/css">
-<link href="/forum/templates/css/colors/hong.css" rel="stylesheet" id="bg">
+<link href="/forum/templates/css/colors/color-1.css" rel="stylesheet" id="color">
 <!-- Custom Font CSS files -->
 
 

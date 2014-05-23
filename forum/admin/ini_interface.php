@@ -1,5 +1,5 @@
 <?php
-	include '../../libraries/smarty/Smarty.class.php';
+	include '../../../libraries/smarty/Smarty.class.php';
 	$dt_smarty = new Smarty();		
 	$dt_smarty->setTemplateDir('../templates/');
 	$dt_smarty->setCompileDir('../templates_c/');

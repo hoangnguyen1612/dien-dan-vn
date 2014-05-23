@@ -1,7 +1,7 @@
 <!-- start popup -->
 <div class="header_btm">
 		<div class="h_left">
-			<h2 style="font-family: Georgia; font-size: 1.6em">Chào Mừng Bạn Đến Với Diendanvn.com.vn</h2>
+			<h2 style="font-family: Georgia; font-size: 1.6em">Chào Mừng Bạn Đến Với Diendan.vn</h2>
 			<h3 style="font-family: Georgia; font-size: 1.2em">Hãy để việc tạo lập diễn đàn trở nên đơn giản nhất</h3>
 		</div>
 		<div class="soc_icons">
@@ -45,10 +45,10 @@
 			<li><a class="popup-with-zoom-anim" href="#small-dialog">
 				<div class="portfolio logo1 mix_all" data-cat="logo" style="display: inline-block; opacity: 1;">
 					<div class="portfolio-wrapper" style="">				
-							<img src="../upload/dien_dan/{$dien_dan.hinh_dai_dien}" alt="Image 2" style="top: -30px;" width="270" height="180">
+							<a href="/{$dien_dan.ma}"><img src="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien|default: 'no_avatar.png'}" alt="Image 2" style="top: -30px;" width="270" height="180"></a>
 						<div class="label" style="bottom: 0px;">
 							<div class="label-text">
-								<p class="text-title" style="text-transform:uppercase">{$dien_dan.ten}</p>
+								<p class="text-title" style="text-transform:uppercase"><a href="/{$dien_dan.ma}" style="color: white;">{$dien_dan.ten}</a></p>
 								<span class="text-category"></span>
 							</div>
 							<div class="label-bg"></div>
