@@ -2,8 +2,15 @@
 	#Tạo kết nối
 	session_start();	
 	include '../../config.php';	
-	$dbh = new PDO('mysql:host=localhost;dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD);
-	$dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-	$dbh->exec('set names utf8');
+	require '../../../libraries/functions.php';
+	$dbh = connection();
+	$dien_dan = get_subdomain();
+	$_SESSION['dien_dan'] = $dien_dan;
+	
+
+	if(empty($_SESSION[SALT.'dang_nhap']) || $_SESSION[SALT.'dang_nhap'] != 1){
+			header("Location:/{$_SESSION['dien_dan']['ma']}/admin/quan_tri/dang_nhap.php");
+			exit;
+	}
 
 	

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-04-25 20:57:23
+<?php /* Smarty version Smarty-3.1.14, created on 2014-05-23 06:41:10
          compiled from "..\templates\bai_viet\danh_sach.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:17096535abebee530f6-57230229%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eced0136f1b67a72e39942374d763569344f6fc4' => 
     array (
       0 => '..\\templates\\bai_viet\\danh_sach.tpl',
-      1 => 1398459247,
+      1 => 1400769847,
       2 => 'file',
     ),
   ),

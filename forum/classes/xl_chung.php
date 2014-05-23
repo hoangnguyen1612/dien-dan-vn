@@ -173,15 +173,24 @@ class xl_chung{
 	}
 	
 	#cập nhật trạng thái
-	function cap_nhat_trang_thai($ma, $cot = 'trang_thai')
+	function cap_nhat_trang_thai($ma, $cot = 'trang_thai',$them_cau_truy_van = '')
 	{
 		global $dbh;
 		
-		$sql = "UPDATE `{$this->bang}` SET `{$cot}` = 1-`{$cot}` WHERE `ma` = :ma LIMIT 1";
+		$sql = "UPDATE `{$this->bang}` SET `{$cot}` = 1-`{$cot}` WHERE `ma` = :ma {$them_cau_truy_van} LIMIT 1";
 		$sth = $dbh->prepare($sql);
 		return $sth->execute(array('ma'=>$ma));
 	}
+	#cập nhật trạng thái có thêm câu truy vấn 
+	function cap_nhat_trang_thai_1($cot = 'trang_thai',$them_cau_truy_van = '')
+	{
+		global $dbh;
+		
+		$sql = "UPDATE `{$this->bang}` SET `{$cot}` = 1-`{$cot}` WHERE {$them_cau_truy_van} LIMIT 1";
+		$sth = $dbh->prepare($sql);
 	
+		return $sth->execute();
+	}
 	#cập nhật bộ đếm
 	function cap_nhat_bo_dem($ma, $cot = 'so_lan_xem')
 	{

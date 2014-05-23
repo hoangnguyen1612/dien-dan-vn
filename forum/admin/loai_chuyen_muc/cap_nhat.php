@@ -12,7 +12,7 @@ try{
 		exit;	
 	}
 	#### Kiểm tra tồn tại loại chuyên mục trong diễn đàn ##########
-	$loai_chuyen_muc = $dt_xl_chuyen_muc->doc(array('ma'=>$_GET['ma'],'ma_dien_dan'=>'abcd1234'),'loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,'');
+	$loai_chuyen_muc = $dt_xl_chuyen_muc->doc(array('ma'=>$_GET['ma'],'ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,'');
 	if($loai_chuyen_muc == NULL){
 		$_SESSION['msg']='Mã loại chuyên mục không tồn tại';
 		$_SESSION['style_msg'] = 'notification error png_bg';
@@ -30,10 +30,11 @@ try{
 	}else{
 		$thong_bao = '';
 	}
-	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>'abcd1234'),'thu_tu_hien_thi ASC', '*', PDO::FETCH_ASSOC, '', false);
+	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'thu_tu_hien_thi ASC', '*', PDO::FETCH_ASSOC, '', false);
 // danh sách các chuyên mục
     $dt_smarty->assign('ds_chuyen_muc',$ds_chuyen_muc);
 	###########################################################
+	$dt_smarty->assign('rieng_tu',array(1=>'Có',0=>'Không'));
 	$dt_smarty->assign('loai_chuyen_muc',$loai_chuyen_muc);	
 	$dt_smarty->assign('thong_bao',$thong_bao);
 	

@@ -74,14 +74,14 @@
 			
 			<div id="login-content">
 				
-				<form action="/quan_tri/dang_nhap_sm.php" method="post">
-				<!--
+				<form action="/{$dien_dan.ma}/admin/quan_tri/dang_nhap_sm.php" method="post">
+				
 					<div class="{$smarty.session.style_msg_login}">
 						<div>
-{$smarty.session.msg_login}
+					{$smarty.session.msg_login}
 						</div>
 					</div>
-				-->	
+				
 					<p>
 						<label>Tên đăng nhập</label>
 						<input class="text-input" type="text" name = "data[ten_dang_nhap]" value="{$smarty.cookies.ten_dang_nhap|default:''}"/>

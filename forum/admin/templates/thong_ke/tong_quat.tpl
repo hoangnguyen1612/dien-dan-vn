@@ -10,8 +10,8 @@
 
 	<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
 
-<script src="../templates/scripts/highcharts/js/highcharts.js"></script>
-<script src="../templates/scripts/highcharts/js/modules/exporting.js"></script>
+<script src="/forum/admin/templates/scripts/highcharts/js/highcharts.js"></script>
+<script src="/forum/admin/templates/scripts/highcharts/js/modules/exporting.js"></script>
 	
 {literal}
 <script type="text/javascript">

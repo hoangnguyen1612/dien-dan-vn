@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-05-10 10:21:30
+<?php /* Smarty version Smarty-3.1.14, created on 2014-05-23 09:08:15
          compiled from "..\templates\loai_chuyen_muc\danh_sach.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2821536dfdaaa16c60-44479414%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6233c13f906d2fe1680444fbbd09b2b95d85631f' => 
     array (
       0 => '..\\templates\\loai_chuyen_muc\\danh_sach.tpl',
-      1 => 1399715226,
+      1 => 1400836093,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_536dfdaaad03e0_75361552',
   'variables' => 
   array (
     'thong_bao' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'chuyen_muc' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_536dfdaaad03e0_75361552',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_536dfdaaad03e0_75361552')) {function content_536dfdaaad03e0_75361552($_smarty_tpl) {?><div class="content-box-header">
 					
@@ -63,12 +63,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <th >Tên</th>
                 <th >Tên Loại Cha</th>
                 <th >Thứ Tự Hiển Thị</th>
+                <th >Riêng tư</th>
                 <th >Tác Vụ</th>
               </tr>
             </thead>
 			<tfoot>
 			  <tr>
-				<td colspan="8"><div class="bulk-actions align-left"><img src="../templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')"></div>
+				<td colspan="8"><div class="bulk-actions align-left"><img src="/forum/admin/templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')"></div>
 				  <div class="pagination">
                   <?php echo $_smarty_tpl->tpl_vars['bo_nut']->value;?>
 
@@ -93,13 +94,16 @@ $_smarty_tpl->tpl_vars['chuyen_muc']->_loop = true;
 </td>
                 <td ><?php echo $_smarty_tpl->tpl_vars['chuyen_muc']->value['thu_tu_hien_thi'];?>
 </td>
+                <td ><a href="cap_nhat_trang_thai.php?ma=<?php echo $_smarty_tpl->tpl_vars['chuyen_muc']->value['ma'];?>
+" title="Hiển Thị"><img src="/forum/admin/templates/images/trang_thai_<?php echo $_smarty_tpl->tpl_vars['chuyen_muc']->value['rieng_tu'];?>
+.png" width="20" height="20"> </a></td>
                 <td><!-- Icons --> 
                  <a href="cap_nhat.php?ma=<?php echo $_smarty_tpl->tpl_vars['chuyen_muc']->value['ma'];?>
-" title="Edit"><img alt="Edit" src="../templates/images/icons/pencil.png"></a>
+" title="Edit"><img alt="Edit" src="/forum/admin/templates/images/icons/pencil.png"></a>
                  
                  <a href="xoa.php?ma=<?php echo $_smarty_tpl->tpl_vars['chuyen_muc']->value['ma'];?>
 " onclick="return confirm('Bạn có chắc chắn muốn xóa <?php echo $_smarty_tpl->tpl_vars['chuyen_muc']->value['ten'];?>
- không ?')" title="Delete"><img style="cursor:pointer" alt="Xóa" src="../templates/images/icons/cross.png"> </a></td>
+ không ?')" title="Delete"><img style="cursor:pointer" alt="Xóa" src="/forum/admin/templates/images/icons/cross.png"> </a></td>
               </tr>      
  				<?php } ?> 
               

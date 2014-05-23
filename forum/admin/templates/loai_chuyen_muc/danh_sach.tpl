@@ -34,12 +34,13 @@
                 <th >Tên</th>
                 <th >Tên Loại Cha</th>
                 <th >Thứ Tự Hiển Thị</th>
+                <th >Riêng tư</th>
                 <th >Tác Vụ</th>
               </tr>
             </thead>
 			<tfoot>
 			  <tr>
-				<td colspan="8"><div class="bulk-actions align-left"><img src="../templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')"></div>
+				<td colspan="8"><div class="bulk-actions align-left"><img src="/forum/admin/templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')"></div>
 				  <div class="pagination">
                   {$bo_nut}
 				</div></td>
@@ -53,10 +54,11 @@
                 <td >{$chuyen_muc.ten}</td>
                 <td >{$chuyen_muc.ten_loai_cha}</td>
                 <td >{$chuyen_muc.thu_tu_hien_thi}</td>
+                <td ><a href="cap_nhat_trang_thai.php?ma={$chuyen_muc.ma}" title="Hiển Thị"><img src="/forum/admin/templates/images/trang_thai_{$chuyen_muc.rieng_tu}.png" width="20" height="20"> </a></td>
                 <td><!-- Icons --> 
-                 <a href="cap_nhat.php?ma={$chuyen_muc.ma}" title="Edit"><img alt="Edit" src="../templates/images/icons/pencil.png"></a>
+                 <a href="cap_nhat.php?ma={$chuyen_muc.ma}" title="Edit"><img alt="Edit" src="/forum/admin/templates/images/icons/pencil.png"></a>
                  
-                 <a href="xoa.php?ma={$chuyen_muc.ma}" onclick="return confirm('Bạn có chắc chắn muốn xóa {$chuyen_muc.ten} không ?')" title="Delete"><img style="cursor:pointer" alt="Xóa" src="../templates/images/icons/cross.png"> </a></td>
+                 <a href="xoa.php?ma={$chuyen_muc.ma}" onclick="return confirm('Bạn có chắc chắn muốn xóa {$chuyen_muc.ten} không ?')" title="Delete"><img style="cursor:pointer" alt="Xóa" src="/forum/admin/templates/images/icons/cross.png"> </a></td>
               </tr>      
  				{/foreach} 
               

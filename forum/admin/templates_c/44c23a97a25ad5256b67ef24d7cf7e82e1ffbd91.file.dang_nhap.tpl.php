@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-05-23 05:38:57
+<?php /* Smarty version Smarty-3.1.14, created on 2014-05-23 07:46:21
          compiled from "..\templates\quan_tri\dang_nhap.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2459535acbe81c2196-76741739%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '44c23a97a25ad5256b67ef24d7cf7e82e1ffbd91' => 
     array (
       0 => '..\\templates\\quan_tri\\dang_nhap.tpl',
-      1 => 1400823461,
+      1 => 1400831176,
       2 => 'file',
     ),
   ),
@@ -100,16 +100,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			
 			<div id="login-content">
 				
-				<form action="/quan_tri/dang_nhap_sm.php" method="post">
-				<!--
+				<form action="/<?php echo $_smarty_tpl->tpl_vars['dien_dan']->value['ma'];?>
+/admin/quan_tri/dang_nhap_sm.php" method="post">
+				
 					<div class="<?php echo $_SESSION['style_msg_login'];?>
 ">
 						<div>
-<?php echo $_SESSION['msg_login'];?>
+					<?php echo $_SESSION['msg_login'];?>
 
 						</div>
 					</div>
-				-->	
+				
 					<p>
 						<label>Tên đăng nhập</label>
 						<input class="text-input" type="text" name = "data[ten_dang_nhap]" value="<?php echo (($tmp = @$_COOKIE['ten_dang_nhap'])===null||$tmp==='' ? '' : $tmp);?>

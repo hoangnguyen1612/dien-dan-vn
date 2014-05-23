@@ -6,10 +6,11 @@ include '../../classes/xl_chuyen_muc.php';
 
 	
 $dt_xl_chuyen_muc = new xl_chuyen_muc;
-$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>'abcd1234'),'thu_tu_hien_thi ASC', '*', PDO::FETCH_ASSOC, '', false);
+$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'thu_tu_hien_thi ASC', '*', PDO::FETCH_ASSOC, '', false);
 // danh sách các chuyên mục
 $dt_smarty->assign('ds_chuyen_muc',$ds_chuyen_muc);
-
+$dt_smarty->assign('rieng_ru',array('Có'=>1 , 'Không' => 0));
+$dt_smarty->assign('chon',1);
 ############## Chuẩn bị câu thông báo ##############
 		if(isset($_SESSION['msg'])){
 			$thong_bao = $dt_smarty->fetch('elements/message.tpl');

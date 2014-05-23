@@ -1,4 +1,5 @@
 <?php
+include '../ini.php';
 include '../ini_interface.php';
 
 
