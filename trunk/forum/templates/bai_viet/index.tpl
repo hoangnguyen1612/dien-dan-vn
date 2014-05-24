@@ -64,7 +64,7 @@
       {/if}
       {foreach $ds_bai_viet_theo_loai as $bai_viet}
       <tr class="">
-        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(../templates/images/icons/misc/{$bai_viet.icon}.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet.php?ma={$bai_viet.ma}" class="topictitle" data-original-title="" title="">{$bai_viet.tieu_de|truncate:100:"..."}</a> <br>
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/images/icons/misc/{$bai_viet.icon}.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma={$bai_viet.ma}" class="topictitle" data-original-title="" title="">{$bai_viet.tieu_de|truncate:100:"..."}</a> <br>
           <i class="icon-user"></i> bởi <a href="./memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ho_ten}</a> <i class="icon-time"></i> <small>{$bai_viet.ngay_tao}</small></td>
         <td class="center">{$bai_viet.so_luong_binh_luan} Trả lời <br>
           388 Lần xem</td>

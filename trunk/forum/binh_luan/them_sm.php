@@ -5,7 +5,14 @@ try{
 	include '../classes/xl_binh_luan.php';
 	include '../classes/xl_bai_viet.php';
 
-
+	if($login == ""){
+		header('Location:/');
+		exit;
+	}
+	if($thanh_vien['loai_thanh_vien'] == 3){
+		echo 'Bạn chưa là thành viên chính thức của diễn đàn';
+		exit;
+	}
 	$dt_xl_binh_luan = new xl_binh_luan;
 	$dt_xl_bai_viet = new xl_bai_viet;
 	$data = $_POST['data'];
@@ -30,7 +37,7 @@ try{
 	$data['ngay_tao'] = date('Y-m-d h:i:s');
 	$data['ma_nguoi_dung'] = $login['ma'];
 	$data['ma_dien_dan'] = $ma_dien_dan;
-	
+
 	$result = $dt_xl_binh_luan->them($data);
 	if($result === false){
 		echo 'Lỗi khi đăng bài , vui lòng thử lại sao';

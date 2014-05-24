@@ -4,7 +4,7 @@ try{
 	include '../ini_interface.php';
 	include '../classes/xl_chuyen_muc.php';
 	if($login == ''){
-		header('Location: diendan.vn');
+		header('Location:/');
 		exit;
 	}
 	if($thanh_vien['loai_thanh_vien'] == 3){

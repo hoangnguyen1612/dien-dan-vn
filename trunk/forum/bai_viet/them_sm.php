@@ -4,7 +4,7 @@ try{
 	include '../ini_interface.php';
 	include '../classes/xl_bai_viet.php';
 	if($login == ''){
-		header('Location: diendan.vn');
+		header('Location:/');
 		exit;
 	}
 
