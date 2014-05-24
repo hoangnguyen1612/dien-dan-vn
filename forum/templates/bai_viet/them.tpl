@@ -94,16 +94,19 @@ onload_functions.push('apply_onkeypress_event()');
             </div>
           </div>
           <div class="space10"></div>
+            <div class="control-group">
            <label class="control-label" for="icon">Bài viết riêng tư:</label>
            <div class="controls controls-row">
+           
               <div class="radio">
-                <input type="radio" name="data[rieng_tu]" id="icon" value="0" checked="checked" tabindex="1">
-                <label for="icon">Không</label>
+                <input type="radio" name="data[rieng_tu]" id="khong" value="0" checked="checked" tabindex="2">
+                <label for="khong">Không</label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[rieng_tu]" id="icon-1" value="1" tabindex="1">
-                <label for="icon-1">Có</label>
+                <input type="radio" name="data[rieng_tu]" id="co" value="1" tabindex="2">
+                <label for="co">Có</label>
               </div>
+          </div>
           </div>
         </fieldset>
       </div>
