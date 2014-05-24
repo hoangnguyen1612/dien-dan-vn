@@ -16,6 +16,7 @@ try{
 		{
 			if($_SESSION['thanh_vien']['loai_thanh_vien']==0 || $_SESSION['thanh_vien']['loai_thanh_vien']==1)
 			{
+				$_SESSION[SALT.'dang_nhap'] = 1 ;
 				header("Location: /{$dien_dan['ma']}/admin/thong_ke/tong_quat.php");
 				exit;
 			}

@@ -1,4 +1,5 @@
 <?php
+	
 class phan_trang{
 	var $tentrang = '';
 	var $so_pt_tren_mot_trang = 1;
@@ -29,8 +30,10 @@ class phan_trang{
 	function in_bo_nut()
 	{
 		$str='';
-		$tenfile = $_SERVER['SCRIPT_NAME'];
-		$tenthamso = $_SERVER['QUERY_STRING'];
+		$tenfile = $_SERVER['REDIRECT_URL'];
+		$mang = explode('/',$_SERVER['REDIRECT_URL']);	
+		
+		$tenthamso = str_replace("forum=$mang[1]&",'',$_SERVER['QUERY_STRING']);
 		
 		$page = $this->tim_trang_hien_tai();
 		
@@ -63,9 +66,10 @@ class phan_trang{
 				$str.= "<a class='number disable'>&lt;&lt;</a> 
 				<a class='number disable'>&lt;</a>";
 			else
+				
 				$str.= "<a href='$tenfile?$tenthamso"."page=1' class='number disable' title='Trang đầu'>&lt;&lt;</a> 
 				<a href='$tenfile?$tenthamso"."page=$back' class='number disable' title='Về trang trước'>&lt;</a>";
-			
+				
 			if($vt_dau>1) $str.= '...';
 			for($i=$vt_dau;$i<=$vt_sau;$i++)
 			{
@@ -76,6 +80,7 @@ class phan_trang{
 				}
 				else
 				{
+					
 					$str.= "<a href='$tenfile?$tenthamso"."page=$i' class='number'>$i</a> ";
 				
 				}

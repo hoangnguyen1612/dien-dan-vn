@@ -18,7 +18,7 @@
 <div id="page-body">
   <main role="main">
     <h2><a href="./viewtopic.php?f=2&amp;t=15" data-original-title="" title="">{$bai_viet.tieu_de}</a></h2>
-    <form id="postform" method="post" action="../binh_luan/them_sm.php" enctype="multipart/form-data" onsubmit="return checkValidation()">
+    <form id="postform" method="post" action="them_sm" enctype="multipart/form-data" onsubmit="return checkValidation()">
       <div class="well well-sm" id="preview" style="display:none">
         <h3 id="preview-title"></h3>
         <div id="content"></div>

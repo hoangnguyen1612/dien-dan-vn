@@ -18,7 +18,7 @@
 <div id="page-body">
 <main role="main">
   <h2><a href="./viewforum.php?f=2" data-original-title="" title="">{$chuyen_muc.ten}</a></h2>
-  <form id="postform" method="post" action="them_sm.php" enctype="multipart/form-data" onsubmit="return checkValidation()">
+  <form id="postform" method="post" action="them_sm" enctype="multipart/form-data" onsubmit="return checkValidation()">
     <div class="well well-sm" id="preview" style="display:none">
       <h3 id="preview-title"></h3>
       <div id="content"></div>
@@ -42,43 +42,43 @@ onload_functions.push('apply_onkeypress_event()');
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-1" value="fire" tabindex="1">
-                <label for="icon-1"><img src="../templates/images/icons/misc/fire.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-1"><img src="/forum/templates/images/icons/misc/fire.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-5" value="star" tabindex="1">
-                <label for="icon-5"><img src="../templates/images/icons/misc/star.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-5"><img src="/forum/templates/images/icons/misc/star.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-6" value="radioactive" tabindex="1">
-                <label for="icon-6"><img src="../templates/images/icons/misc/radioactive.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-6"><img src="/forum/templates/images/icons/misc/radioactive.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-4" value="heart" tabindex="1">
-                <label for="icon-4"><img src="../templates/images/icons/misc/heart.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-4"><img src="/forum/templates/images/icons/misc/heart.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-7" value="thinking" tabindex="1">
-                <label for="icon-7"><img src="../templates/images/icons/misc/thinking.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-7"><img src="/forum/templates/images/icons/misc/thinking.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-9" value="question" tabindex="1">
-                <label for="icon-9"><img src="../templates/images/icons/misc/question.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-9"><img src="/forum/templates/images/icons/misc/question.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-10" value="alert" tabindex="1">
-                <label for="icon-10"><img src="../templates/images/icons/misc/alert.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-10"><img src="/forum/templates/images/icons/misc/alert.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-8" value="info" tabindex="1">
-                <label for="icon-8"><img src="../templates/images/icons/misc/info.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-8"><img src="/forum/templates/images/icons/misc/info.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-2" value="redface" tabindex="1">
-                <label for="icon-2"><img src="../templates/images/icons/misc/redface.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-2"><img src="/forum/templates/images/icons/misc/redface.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
                 <input type="radio" name="data[icon]" id="icon-3" value="mrgreen" tabindex="1">
-                <label for="icon-3"><img src="../templates/images/icons/misc/mrgreen.gif" width="16" height="16" alt="" title=""></label>
+                <label for="icon-3"><img src="/forum/templates/images/icons/misc/mrgreen.gif" width="16" height="16" alt="" title=""></label>
               </div>
             </div>
           </div>

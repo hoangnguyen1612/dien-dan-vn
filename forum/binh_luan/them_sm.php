@@ -21,15 +21,15 @@ try{
 		echo 'Vui lòng nhập mã bài viết';
 		exit;
 	}
-	$row = $dt_xl_bai_viet->doc(array('ma'=>$data['ma_bai_viet'],'ma_dien_dan'=>'abcd1234'));
+	$row = $dt_xl_bai_viet->doc(array('ma'=>$data['ma_bai_viet'],'ma_dien_dan'=>$ma_dien_dan));
 	if($row=NULL){
 		echo 'Bài viết không tồn tại';
 		exit;
 	}
 	
 	$data['ngay_tao'] = date('Y-m-d h:i:s');
-	$data['ma_nguoi_dung'] = '8F1eAOZHQj3Togr';
-	$data['ma_dien_dan'] = 'abcd1234';
+	$data['ma_nguoi_dung'] = $login['ma'];
+	$data['ma_dien_dan'] = $ma_dien_dan;
 	
 	$result = $dt_xl_binh_luan->them($data);
 	if($result === false){
@@ -37,7 +37,7 @@ try{
 		exit;
 	}
 	$ma_bai_viet = $data['ma_bai_viet'];
-	header("Location:../bai_viet/chi_tiet?ma=$ma_bai_viet");
+	header("Location:/$ma_dien_dan/bai_viet/chi_tiet?ma=$ma_bai_viet");
 	exit;
 	
 
