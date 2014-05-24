@@ -3,7 +3,10 @@ try{
 	include '../ini.php';
 	include '../ini_interface.php';
 	include '../classes/xl_bai_viet.php';
-
+	if($login == ''){
+		header('Location: diendan.vn');
+		exit;
+	}
 
 	$dt_xl_bai_viet = new xl_bai_viet;
 	
@@ -16,16 +19,17 @@ try{
 		echo 'Vui lòng nhập nội dung cho bài viết';
 		exit;
 	}
+	
 	$data['ngay_tao'] = date('Y-m-d h:i:s');
-	$data['ma_nguoi_dang'] = 'zNumJozHPOILtMf';
-	$data['ma_dien_dan'] = 'abcd1234';
+	$data['ma_nguoi_dang'] = $login['ma'];
+	$data['ma_dien_dan'] = $ma_dien_dan;
 	$ma_chuyen_muc = $data['ma_loai_chuyen_muc'];
 	$result = $dt_xl_bai_viet->them($data);
 	if($result === false){
 		echo 'Lỗi khi đăng bài , vui lòng thử lại sao';
 		exit;
 	}
-	header("Location: ../bai_viet/index.php?loai=$ma_chuyen_muc");
+	header("Location:/$ma_dien_dan/bai_viet/index?loai=$ma_chuyen_muc");
 	exit;
 	
 

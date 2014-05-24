@@ -33,7 +33,8 @@ try{
 	if($dang_nhap == NULL){
 		throw new Exception('Lỗi đăng nhập !!! Vui lòng thử lại');
 	}
-$thanh_vien = $dt_xl_thanh_vien_dien_dan->doc(array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'*',PDO::FETCH_ASSOC,'AND (loai_thanh_vien = 0 or loai_thanh_vien = 1)');
+$thanh_vien = $dt_xl_thanh_vien_dien_dan->doc(array('ma_dien_dan'=>$_SESSION['dien_dan']['ma'],'ma_nguoi_dung'=>$dang_nhap['ma']),'*',PDO::FETCH_ASSOC,'AND (loai_thanh_vien = 0 or loai_thanh_vien = 1)');
+
 	if($thanh_vien == NULL){
 		throw new Exception('Bạn không có quyền thực hiện chức năng này'); 
 	}
