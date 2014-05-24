@@ -130,7 +130,7 @@ input[type=button]:hover,input[type=button]:focus{
 </html>
 ';
 	
-	require '../libraries/send_gmail/send_gmail.php';
+	require '../../libraries/send_gmail/send_gmail.php';
 	send_gmail('nt.hoang1612@gmail.com', 'hoangit1612', $email, $ho_ten, 'Kích hoạt tài khoản', $mail, NAME_WEBSITE);
 }
 
