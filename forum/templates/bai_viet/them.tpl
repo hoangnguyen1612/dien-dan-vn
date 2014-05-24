@@ -93,6 +93,18 @@ onload_functions.push('apply_onkeypress_event()');
               <textarea rows="10" name="data[noi_dung]" id="noi_dung" tabindex="4" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();" placeholder="Post it up!" class="span12 ckeditor" ></textarea>
             </div>
           </div>
+          <div class="space10"></div>
+           <label class="control-label" for="icon">Bài viết riêng tư:</label>
+           <div class="controls controls-row">
+              <div class="radio">
+                <input type="radio" name="data[rieng_tu]" id="icon" value="0" checked="checked" tabindex="1">
+                <label for="icon">Không</label>
+              </div>
+              <div class="radio">
+                <input type="radio" name="data[rieng_tu]" id="icon-1" value="1" tabindex="1">
+                <label for="icon-1">Có</label>
+              </div>
+          </div>
         </fieldset>
       </div>
       <div class="row-fluid">

@@ -11,7 +11,7 @@ try{
 	
 	#Kiểm tra dữ liệu thô
 		#Kiểm tra dữ liệu bắt buộc phải có
-
+	$_SESSION['data'] = $data;
 	if(empty($data['ten'])){
 		throw new Exception('Vui lòng nhập tên chuyên mục');
 	}
@@ -36,10 +36,11 @@ try{
 	
 	$data['ma_dien_dan'] = $_SESSION['dien_dan']['ma'];
 	$result = $dt_xl_chuyen_muc->them($data);
+	$_SESSION['data'] = NULL;
 	if($result === false){
 		throw new Exception('Lỗi trong quá trình lưu dữ liệu , vui lòng thử lại');
 	}
-	
+
 	# Đóng kết nối
 	$dbh = NULL;
 	$_SESSION['msg']= 'Thêm thành công chuyên mục mới';

@@ -24,6 +24,7 @@ try{
 	$data['ma_nguoi_dang'] = $login['ma'];
 	$data['ma_dien_dan'] = $ma_dien_dan;
 	$ma_chuyen_muc = $data['ma_loai_chuyen_muc'];
+
 	$result = $dt_xl_bai_viet->them($data);
 	if($result === false){
 		echo 'Lỗi khi đăng bài , vui lòng thử lại sao';
