@@ -163,8 +163,10 @@
           <div class="postbody span9">
             <div class="row-fluid">
               <ul class="inline pull-right hidden-phone">
-            <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Bình luận giúp ích" style="color:red"><i class="icon-heart"></i></a></li>
-            <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Bình luận đúng" style="color:blue"><i class="icon-ok"></i></a></li>
+              {if $smarty.session.login.ma == $bai_viet.ma_nguoi_dang}
+            <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_giup_ich?ma={$binh_luan_cha.ma}" title="" data-original-title="Bình luận giúp ích" style="color:crimson"><i class="icon-thumbs-up-alt"></i></a></li>
+            <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_cha.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
+              {/if}
                 <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
                 <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}{$binh_luan_cha.ma_nguoi_dung}" data-original-title="Trả lời bài viết"><i class="icon-comment"></i></a></li>
                  <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}" data-original-title="Xem các trả lời"><i class="icon-comment"> <span class="badge badge-info"> 
@@ -183,7 +185,16 @@
                 <li><a class="btn btn-small" href="javascript:void(0);" title="" data-original-title="Trả lời bài viết"><i class="icon-comment" id="target-shown"></i></a></li>
               </ul>
               <div class="pull-left">
-                <h3><a href="#p26" data-original-title="" title="">{$binh_luan_cha.tieu_de}</a></h3>
+             
+                <h3> 	
+                {if $binh_luan_cha.dung == 1}
+                <a data-original-title="Bài viết đúng"><i class="icon-ok-sign" style="color:green;font-size:36px"></i></a>
+                {/if}
+                {if $binh_luan_cha.giup_ich == 1}
+                <a data-original-title="Bài viết giúp ích"><i class="icon-thumbs-up-alt" style="color:crimson;font-size:36px"></i></a>
+                {/if}
+                <a href="#p26" data-original-title="" title="">{$binh_luan_cha.tieu_de}</a>
+                </h3>
               </div>
             </div>
             <div class="row-fluid">
@@ -246,6 +257,10 @@
           <div class="postbody span9">
             <div class="row-fluid">
               <ul class="inline pull-right hidden-phone">
+               {if $smarty.session.login.ma == $bai_viet.ma_nguoi_dang}
+            <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_giup_ich?ma={$binh_luan_con.ma}" title="" data-original-title="Bình luận giúp ích" style="color:crimson"><i class="icon-thumbs-up-alt"></i></a></li>
+            <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_con.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
+              {/if}
                 <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
               
               </ul>
@@ -255,7 +270,15 @@
                
               </ul>
               <div class="pull-left">
-                <h3><a href="#p26" data-original-title="" title="">{$binh_luan_con.tieu_de}</a></h3>
+                <h3>
+                {if $binh_luan_con.dung == 1}
+                <a data-original-title="Bài viết đúng"><i class="icon-ok-sign" style="color:green;font-size:36px"></i></a>
+                {/if}
+                {if $binh_luan_con.giup_ich == 1}
+                <a data-original-title="Bài viết giúp ích"><i class="icon-thumbs-up-alt" style="color:crimson;font-size:36px"></i></a>
+                {/if}
+                <a href="#p26" data-original-title="" title="">{$binh_luan_con.tieu_de}</a>
+                </h3>
               </div>
             </div>
             <div class="row-fluid">
