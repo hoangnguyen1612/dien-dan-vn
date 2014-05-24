@@ -44,7 +44,7 @@
       <div class="pull-right">
         <div class="btn-group"> </div>
       </div>
-      <div class="pull-left"> <a href="./them.php?loai={$smarty.get.loai}" data-original-title="Post a new topic" type="button" class="btn"><i class="icon-share-alt"></i>Tạo bài viết mới</a> </div>
+      <div class="pull-left"> <a href="./them?loai={$smarty.get.loai}" data-original-title="Post a new topic" type="button" class="btn"><i class="icon-share-alt"></i>Tạo bài viết mới</a> </div>
     </div>
     <div class="space10"></div>
     <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
@@ -77,7 +77,7 @@
     </table>
     <div class="row-fluid">
       <div class="pull-left">
-        <div class="da-panel-content"> <a href="./them.php?loai={$smarty.get.loai}" data-original-title="Post a new topic" type="button" class="btn"><i class="icon-share-alt"></i> Tạo bài viết mới</a> </div>
+        <div class="da-panel-content"> <a href="./them?loai={$smarty.get.loai}" data-original-title="Post a new topic" type="button" class="btn"><i class="icon-share-alt"></i> Tạo bài viết mới</a> </div>
       </div>
       <div class="pull-right">
         <div class="pagination pagination-small hidden-phone">

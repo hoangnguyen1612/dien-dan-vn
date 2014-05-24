@@ -163,7 +163,8 @@
           <div class="postbody span9">
             <div class="row-fluid">
               <ul class="inline pull-right hidden-phone">
-           
+            <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Bình luận giúp ích" style="color:red"><i class="icon-heart"></i></a></li>
+            <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Bình luận đúng" style="color:blue"><i class="icon-ok"></i></a></li>
                 <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
                 <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}{$binh_luan_cha.ma_nguoi_dung}" data-original-title="Trả lời bài viết"><i class="icon-comment"></i></a></li>
                  <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}" data-original-title="Xem các trả lời"><i class="icon-comment"> <span class="badge badge-info"> 
