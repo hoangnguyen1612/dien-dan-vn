@@ -72,7 +72,7 @@
 				Chào, <a href="#" title="Edit your profile">{$smarty.session.login.ho_ten|default:''}</a><br/>
 				Last login: 12-3-2014
 				<br /><br/>
-				<a href="../../index.php" title="View the Site">Xem trang</a> | <a href="../quan_tri/dang_xuat.php" title="Đăng xuất">Đăng xuất</a>
+				<a href="/{$dien_dan.ma}" title="View the Site" target="_blank">Xem trang</a> | <a href="../quan_tri/dang_xuat.php" title="Đăng xuất">Đăng xuất</a>
 			</div>        
 			
 			<ul id="main-nav">

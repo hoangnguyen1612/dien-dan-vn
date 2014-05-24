@@ -114,12 +114,12 @@ head.ready(function() {
       </div>
       <!-- Lower Breadcrumb block -->
       <ul class="sub-breadcrumb">
-        <li class="pull-left"> <span class="time"><i class="icon-clock"></i> 19-04-2014, 15:33</span> </li>
+        <li class="pull-left"> <span class="time"><i class="icon-clock"></i> {date('d-m-Y', strtotime($dien_dan.ngay_tao))}</span> </li>
         <li class="pull-right hidden-phone"> </li>
       </ul>
       <!-- Lower Breadcrumb block --> 
       {$contentForLayout}
-      {include '../elements/footer.tpl'} 
+      <!--{literal}{include '../elements/footer.tpl'}{/literal}--> 
       <!-- page-body id in header --> 
     </div>
     <!-- padding_0_40 in header --> 
