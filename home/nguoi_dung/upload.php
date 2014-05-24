@@ -7,7 +7,7 @@ if(isset($_POST))
 	$ThumbSquareSize 		= 168; //Thumbnail will be 200x200
 	$BigImageMaxSize 		= 100; //Image Maximum height or width
 	$ThumbPrefix			= "thumb_"; //Normal thumb Prefix
-	$DestinationDirectory	= '../upload/hinh_dai_dien/'; //specify upload directory ends with / (slash)
+	$DestinationDirectory	= '../upload/nguoi_dung/'; //specify upload directory ends with / (slash)
 	$Quality 				= 90; //jpeg quality
 	##########################################
 	
@@ -83,7 +83,7 @@ if(isset($_POST))
 		*/
 		echo '<table width="100%" border="0" cellpadding="4" cellspacing="0">';
 		echo '<tr>';
-		echo '<td align="center"><img src="/home/upload/hinh_dai_dien/'.$NewImageName.'" alt="Thumbnail"></td>';
+		echo '<td align="center"><img src="/home/upload/nguoi_dung/'.$NewImageName.'" alt="Thumbnail"></td>';
 		//echo '</tr><tr>';
 		//echo '<td align="center"><img src="../upload/hinh_dai_dien/'.$ThumbPrefix.$NewImageName.'" alt="Resized Image"></td>';
 		echo '</tr>';
@@ -97,13 +97,13 @@ if(isset($_POST))
 		require '../classes/xl_nguoi_dung.php';
 		$xl_nguoi_dung = new xl_nguoi_dung;
 		$nguoi_dung = $xl_nguoi_dung->doc(array('ma'=>$login['ma'], 'hinh_dai_dien, thumbnail'));
-		if($nguoi_dung['hinh_dai_dien']!='')
+		if($nguoi_dung['hinh_dai_dien']!='' && $nguoi_dung['hinh_dai_dien']!=NULL)
 		{
-			unlink('../upload/hinh_dai_dien/'.$nguoi_dung['hinh_dai_dien']);
+			unlink('../upload/nguoi_dung/'.$nguoi_dung['hinh_dai_dien']);
 		}
 		if($nguoi_dung['thumbnail']!='')
 		{
-			unlink('../upload/hinh_dai_dien/'.$nguoi_dung['thumbnail']);
+			unlink('../upload/nguoi_dung/'.$nguoi_dung['thumbnail']);
 		}
 		
 		

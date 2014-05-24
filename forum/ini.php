@@ -20,12 +20,16 @@
 	$ds_cau_hinh = $sth->fetch(PDO::FETCH_ASSOC);
 
 	
-	#đăng nhập
+	###
 	$login = '';
 	$thanh_vien = '';
+	$ds_thong_bao = 'asas';
+	$thong_bao_moi = 0;
+	
 	if(isset($_SESSION['login']))
 	{
 		$login = $_SESSION['login'];
+		$ma_nguoi_dung = $login['ma'];
 		
 		# loại thành viên
 		$sql = 'select * from thanh_vien_dien_dan where ma_dien_dan = :ma_dien_dan and ma_nguoi_dung = :ma_nguoi_dung limit 0,1';
@@ -33,14 +37,25 @@
 		$sth->execute(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$login['ma']));
 		$thanh_vien = $sth->fetch(PDO::FETCH_ASSOC);
 
-		if(!$thanh_vien)
+		if($thanh_vien)
 		{
-			$thanh_vien = '';
-		}
+			$_SESSION['thanh_vien'] = $thanh_vien;
 		
-		$_SESSION['thanh_vien'] = $thanh_vien;
+			#kiểm tra thông báo
+			$thong_bao_da_doc = $thanh_vien['thong_bao_da_doc'];
+			if($thong_bao_da_doc==NULL || $thong_bao_da_doc=='')
+				$sql = 'select * from thong_bao where gui_den = :ma_dien_dan order by ngay_tao DESC';
+			else	
+				$sql = 'select * from thong_bao where gui_den = :ma_dien_dan and ma not in('.$thong_bao_da_doc.') order by ngay_tao DESC';
+			$sth = $dbh->prepare($sql);
+			
+			$sth->execute(array('ma_dien_dan'=>$ma_dien_dan));
+			if($ds_thong_bao = $sth->fetchAll(PDO::FETCH_ASSOC))
+			{
+				$thong_bao_moi = $sth->rowCount();
+			}
+		}
 	}
-	//debug($forum);
 	
 	
 	

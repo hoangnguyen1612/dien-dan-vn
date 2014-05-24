@@ -10,6 +10,7 @@ function connection()
 	}
 	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERR_NONE);
 	return $dbh;
+
 }
 function get_subdomain()
 {
