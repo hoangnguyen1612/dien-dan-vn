@@ -15,10 +15,10 @@ try{
 	if(isset($_GET['tu_khoa'])){
 		
 		$tu_khoa = $_GET['tu_khoa'];		
-			$ds_thanh_vien = $dt_xl_thanh_vien_dien_dan->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_dien_dan ASC','thanh_vien_dien_dan.*,(Select ho_ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,"and ten_thanh_vien like '%$tu_khoa%'",true);
+			$ds_thanh_vien = $dt_xl_thanh_vien_dien_dan->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_dien_dan ASC','thanh_vien_dien_dan.*,(Select ho_ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,"and ten_thanh_vien like '%$tu_khoa%' and loai_thanh_vien != 0",true);
 	}else{
 		
-		$ds_thanh_vien = $dt_xl_thanh_vien_dien_dan->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_dien_dan ASC','thanh_vien_dien_dan.*,(Select ho_ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,'',true);
+		$ds_thanh_vien = $dt_xl_thanh_vien_dien_dan->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_dien_dan ASC','thanh_vien_dien_dan.*,(Select ho_ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,'and loai_thanh_vien != 0',true);
 		
 	}
 	$sl_thanh_vien = $dt_xl_thanh_vien_dien_dan->dem(array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_nguoi_dung',PDO::FETCH_ASSOC,'');

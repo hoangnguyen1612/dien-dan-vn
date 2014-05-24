@@ -36,11 +36,11 @@ function inputNumber(e)
       <fieldset>
         <p>
           <label class="admin_tieu_de">Tên<b style="color: red;"> (*)</b></label>
-          <input type="text" class="text-input medium-input" id="ten" name="data[ten]">
+          <input type="text" class="text-input medium-input" id="ten" name="data[ten]" value="{$smarty.session.data.ten|default:""}">
         </p>
         <p>
           <label class="admin_tieu_de">Ghi chú</label>
-          <input type="text" class="text-input medium-input" id="ten" name="data[ghi_chu]">
+          <input type="text" class="text-input medium-input" id="ten" name="data[ghi_chu]" value="{$smarty.session.data.ghi_chu|default:""}">
         </p>
         <p>
           <label class="admin_tieu_de">Mã Loại Cha</label>
@@ -75,7 +75,7 @@ function inputNumber(e)
         </p>
         <p>
           <label class="admin_tieu_de">Thứ Tự Hiển Thị</label>
-          <input type="text" value="0" name="data[thu_tu_hien_thi]" id="thu_tu_hien_thi" class="text-input small-input" onkeypress="return inputNumber(event)">
+          <input type="text" value="{$smarty.session.data.thu_tu_hien_thi|default:""}" name="data[thu_tu_hien_thi]" id="thu_tu_hien_thi" class="text-input small-input" onkeypress="return inputNumber(event)">
         </p>
         <p style="text-align:center">
           <input type="submit" value="Lưu Và Tiếp Tục" name="save-and-continue" class="button">
