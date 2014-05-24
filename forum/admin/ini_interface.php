@@ -5,3 +5,5 @@
 	$dt_smarty->setCompileDir('../templates_c/');
 	$dt_smarty->setConfigDir('../../configs/');
 	$dt_smarty->setCacheDir('../../cache/');
+	
+	$dt_smarty->assign('dien_dan', $dien_dan);

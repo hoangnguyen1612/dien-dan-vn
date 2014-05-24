@@ -1,11 +1,16 @@
 <div id="page-body">
   <main role="main">
-  {include "../elements/statistics.tpl"}
+  <!--{include "../elements/statistics.tpl"}-->
    {function in_loai_chuyen_muc}	
       {foreach $ds_lcm as $lcm}
       	{if $lcm.ma_loai_cha == $ma}
     <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
       <thead>
+        {if empty($thanh_vien) || $thanh_vien.loai_thanh_vien==3}
+        	{if $lcm.rieng_tu==1}
+            	{continue}
+            {/if}
+        {/if}     	
         <tr>
       
           <th data-class="expand" class="footable-first-column"><i class="icon-list-ol"></i> <a href="../bai_viet/index.php" data-original-title="" title=""> {$lcm.ten} </a></th>
@@ -15,18 +20,34 @@
         </tr>
       </thead>
       <tbody>
+      {$kt=0}
       	{foreach $ds_chuyen_muc as $chuyen_muc}
         	{if $chuyen_muc.ma_loai_cha == $lcm.ma}
+            {$kt=1}
         <tr>
-          <td title="No unread posts" class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/styles/BBOOTS/imageset/forum_read.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a class="feed-icon-forum hidden-phone" title="" href="../bai_viet/index.php?loai={$chuyen_muc.ma}" data-original-title="Feed - Your first forum"><i class="icon-rss rss-color-forum"></i></a> <a href="../bai_viet/index.php?loai={$chuyen_muc.ma}" class="forumtitle" data-original-title="" title="">{$chuyen_muc.ten}</a><br>
+          <td title="No unread posts" class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/images/icons/star-icon.png); background-repeat: no-repeat;" title="No unread posts"></i> 
+          <a class="feed-icon-forum hidden-phone" title="" href="../bai_viet/index.php?loai={$chuyen_muc.ma}" data-original-title="Bình chọn diễn đàn">
+          <img src="/forum/templates/images/icons/misc/star-icon.png" /></a> 
+          <a href="../bai_viet/index.php?loai={$chuyen_muc.ma}" class="forumtitle" data-original-title="" title="">{$chuyen_muc.ten}</a><br>
             <small>{$chuyen_muc.ghi_chu|default:''}</small></td>
-          <td class="center">{$chuyen_muc.so_luong_bai_viet}Chủ đề <br>
-            9 Bài viết </td>
-          <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="http://www.sitesplat.com/demo/phpBB3/memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">Hung</a> <a rel="tooltip" data-placement="right" data-original-title="View the latest post" href="http://www.sitesplat.com/demo/phpBB3/viewtopic.php?f=2&amp;p=27#p27"><i class="mobile-post icon-signout"></i></a> <br>
-            <i class="icon-time"></i> <small>03-04-2014, 02:07</small></td>
+          <td class="center"><!--{$chuyen_muc.so_luong_bai_viet}Chủ đề <br>-->
+            {dem_bai_viet($ma_dien_dan, $chuyen_muc.ma)} bài viết </td>
+            {$bai_viet_moi = bai_viet_moi($ma_dien_dan, $chuyen_muc.ma)}
+          <td class="center footable-last-column">
+          {if $bai_viet_moi!=0}
+          	<i class="icon-user"></i> bởi 
+          <a href="" data-original-title="" title="">{$nguoi_dung=ho_ten($bai_viet_moi.ma_nguoi_dang)}{$nguoi_dung.ho_ten}</a> <a rel="tooltip" data-placement="right" data-original-title="View the latest post" href=""><i class="mobile-post icon-signout"></i></a> <br>
+            <i class="icon-time"></i> <small>03-04-2014, 02:07</small>
+           {else if} 
+           	  0 bài viết
+           {/if}
+            
+            </td>
         </tr>  
         	{/if}
         {/foreach}
+        
+        {if $kt==0}<tr><td>Chưa có chuyên mục nào để hiển thị</td></tr>{/if}
       </tbody>
     </table> 
     	{/if}
@@ -59,7 +80,7 @@
 	  
  Promo Box  -->
     
-    <div class="row-fluid">
+    <!--<div class="row-fluid">
       <div class="span12 statistics">
         <div class="span6">
           <div class="side-segment">
@@ -77,6 +98,6 @@
           <p>Tổng số bài viết <strong>11</strong> • Tổng số chuyên mục <strong>9</strong> • Tổng số thành viên <strong>53</strong> • Thành viên mới nhất <strong><a href="http://www.sitesplat.com/demo/phpBB3/memberlist.php?mode=viewprofile&amp;u=111" data-original-title="" title="">Hung</a></strong></p>
         </div>
       </div>
-    </div>
+    </div>-->
   </main>
 </div>

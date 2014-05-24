@@ -45,7 +45,7 @@ function inputNumber(e)
         <p>
           <label class="admin_tieu_de">Mã Loại Cha</label>
           <select class="text-input small-input"  id="ma_loai_cha" name="data[ma_loai_cha]">
-            <option value="0">====Ko co loai cha =====</option>
+            <option value="0">==== Không có loại cha =====</option>
             
                     {*  Tuong tuong la se co 2 tham so nay: $ds_lcm,  $ma, kitu *}                                                            
                     {function in_loai_chuyen_muc}
