@@ -84,7 +84,7 @@
         <div class="btn-group"> <a href="./memberlist.php?mode=email&amp;t=15" title="" class="btn" data-original-title="E-mail friend"><i class="icon-envelope"></i></a><a class="btn" href="./viewtopic.php?f=2&amp;t=15&amp;view=print" title="" accesskey="p" data-original-title="Print view"><i class="icon-print"></i></a> </div>
         <div class="btn-group"> <a href="./viewtopic.php?uid=114&amp;f=2&amp;t=15&amp;unwatch=topic&amp;start=0&amp;hash=8846177a" class="btn" title="" data-original-title="Unsubscribe topic"><i class="icon-remove"> </i></a><a href="./viewtopic.php?f=2&amp;t=15&amp;bookmark=1&amp;hash=8846177a" class="btn" title="" data-original-title="Đánh dấu bài viết"><i class="icon-bookmark"></i></a> </div>
       </div>
-      <div class="pull-left"> <a href="../binh_luan/them.php?ma_bai_viet={$bai_viet.ma}" data-original-title="Bình luận bài viết" type="button" class="btn"><i class="icon-share-alt"></i>Bình luận</a> </div>
+      <div class="pull-left"> <a href="../binh_luan/them?ma_bai_viet={$bai_viet.ma}" data-original-title="Bình luận bài viết" type="button" class="btn"><i class="icon-share-alt"></i>Bình luận</a> </div>
     </div>
     <div class="space10"></div>
     {if $trang_hien_tai == 1}
@@ -94,11 +94,11 @@
           <div class="span3 hidden-phone" id="profile25">
             <div class="user-profile-tab">
               <div class="user-profile-avatar">
-                <div class="avatar-frame"> <a href="./memberlist.php?mode=viewprofile&amp;u=2" data-original-title="" title=""><img src="../../dien_dan_vn/upload/hinh_dai_dien/{$login.thumbnail}" width="100" height="100" alt="User avatar"></a> </div>
+                <div class="avatar-frame"> <a href="./memberlist.php?mode=viewprofile&amp;u=2" data-original-title="" title=""><img src="../../dien_dan_vn/upload/hinh_dai_dien/" width="100" height="100" alt="User avatar"></a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Tên</div>
-                <div class="user-profile-output"> <a href="../thong_tin_ca_nhan/index.php" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">Hung</a> </div>
+                <div class="user-profile-output"> <a href="../thong_tin_ca_nhan/index.php" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ten_nguoi_dang}</a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Quyền</div>
@@ -148,7 +148,7 @@
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Tên</div>
-                <div class="user-profile-output"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">Mimi</a> </div>
+                <div class="user-profile-output"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Bài viết</div>
@@ -163,6 +163,7 @@
           <div class="postbody span9">
             <div class="row-fluid">
               <ul class="inline pull-right hidden-phone">
+           
                 <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
                 <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}{$binh_luan_cha.ma_nguoi_dung}" data-original-title="Trả lời bài viết"><i class="icon-comment"></i></a></li>
                  <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}" data-original-title="Xem các trả lời"><i class="icon-comment"> <span class="badge badge-info"> 
@@ -193,7 +194,7 @@
           
           <div class="space10"></div>
           
-         <form action="../binh_luan/them_sm.php" method="post" onsubmit="return checkValidation()">
+         <form action="../binh_luan/them_sm" method="post" onsubmit="return checkValidation()">
         <div id="{$binh_luan_cha.ma}{$binh_luan_cha.ma_nguoi_dung}" class="widget-content collapse" style="height: 0px; border-top: 1px solid #CCC;width:80%;margin-left:20%">
           <div class="widget-content">
             <div class="space10"></div>
@@ -220,7 +221,7 @@
   
         {foreach $ds_binh_luan_con as $binh_luan_con}
         {if $binh_luan_con.ma_loai_cha == $binh_luan_cha.ma}
-        <article role="article" style="width:80%;margin-left:20%;">
+        <article role="article" style="width:98%;margin-left:2%;">
         <div  class="well well-small" style="background-color: white;margin-bottom:0px;border-radius:0px">
           <div class="span3 hidden-phone" id="profile26">
             <div class="user-profile-tab">
@@ -229,7 +230,7 @@
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Tên</div>
-                <div class="user-profile-output"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">Mimi</a> </div>
+                <div class="user-profile-output"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Bài viết</div>
@@ -281,7 +282,7 @@
     </div>
     {/foreach}
     
-    <form method="post" action="../binh_luan/them_sm.php" onsubmit="return checkValidation_1()">
+    <form method="post" action="../binh_luan/them_sm" onsubmit="return checkValidation_1()">
       <div class="well well-qr widget-collapsible"><!-- // Widget -->
         <div class="widget-header clickable collapsed" data-toggle="collapse" data-target="#target-col">
           <h4><i class="icon-edit"></i> Bình luận nhanh</h4>

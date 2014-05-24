@@ -18,7 +18,7 @@ try{
 	$start = $pt->tim_vi_tri_bat_dau();
 	
 	$chuyen_muc = $dt_xl_chuyen_muc->doc(array('ma'=>$loai));
-	$ds_bai_viet_theo_loai = $dt_xl_bai_viet->danh_sach($start,$limit,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>'abcd1234'),'ngay_tao DESC',"bai_viet.*,(Select ho_ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,'',true);
+	$ds_bai_viet_theo_loai = $dt_xl_bai_viet->danh_sach($start,$limit,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC',"bai_viet.*,(Select ho_ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,'',true);
 	$pt->tong_record = $ds_bai_viet_theo_loai[1];
 	$tong_so_trang = $pt->ceil_tong_so_trang();
 	$trang_hien_tai = $pt->tim_trang_hien_tai();

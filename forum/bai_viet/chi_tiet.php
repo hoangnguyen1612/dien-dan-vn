@@ -20,12 +20,12 @@ try{
 	$dt_xl_binh_luan = new xl_binh_luan;
 	$ma = $_GET['ma'];
 
-	$bai_viet = $dt_xl_bai_viet->doc(array('ma'=>$_GET['ma'],'ma_dien_dan'=>'abcd1234'),'bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang');
+	$bai_viet = $dt_xl_bai_viet->doc(array('ma'=>$_GET['ma'],'ma_dien_dan'=>$ma_dien_dan),'bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang');
 	
-	$bai_viet = $dt_xl_bai_viet->doc(array('ma'=>$ma,'ma_dien_dan'=>'abcd1234'),'bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang');
+	$bai_viet = $dt_xl_bai_viet->doc(array('ma'=>$ma,'ma_dien_dan'=>$ma_dien_dan),'bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang');
 
-	$ds_binh_luan_cha = $dt_xl_binh_luan->danh_sach($start,$limit,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>'abcd1234','ma_loai_cha'=>0),'ngay_tao ASC','binh_luan_bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'',true);
-	$ds_binh_luan_con = $dt_xl_binh_luan->danh_sach(0,0,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>'abcd1234'),'ngay_tao ASC','binh_luan_bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'and ma_loai_cha !=0',false);
+	$ds_binh_luan_cha = $dt_xl_binh_luan->danh_sach($start,$limit,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan,'ma_loai_cha'=>0),'ngay_tao ASC','binh_luan_bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'',true);
+	$ds_binh_luan_con = $dt_xl_binh_luan->danh_sach(0,0,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao ASC','binh_luan_bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'and ma_loai_cha !=0',false);
 	
 	$pt->tong_record = $ds_binh_luan_cha[1];
 	$tong_so_trang = $pt->ceil_tong_so_trang();
