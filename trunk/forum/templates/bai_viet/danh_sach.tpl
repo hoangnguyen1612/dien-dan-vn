@@ -72,9 +72,9 @@
         <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/images/icons/misc/{$bai_viet.icon}.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma={$bai_viet.ma}" class="topictitle" data-original-title="" title="">{$bai_viet.tieu_de|truncate:100:"..."}</a> <br>
           <i class="icon-user"></i> bởi <a href="./memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ho_ten}</a>&nbsp;&nbsp; <i class="icon-time"></i> <small>{date('H:i d-m-Y', strtotime($bai_viet.ngay_tao))}</small></td>
         <td class="center">{$bai_viet.so_luong_binh_luan} Trả lời <br>
-          388 Lần xem</td>
-        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">Hung</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến bình luận mới nhất" href="./chi_tiet.php"><i class="mobile-post icon-signout"></i></a> <br>
-          <i class="icon-time"></i> <small>03-04-2014, 02:07</small></td>
+          {$bai_viet.luot_xem} Lượt xem</td>
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet.ngay_tao))}</small></td>
       </tr>
       {/foreach}
       </tbody>
@@ -174,7 +174,7 @@
                               <option value="a">Tác giả</option>
                               <option value="t" selected="selected">Thời gian đăng bài</option>
                               <option value="r">Trả lời</option>
-                              <option value="v">Lần xem</option>
+                              <option value="v">Lượt xem</option>
                             </select>
                             
                           </div>

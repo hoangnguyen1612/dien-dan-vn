@@ -109,11 +109,11 @@
           <div class="span3 hidden-phone" id="profile25">
             <div class="user-profile-tab">
               <div class="user-profile-avatar">
-                <div class="avatar-frame"> <a href="./memberlist.php?mode=viewprofile&amp;u=2" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $bai_viet.thumbnail!=NULL}{$bai_viet.thumbnail}{else if $bai_viet.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" alt="User avatar"></a> </div>
+                <div class="avatar-frame"> <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $bai_viet.thumbnail!=NULL}{$bai_viet.thumbnail}{else if $bai_viet.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" alt="User avatar"></a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Tên</div>
-                <div class="user-profile-output"> <a href="../thong_tin_ca_nhan/index.php" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ten_nguoi_dang}</a> </div>
+                <div class="user-profile-output"> <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ten_nguoi_dang}</a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Quyền</div>

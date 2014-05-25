@@ -14,6 +14,8 @@
 	$dt_smarty->assign('ds_thong_bao', $ds_thong_bao);
 	$dt_smarty->assign('thong_bao_moi', $thong_bao_moi);
 	$dt_smarty->assign('ma_dien_dan', $ma_dien_dan);
+	$dt_smarty->assign('quyen', $quyen);
+	$dt_smarty->assign('ma_nguoi_dung', $ma_nguoi_dung);
 		
 		
 		

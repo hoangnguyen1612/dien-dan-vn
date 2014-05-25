@@ -5,6 +5,8 @@ try{
 	include '../classes/xl_bai_viet.php';
 	include '../classes/xl_chuyen_muc.php';
 	include '../classes/phan_trang_1.php';
+	include '../classes/xl_nguoi_dung.php';
+	
 	if(isset($_GET['loai'])){
 		$loai = $_GET['loai'];
 	}

@@ -25,6 +25,7 @@
 	$thanh_vien = '';
 	$ds_thong_bao = 'asas';
 	$thong_bao_moi = 0;
+	$quyen = array(0=>'Chủ diễn đàn', 1=>'Quản trị', 2=>'Thành viên');
 	
 	if(isset($_SESSION['login']))
 	{
