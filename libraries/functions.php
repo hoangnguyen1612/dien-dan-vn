@@ -12,6 +12,22 @@ function connection()
 	return $dbh;
 
 }
+function kiem_tra_quyen()
+{
+	global $login, $thanh_vien;
+	if($login=='')
+	{
+		throw new Exception('Vui lòng đăng nhập để thực hiện chức năng này');
+	} 
+	if($thanh_vien=='')
+	{
+		throw new Exception('Vui lòng tham gia diễn đàn để thực hiện chức năng này');
+	}
+	if($thanh_vien['loai_thanh_vien']==3)
+	{
+		throw new Exception('Bạn chưa là thành viên của diễn đàn, vui lòng quay lại sau');
+	}
+}
 function get_subdomain()
 {
 	global $dbh;
