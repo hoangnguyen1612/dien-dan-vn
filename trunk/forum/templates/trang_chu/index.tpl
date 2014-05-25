@@ -42,7 +42,7 @@
           <td class="center footable-last-column">
           {if $bai_viet_moi!=0}
           	<i class="icon-user"></i> bởi 
-          <a href="" data-original-title="" title="">{$nguoi_dung=ho_ten($bai_viet_moi.ma_nguoi_dang)}{$nguoi_dung.ho_ten}</a> <a rel="tooltip" data-placement="right" data-original-title="View the latest post" href=""><i class="mobile-post icon-signout"></i></a> <br>
+          <a href="" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="View the latest post" href=""><i class="mobile-post icon-signout"></i></a> <br>
             <i class="icon-time"></i> <small>03-04-2014, 02:07</small>
            {else if} 
            	  0 bài viết

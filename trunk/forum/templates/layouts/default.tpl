@@ -103,7 +103,7 @@ head.ready(function() {
             <ul class="dropdown-menu" id="dropdown-menu">
               <li><a title="" href="./ucp.php?i=profile" data-original-title=""><i class="icon-user"></i>Thành Viên</a></li>
               <li><a title="" href="#thong_bao_moi" rel="leanModal"><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info">{$thong_bao_moi}</span></a></li>
-              <li><a title="" href="/nguoi_dung/quan_ly_tai_khoan.html" data-original-title=""><i class="icon-cog"></i>Quản Lý Tài Khoản</a></li>
+              <li><a title="" href="/{$ma_dien_dan}/thanh_vien/thong_tin" data-original-title=""><i class="icon-cog"></i>Thông Tin Thành Viên</a></li>
               {if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}<li><a title="" href="/{$dien_dan.ma}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>{/if}
               <li><a title="" href="./ucp.php?mode=logout&amp;sid=b3e0d35dad8925f9d80fb5a1387e5b2f" data-original-title=""><i class="icon-off"></i>Đăng Xuất</a></li>
             </ul>

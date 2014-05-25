@@ -6,19 +6,8 @@ try{
 
 	$xl_feedback_binh_luan = new xl_feedback_binh_luan;
 	
-	if($login=='')
-	{
-		throw new Exception('Vui lòng đăng nhập để thực hiện chức năng này');
-	} 
-	if($thanh_vien=='')
-	{
-		throw new Exception('Vui lòng tham gia diễn đàn để thực hiện chức năng này');
-	}
-	if($thanh_vien['loai_thanh_vien']==3)
-	{
-		throw new Exception('Bạn chưa là thành viên của diễn đàn, vui lòng quay lại sau');
-	}
-
+	kiem_tra_quyen();
+	
 	if(empty($_GET['ma_binh_luan']))
 	{
 		throw new Exception('Mã bình luận không hợp lệ');
