@@ -132,9 +132,11 @@
         	<div class="feedback-article">
           <div class="circle-text" style="float:left"><a data-original-title="Mức độ tin tưởng bài viết"><div>{$bai_viet.feedback}%</div></a></div>
           <div style="margin-top:3px;display:inline-block">
-               <a href="../bai_viet/feedback?ma_bai_viet={$bai_viet.ma}&loai=0" title="" data-original-title="Không thích" style="color:crimson"><i class="icon-thumbs-down-alt " style="color:crimson;font-size:1.2em;"></i> </a>
-                <span style="font-weight:bold; color: #666; font-size: 1.2em">|</span> 
                <a href="../bai_viet/feedback?ma_bai_viet={$bai_viet.ma}&loai=1" title="" data-original-title="Thích" style="color:crimson"><i class="icon-thumbs-up-alt" style="color:crimson;font-size:1.2em"></i></a>
+               <span style="font-weight:bold; color: #666; font-size: 1.2em">|</span> 
+               <a href="../bai_viet/feedback?ma_bai_viet={$bai_viet.ma}&loai=0" title="" data-original-title="Không thích" style="color:crimson"><i class="icon-thumbs-down-alt " style="color:crimson;font-size:1.2em;"></i> </a>
+                
+               
           </div>     
        		</div>
           <div class="postbody span9">
