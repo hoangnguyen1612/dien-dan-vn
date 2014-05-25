@@ -18,7 +18,7 @@ try{
 	{
 		throw new Exception('Bạn chưa là thành viên của diễn đàn, vui lòng quay lại sau');
 	}
-	
+
 	if(empty($_GET['ma_binh_luan']))
 	{
 		throw new Exception('Mã bình luận không hợp lệ');
@@ -27,7 +27,7 @@ try{
 	{
 		throw new Exception('Loại bình chọn không hợp lệ');
 	}
-
+	
 	$loai = $_GET['loai'];
 	$ma_binh_luan = $_GET['ma_binh_luan'];
 	
@@ -47,8 +47,9 @@ try{
 		{
 			throw new Exception('Vui lòng quay lại sau 5 phút để bình chọn cho bình luận này');
 		}
+		
+		$xl_feedback_binh_luan->xoa(array('ma'=>$fb['ma']));
 	}
-	$xl_feedback_binh_luan->xoa(array('ma'=>$fb['ma']));
 	
 	$xl_feedback_binh_luan->them(array('ma_binh_luan'=>$ma_binh_luan, 'loai'=>$loai, 'ngay_tao'=>date('Y-m-d H:i:s'), 'ma_nguoi_dung'=>$ma_nguoi_dung));
 	
