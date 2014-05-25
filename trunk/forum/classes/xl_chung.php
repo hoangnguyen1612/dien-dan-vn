@@ -113,6 +113,7 @@ class xl_chung{
 		$chuoi = trim($chuoi, ',');
 		
 		$sql = "UPDATE `{$this->bang}` SET {$chuoi} WHERE `{$ma}` = :{$ma} LIMIT 1";
+		echo $sql;exit;
 	
 		$sth = $dbh->prepare($sql);
 		return $sth->execute($du_lieu);
