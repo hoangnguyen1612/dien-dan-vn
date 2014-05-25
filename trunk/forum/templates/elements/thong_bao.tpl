@@ -15,7 +15,7 @@ background-color: #F6F6F6; -webkit-border-top-left-radius: 3px;-webkit-border-to
         	<td style="width: 5%"><i class="icon-plus-sign" style="color: #169FE6"></i></td>
             <td style="width: 95%">
             	<a href="
-                	{if $thong_bao.ma_loai_thong_bao == 0}/{$dien_dan.ma}/thanh_vien/yeu_cau_tham_gia?ma_thong_bao={$thong_bao.ma}{/if}
+                	{if $thong_bao.ma_loai_thong_bao == 0}/{$dien_dan.ma}/thanh_vien/da_doc?ma_thong_bao={$thong_bao.ma}{/if}
                 ">{$thong_bao.noi_dung}</a></td>
         </tr>
     {/foreach}

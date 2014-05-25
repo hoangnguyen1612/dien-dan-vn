@@ -1,7 +1,8 @@
 <div id="page-body">
   <main role="main">
   <!--{include "../elements/statistics.tpl"}-->
-   {function in_loai_chuyen_muc}	
+   {function in_loai_chuyen_muc}
+   {if empty($ds_lcm)}<span style="color: #999">Chưa có chuyên mục nào để hiển thị</span>{else if}	
       {foreach $ds_lcm as $lcm}
       	{if $lcm.ma_loai_cha == $ma}
     <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
@@ -24,11 +25,16 @@
       	{foreach $ds_chuyen_muc as $chuyen_muc}
         	{if $chuyen_muc.ma_loai_cha == $lcm.ma}
             {$kt=1}
-        <tr>
-          <td title="No unread posts" class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/images/icons/star-icon.png); background-repeat: no-repeat;" title="No unread posts"></i> 
+            	{if empty($thanh_vien) || $thanh_vien.loai_thanh_vien==3}
+                    {if $chuyen_muc.rieng_tu==1}
+                        {continue}
+                    {/if}
+        		{/if}
+       			 <tr>
+          <td title="No unread posts" class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/styles/BBOOTS/imageset/forum_read.gif); background-repeat: no-repeat;" title="No unread posts"></i> 
           <a class="feed-icon-forum hidden-phone" title="" href="../bai_viet/index.php?loai={$chuyen_muc.ma}" data-original-title="Bình chọn diễn đàn">
           <img src="/forum/templates/images/icons/misc/star-icon.png" /></a> 
-          <a href="../bai_viet/index.php?loai={$chuyen_muc.ma}" class="forumtitle" data-original-title="" title="">{$chuyen_muc.ten}</a><br>
+          <a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}" class="forumtitle" data-original-title="" title="">{$chuyen_muc.ten}</a><br>
             <small>{$chuyen_muc.ghi_chu|default:''}</small></td>
           <td class="center"><!--{$chuyen_muc.so_luong_bai_viet}Chủ đề <br>-->
             {dem_bai_viet($ma_dien_dan, $chuyen_muc.ma)} bài viết </td>
@@ -51,7 +57,7 @@
       </tbody>
     </table> 
     	{/if}
-       {/foreach}
+       {/foreach}{/if}
        {/function}                 
        {in_loai_chuyen_muc  ds_lcm=$ds_chuyen_muc ma=0}
     <div class="row-fluid"> </div>

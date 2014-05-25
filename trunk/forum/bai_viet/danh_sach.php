@@ -32,7 +32,7 @@ try{
 	$dt_smarty->assign('ds_bai_viet_theo_loai', $ds_bai_viet_theo_loai[0]);
 	$dt_smarty->assign('tong_so_bai_viet' , $ds_bai_viet_theo_loai[1]);
 		
-	$contentForLayout = $dt_smarty->fetch('bai_viet/index.tpl');
+	$contentForLayout = $dt_smarty->fetch('bai_viet/danh_sach.tpl');
 	
 	$dt_smarty->assign('contentForLayout', $contentForLayout);
 	$dt_smarty->display('layouts/default.tpl');

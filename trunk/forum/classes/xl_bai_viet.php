@@ -15,3 +15,8 @@ function bai_viet_moi($ma_dien_dan, $ma_loai_chuyen_muc)
 	return $xl_bai_viet->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ma_loai_chuyen_muc'=>$ma_loai_chuyen_muc), 'ngay_tao, ma, ma_nguoi_dang', 
 	PDO::FETCH_ASSOC, " and ngay_tao = (select max(ngay_tao) from `bai_viet` where ma_dien_dan = $ma_dien_dan and ma_loai_chuyen_muc = $ma_loai_chuyen_muc)");
 }
+function dem_bai_viet_thanh_vien($ma_dien_dan, $ma_nguoi_dang)
+{
+	$xl_bai_viet = new xl_bai_viet;
+	return $xl_bai_viet->dem(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dang'=>$ma_nguoi_dang));
+}
