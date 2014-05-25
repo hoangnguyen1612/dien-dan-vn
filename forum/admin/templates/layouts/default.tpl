@@ -100,6 +100,7 @@
 				  <li><a href="../loai_chuyen_muc/danh_sach.php" id="loai_bai_viet_danh_sach.php">Xem Danh Sách</a></li>
 				</ul>
 				</li>
+                <!--
 				<li><a class="nav-top-item" href="#" id="lien_he">Liên Hệ</a>
 				<ul>
 				  <li><a href="../lien_he/thong_tin_lien_he.php" id="lien_he_thong_tin_lien_he.php">Thông Tin Liên Hệ</a></li>
@@ -133,6 +134,7 @@
 				  <li><a href="../cau_hinh/cau_hinh.php" id="cau_hinh_cau_hinh.php">Cấu Hình Website</a></li>          
 				</ul>
 				</li>
+                -->
 			</ul>						
 			
 			<script>
