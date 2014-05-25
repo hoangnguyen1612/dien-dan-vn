@@ -21,6 +21,7 @@
 
 	
 	###
+	$ma_nguoi_dung = '';
 	$login = '';
 	$thanh_vien = '';
 	$ds_thong_bao = 'asas';

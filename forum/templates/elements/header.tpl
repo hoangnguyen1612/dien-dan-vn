@@ -33,8 +33,8 @@
             <li><a href="#" data-original-title="" title=""><i class="icon-search icon-flip-horizontal"></i> Tìm kiếm theo chủ đề</a><span></span></li>
           </ul>
         </li>
-        <li class="nav-icon"> <a href="./ucp.php?mode=login&amp;sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title="">THÀNH VIÊN <span class="has-sub"><i class="icon-signin"></i></span></a>
-          <p>Quản lý tài khoản</p>
+        <li class="nav-icon"> <a href="/{$ma_dien_dan}/thanh_vien/danh_sach" data-original-title="" title="">THÀNH VIÊN <span class="has-sub"><i class="icon-signin"></i></span></a>
+          <p>Danh sách</p>
         </li>
         <li class="nav-icon"> <a href="./ucp.php?mode=register&amp;sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title="">LIÊN HỆ <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
           <p>Gửi liên hệ</p>
