@@ -20,7 +20,7 @@ try{
 		exit;
 	}
 	
-	$data['ngay_tao'] = date('Y-m-d h:i:s');
+	$data['ngay_tao'] = date('Y-m-d H:i:s');
 	$data['ma_nguoi_dang'] = $login['ma'];
 	$data['ma_dien_dan'] = $ma_dien_dan;
 	$ma_chuyen_muc = $data['ma_loai_chuyen_muc'];
@@ -30,7 +30,7 @@ try{
 		echo 'Lỗi khi đăng bài , vui lòng thử lại sao';
 		exit;
 	}
-	header("Location:/$ma_dien_dan/bai_viet/index?loai=$ma_chuyen_muc");
+	header("Location:/$ma_dien_dan/bai_viet/danh_sach?loai=$ma_chuyen_muc");
 	exit;
 	
 

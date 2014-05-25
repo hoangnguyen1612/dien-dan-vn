@@ -94,7 +94,7 @@
           <div class="span3 hidden-phone" id="profile25">
             <div class="user-profile-tab">
               <div class="user-profile-avatar">
-                <div class="avatar-frame"> <a href="./memberlist.php?mode=viewprofile&amp;u=2" data-original-title="" title=""><img src="../../dien_dan_vn/upload/hinh_dai_dien/" width="100" height="100" alt="User avatar"></a> </div>
+                <div class="avatar-frame"> <a href="./memberlist.php?mode=viewprofile&amp;u=2" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $bai_viet.thumbnail!=NULL}{$bai_viet.thumbnail}{else if $bai_viet.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" alt="User avatar"></a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Tên</div>
@@ -102,23 +102,23 @@
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Quyền</div>
-                <div class="user-profile-output"> Site Admin </div>
+                <div class="user-profile-output"> {$quyen[$bai_viet.ma_loai_thanh_vien]} </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Bài viết</div>
-                <div class="user-profile-output"> 9 </div>
+                <div class="user-profile-output"> {dem_bai_viet_thanh_vien($ma_dien_dan, $bai_viet.ma_nguoi_dang)} </div>
               </div>
               <div class="user-profile-row">
-                <div class="user-profile-tag">Gia nhập</div>
-                <div class="user-profile-output"> 01-12-2013 </div>
+                <div class="user-profile-tag">Tham gia</div>
+                <div class="user-profile-output"> {date('d-m-Y', strtotime($bai_viet.ngay_gia_nhap))} </div>
               </div>
             </div>
           </div>
+          <div class="feedback-comment">
+          	<i class="icon-ok-sign" style="color:green;font-size:2em"></i>
+          </div>
           <div class="postbody span9">
             <div class="row-fluid">
-              <ul class="inline pull-right hidden-phone">
-                <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
-              </ul>
               <ul class="inline pull-right visible-phone">
                 <li><a class="btn btn-small" href="./report.php?f=2&amp;p=25" title="" data-original-title="Report this post"><i class="icon-exclamation-sign"></i></a></li>
               </ul>
@@ -127,10 +127,13 @@
               </div>
             </div>
             <div class="row-fluid">
-              <div class="pull-left timepost"> <a href="./viewtopic.php?p=25#p25" title="" data-original-title="Post">#1</a> bởi <strong><a href="../thong_tin_ca_nhan/index.php" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ten_nguoi_dang}</a></strong> <i class="icon-time"></i> {date('h:i d/m/Y',strtotime($bai_viet.ngay_tao))} </div>
+              <div class="pull-left timepost"> <a href="./viewtopic.php?p=25#p25" title="" data-original-title="Post"></a> bởi &nbsp;<strong><a href="../thong_tin_ca_nhan/index.php" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ten_nguoi_dang}</a></strong>&nbsp; <i class="icon-time"></i> {date('h:i d-m-Y',strtotime($bai_viet.ngay_tao))} </div>
             </div>
             <div class="space10"></div>
-            <div class="content">{$bai_viet.noi_dung}</div>
+            <div class="content" style="text-align:justify">{$bai_viet.noi_dung}</div>
+            <ul class="inline pull-right hidden-phone">
+                <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
+              </ul>
           </div>
           <div class="space10"></div>
         </div>
@@ -142,44 +145,35 @@
       <article role="article">
         <div class="well well-small ">
           <div class="span3 hidden-phone" id="profile26">
-            <div class="user-profile-tab">
-              <div class="user-profile-avatar">
-                <div class="avatar-frame"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title=""><img src="./images/avatars/random/user10.png" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
+                <div class="user-profile-tab">
+                  <div class="user-profile-avatar">
+                    <div class="avatar-frame"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_cha.thumbnail!=NULL}{$binh_luan_cha.thumbnail}{else if $binh_luan_cha.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
+                  </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Tên</div>
+                    <div class="user-profile-output"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a> </div>
+                  </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Tham gia</div>
+                    <div class="user-profile-output"> {date('d-m-Y', strtotime($binh_luan_cha.ngay_gia_nhap))} </div>
+                  </div>
+                </div>
               </div>
-              <div class="user-profile-row">
-                <div class="user-profile-tag">Tên</div>
-                <div class="user-profile-output"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a> </div>
-              </div>
-              <div class="user-profile-row">
-                <div class="user-profile-tag">Bài viết</div>
-                <div class="user-profile-output"> 2 </div>
-              </div>
-              <div class="user-profile-row">
-                <div class="user-profile-tag">Tham gia</div>
-                <div class="user-profile-output"> 03-04-2014 </div>
-              </div>
-            </div>
+           <!--===================================================FEDDBACK COMMENTS================================================================== -->                
+          <div class="feedback-comment">
+            {if $binh_luan_cha.dung == 1}<i class="icon-ok-sign" style="color:green;font-size:2em"></i><br /><br />{/if}
+                <a href="../binh_luan/cap_nhat_binh_luan_giup_ich?ma={$binh_luan_cha.ma}" title="" data-original-title="Không thích" style="color:crimson"><i class="icon-chevron-left like" style="color:#999;font-size:1.2em;"></i> </a>
+                
+                    <span style="font-weight:bold; color: #666; font-size: 1.2em">{dem_feedback_binh_luan($binh_luan_cha.ma)}</span> 
+               
+               <a href="../binh_luan/feedback?ma_binh_luan={$binh_luan_cha.ma}&loai=1" title="" data-original-title="Thích" style="color:crimson"><i class="icon-chevron-right like" style="color:#999;font-size:1.2em"></i></a>
           </div>
+      
+      
+    <!--=======================================================COMMENTS PARENT============================================================== -->         
+              
           <div class="postbody span9">
-            <div class="row-fluid">
-              <ul class="inline pull-right hidden-phone">
-              {if $smarty.session.login.ma == $bai_viet.ma_nguoi_dang}
-            <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_giup_ich?ma={$binh_luan_cha.ma}" title="" data-original-title="Bình luận giúp ích" style="color:crimson"><i class="icon-thumbs-up-alt"></i></a></li>
-            <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_cha.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
-              {/if}
-                <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
-                <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}{$binh_luan_cha.ma_nguoi_dung}" data-original-title="Trả lời bài viết"><i class="icon-comment"></i></a></li>
-                 <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}" data-original-title="Xem các trả lời"><i class="icon-comment"> <span class="badge badge-info"> 
-                    {foreach $ds_binh_luan_con as $binh_luan_con}
-                    	{if $binh_luan_con.ma_loai_cha == $binh_luan_cha.ma}
-                        	{$dem = $dem + 1}
-                        {/if}                   
-                    {/foreach}   
-                    	{$dem} 
-                  {$dem = 0}
-                 </span></i></a></li>
-              </ul>
-          
+            <div class="row-fluid">    
               <ul class="inline pull-right visible-phone">
                 <li><a class="btn btn-small" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
                 <li><a class="btn btn-small" href="javascript:void(0);" title="" data-original-title="Trả lời bài viết"><i class="icon-comment" id="target-shown"></i></a></li>
@@ -187,21 +181,31 @@
               <div class="pull-left">
              
                 <h3> 	
-                {if $binh_luan_cha.dung == 1}
-                <a data-original-title="Bài viết đúng"><i class="icon-ok-sign" style="color:green;font-size:36px"></i></a>
-                {/if}
-                {if $binh_luan_cha.giup_ich == 1}
-                <a data-original-title="Bài viết giúp ích"><i class="icon-thumbs-up-alt" style="color:crimson;font-size:36px"></i></a>
-                {/if}
                 <a href="#p26" data-original-title="" title="">{$binh_luan_cha.tieu_de}</a>
                 </h3>
               </div>
             </div>
             <div class="row-fluid">
-              <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post">#2</a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a></strong> <i class="icon-time"></i> {date('h:i d/m/Y',strtotime($binh_luan_cha.ngay_tao))} </div>
+              <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post"></a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a></strong> <i class="icon-time"></i> {date('h:i d/m/Y',strtotime($binh_luan_cha.ngay_tao))} </div>
             </div>
             <div class="space10"></div>
             <div class="content">{$binh_luan_cha.noi_dung}</div>
+            <ul class="inline pull-right hidden-phone">
+                  {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
+                <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_cha.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
+                  {/if}
+                    <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
+                    <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}{$binh_luan_cha.ma_nguoi_dung}" data-original-title="Trả lời bài viết"><i class="icon-comment"></i></a></li>
+                     <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}" data-original-title="Xem các trả lời"><i class="icon-comment"> <span class="badge badge-info"> 
+                        {foreach $ds_binh_luan_con as $binh_luan_con}
+                            {if $binh_luan_con.ma_loai_cha == $binh_luan_cha.ma}
+                                {$dem = $dem + 1}
+                            {/if}                   
+                        {/foreach}   
+                            {$dem} 
+                      {$dem = 0}
+                     </span></i></a></li>
+                  </ul>
           </div>
           
           <div class="space10"></div>
@@ -236,57 +240,53 @@
         <article role="article" style="width:98%;margin-left:2%;">
         <div  class="well well-small" style="background-color: white;margin-bottom:0px;border-radius:0px">
           <div class="span3 hidden-phone" id="profile26">
-            <div class="user-profile-tab">
-              <div class="user-profile-avatar">
-                <div class="avatar-frame"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title=""><img src="./images/avatars/random/user10.png" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
+                <div class="user-profile-tab">
+                  <div class="user-profile-avatar">
+                    <div class="avatar-frame"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_con.thumbnail!=NULL}{$binh_luan_con.thumbnail}{else if $binh_luan_con.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
+                  </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Tên</div>
+                    <div class="user-profile-output"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a> </div>
+                  </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Tham gia</div>
+                    <div class="user-profile-output"> {date('d-m-Y', strtotime($binh_luan_con.ngay_gia_nhap))} </div>
+                  </div>
+                </div>
               </div>
-              <div class="user-profile-row">
-                <div class="user-profile-tag">Tên</div>
-                <div class="user-profile-output"> <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a> </div>
+          <div class="feedback-comment">
+                {if $binh_luan_con.dung == 1}<i class="icon-ok-sign" style="color:green;font-size:2em"></i><br /><br />{/if}
+                    <a href="../binh_luan/cap_nhat_binh_luan_giup_ich?ma={$binh_luan_con.ma}" title="" data-original-title="Không thích" style="color:crimson"><i class="icon-chevron-left like" style="color:#999;font-size:1.2em;"></i> </a>
+                    
+                        <span style="font-weight:bold; color: #666; font-size: 1.2em">{dem_feedback_binh_luan($binh_luan_con.ma)}</span> 
+                   
+                   <a href="../binh_luan/feedback?ma_binh_luan={$binh_luan_con.ma}&loai=1" title="" data-original-title="Thích" style="color:crimson"><i class="icon-chevron-right like" style="color:#999;font-size:1.2em"></i></a>
               </div>
-              <div class="user-profile-row">
-                <div class="user-profile-tag">Bài viết</div>
-                <div class="user-profile-output"> 2 </div>
-              </div>
-              <div class="user-profile-row">
-                <div class="user-profile-tag">Tham gia</div>
-                <div class="user-profile-output"> 03-04-2014 </div>
-              </div>
-            </div>
-          </div>
           <div class="postbody span9">
-            <div class="row-fluid">
-              <ul class="inline pull-right hidden-phone">
-               {if $smarty.session.login.ma == $bai_viet.ma_nguoi_dang}
-            <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_giup_ich?ma={$binh_luan_con.ma}" title="" data-original-title="Bình luận giúp ích" style="color:crimson"><i class="icon-thumbs-up-alt"></i></a></li>
-            <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_con.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
-              {/if}
-                <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
-              
-              </ul>
-          
-              <ul class="inline pull-right visible-phone">
-                <li><a class="btn btn-small" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
-               
-              </ul>
-              <div class="pull-left">
-                <h3>
-                {if $binh_luan_con.dung == 1}
-                <a data-original-title="Bài viết đúng"><i class="icon-ok-sign" style="color:green;font-size:36px"></i></a>
-                {/if}
-                {if $binh_luan_con.giup_ich == 1}
-                <a data-original-title="Bài viết giúp ích"><i class="icon-thumbs-up-alt" style="color:crimson;font-size:36px"></i></a>
-                {/if}
-                <a href="#p26" data-original-title="" title="">{$binh_luan_con.tieu_de}</a>
-                </h3>
+                <div class="row-fluid">
+                  <ul class="inline pull-right visible-phone">
+                    <li><a class="btn btn-small" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
+                   
+                  </ul>
+                  <div class="pull-left">
+                    <h3>
+                    <a href="#p26" data-original-title="" title="">{$binh_luan_con.tieu_de}</a>
+                    </h3>
+                  </div>
+                </div>
+                <div class="row-fluid">
+                  <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post"></a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a></strong>&nbsp; <i class="icon-time"></i>{date('h:i d/m/Y',strtotime($binh_luan_con.ngay_tao))}</div>
+                </div>
+                <div class="space18"></div>
+                <div class="content">{$binh_luan_con.noi_dung}</div>
+                <ul class="inline pull-right hidden-phone">
+                   {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
+                <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_con.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
+                  {/if}
+                    <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
+                  
+                  </ul>
               </div>
-            </div>
-            <div class="row-fluid">
-              <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post">#2</a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a></strong> <i class="icon-time"></i>{date('h:i d/m/Y',strtotime($binh_luan_con.ngay_tao))}</div>
-            </div>
-            <div class="space10"></div>
-            <div class="content">{$binh_luan_con.noi_dung}</div>
-          </div>
           
           <div class="space10"></div>    
         </div>

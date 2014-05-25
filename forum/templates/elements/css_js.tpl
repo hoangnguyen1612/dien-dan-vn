@@ -27,7 +27,7 @@
 <!-- Footable CSS files --><!-- FontAwesome CSS files -->
 <link href="/forum/templates/styles/BBOOTS/theme/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="/forum/templates/css/general.css" rel="stylesheet" type="text/css">
-<link href="/forum/templates/css/colors/color-1.css" rel="stylesheet" id="color">
+<link href="/forum/templates/css/colors/{$ds_cau_hinh.CSS}.css" rel="stylesheet" id="color">
 <!-- Custom Font CSS files -->
 
 

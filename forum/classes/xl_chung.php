@@ -18,7 +18,6 @@ class xl_chung{
 			$chuoi .= " WHERE $chuoi_dieu_kien";
 		}
 		$sql = "SELECT Count(`{$ma}`) as so_luong {$chuoi} {$them_cau_truy_van}";
-
 		$sth = $dbh->prepare($sql);
 		$sth->execute($du_lieu);
 		$sl = $sth->fetchColumn(0);

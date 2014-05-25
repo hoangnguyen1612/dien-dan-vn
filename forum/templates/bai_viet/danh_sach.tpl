@@ -52,20 +52,25 @@
         <tr>
           <th data-class="expand" class="footable-first-column"><i class="icon-group"></i> Bài viết</th>
           <th data-hide="phone"><i class="icon-bar-chart"></i> Thống kê</th>
-          <th data-hide="phone" class="footable-last-column"><i class="icon-comments-alt"></i> Bài viết mới</th>
+          <th data-hide="phone" class="footable-last-column"><i class="icon-comments-alt"></i> Bình luận mới</th>
         </tr>
       </thead>
       <tbody>
       
       {if $ds_bai_viet_theo_loai == NULL}
       <tr>
-        <td>Chuyên mục chưa có bài đăng nào</td>
+        <td>Chưa có bài viết nào để hiển thị</td>
       </tr>
       {/if}
       {foreach $ds_bai_viet_theo_loai as $bai_viet}
-      <tr class="">
+      	{if empty($thanh_vien) || $thanh_vien.loai_thanh_vien==3}
+        	{if $bai_viet.rieng_tu==1}
+            	{continue}
+            {/if}
+        {/if} 	
+        	<tr class="">
         <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/images/icons/misc/{$bai_viet.icon}.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma={$bai_viet.ma}" class="topictitle" data-original-title="" title="">{$bai_viet.tieu_de|truncate:100:"..."}</a> <br>
-          <i class="icon-user"></i> bởi <a href="./memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ho_ten}</a> <i class="icon-time"></i> <small>{$bai_viet.ngay_tao}</small></td>
+          <i class="icon-user"></i> bởi <a href="./memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ho_ten}</a>&nbsp;&nbsp; <i class="icon-time"></i> <small>{date('H:i d-m-Y', strtotime($bai_viet.ngay_tao))}</small></td>
         <td class="center">{$bai_viet.so_luong_binh_luan} Trả lời <br>
           388 Lần xem</td>
         <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">Hung</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến bình luận mới nhất" href="./chi_tiet.php"><i class="mobile-post icon-signout"></i></a> <br>
