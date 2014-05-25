@@ -10,7 +10,7 @@
     </div>
     <nav class="mainnav" role="navigation" aria-label="Primary"><!-- Main navigation block -->
       <ul>
-        <li class="nav-icon"> <a href="../trang_chu/index.php" data-original-title="" title="">TRANG CHỦ<span class="has-sub"><i class="icon-home"></i></span></a>
+        <li class="nav-icon"> <a href="/{$dien_dan.ma}" data-original-title="" title="">TRANG CHỦ<span class="has-sub"><i class="icon-home"></i></span></a>
           <p>{$dien_dan.ten}</p>
           <!--<ul class="submenu">
             <li><a href="./elements.php?sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-magic"></i> Bootstrap Elements</a><span></span></li>
@@ -21,8 +21,8 @@
         <li class="nav-icon"> <a href="#" data-original-title="" title="">BÀI VIẾT <span class="has-sub"><i class="icon-comments"></i></span></a>
           <p>Tạo và xem bài viết</p>
           <ul class="submenu">
-            <li><a href="./search.php?search_id=unanswered&amp;sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-search"></i> Xem các bài viết chưa có bình luận</a><span></span></li>
-            <li><a href="./search.php?search_id=active_topics&amp;sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-star"></i>Xem các bài viết được bình chọn nhiều</a><span></span></li>
+            <li><a href="/{$dien_dan.ma}/bai_viet/danh_sach_theo_loai?loai=0" data-original-title="" title=""><i class="icon-search"></i> Xem 10 bài viết mới nhất</a><span></span></li>
+            <li><a href="/{$dien_dan.ma}/bai_viet/danh_sach_theo_loai?loai=1" data-original-title="" title=""><i class="icon-star"></i>Xem 10 bài viết được bình chọn nhiều</a><span></span></li>
           </ul>
         </li>
         <li class="nav-icon"> <a href="#" data-original-title="" title="">TÌM KIẾM <span class="has-sub"><i class="icon-search icon-flip-horizontal"></i></span></a>
