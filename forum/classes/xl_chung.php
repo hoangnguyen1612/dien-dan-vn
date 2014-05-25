@@ -213,7 +213,7 @@ class xl_chung{
 		return $sth->execute();
 	}
 	#cập nhật bộ đếm
-	function cap_nhat_bo_dem($ma, $cot = 'so_lan_xem')
+	function cap_nhat_bo_dem($ma, $cot = 'luot_xem')
 	{
 		global $dbh;
 		

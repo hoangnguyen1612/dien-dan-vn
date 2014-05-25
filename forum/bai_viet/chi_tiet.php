@@ -8,23 +8,29 @@ try{
 	include '../classes/xl_feedback_binh_luan.php';
 	
 	if(empty($_GET['ma'])){
-		echo 'Vui lòng nhập mã bài viết';
-		exit;
+		throw new Exception( 'Vui lòng nhập mã bài viết');
 	}
+	$dt_xl_bai_viet = new xl_bai_viet;
+	$dt_xl_binh_luan = new xl_binh_luan;
+	
+	
 	$limit = 4; // Số lượng bài viết trên 1 trang
 	$pt = new phan_trang('page',$limit);
-	
-	$quyen = array(0=>'Chủ diễn đàn', 1=>'Quản trị', 2=>'Thành viên');
+
 	$dt_smarty->assign('quyen', $quyen);
 	
 	$pt->so_pt_tren_mot_trang = $limit;
 	$start = $pt->tim_vi_tri_bat_dau();
 	
-	$dt_xl_bai_viet = new xl_bai_viet;
-	$dt_xl_binh_luan = new xl_binh_luan;
 	$ma = $_GET['ma'];
 
 	$bai_viet = $dt_xl_bai_viet->doc(array('ma'=>$ma,'ma_dien_dan'=>$ma_dien_dan),'bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang, (Select thumbnail from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) thumbnail, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) gioi_tinh, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang) ngay_gia_nhap, (Select loai_thanh_vien from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang) ma_loai_thanh_vien');
+	
+	if(!$bai_viet)
+	{
+		throw new Exception('Bài viết không tồn tại trog diễn đàn');
+	}
+	$dt_xl_bai_viet->cap_nhat_dieu_kien(array('luot_xem'=>($bai_viet['luot_xem']+1)), array('ma'=>$bai_viet['ma'],'ma_dien_dan'=>$ma_dien_dan));
 
 	$ds_binh_luan_cha = $dt_xl_binh_luan->danh_sach($start,$limit,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan,'ma_loai_cha'=>0),'ngay_tao ASC','binh_luan_bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung,(Select thumbnail from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) thumbnail, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = binh_luan_bai_viet.ma_nguoi_dung) ngay_gia_nhap, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) gioi_tinh', PDO::FETCH_ASSOC,'',true);
 	
