@@ -7,3 +7,6 @@
 	$dt_smarty->setCacheDir('../../cache/');
 	
 	$dt_smarty->assign('dien_dan', $dien_dan);
+	$dt_smarty->assign('login', $login);
+	$dt_smarty->assign('thanh_vien', $thanh_vien);
+	$dt_smarty->assign('owner', $owner);

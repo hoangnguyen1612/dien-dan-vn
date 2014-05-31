@@ -43,7 +43,7 @@
             </thead>
 		  <tfoot>
 			  <tr>
-				<td colspan="8"><div class="bulk-actions align-left"><img src="../templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')"></div>
+				<td colspan="8"><div class="bulk-actions align-left"><img src="/admin/templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')"></div>
 				 <div class="pagination">
 					 <a class="number disable" title="Trang đầu">&lt;&lt;</a> <a class="number disable" title="Về trang trước">&lt;</a> <a class="number current"><b>1</b></a> <a class="number" href="/admin/thanh_vien/list.php?page=2" title="Trang 2">2</a> <a class="number" href="/admin/thanh_vien/list.php?page=2" title="Dến trang sau">&gt;</a> <a class="number" href="/admin/thanh_vien/list.php?page=2" title="Trang cuối">&gt;&gt;</a>                   </div>
 				  <div class="clear"></div></td>
@@ -61,7 +61,7 @@
                 <td style="text-align:center"><a href="trang_thai.php?ma=16" title="Hiển Thị"><img src="../templates/images/trang_thai_1.png" width="20" height="20"></a></td>
                
                 <td><!-- Icons --> 
-                  <a href="update.php?ma=16" title="Edit"><img src="../templates/images/icons/pencil.png" alt="Edit"></a>
+                  <a href="update.php?ma=16" title="Edit"><img src="/admin/templates/images/icons/pencil.png" alt="Edit"></a>
                   <a href="delete.php?ma=16" onclick="return confirm('Bạn có chắc chắn muốn xóa mã 16 không ?')" title="Delete"><img src="../templates/images/icons/cross.png" alt="Delete"></a>
                 </td>
               </tr>

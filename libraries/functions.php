@@ -12,6 +12,74 @@ function connection()
 	return $dbh;
 
 }
+
+function showMessage()
+{
+	global $dt_smarty;
+	
+	if(!empty($_SESSION['message']['content']))
+	{
+		echo $dt_smarty->fetch('elements/message.tpl');
+		unset($_SESSION['message']['content']);
+	}
+}
+
+function _date($date)
+{
+	return date('d-m-Y', strtotime($date));
+}
+
+function _date_time($date)
+{
+	return date('H:i d-m-Y', strtotime($date));
+}
+
+function throwMessage(Exception $e, $url='')
+{
+	global $dbh;
+	
+	$dbh = NULL;
+
+	$_SESSION['message'] = array(
+		'type' => ($e->getCode() == 30) ? 'success' : 'error',
+		'content' => $e->getMessage()
+	);
+	
+	if($url)
+	{
+		header('Location: '.$url);
+	}
+	else
+	{
+		if(empty($_SERVER['HTTP_REFERER']))
+		{
+			echo '<meta http-equiv="content-type" content="text/html"; charset="utf-8" />';
+			echo '<span style="color:red">',$e->getMessage(),'</span>';
+		}
+		else
+		{
+			header('Location: '.$_SERVER['HTTP_REFERER']);
+		}
+	}
+	
+	exit;
+}
+
+function url_encode($str)
+{
+	return rawurlencode(base64_encode($str));
+}
+
+function url_decode($str)
+{
+	return rawurldecode(base64_decode($str));
+}
+
+function encode()
+{
+	
+}
+
 function kiem_tra_quyen()
 {
 	global $login, $thanh_vien;
@@ -28,12 +96,22 @@ function kiem_tra_quyen()
 		throw new Exception('Bạn chưa là thành viên của diễn đàn, vui lòng quay lại sau');
 	}
 }
+
+function tim_kiem_chuoi($str1, $str2)
+{
+	return strpos($str1, $str2);
+}
+function noi_chuoi($str1, $str2, $x='')
+{
+	return $str1.$x.$str2;
+}
 function get_subdomain()
 {
 	global $dbh;
 	if(empty($_GET['forum']))
 	{
-		throw new Exception('Forum error');
+		echo ('Forum error');
+		exit;
 	}
 	$ma_dien_dan = $_GET['forum']; 
 	$sql = 'select * from dien_dan where ma = :ma limit 0,1';
@@ -43,9 +121,10 @@ function get_subdomain()
 	
 	$dien_dan = $sth->fetch(PDO::FETCH_ASSOC);
 
-	if(!$dien_dan)
+	if($dien_dan==NULL)
 	{
-		throw new Exception('This forum does not exist!');
+		echo ('Error forum!');
+		exit;
 	}
 	
 	return $dien_dan;

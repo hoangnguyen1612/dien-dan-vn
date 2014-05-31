@@ -35,10 +35,7 @@ try{
 	echo $e->getMessage();
 		
 }catch (Exception $e){
-	# Đóng kết nối
-	$dbh = NULL;
-	#Lay cau du lieu 
-	$_SESSION['msg'] = $e->getMessage();
-	$_SESSION['style_msg'] = 'notification error png_bg';
-	header('Location:'.$_SERVER['HTTP_REFERER']);	
+	$_SESSION['message']['type'] = 'error';
+	$_SESSION['message']['content'] =  $e->getMessage();
+	header("Location: {$_SERVER['HTTP_REFERER']}");
 }

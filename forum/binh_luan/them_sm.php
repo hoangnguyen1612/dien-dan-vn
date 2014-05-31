@@ -5,33 +5,26 @@ try{
 	include '../classes/xl_binh_luan.php';
 	include '../classes/xl_bai_viet.php';
 
-	if($login == ""){
-		header('Location:/');
-		exit;
-	}
-	if($thanh_vien['loai_thanh_vien'] == 3){
-		echo 'Bạn chưa là thành viên chính thức của diễn đàn';
-		exit;
-	}
+	kiem_tra_quyen();
+
 	$dt_xl_binh_luan = new xl_binh_luan;
 	$dt_xl_bai_viet = new xl_bai_viet;
 	$data = $_POST['data'];
 	if(empty($data['tieu_de'])){
-		echo 'Vui lòng nhập tên cho bình luận';
-		exit;
+		throw new Exception ('Vui lòng nhập tên cho bình luận');
 	}
 	if(empty($data['noi_dung'])){
-		echo 'Vui lòng nhập nội dung cho bình luận';
-		exit;
+		throw new Exception ( 'Vui lòng nhập nội dung cho bình luận');
+		
 	}
 	if(empty($data['ma_bai_viet'])){
-		echo 'Vui lòng nhập mã bài viết';
-		exit;
+		throw new Exception ('Vui lòng nhập mã bài viết');
+		
 	}
 	$row = $dt_xl_bai_viet->doc(array('ma'=>$data['ma_bai_viet'],'ma_dien_dan'=>$ma_dien_dan));
 	if($row=NULL){
-		echo 'Bài viết không tồn tại';
-		exit;
+		throw new Exception ( 'Bài viết không tồn tại');
+		
 	}
 	
 	$data['ngay_tao'] = date('Y-m-d h:i:s');
@@ -40,8 +33,8 @@ try{
 
 	$result = $dt_xl_binh_luan->them($data);
 	if($result === false){
-		echo 'Lỗi khi đăng bài , vui lòng thử lại sao';
-		exit;
+		throw new Exception('Lỗi khi đăng bài , vui lòng thử lại sau');
+		
 	}
 	$ma_bai_viet = $data['ma_bai_viet'];
 	header("Location:/$ma_dien_dan/bai_viet/chi_tiet?ma=$ma_bai_viet");
@@ -49,6 +42,7 @@ try{
 	
 
 }catch(Exception $e){
-	echo $e->getMessage();
-	exit; 
+	$_SESSION['message']['type'] = 'error';
+	$_SESSION['message']['content'] =  $e->getMessage();
+	header("Location: {$_SERVER['HTTP_REFERER']}"); 
 }

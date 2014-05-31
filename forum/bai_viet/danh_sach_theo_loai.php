@@ -34,6 +34,10 @@ try{
 	
 	$dt_smarty->assign('contentForLayout', $contentForLayout);
 	$dt_smarty->display('layouts/default.tpl');
+	
+	include '../end.php';
 }catch(Exception $e){
-	header('Location:'.$_SERVER['HTTP_REFERER']);
+	$_SESSION['message']['type'] = 'error';
+	$_SESSION['message']['content'] =  $e->getMessage();
+	header("Location: {$_SERVER['HTTP_REFERER']}");
 }

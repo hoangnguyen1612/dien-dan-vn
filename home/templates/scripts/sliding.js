@@ -4,30 +4,15 @@ var left,opacity,scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
 $('.next').click(function(){
-	/*var ten_dien_dan = document.getElementById("ten_dien_dan");
-	var mo_ta = document.getElementById("mo_ta");
-	var slogan = document.getElementById("slogan");
-		
-	if(ten_dien_dan.value=='')
-	{
-		alert('Bạn hãy nhập tên diễn đàn');
-		ten_dien_dan.focus();
-		return false;
-	}
-	if(mo_ta.value=='')
-	{
-		alert('Bạn hãy nhập mô tả về diễn đàn của bạn');
-		mo_ta.focus();
-		return false;
-	}
-	if(slogan.value=='')
-	{
-		alert('Bạn hãy nhập câu khẩu hiệu (slogan) cho diễn đàn của bạn');
-		slogan.focus();
-		return false;
-	}*/
+	$('#forum_form').validate({
+		rules: {
+			ten_dien_dan:{
+				required: true,
+			}
+		}
+	});
 	
-	if(animating) return false
+	if(animating) return false;
 	animating = true;
 	current_fs = $(this).parent();
 	next_fs = $(this).parent().next();

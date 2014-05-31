@@ -3,18 +3,11 @@ try{
 	include '../ini.php';
 	include '../ini_interface.php';
 	include '../classes/xl_chuyen_muc.php';
-	if($login == ''){
-		header('Location:/');
-		exit;
-	}
-	if($thanh_vien['loai_thanh_vien'] == 3){
-		echo 'Tài khoản của bạn chưa được kích hoạt trong diễn đàn này';
-		exit;
-	}
-
+	
+	kiem_tra_quyen();
+	
 	if(empty($_GET['loai'])){
-		echo 'Vui lòng nhập loại chuyên mục';
-		exit;
+		throw new Exception('Vui lòng nhập loại chuyên mục');
 	}
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 	$chuyen_muc = $dt_xl_chuyen_muc->doc(array('ma'=>$_GET['loai'],'ma_dien_dan'=>$ma_dien_dan));
@@ -23,6 +16,11 @@ try{
 	
 	$dt_smarty->assign('contentForLayout', $contentForLayout);
 	$dt_smarty->display('layouts/default.tpl');
+	
+	include '../end.php';
 }catch(Exception $e){
-	echo $e->getMessage();
+	$_SESSION['message']['type'] = 'error';
+	$_SESSION['message']['content'] =  $e->getMessage();
+	
+	header("Location: /$ma_dien_dan");
 }

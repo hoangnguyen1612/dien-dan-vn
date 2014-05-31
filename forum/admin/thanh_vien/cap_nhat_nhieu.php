@@ -1,57 +1,52 @@
 <?php
 try{
 	include "../ini.php";
-	include "../../../home/classes/xl_thanh_vien_dien_dan.php";
+	include "../../classes/xl_thanh_vien_dien_dan.php";
 	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	#debug($_POST);
-	if(empty($_POST['data'])){
+	if(empty($_POST['item'])){
 		throw new Exception('Vui lòng chọn thành viên cần cập nhật');	
 	}
 	if(!is_numeric($_POST['loai_thanh_vien'])){
 		throw new Exception('Vui lòng nhập loại thành viên để cập nhật');
 	}
-	if(($_POST['loai_thanh_vien']!=1) && ($_POST['loai_thanh_vien']!=2) && ($_POST['loai_thanh_vien']!=3)){
+	if(($_POST['loai_thanh_vien']!=1) && ($_POST['loai_thanh_vien']!=2)){
 		throw new Exception('Vui lòng nhập đúng loại thành viên');
 	}
-	
-	$str = ''; // Tạo 1 biến lưu các mã thành viên ko xóa đc
-	# Tạo vòng lặp , cập nhật từng loại
+	$str = '';
+	$loai_thanh_vien = $_POST['loai_thanh_vien']; 
+
 	$ma_dien_dan = $_SESSION['dien_dan']['ma'];
-	foreach($_POST['data'] as $ma_nguoi_dung){
-		# Kiểm tra logic
-		# Kiểm tra tồn tại mã thành viên
-		$thanh_vien = $dt_xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$ma_nguoi_dung,'ma_dien_dan'=> $_SESSION['dien_dan']['ma']));
-		if($thanh_vien['loai_thanh_vien'] == 0){
-			$str .= "$ma_nguoi_dung,";
+	foreach($_POST['item'] as $id){
+		$ma = url_decode(trim($id));
+		$tv = $dt_xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$ma,'ma_dien_dan'=> $ma_dien_dan), 'ma_nguoi_dung, quyen, loai_thanh_vien');
+	
+		if($tv['loai_thanh_vien'] == 0){
+			$str .= "$ma,";
 			continue;
 		}
-		if ($thanh_vien == NULL) {
-			$str .= "$ma_nguoi_dung,";
+		if ($tv == NULL) {
+			$str .= "$ma,";
 			continue;	
-		}
+		} 
 		
-		$result = $dt_xl_thanh_vien_dien_dan->cap_nhat_truy_van(array('loai_thanh_vien'=>$_POST['loai_thanh_vien']),"ma_dien_dan = '$ma_dien_dan' and ma_nguoi_dung= '$ma_nguoi_dung'");
+		if($loai_thanh_vien==2 && $tv['quyen']!=NULL)
+			$result = $dt_xl_thanh_vien_dien_dan->cap_nhat_dieu_kien(array('loai_thanh_vien'=>$loai_thanh_vien, 'quyen'=>NULL), array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma));
+		else
+			$result = $dt_xl_thanh_vien_dien_dan->cap_nhat_dieu_kien(array('loai_thanh_vien'=>$loai_thanh_vien), array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma));
 	
 		if($result===false){
-			$str .= "$ma_nguoi_dung,";
+			$str .= "$ma,";
 			continue;
-		}
+		} 
 	}
 	if($str == ''){
-		$_SESSION['msg']= 'Cập nhật thành công loại thành viên';
-		$_SESSION['style_msg'] = 'notification success png_bg';
+		throw new Exception('Cập nhật thành viên thành công', 30);
 	}else{
-		$_SESSION['msg']= $str .' không cập nhật được';
-		$_SESSION['style_msg'] = 'notification success png_bg';
+		throw new Exception('Lỗi! Các thành viên có mã sau không cập nhật được: '.$str);
 	}
-	$dbh=NULL;
-	header('Location: danh_sach.php');	
-	exit;
 }catch(Exception $e){
-	$dbh = NULL;
-	$_SESSION['msg'] = $e->getMessage();
-	$_SESSION['style_msg'] = 'notification error png_bg';
-	header('Location: danh_sach.php');		
+	throwMessage($e);	
 }
 
 	

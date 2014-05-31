@@ -44,5 +44,7 @@ try{
 	
 }catch(Exception $e)
 {
-	header("Location: /$ma_dien_dan");
+	$_SESSION['message']['type'] = 'error';
+	$_SESSION['message']['content'] =  $e->getMessage();
+	header("Location: {$_SERVER['HTTP_REFERER']}");
 }

@@ -2,16 +2,11 @@
 	#Tạo kết nối
 	include '../../config.php';
 	include '../../libraries/functions.php';
-		
+	//session_destroy();exit;
+	
 	$dbh = connection();
 	$dien_dan = get_subdomain();
 	$ma_dien_dan = $dien_dan['ma'];
-	
-	# kiểm tra diễn đàn
-	if(empty($_GET['forum']))
-	{
-		echo 'This forum does not exist!!!';
-	}
 
 	# cấu hình
 	$sql = 'select tu_khoa, noi_dung from cau_hinh where ma_dien_dan = :ma limit 0,1';
@@ -24,7 +19,7 @@
 	$ma_nguoi_dung = '';
 	$login = '';
 	$thanh_vien = '';
-	$ds_thong_bao = 'asas';
+	$ds_thong_bao = '';
 	$thong_bao_moi = 0;
 	$quyen = array(0=>'Chủ diễn đàn', 1=>'Quản trị', 2=>'Thành viên');
 	

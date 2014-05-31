@@ -1,3 +1,8 @@
-<div class="{$smarty.session.style_msg}"> <a href="#" class="close"><img src="/forum/admin/templates/images/icons/cross_grey_small.png" title="Close this notification" alt="close" /></a>
-  <div> {$smarty.session.msg} </div>
-</div>
+	{if isset($smarty.session.message)}
+		<div class="notification {$smarty.session.message.type} png_bg">
+			<a href="#" class="close"><img src="/forum/admin/templates/images/icons/cross_grey_small.png" title="Đóng hộp thông báo" alt="close" /></a>
+			<div>
+				{$smarty.session.message.content} 
+			</div>
+		</div>													
+	{/if}   

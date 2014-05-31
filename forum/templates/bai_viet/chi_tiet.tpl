@@ -99,7 +99,9 @@
         <div class="btn-group"> <a href="./memberlist.php?mode=email&amp;t=15" title="" class="btn" data-original-title="E-mail friend"><i class="icon-envelope"></i></a><a class="btn" href="./viewtopic.php?f=2&amp;t=15&amp;view=print" title="" accesskey="p" data-original-title="Print view"><i class="icon-print"></i></a> </div>
         <div class="btn-group"> <a href="./viewtopic.php?uid=114&amp;f=2&amp;t=15&amp;unwatch=topic&amp;start=0&amp;hash=8846177a" class="btn" title="" data-original-title="Unsubscribe topic"><i class="icon-remove"> </i></a><a href="./viewtopic.php?f=2&amp;t=15&amp;bookmark=1&amp;hash=8846177a" class="btn" title="" data-original-title="Đánh dấu bài viết"><i class="icon-bookmark"></i></a> </div>
       </div>
+      {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
       <div class="pull-left"> <a href="../binh_luan/them?ma_bai_viet={$bai_viet.ma}" data-original-title="Bình luận bài viết" type="button" class="btn"><i class="icon-share-alt"></i>Bình luận</a> </div>
+      {/if}
     </div>
     <div class="space10"></div>
     {if $trang_hien_tai == 1}
@@ -132,10 +134,11 @@
         	<div class="feedback-article">
           <div class="circle-text" style="float:left"><a data-original-title="Mức độ tin tưởng bài viết"><div>{$bai_viet.feedback}%</div></a></div>
           <div style="margin-top:3px;display:inline-block">
+          {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
                <a href="../bai_viet/feedback?ma_bai_viet={$bai_viet.ma}&loai=1" title="" data-original-title="Thích" style="color:crimson"><i class="icon-thumbs-up-alt" style="color:crimson;font-size:1.2em"></i></a>
                <span style="font-weight:bold; color: #666; font-size: 1.2em">|</span> 
                <a href="../bai_viet/feedback?ma_bai_viet={$bai_viet.ma}&loai=0" title="" data-original-title="Không thích" style="color:crimson"><i class="icon-thumbs-down-alt " style="color:crimson;font-size:1.2em;"></i> </a>
-                
+           {/if}     
                
           </div>     
        		</div>
@@ -165,8 +168,8 @@
     <div id="reload">
  		{include '../elements/binh_luan.tpl'}
    	</div> 
-    
-    <form method="post"  action="../binh_luan/them_sm" name="gui_binh_luan" id="binh_luan_nhanh" onsubmit="return checkValidation_1()">
+    {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
+    	<form method="post"  action="../binh_luan/them_sm" name="gui_binh_luan" id="binh_luan_nhanh" onsubmit="return checkValidation_1()">
       <div class="well well-qr widget-collapsible"><!-- // Widget -->
         <div class="widget-header clickable collapsed" data-toggle="collapse" data-target="#target-col">
           <h4><i class="icon-edit"></i> Bình luận nhanh</h4>
@@ -195,10 +198,13 @@
       </div>
       <!-- // Widget -->
     </form>
+    {/if}
     <div class="row-fluid">
+    {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
       <div class="pull-left">
-        <div class="da-panel-content"> <a href="../binh_luan/them.php?ma_bai_viet={$bai_viet.ma}" data-original-title="Bình luận bài viết" type="button" class="btn"><i class="icon-share-alt"></i> Bình luận</a> </div>
+        <div class="da-panel-content"> <a href="/{$ma_dien_dan}/binh_luan/them?ma_bai_viet={$bai_viet.ma}" data-original-title="Bình luận bài viết" type="button" class="btn"><i class="icon-share-alt"></i> Bình luận</a> </div>
       </div>
+      {/if}
       <div class="pull-right">
         <div class="pagination pagination-small hidden-phone">
           <ul>
