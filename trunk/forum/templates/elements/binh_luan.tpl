@@ -3,7 +3,7 @@
 $(document).ready(function(){
   $(".like-binh-luan{$binh_luan_cha.ma}").click(function(){
     $.get("/{$ma_dien_dan}/binh_luan/feedback",{ ma_binh_luan : "{$binh_luan_cha.ma}" },function(data,status){
-		alert(data);
+	
 	  var arr = data.split("~");	
 	  if(arr[0] == 'like'){
 		  	$(".so_luong_thich_binh_luan{$binh_luan_cha.ma}").html(arr[1]);
@@ -72,7 +72,7 @@ $(document).ready(function(){
                   {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
                 <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_cha.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
                   {/if}
-                  <li><span class="so_luong_thich_binh_luan{$binh_luan_cha.ma}">{$binh_luan_cha.thich}</span> <a href="#" title="" data-original-title="Thích" style="color:crimson" class="like-binh-luan{$binh_luan_cha.ma} btn btn-mini"><i class="icon-thumbs-up-alt thich-binh-luan{$binh_luan_cha.ma}" {if trang_thai_thich_binh_luan($binh_luan_cha.ma,$binh_luan_cha.ma_nguoi_dung) == NULL } style="color:#CCC;font-size:1.2em"{else}style="color:crimson;font-size:1.2em" {/if}></i></a> <li>
+                  <li><span class="so_luong_thich_binh_luan{$binh_luan_cha.ma}">{$binh_luan_cha.thich}</span> <a href="#" title="" data-original-title="Thích" style="color:crimson" class="like-binh-luan{$binh_luan_cha.ma} btn btn-mini"><i class="icon-thumbs-up-alt thich-binh-luan{$binh_luan_cha.ma}" {if trang_thai_thich_binh_luan($binh_luan_cha.ma,$ma_nguoi_dung) == NULL } style="color:#CCC;font-size:1.2em"{else}style="color:crimson;font-size:1.2em" {/if}></i></a> <li>
                     <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
                     <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}{$binh_luan_cha.ma_nguoi_dung}" data-original-title="Trả lời bài viết"><i class="icon-comment"></i></a></li>
                      <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}" data-original-title="Xem các trả lời"><i class="icon-comment"> <span class="badge badge-info"> 
@@ -184,7 +184,7 @@ $(document).ready(function(){
                    {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
                 <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_con.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
                   {/if}
-                  <li><span class="so_luong_thich_binh_luan{$binh_luan_con.ma}">{$binh_luan_con.thich}</span> <a href="#" title="" data-original-title="Thích" style="color:crimson" class="like-binh-luan{$binh_luan_con.ma} btn btn-mini"><i class="icon-thumbs-up-alt thich-binh-luan{$binh_luan_con.ma}" {if trang_thai_thich_binh_luan($binh_luan_con.ma,$binh_luan_con.ma_nguoi_dung) == NULL } style="color:#CCC;font-size:1.2em"{else}style="color:crimson;font-size:1.2em" {/if}></i></a> <li>
+                  <li><span class="so_luong_thich_binh_luan{$binh_luan_con.ma}">{$binh_luan_con.thich}</span> <a href="#" title="" data-original-title="Thích" style="color:crimson" class="like-binh-luan{$binh_luan_con.ma} btn btn-mini"><i class="icon-thumbs-up-alt thich-binh-luan{$binh_luan_con.ma}" {if trang_thai_thich_binh_luan($binh_luan_con.ma,$ma_nguoi_dung) == NULL } style="color:#CCC;font-size:1.2em"{else}style="color:crimson;font-size:1.2em" {/if}></i></a> <li>
                
                     <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
                   

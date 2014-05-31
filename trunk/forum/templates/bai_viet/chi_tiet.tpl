@@ -149,22 +149,7 @@ $(document).ready(function(){
                 <div class="user-profile-output"> {date('d-m-Y', strtotime($bai_viet.ngay_gia_nhap))} </div>
               </div>
             </div>
-          </div>
-
-          
-
-        	<div class="feedback-article">
-          <div class="circle-text" style="float:left"><a data-original-title="Mức độ tin tưởng bài viết"><div>{$bai_viet.feedback}%</div></a></div>
-          <div style="margin-top:3px;display:inline-block">
-          {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
-               <a href="../bai_viet/feedback?ma_bai_viet={$bai_viet.ma}&loai=1" title="" data-original-title="Thích" style="color:crimson"><i class="icon-thumbs-up-alt" style="color:crimson;font-size:1.2em"></i></a>
-               <span style="font-weight:bold; color: #666; font-size: 1.2em">|</span> 
-               <a href="../bai_viet/feedback?ma_bai_viet={$bai_viet.ma}&loai=0" title="" data-original-title="Không thích" style="color:crimson"><i class="icon-thumbs-down-alt " style="color:crimson;font-size:1.2em;"></i> </a>
-           {/if}     
-               
-          </div>     
-       		</div>
-
+          </div>   
           <div class="postbody span9">
             <div class="row-fluid">
               <ul class="inline pull-right visible-phone">
@@ -194,7 +179,7 @@ $(document).ready(function(){
     <div id="reload"> {include '../elements/binh_luan.tpl'} </div>
     <form method="post"  action="../binh_luan/them_sm" name="gui_binh_luan" id="binh_luan_nhanh" onsubmit="return checkValidation_1()">
 
-	{/if}
+	
     <div id="reload">
  		{include '../elements/binh_luan.tpl'}
    	</div> 
