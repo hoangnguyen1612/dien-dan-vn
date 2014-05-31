@@ -19,7 +19,7 @@ function inputNumber(e)
 </script>
 
 <div class="content-box-header">
-  <h3>Loại bài viết [Thêm mới]</h3>
+  <h3>Chuyên mục [Thêm mới]</h3>
   <ul class="content-box-tabs">
     <li><a href="danh_sach.php">Danh sách</a></li>
     <li><a href="#" class="default-tab">Thêm mới</a></li>
@@ -31,7 +31,7 @@ function inputNumber(e)
 <div class="content-box-content">
   <div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
     
-    <div> {$thong_bao} </div>
+    {showMessage()}
     <form method="post" action="them_sm.php" name="fthem" onsubmit="return kiemtra()">
       <fieldset>
         <p>
@@ -43,38 +43,34 @@ function inputNumber(e)
           <input type="text" class="text-input medium-input" id="ten" name="data[ghi_chu]" value="{$smarty.session.data.ghi_chu|default:""}">
         </p>
         <p>
-          <label class="admin_tieu_de">Mã Loại Cha</label>
+          <label class="admin_tieu_de">Là chuyên mục con của chuyên mục:</label>
           <select class="text-input small-input"  id="ma_loai_cha" name="data[ma_loai_cha]">
-            <option value="0">==== Không có loại cha =====</option>
-            
-                    {*  Tuong tuong la se co 2 tham so nay: $ds_lcm,  $ma, kitu *}                                                            
-                    {function in_loai_chuyen_muc}
-                    	{foreach $ds_lcm as $lcm}
-                        	{if $lcm.ma_loai_cha == $ma}
-                            	
-            <option value="{$lcm.ma}">{$kitu}{$lcm.ten}</option>
-            
-                                {in_loai_chuyen_muc ds_lcm=$ds_lcm ma=$lcm.ma kitu="$kitu$kitu"}
-                        	{/if}
+            <option value="0">Không có</option>
+            	{foreach $ds_chuyen_muc as $k=>$chuyen_muc}
+                	{if $chuyen_muc.ma_loai_cha==0}
+                	<option value="{$chuyen_muc.ma}">{$chuyen_muc.thu_tu_hien_thi}&nbsp;&rArr;&nbsp;{$chuyen_muc.ten}</option>
+                   	{$children = getChildrenFirst($chuyen_muc.ma, $ds_chuyen_muc)}
+                    {if $children!=NULL}
+                    	{foreach $children as $key=>$value}
+                        <option value="{$key}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$value.thu_tu_hien_thi}&nbsp;&rArr;&nbsp;{$value.ten}</option>
                         {/foreach}
-                    
-                    {/function}
-                    
-                    
-                    {in_loai_chuyen_muc  ds_lcm=$ds_chuyen_muc ma=0 kitu='='}
-                    
-                
-          </select>
-        </p>
+                    {/if}
+                    {/if}
+                {/foreach}       
+          </select><br />
+          <span style="color:crimson">(***)</span> Tên hiển thị trong ô chọn ở trên bao gồm: <span style="color:crimson">thứ tự hiển thị</span> và <span style="color:crimson">
+          tên của chuyên mục đó</span>. <br />Ví dụ: chuyên mục có tên là: <span style="color:crimson">ABC</span> và có thứ tự hiển thị là 1 thì sẽ hiển thị trong ô 
+          chọn ở trên là: 1 &rArr; ABC.
+        </p><br />
         <p>
-          <label class="admin_tieu_de">Chuyên mục Riêng Tư</label>
+          <label class="admin_tieu_de">Chuyên mục Riêng Tư<br /><span style="font-weight:normal"><span style="color:crimson">(***)</span> Những chuyên mục được thiết lập riêng tư thì chỉ có thành viên của diễn đàn mới có thể thấy được.</span></label>
           <select name="data[rieng_tu]">
             <option value="1">Có</option>
             <option value="0" selected="selected">Không</option>
           </select>
-        </p>
-        <p>
-          <label class="admin_tieu_de">Thứ Tự Hiển Thị</label>
+        </p><br />
+        <p style="width:700px; text-align:justify">
+          <label class="admin_tieu_de">Thứ Tự Hiển Thị<br /><span style="font-weight:normal;"><span style="color:crimson">(***)</span> Thứ tự hiển thị giúp xác định trật tự sắp xếp giữa các chuyên mục khi hiển thị trên diễn đàn. Nếu chuyên mục bạn chuẩn bị thêm mới là con của bất kỳ một chuyên mục nào đã có trước đó trong diễn đàn, bạn vui lòng xem thứ tự hiển thị ở bảng ô chọn phía trên để chọn thứ tự hiển thị cho chuyên mục chuẩn bị thêm mới không trùng với thứ tự hiển thị của bất kỳ một chuyên mục nào đã có trong danh sách các chuyên mục con của chuyên mục lớn.</span></label>
           <input type="text" value="{$smarty.session.data.thu_tu_hien_thi|default:""}" name="data[thu_tu_hien_thi]" id="thu_tu_hien_thi" class="text-input small-input" onkeypress="return inputNumber(event)">
         </p>
         <p style="text-align:center">

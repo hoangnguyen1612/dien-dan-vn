@@ -34,6 +34,44 @@ function _date_time($date)
 	return date('H:i d-m-Y', strtotime($date));
 }
 
+function getChildren($id, $categories)
+{
+	$arr = array($id);
+	$children = array();
+	
+	do{
+		list($cur_key, $cur_value) = each($arr);
+		
+		foreach($categories as $k => $category)
+		{
+			if ($category['ma_loai_cha'] == $cur_value)
+			{
+				$children[] = $k;
+				$arr[] = $k;
+			}
+		}
+		
+		unset($arr[$cur_key]);
+	} while (count($arr)>0);
+
+	return $children;
+}
+
+function getChildrenFirst($id, $categories)
+{
+	$children = array();
+
+	foreach($categories as $k => $category)
+	{
+		if($category['ma_loai_cha'] == $id)
+		{
+			$children[$category['ma']] = array('ten'=>$category['ten'], 'thu_tu_hien_thi'=>$category['thu_tu_hien_thi']);
+		}
+	}
+	
+	return $children;
+}
+
 function throwMessage(Exception $e, $url='')
 {
 	global $dbh;
@@ -75,10 +113,6 @@ function url_decode($str)
 	return rawurldecode(base64_decode($str));
 }
 
-function encode()
-{
-	
-}
 
 function kiem_tra_quyen()
 {
