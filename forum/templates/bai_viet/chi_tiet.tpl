@@ -44,7 +44,26 @@
 		});
 		return false;
 	}
+
+$(document).ready(function(){
+  $(".like").click(function(){
+    $.get("/{$ma_dien_dan}/bai_viet/feedback",{ ma_bai_viet : "{$bai_viet.ma}" },function(data,status){
+		alert(data);
+	  var arr = data.split("~");	
+	  if(arr[0] == 'like'){
+		  	$(".so_luong_thich_bai_viet").html(arr[1]);
+		 	$(".thich-bai-viet").css('color','crimson');
+			  
+	  }
+	  if(arr[0] == 'dislike'){
+		  	$(".so_luong_thich_bai_viet").html(arr[1]);
+		    $(".thich-bai-viet").css('color','#CCC');
+	  }
+    });
+  });
+});
 </script>
+
 <div id="page-body">
   <main role="main">
     <div class="side-segment">
@@ -131,6 +150,9 @@
               </div>
             </div>
           </div>
+
+          
+
         	<div class="feedback-article">
           <div class="circle-text" style="float:left"><a data-original-title="Mức độ tin tưởng bài viết"><div>{$bai_viet.feedback}%</div></a></div>
           <div style="margin-top:3px;display:inline-block">
@@ -142,6 +164,7 @@
                
           </div>     
        		</div>
+
           <div class="postbody span9">
             <div class="row-fluid">
               <ul class="inline pull-right visible-phone">
@@ -157,19 +180,27 @@
             <div class="space10"></div>
             <div class="content" style="text-align:justify">{$bai_viet.noi_dung}</div>
             <ul class="inline pull-right hidden-phone">
-                <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
-              </ul>
+              <li> <span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini" href="#" title="" data-original-title="Thích"><i class="icon-thumbs-up-alt thich-bai-viet" {if $thich_bai_viet == NULL}style="color:#CCC;font-size:1.2em;"{else}style="color:crimson;font-size:1.2em"{/if}></i></a></li>
+           
+              <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
+            </ul>
           </div>
           <div class="space10"></div>
         </div>
       </article>
     </div>
+
+    {/if}
+    <div id="reload"> {include '../elements/binh_luan.tpl'} </div>
+    <form method="post"  action="../binh_luan/them_sm" name="gui_binh_luan" id="binh_luan_nhanh" onsubmit="return checkValidation_1()">
+
 	{/if}
     <div id="reload">
  		{include '../elements/binh_luan.tpl'}
    	</div> 
     {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
     	<form method="post"  action="../binh_luan/them_sm" name="gui_binh_luan" id="binh_luan_nhanh" onsubmit="return checkValidation_1()">
+
       <div class="well well-qr widget-collapsible"><!-- // Widget -->
         <div class="widget-header clickable collapsed" data-toggle="collapse" data-target="#target-col">
           <h4><i class="icon-edit"></i> Bình luận nhanh</h4>
@@ -211,7 +242,7 @@
             <li><a title="" data-original-title="" href="javascript:void(0);" data-target=".sorting" data-toggle="collapse" class="">Lựa chọn</a></li>
             <li class="active"><a data-original-title="" title="">{$tong_so_bai_viet + 1} bài viết</a></li>
             <li><a data-original-title="" title="">Trang <strong>{$trang_hien_tai}</strong> trên <strong>{$tong_so_trang}</strong></a></li>
-              <li>{$bo_nut}</li>
+            <li>{$bo_nut}</li>
           </ul>
         </div>
         <div class="visible-phone">
@@ -219,7 +250,6 @@
             <ul>
               <li class="active"><a data-original-title="" title="">{$tong_so_bai_viet + 1} bài viết</a></li>
               <li><a data-original-title="" title="">Trang <strong>{$trang_hien_tai}</strong> trên <strong>{$tong_so_trang}</strong></a></li>
-            
             </ul>
           </div>
         </div>
@@ -332,4 +362,4 @@
 // <![CDATA[
 	bbcodeEnabled = 1;
 // ]]>
-</script>  
+</script> 
