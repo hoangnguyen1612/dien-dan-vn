@@ -87,7 +87,7 @@
 				</li>	
                 <li><a class="nav-top-item" href="#" id="thanh_vien">Thành Viên</a>
 					<ul>
-				  	  <li><a href="../thanh_vien/danh_sach.php" id="loai_bai_viet_danh_sach.php">Xem Danh Sách</a></li>
+				  	  <li><a href="../thanh_vien/danh_sach.php" id="thanh_vien_danh_sach.php">Xem Danh Sách</a></li>
 					</ul>
 				</li>			   
 				<li><a class="nav-top-item" href="#" id="bai_viet">Bài Viết</a>
@@ -96,10 +96,10 @@
 				</ul>
 				</li>
 
-				<li><a class="nav-top-item" href="#" id="loai_chuyen_muc">Loại Chuyên Mục</a>
+				<li><a class="nav-top-item" href="#" id="loai_chuyen_muc">Chuyên Mục</a>
 				<ul>
-				  <li><a href="../loai_chuyen_muc/them.php" id="loai_bai_viet_them.php">Thêm</a></li>
-				  <li><a href="../loai_chuyen_muc/danh_sach.php" id="loai_bai_viet_danh_sach.php">Xem Danh Sách</a></li>
+				  <li><a href="../loai_chuyen_muc/them.php" id="loai_chuyen_muc_them.php">Thêm</a></li>
+				  <li><a href="../loai_chuyen_muc/danh_sach.php" id="loai_chuyen_muc_danh_sach.php">Xem Danh Sách</a></li>
 				</ul>
 				</li>
                 <!--
