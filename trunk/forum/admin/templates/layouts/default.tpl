@@ -7,7 +7,7 @@
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		
-		<title>{$titleForLayout|Default:$smarty.const.WEB_NAME}</title>
+		<title>{$dien_dan.ten} | {$titleForLayout|Default:''}</title>
 		
 		<!--                       CSS                       -->
 	  
@@ -62,11 +62,14 @@
 		
 		<div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
 			
-			<h1 id="sidebar-title"><a href="#">Simpla Admin</a></h1>
+			<h1 id="sidebar-title"><a href="#">{$dien_dan.ten}</a></h1>
 		  
 			<!-- Logo (221px wide) -->
-			<a href="#"><img id="logo" src="/forum/admin/templates/images/logo.png" alt="Simpla Admin logo" /></a>
+			<a href="#" style="display:block; margin: 0px"><!--<img id="logo" src="/home/upload/dien_dan/thumb/{$dien_dan.hinh_dai_dien}" width="60px" height="60px" alt="Simpla Admin logo" style="border-radius: 3px; margin: 10px 0px 10px 85px" />--><br />
+            <div style="font-size: 25px;; font-weight:bold; text-transform:uppercase; color:white; text-align:center; width: 100%; word-break:break-all">{$dien_dan.ten}</div>
+            </a>
 		  
+          	<div class="clear"></div><br /><br />
 			<!-- Sidebar Profile links -->
 			<div id="profile-links">
 				Chào, <a href="#" title="Edit your profile">{$smarty.session.login.ho_ten|default:''}</a><br/>
@@ -84,7 +87,6 @@
 				</li>	
                 <li><a class="nav-top-item" href="#" id="thanh_vien">Thành Viên</a>
 					<ul>
-					  <li><a href="../thanh_vien/them.php" id="loai_bai_viet_them.php">Thêm</a></li>
 				  	  <li><a href="../thanh_vien/danh_sach.php" id="loai_bai_viet_danh_sach.php">Xem Danh Sách</a></li>
 					</ul>
 				</li>			   

@@ -1,6 +1,7 @@
 <?php
 try{
-include '../ini_interface.php';
+	include '../ini.php';
+	include '../ini_interface.php';
 
 
 ##########Nhờ smarty hiển thị giao diện#############	

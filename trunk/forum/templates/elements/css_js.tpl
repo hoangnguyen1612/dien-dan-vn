@@ -69,4 +69,13 @@ function find_username(e){popup(e,760,570,"_usersearch");return false}var jump_p
 </script> 
 {/literal}
 
+
+{if isset($smarty.session.message) && $smarty.session.message.type == 'error'}
+<script>
+window.onload = function()
+{
+	alert('{$smarty.session.message.content}');
+}
+</script>
+{/if}
 <div id="lean_overlay" style="display: none; opacity: 0.5;"></div>

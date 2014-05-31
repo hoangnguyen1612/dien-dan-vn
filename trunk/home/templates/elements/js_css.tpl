@@ -1,18 +1,20 @@
 <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>-->
 <link href="/home/templates/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link rel='stylesheet' id='fontawsome-css'  href='/home/templates/css/font-awsome/css/font-awesome.css' type='text/css' media='all' />
-<link rel="stylesheet" type="text/css" href="/home/templates/css/sliding.css" />
 <link rel="stylesheet" type="text/css" href="/home/templates/scripts/ui-lightness/jquery-ui.css" />
 <link href="/home/templates/css/general.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="/home/templates/css/sliding.css" />
+<link rel="stylesheet" type="text/css" href="/home/templates/css/slide.css" />
 <!--  jquery plguin -->
 {literal}
-<script src="/home/templates/scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <!-- jQuery easing plugin -->
 <script src="/home/templates/scripts/jquery.easing.min.js" type="text/javascript"></script>	
 <script type="text/javascript" src="/home/templates/scripts/jquery.leanModal.min.js"></script>
 <script type="text/javascript" src="/home/templates/scripts/ui/jquery-ui.custom.js"></script>
 <script src="/home/templates/scripts/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/home/templates/scripts/jquery.form.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() { 
 
@@ -117,67 +119,5 @@ function bytesToSize(bytes) {
 }); 
 
 </script>
-<!--
-	<script type="text/javascript" src="/home/templates/scripts/jquery.mixitup.min.js"></script>
-	<script type="text/javascript">
-	$(function () {
-		
-		var filterList = {
-		
-			init: function () {
-			
-				// MixItUp plugin
-				// http://mixitup.io
-				$('#portfoliolist').mixitup({
-					targetSelector: '.portfolio',
-					filterSelector: '.filter',
-					effects: ['fade'],
-					easing: 'snap',
-					// call the hover effect
-					onMixEnd: filterList.hoverEffect()
-				});				
-			
-			},
-			
-			hoverEffect: function () {
-			
-				// Simple parallax effect
-				$('#portfoliolist .portfolio').hover(
-					function () {
-						$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
-						$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
-					},
-					function () {
-						$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
-						$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
-					}		
-				);				
-			
-			}
 
-		};
-		
-		// Run the show!
-		filterList.init();
-			
-	});	
-	</script>
-<!-- Add fancyBox main JS and CSS files 
-<link href="/home/templates/css/magnific-popup.css" rel="stylesheet" type="text/css">
-<script src="/home/templates/scripts/jquery.magnific-popup.js" type="text/javascript"></script>
-		<script>
-			$(document).ready(function() {
-				$('.popup-with-zoom-anim').magnificPopup({
-					type: 'inline',
-					fixedContentPos: false,
-					fixedBgPos: true,
-					overflowY: 'auto',
-					closeBtnInside: true,
-					preloader: false,
-					midClick: true,
-					removalDelay: 300,
-					mainClass: 'my-mfp-zoom-in'
-			});
-		});
-		</script>       
 {/literal}

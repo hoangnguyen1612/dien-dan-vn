@@ -28,9 +28,12 @@ try{
 		
 		$xl_thanh_vien_dien_dan->cap_nhat_dieu_kien(array('thong_bao_da_doc'=>$ma_thong_bao), array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma_nguoi_dung));
 	}
-	throw new Exception();
-}catch(Exception $e)
-{
 	header("Location: /$ma_dien_dan/thanh_vien/yeu_cau_tham_gia");
 	exit;
+}catch(Exception $e)
+{
+	$_SESSION['message']['type'] = 'error';
+	$_SESSION['message']['content'] =  $e->getMessage();
+
+	header("Location: /$ma_dien_dan/thanh_vien/yeu_cau_tham_gia");
 }
