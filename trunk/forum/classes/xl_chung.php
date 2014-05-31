@@ -113,7 +113,7 @@ class xl_chung{
 		$chuoi = trim($chuoi, ',');
 		
 		$sql = "UPDATE `{$this->bang}` SET {$chuoi} WHERE `{$ma}` = :{$ma} LIMIT 1";
-		echo $sql;exit;
+	
 	
 		$sth = $dbh->prepare($sql);
 		return $sth->execute($du_lieu);
@@ -138,6 +138,7 @@ class xl_chung{
 		$chuoi_dieu_kien.= ' 1';
 		
 		$sql = "UPDATE `{$this->bang}` SET {$chuoi} WHERE {$chuoi_dieu_kien} LIMIT 1";
+
 		$sth = $dbh->prepare($sql);
 		return $sth->execute(array_merge($du_lieu, $dieu_kien));
 	}
@@ -170,6 +171,7 @@ class xl_chung{
 			{
 				$chuoi_ds = "SELECT {$ds_cot} {$chuoi} {$them_cau_truy_van} ORDER BY {$sap_xep} LIMIT $vi_tri, $so_luong";
 			}
+		
 			$sth = $dbh->prepare($chuoi_ds);
 			$sth->execute($du_lieu);
 			return $sth->fetchAll($dinh_dang);
@@ -220,6 +222,31 @@ class xl_chung{
 		$sql = "UPDATE `{$this->bang}` SET `{$cot}` = 1 + `{$cot}` WHERE `ma` = :ma LIMIT 1";
 		$sth = $dbh->prepare($sql);
 		return $sth->execute(array('ma'=>$ma));
+	}
+	function cap_nhat_bo_dem_dieu_kien($dieu_kien,$cot,$so_luong_diem){
+		global $dbh;
+		$chuoi_dieu_kien = ''; 
+		foreach($dieu_kien as $key=>$value)
+		{
+			$chuoi_dieu_kien.=" `{$key}` = :{$key} and";
+		}
+		$chuoi_dieu_kien.= ' 1';
+		$sql = "UPDATE `{$this->bang}` SET `{$cot}` = `{$cot}` + {$so_luong_diem} WHERE {$chuoi_dieu_kien} LIMIT 1";
+		$sth = $dbh->prepare($sql);
+		return $sth->execute($dieu_kien);
+	}
+	function cap_nhat_bo_dem_tru_dieu_kien($dieu_kien,$cot,$so_luong_diem){
+		global $dbh;
+		
+		$chuoi_dieu_kien = ''; 
+		foreach($dieu_kien as $key=>$value)
+		{
+			$chuoi_dieu_kien.=" `{$key}` = :{$key} and";
+		}
+		$chuoi_dieu_kien.= ' 1';
+		$sql = "UPDATE `{$this->bang}` SET `{$cot}` = `{$cot}` - {$so_luong_diem} WHERE {$chuoi_dieu_kien} LIMIT 1";
+		$sth = $dbh->prepare($sql);
+		return $sth->execute($dieu_kien);
 	}
 	
 	#tạo chuỗi danh sách cột
