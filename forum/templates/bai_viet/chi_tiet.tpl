@@ -48,7 +48,7 @@
 $(document).ready(function(){
   $(".like").click(function(){
     $.get("/{$ma_dien_dan}/bai_viet/feedback",{ ma_bai_viet : "{$bai_viet.ma}" },function(data,status){
-		alert(data);
+	
 	  var arr = data.split("~");	
 	  if(arr[0] == 'like'){
 		  	$(".so_luong_thich_bai_viet").html(arr[1]);
@@ -165,7 +165,7 @@ $(document).ready(function(){
             <div class="space10"></div>
             <div class="content" style="text-align:justify">{$bai_viet.noi_dung}</div>
             <ul class="inline pull-right hidden-phone">
-              <li> <span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini" href="#" title="" data-original-title="Thích"><i class="icon-thumbs-up-alt thich-bai-viet" {if $thich_bai_viet == NULL}style="color:#CCC;font-size:1.2em;"{else}style="color:crimson;font-size:1.2em"{/if}></i></a></li>
+              <li> <span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini" title="" data-original-title="Thích"><i class="icon-thumbs-up-alt thich-bai-viet" {if $thich_bai_viet == NULL}style="color:#CCC;font-size:1.2em;cursor:pointer"{else}style="color:crimson;font-size:1.2em;cursor:pointer"{/if}></i></a></li>
            
               <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
             </ul>
