@@ -3,21 +3,18 @@ try{
 	require '../ini.php';
 	require '../classes/xl_feedback_binh_luan.php';
 	require '../classes/xl_binh_luan.php';
+	require '../classes/xl_thanh_vien_dien_dan.php';
 
 	$xl_feedback_binh_luan = new xl_feedback_binh_luan;
 	
+
 	kiem_tra_quyen();
 	
 	if(empty($_GET['ma_binh_luan']))
 	{
-		throw new Exception('Mã bình luận không hợp lệ');
-	}
-	if($_GET['loai']!=0&&$_GET['loai']!=1)
-	{
-		throw new Exception('Loại bình chọn không hợp lệ');
+		echo 'Mã bình luận không hợp lệ';exit;
 	}
 	
-	$loai = $_GET['loai'];
 	$ma_binh_luan = $_GET['ma_binh_luan'];
 	
 	$xl_binh_luan = new xl_binh_luan;
@@ -25,25 +22,28 @@ try{
 	{
 		throw new Exception('Mã bình luận không hợp lệ');
 	}
+	$binh_luan_thich = $xl_feedback_binh_luan->doc(array('ma_binh_luan'=>$ma_binh_luan, 'ma_nguoi_dung'=>$ma_nguoi_dung), 'ma');
 	
-	$hien_tai = date('Y-m-d H:i:s');
-	$fb = $xl_feedback_binh_luan->doc(array('ma_binh_luan'=>$ma_binh_luan, 'ma_nguoi_dung'=>$ma_nguoi_dung), 'ma, ngay_tao');
 	
-	if($fb)
-	{
-		$ngay_tao = date('Y-m-d H:i:s', strtotime($fb['ngay_tao'].'+5 minutes'));
-		if($ngay_tao>$hien_tai)
-		{
-			throw new Exception('Vui lòng quay lại sau 5 phút để bình chọn cho bình luận này');
-		}
+	if($binh_luan_thich == NULL){
+	
+		$xl_feedback_binh_luan->them(array('ma_binh_luan'=>$ma_binh_luan, 'ngay_tao'=>date('Y-m-d H:i:s'), 'ma_nguoi_dung'=>$ma_nguoi_dung));	
+		cong_like_binh_luan($ma_binh_luan); // cộng thêm like cho bình luận đó
+		$binh_luan = $xl_binh_luan->doc(array('ma'=>$ma_binh_luan,'ma_dien_dan'=>$ma_dien_dan));
+		cong_diem_thanh_vien($binh_luan['ma_nguoi_dung'],$ma_dien_dan,1); // tính điểm cho thành viên khi được like bình luận
+		$so_luong_nguoi_thich = $binh_luan['thich'];
+		echo "like~$so_luong_nguoi_thich";exit;
 		
-		$xl_feedback_binh_luan->xoa(array('ma'=>$fb['ma']));
+	}else{
+		$xl_feedback_binh_luan->xoa(array('ma_binh_luan'=>$ma_binh_luan,'ma_nguoi_dung'=>$ma_nguoi_dung));
+		tru_like_binh_luan($ma_binh_luan);
+		$binh_luan = $xl_binh_luan->doc(array('ma'=>$ma_binh_luan,'ma_dien_dan'=>$ma_dien_dan));
+		tru_diem_thanh_vien($binh_luan['ma_nguoi_dung'],$ma_dien_dan,1); // trừ điểm cho thành viên khi bỏ like bình luận
+		$so_luong_nguoi_thich = $binh_luan['thich'];
+		echo "dislike~$so_luong_nguoi_thich";exit;
 	}
 	
-	$xl_feedback_binh_luan->them(array('ma_binh_luan'=>$ma_binh_luan, 'loai'=>$loai, 'ngay_tao'=>date('Y-m-d H:i:s'), 'ma_nguoi_dung'=>$ma_nguoi_dung));
-	
-	header("Location: {$_SERVER['HTTP_REFERER']}");
-	exit;
+	echo 'Lỗi trong quá trình thích bài viết ,vui lòng thử lại sau';exit;
 	
 }catch(PDOException $e)
 {

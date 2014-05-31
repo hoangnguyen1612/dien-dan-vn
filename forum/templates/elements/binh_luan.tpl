@@ -1,4 +1,23 @@
- {foreach $ds_binh_luan_cha as $binh_luan_cha}
+{foreach $ds_binh_luan_cha as $binh_luan_cha}
+<script>
+$(document).ready(function(){
+  $(".like-binh-luan{$binh_luan_cha.ma}").click(function(){
+    $.get("/{$ma_dien_dan}/binh_luan/feedback",{ ma_binh_luan : "{$binh_luan_cha.ma}" },function(data,status){
+		alert(data);
+	  var arr = data.split("~");	
+	  if(arr[0] == 'like'){
+		  	$(".so_luong_thich_binh_luan{$binh_luan_cha.ma}").html(arr[1]);
+		 	$(".thich-binh-luan{$binh_luan_cha.ma}").css('color','crimson');
+			  
+	  }
+	  if(arr[0] == 'dislike'){
+		  	$(".so_luong_thich_binh_luan{$binh_luan_cha.ma}").html(arr[1]);
+		    $(".thich-binh-luan{$binh_luan_cha.ma}").css('color','#CCC');
+	  }
+    });
+  });
+});
+</script> 
     <div id="p26" class="row-fluid ">
       <article role="article">
         <div class="well well-small ">
@@ -20,11 +39,11 @@
            <!--===================================================FEDDBACK COMMENTS================================================================== -->                
           <div class="feedback-comment">
             {if $binh_luan_cha.dung == 1}<i class="icon-ok-sign" style="color:green;font-size:2em"></i><br /><br />{/if}
-                <a href="../binh_luan/feedback?ma_binh_luan={$binh_luan_cha.ma}&loai=0" title="" data-original-title="Không thích" style="color:crimson"><i class="icon-chevron-left like" style="color:#999;font-size:1.2em;"></i> </a>
                 
-                    <span style="font-weight:bold; color: #666; font-size: 1.2em">{dem_feedback_binh_luan($binh_luan_cha.ma)}</span> 
+                
+                 
                
-               <a href="../binh_luan/feedback?ma_binh_luan={$binh_luan_cha.ma}&loai=1" title="" data-original-title="Thích" style="color:crimson"><i class="icon-chevron-right like" style="color:#999;font-size:1.2em"></i></a>
+              
           </div>
       
       
@@ -33,6 +52,7 @@
           <div class="postbody span9">
             <div class="row-fluid">    
               <ul class="inline pull-right visible-phone">
+             
                 <li><a class="btn btn-small" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
                 <li><a class="btn btn-small" href="javascript:void(0);" title="" data-original-title="Trả lời bài viết"><i class="icon-comment" id="target-shown"></i></a></li>
               </ul>
@@ -52,6 +72,7 @@
                   {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
                 <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_cha.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
                   {/if}
+                  <li><span class="so_luong_thich_binh_luan{$binh_luan_cha.ma}">{$binh_luan_cha.thich}</span> <a href="#" title="" data-original-title="Thích" style="color:crimson" class="like-binh-luan{$binh_luan_cha.ma} btn btn-mini"><i class="icon-thumbs-up-alt thich-binh-luan{$binh_luan_cha.ma}" {if trang_thai_thich_binh_luan($binh_luan_cha.ma,$binh_luan_cha.ma_nguoi_dung) == NULL } style="color:#CCC;font-size:1.2em"{else}style="color:crimson;font-size:1.2em" {/if}></i></a> <li>
                     <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
                     <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}{$binh_luan_cha.ma_nguoi_dung}" data-original-title="Trả lời bài viết"><i class="icon-comment"></i></a></li>
                      <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}" data-original-title="Xem các trả lời"><i class="icon-comment"> <span class="badge badge-info"> 
@@ -103,6 +124,25 @@
   
         {foreach $ds_binh_luan_con as $binh_luan_con}
         {if $binh_luan_con.ma_loai_cha == $binh_luan_cha.ma}
+<script>
+$(document).ready(function(){
+  $(".like-binh-luan{$binh_luan_con.ma}").click(function(){
+    $.get("/{$ma_dien_dan}/binh_luan/feedback",{ ma_binh_luan : "{$binh_luan_con.ma}" },function(data,status){
+
+	  var arr = data.split("~");	
+	  if(arr[0] == 'like'){
+		  	$(".so_luong_thich_binh_luan{$binh_luan_con.ma}").html(arr[1]);
+		 	$(".thich-binh-luan{$binh_luan_con.ma}").css('color','crimson');
+			  
+	  }
+	  if(arr[0] == 'dislike'){
+		  	$(".so_luong_thich_binh_luan{$binh_luan_con.ma}").html(arr[1]);
+		    $(".thich-binh-luan{$binh_luan_con.ma}").css('color','#CCC');
+	  }
+    });
+  });
+});
+</script> 
         <article role="article" style="width:98%;margin-left:2%;">
         <div  class="well well-small" style="background-color: white;margin-bottom:0px;border-radius:0px">
           <div class="span3 hidden-phone" id="profile26">
@@ -122,11 +162,6 @@
               </div>
           <div class="feedback-comment">
                 {if $binh_luan_con.dung == 1}<i class="icon-ok-sign" style="color:green;font-size:2em"></i><br /><br />{/if}
-                    <a href="../binh_luan/cap_nhat_binh_luan_giup_ich?ma={$binh_luan_con.ma}" title="" data-original-title="Không thích" style="color:crimson"><i class="icon-chevron-left like" style="color:#999;font-size:1.2em;"></i> </a>
-                    
-                        <span style="font-weight:bold; color: #666; font-size: 1.2em">{dem_feedback_binh_luan($binh_luan_con.ma)}</span> 
-                   
-                   <a href="../binh_luan/feedback?ma_binh_luan={$binh_luan_con.ma}&loai=1" title="" data-original-title="Thích" style="color:crimson"><i class="icon-chevron-right like" style="color:#999;font-size:1.2em"></i></a>
               </div>
           <div class="postbody span9">
                 <div class="row-fluid">
@@ -149,6 +184,8 @@
                    {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
                 <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_con.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
                   {/if}
+                  <li><span class="so_luong_thich_binh_luan{$binh_luan_con.ma}">{$binh_luan_con.thich}</span> <a href="#" title="" data-original-title="Thích" style="color:crimson" class="like-binh-luan{$binh_luan_con.ma} btn btn-mini"><i class="icon-thumbs-up-alt thich-binh-luan{$binh_luan_con.ma}" {if trang_thai_thich_binh_luan($binh_luan_con.ma,$binh_luan_con.ma_nguoi_dung) == NULL } style="color:#CCC;font-size:1.2em"{else}style="color:crimson;font-size:1.2em" {/if}></i></a> <li>
+               
                     <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
                   
                   </ul>

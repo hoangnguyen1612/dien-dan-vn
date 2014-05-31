@@ -3,6 +3,7 @@ try{
 //	print_r($_POST);exit;
 	require '../ini.php';
 	require '../classes/xl_binh_luan.php';
+	require '../classes/xl_thanh_vien_dien_dan.php';
 
 
 
@@ -16,6 +17,14 @@ try{
 	}	
 	#######Kiểm tra logic########
 	$binh_luan = $dt_xl_binh_luan->doc(array('ma'=>$_GET['ma'],'ma_dien_dan'=>$ma_dien_dan));
+	if($binh_luan['dung'] == 1){ 
+		tru_diem_thanh_vien($binh_luan['ma_nguoi_dung'],$ma_dien_dan,3);
+	}
+	if($binh_luan['dung']== 0){
+		
+		cong_diem_thanh_vien($binh_luan['ma_nguoi_dung'],$ma_dien_dan,3);	
+	}
+
 	if($binh_luan == NULL){
 		throw new Exception('Bình luận không tồn tại');
 	}
@@ -25,6 +34,10 @@ try{
 	if($result === false){
 		throw new Exception('Lỗi trong quá trình lưu dữ liệu , vui lòng thử lại');
 	}
+	
+	
+	
+	
 	#Them thanh cong san pham
 	# Đóng kết nối
 	$dbh = NULL;
