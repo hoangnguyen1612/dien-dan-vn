@@ -24,6 +24,30 @@ function showMessage()
 	}
 }
 
+function kiem_tra_rong($value, $content)
+{
+	if(empty($value) || $value=='')
+	{
+		throw new Exception("Lỗi [$content] không được rỗng, vui lòng kiểm tra lại");
+	}
+}
+
+function kiem_tra_gia_tri($variable, $value, $content)
+{
+	if(!in_array($variable, $value))
+	{
+		throw new Exception("Lỗi [$content] không hợp lệ, vui lòng kiểm tra lại");
+	}
+}
+
+function kiem_tra_la_so($value, $content)
+{
+	if(!is_numeric($value) && $value<0)
+	{
+		throw new Exception("Lỗi [$content] phải là số nguyên dương, vui lòng kiểm tra lại");
+	}
+}
+
 function _date($date)
 {
 	return date('d-m-Y', strtotime($date));
@@ -55,6 +79,36 @@ function getChildren($id, $categories)
 	} while (count($arr)>0);
 
 	return $children;
+}
+
+function getParents($id, $categories)
+{ 
+	$parents = array();
+	
+	while(isset($categories[$id]))
+	{
+		$parent = $categories[$id];
+		
+		if($parent)
+		{
+			$parents[] = $categories[$parent];
+		}
+		$id = $parent;
+	}
+	
+	return $parents;
+}
+
+function kiem_tra_loai_cha($id, $categories)
+{
+	$ma_loai_cha = $categories[$id];
+	
+	if($categories[$ma_loai_cha]!=0)
+	{
+		return 1;
+	}
+	
+	return 0;
 }
 
 function getChildrenFirst($id, $categories)
