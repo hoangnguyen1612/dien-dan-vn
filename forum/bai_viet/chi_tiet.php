@@ -7,7 +7,11 @@ try{
 	include '../classes/phan_trang_1.php';
 	include '../classes/xl_feedback_binh_luan.php';
 	include '../classes/xl_feedback_bai_viet.php';
+	include '../classes/xl_bao_cao_binh_luan.php';
+	include '../classes/xl_bao_cao_bai_viet.php';
+	include '../classes/xl_chuyen_muc.php';
 	
+	$title = 'Chi tiết bài viết';	
 	if(empty($_GET['ma'])){
 		throw new Exception( 'Vui lòng nhập mã bài viết');
 	}
@@ -15,6 +19,7 @@ try{
 	$dt_xl_binh_luan = new xl_binh_luan;
 	$dt_xl_feedback_bai_viet = new xl_feedback_bai_viet;
 	$dt_xl_feedback_binh_luan = new xl_feedback_binh_luan;
+	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 	
 	$limit = 4; // Số lượng bài viết trên 1 trang
 	$pt = new phan_trang('page',$limit);
@@ -32,18 +37,33 @@ try{
 	{
 		throw new Exception('Bài viết không tồn tại trog diễn đàn');
 	}
+	$chuyen_muc = $dt_xl_chuyen_muc->doc(array('ma'=>$bai_viet['ma_loai_chuyen_muc'],'ma_dien_dan'=>$ma_dien_dan));
+	$dt_smarty->assign('chuyen_muc',$chuyen_muc);
+	if($chuyen_muc['ma_loai_cha'] != 0){
+		$chuyen_muc_cha = $dt_xl_chuyen_muc->doc(array('ma'=>$chuyen_muc['ma_loai_cha'],'ma_dien_dan'=>$ma_dien_dan));
+		$dt_smarty->assign('chuyen_muc_cha',$chuyen_muc_cha);
+		if($chuyen_muc_cha['ma_loai_cha'] !=0){
+			$chuyen_muc_ong_noi = $dt_xl_chuyen_muc->doc(array('ma'=>$chuyen_muc_cha['ma_loai_cha'],'ma_dien_dan'=>$ma_dien_dan));
+			$dt_smarty->assign('chuyen_muc_ong_noi',$chuyen_muc_ong_noi);
+		}
+	}
+	
 	$dt_xl_bai_viet->cap_nhat_dieu_kien(array('luot_xem'=>($bai_viet['luot_xem']+1)), array('ma'=>$bai_viet['ma'],'ma_dien_dan'=>$ma_dien_dan));
 
 	$ds_binh_luan_cha = $dt_xl_binh_luan->danh_sach($start,$limit,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan,'ma_loai_cha'=>0),'ngay_tao ASC',"binh_luan_bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung,(Select thumbnail from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) thumbnail, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) gioi_tinh", PDO::FETCH_ASSOC,'',true);
 
 	$ds_binh_luan_con = $dt_xl_binh_luan->danh_sach(0,0,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao ASC',"binh_luan_bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung,(Select thumbnail from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) thumbnail, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung=binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) gioi_tinh",PDO::FETCH_ASSOC,'and ma_loai_cha !=0',false);
 	
+	
+	
 	# Lấy ra danh sách các bài viết và bình luận mà người đó có like trong trang chi tiết này
 	$thich_bai_viet = $dt_xl_feedback_bai_viet->doc(array('ma_bai_viet'=>$ma,'ma_nguoi_dung'=>$ma_nguoi_dung));
+
+	#debug($thich_bai_viet);
 	$dt_smarty->assign('thich_bai_viet',$thich_bai_viet);
 
 	
-	
+	$dt_smarty->assign('title',$title);
 	
 	$pt->tong_record = $ds_binh_luan_cha[1];
 	$tong_so_trang = $pt->ceil_tong_so_trang();

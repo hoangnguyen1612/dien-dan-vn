@@ -99,6 +99,7 @@ function getParents($id, $categories)
 	return $parents;
 }
 
+
 function kiem_tra_loai_cha($id, $categories)
 {
 	$ma_loai_cha = $categories[$id];
@@ -120,6 +121,20 @@ function getChildrenFirst($id, $categories)
 		if($category['ma_loai_cha'] == $id)
 		{
 			$children[$category['ma']] = array('ten'=>$category['ten'], 'thu_tu_hien_thi'=>$category['thu_tu_hien_thi']);
+		}
+	}
+	
+	return $children;
+}
+function getChildrenFirstForum($id, $categories)
+{
+	$children = array();
+
+	foreach($categories as $k => $category)
+	{
+		if($category['ma_loai_cha'] == $id)
+		{
+			$children[$category['ma']] = array('ten'=>$category['ten'], 'ghi_chu'=>$category['ghi_chu']);
 		}
 	}
 	
@@ -362,6 +377,29 @@ function copyfileimage($oldpic,$newpic,$maxwidth=800,$maxheight=600,$quatily=65)
 
 	ImageDestroy ($im);
 
+}
+# Thời gian
+function time_since($since) {
+    $chunks = array(
+        array(60 * 60 * 24 * 365 , 'năm trước'),
+        array(60 * 60 * 24 * 30 , 'tháng trước'),
+        array(60 * 60 * 24 * 7, 'tuần trước'),
+        array(60 * 60 * 24 , 'ngày trước'),
+        array(60 * 60 , 'giờ trước'),
+        array(60 , 'phút trước'),
+        array(1 , 'giây trước')
+    );
+
+    for ($i = 0, $j = count($chunks); $i < $j; $i++) {
+        $seconds = $chunks[$i][0];
+        $name = $chunks[$i][1];
+        if (($count = floor($since / $seconds)) != 0) {
+            break;
+        }
+    }
+
+    $print = ($count == 1) ? '1 '.$name : "$count {$name}";
+    return $print;
 }
 //copyfileimage("upload/aa.jpg","thumb/aa.jpg",40,40);
 function imageWaterMark($groundImage,$waterPos=9,$waterImage="nguyena.png"){

@@ -8,6 +8,8 @@ try{
 	include '../classes/xl_nguoi_dung.php';
 	
 	
+	$title = 'Trang chủ';
+	
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 	$dt_xl_bai_viet = new xl_bai_viet;
 	$dt_xl_binh_luan = new xl_binh_luan;
@@ -15,6 +17,7 @@ try{
 	
 	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan),'thu_tu_hien_thi ASC','loai_chuyen_muc.*,(Select count(ma) as so_luong from bai_viet where loai_chuyen_muc.ma = bai_viet.ma_loai_chuyen_muc) so_luong_bai_viet',PDO::FETCH_ASSOC,'',false);
 
+	$dt_smarty->assign('title',$title);
 	$dt_smarty->assign('ds_chuyen_muc', $ds_chuyen_muc);
 		
 	$contentForLayout = $dt_smarty->fetch('trang_chu/index.tpl');
@@ -26,5 +29,6 @@ try{
 }catch(Exception $e){
 	$_SESSION['message']['type'] = 'error';
 	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: {$_SERVER['HTTP_REFERER']}");
+	echo $_SESSION['message']['content'];exit;
+	#header("Location: {$_SERVER['HTTP_REFERER']}");
 }
