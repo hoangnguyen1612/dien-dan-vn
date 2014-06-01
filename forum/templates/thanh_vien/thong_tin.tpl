@@ -48,12 +48,13 @@
               <ul class="recent-activity">
               	<li class="item"> <span class="icon red"><i class="icon16 icon-group"></i></span>
                   <div class="text">Quyền: </div>
-                  <span class="recent-detail">{$quyen[$thanh_vien.loai_thanh_vien]}</span> </li>
+                  <span class="recent-detail">{$quyen[$thanh_vien_dien_dan.loai_thanh_vien]}</span> </li>
                 <li class="item"> <span class="icon red"><i class="icon16 icon-flag"></i></span>
                   <div class="text">Gia nhập: </div>
-                  <span class="recent-detail">{date('d-m-Y',strtotime($thanh_vien.ngay_gia_nhap))}</span> </li>
+                  <span class="recent-detail">{date('d-m-Y',strtotime($thanh_vien_dien_dan.ngay_gia_nhap))}</span> </li>
                 <!--<li class="item"> <span class="icon yellow"><i class="icon16 icon-eye-open"></i></span> <span class="text">Lần cuối đăng nhập: </span> <span class="recent-detail"> 03-04-2014, 09:07</span> </li>-->
-                <li class="item"> <span class="icon blue"><i class="icon16 icon-comments"></i></span> <span class="text">Tổng số bài viết: </span> <span class="recent-detail">{dem_bai_viet_thanh_vien($ma_dien_dan,$nguoi_dung.ma)}<strong><a href="./search.php?author_id=104&amp;sr=posts" data-original-title="" title=""></a></strong></span> </li>
+                <li class="item"> <span class="icon blue"><i class="icon16 icon-comments"></i></span> <span class="text">Tổng số bài viết: </span> <span class="recent-detail">{dem_bai_viet_thanh_vien($ma_dien_dan,$thanh_vien_dien_dan.ma_nguoi_dung)}<strong><a href="./search.php?author_id=104&amp;sr=posts" data-original-title="" title=""></a></strong></span> </li>
+                 <li class="item"> <span class="icon blue"><i class="icon16 icon-bar-chart"></i></span> <span class="text">Điểm số: </span> <span class="recent-detail">{$thanh_vien_dien_dan.diem_so}<strong><a href="./search.php?author_id=104&amp;sr=posts" data-original-title="" title=""></a></strong></span> </li>
                 <!--
                 <li class="item"> <span class="icon green"><i class="icon16 icon-refresh"></i></span> <span class="text">Chuyên mục yêu thích nhất: <a href="./viewforum.php?f=2" data-original-title="" title="">Công nghệ thông tin</a> </span> <span class="recent-detail">(20 Bài viết)</span> </li>
                 <li class="item"> <span class="icon green"><i class="icon16 icon-refresh"></i></span> <span class="text">Bài viết yêu thích nhất: <a href="./viewtopic.php?t=15" data-original-title="" title="">Lập trình căn bản PHP</a> </span> <span class="recent-detail">(10 Bài viết)</span> </li>-->
