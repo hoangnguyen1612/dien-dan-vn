@@ -19,12 +19,15 @@ try{
 		throw new Exception('Lỗi! [Mã thành viên] không tồn tại trong diễn đàn, vui lòng thử lại');
 	}
 	
-	$thu_muc = array('bai_viet'=>'Bài viết', 'loai_chuyen_muc'=>'Chuyên mục', 'cau_hinh'=>'Cấu hình', 'thanh_vien'=>'Thành viên');
+	$thu_muc = array('thong_ke'=>'Thống kê', 'bai_viet'=>'Bài viết', 'loai_chuyen_muc'=>'Chuyên mục', 'cau_hinh'=>'Cấu hình', 'thanh_vien'=>'Thành viên', 'tinh_diem'=>'Tính điểm', 'cap_bac'=>'Cấp bậc thành viên');
 	$thao_tac = array(
+		'thong_ke'=>array('tong_quat'=>'Tổng quát'),
 		'bai_viet'=>array('xoa'=>'Xóa', 'cap_nhat'=>'Cập nhật'),
 		'loai_chuyen_muc'=>array('danh_sach'=>'Danh sách', 'them'=>'Thêm', 'cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa'),
 		'cau_hinh'=>array('danh_sach'=>'Danh sách', 'them'=>'Thêm', 'cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa'),
 		'thanh_vien'=>array('danh_sach'=>'Danh sách', 'cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa', 'phan_quyen'=>'Phân quyền'),
+		'tinh_diem'=>array('cau_hinh'=>'Cấu hình'),
+		'cap_bac'=>array('cau_hinh'=>'Cấu hình', 'tong_quat'=>'Tổng quát')
 	);
 	
 	$dt_smarty->assign('thu_muc', $thu_muc);
