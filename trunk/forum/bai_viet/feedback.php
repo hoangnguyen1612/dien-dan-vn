@@ -32,14 +32,14 @@ try{
 		$xl_feedback_bai_viet->them(array('ma_bai_viet'=>$ma_bai_viet, 'ngay_tao'=>date('Y-m-d H:i:s'), 'ma_nguoi_dung'=>$ma_nguoi_dung));	
 		cong_like_bai_viet($ma_bai_viet);
 		$bai_viet = $xl_bai_viet->doc(array('ma'=>$ma_bai_viet,'ma_dien_dan'=>$ma_dien_dan));
-		cong_diem_thanh_vien($bai_viet['ma_nguoi_dang'],$ma_dien_dan,1);
+		cong_diem_thanh_vien($bai_viet['ma_nguoi_dang'],$ma_dien_dan,$diem_duoc_thich);
 		$so_luong_nguoi_thich = $bai_viet['thich'];
 		echo "like~$so_luong_nguoi_thich";exit;
 	}else{
 		$xl_feedback_bai_viet->xoa(array('ma_bai_viet'=>$ma_bai_viet,'ma_nguoi_dung'=>$ma_nguoi_dung));
 		tru_like_bai_viet($ma_bai_viet);
 		$bai_viet = $xl_bai_viet->doc(array('ma'=>$ma_bai_viet,'ma_dien_dan'=>$ma_dien_dan));	
-		tru_diem_thanh_vien($bai_viet['ma_nguoi_dang'],$ma_dien_dan,1);	
+		tru_diem_thanh_vien($bai_viet['ma_nguoi_dang'],$ma_dien_dan,$diem_duoc_thich);	
 		$so_luong_nguoi_thich = $bai_viet['thich'];
 		echo "dislike~$so_luong_nguoi_thich";exit;
 	}

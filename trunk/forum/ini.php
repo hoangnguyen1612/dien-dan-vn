@@ -14,7 +14,10 @@
 	$sth = $dbh->prepare($sql);
 	$sth->execute(array('ma'=>$ma_dien_dan));
 	$ds_cau_hinh = $sth->fetchAll(PDO::FETCH_KEY_PAIR);
-
+	
+	$diem_bai_viet = $ds_cau_hinh['BAI_VIET_MOI'];
+	$diem_duoc_thich = $ds_cau_hinh['THICH'];
+	$diem_bai_viet_dung = $ds_cau_hinh['DUNG'];
 	
 	###
 	$ma_nguoi_dung = '';

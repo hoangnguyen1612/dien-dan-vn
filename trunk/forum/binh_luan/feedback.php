@@ -30,7 +30,7 @@ try{
 		$xl_feedback_binh_luan->them(array('ma_binh_luan'=>$ma_binh_luan, 'ngay_tao'=>date('Y-m-d H:i:s'), 'ma_nguoi_dung'=>$ma_nguoi_dung));	
 		cong_like_binh_luan($ma_binh_luan); // cộng thêm like cho bình luận đó
 		$binh_luan = $xl_binh_luan->doc(array('ma'=>$ma_binh_luan,'ma_dien_dan'=>$ma_dien_dan));
-		cong_diem_thanh_vien($binh_luan['ma_nguoi_dung'],$ma_dien_dan,1); // tính điểm cho thành viên khi được like bình luận
+		cong_diem_thanh_vien($binh_luan['ma_nguoi_dung'],$ma_dien_dan,$diem_duoc_thich); // tính điểm cho thành viên khi được like bình luận
 		$so_luong_nguoi_thich = $binh_luan['thich'];
 		echo "like~$so_luong_nguoi_thich";exit;
 		
@@ -38,7 +38,7 @@ try{
 		$xl_feedback_binh_luan->xoa(array('ma_binh_luan'=>$ma_binh_luan,'ma_nguoi_dung'=>$ma_nguoi_dung));
 		tru_like_binh_luan($ma_binh_luan);
 		$binh_luan = $xl_binh_luan->doc(array('ma'=>$ma_binh_luan,'ma_dien_dan'=>$ma_dien_dan));
-		tru_diem_thanh_vien($binh_luan['ma_nguoi_dung'],$ma_dien_dan,1); // trừ điểm cho thành viên khi bỏ like bình luận
+		tru_diem_thanh_vien($binh_luan['ma_nguoi_dung'],$ma_dien_dan,$diem_duoc_thich); // trừ điểm cho thành viên khi bỏ like bình luận
 		$so_luong_nguoi_thich = $binh_luan['thich'];
 		echo "dislike~$so_luong_nguoi_thich";exit;
 	}
