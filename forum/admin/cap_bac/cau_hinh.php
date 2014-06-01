@@ -5,6 +5,8 @@ try{
 	require '../../classes/xl_cap_bac.php';
 	require '../../classes/xl_cau_hinh.php';
 
+	quan_tri('cap_bac_cau_hinh');
+
 	$xl_cau_hinh = new xl_cau_hinh;
 	$cau_hinh = $xl_cau_hinh->danh_sach(0, 0, array('ma_dien_dan'), 'tu_khoa ASC', 'tu_khoa, noi_dung', PDO::FETCH_KEY_PAIR, 
 	' and tu_khoa = "SO_LUONG_CAP_BAC" or tu_khoa = "BIEU_TUONG_CAP_BAC"', false);

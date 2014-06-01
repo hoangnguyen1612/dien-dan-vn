@@ -3,6 +3,8 @@ try{
 	include '../ini.php';
 	require '../../classes/xl_chuyen_muc.php';
 	
+	quan_tri('loai_chuyen_muc_them');
+	
 	$url = '';
 	
 	$xl_chuyen_muc = new xl_chuyen_muc;

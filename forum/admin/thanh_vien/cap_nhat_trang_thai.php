@@ -3,8 +3,8 @@ try{
 //	print_r($_POST);exit;
 	require '../ini.php';
 	require '../../../home/classes/xl_thanh_vien_dien_dan.php';
-
-
+	
+	quan_tri('thanh_vien_cap_nhat');
 
 	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 

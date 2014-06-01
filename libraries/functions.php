@@ -48,6 +48,26 @@ function kiem_tra_la_so($value, $content, $ss = 0)
 	}
 }
 
+function quan_tri($value)
+{
+	global $dbh, $thanh_vien, $ma_dien_dan;
+	
+	if($thanh_vien['loai_thanh_vien']==0)
+	{
+		return;
+	}
+	
+	$sql = 'select quyen from thanh_vien_dien_dan where ma_nguoi_dung = :ma_nguoi_dung and ma_dien_dan = :ma_dien_dan';
+	$sth = $dbh->prepare($sql);
+	$sth->execute(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$thanh_vien['ma_nguoi_dung']));
+	$tv = $sth->fetch();
+	
+	if(strpos($tv['quyen'], $value)===false)
+	{
+		throw new Exception('Bạn không có quyền thực hiện thao tác này');
+	}
+}
+
 function _date($date)
 {
 	return date('d-m-Y', strtotime($date));

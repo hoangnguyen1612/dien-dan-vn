@@ -4,6 +4,8 @@ try{
 	require '../../classes/xl_cap_bac.php';
 	require '../../classes/xl_cau_hinh.php';
 	
+	quan_tri('cap_bac_cau_hinh');
+	
 	$_SESSION['data'] = $_POST['data'];
 	
 	$xl_cau_hinh = new xl_cau_hinh;

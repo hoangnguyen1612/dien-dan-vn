@@ -6,6 +6,8 @@ try{
 	include '../../../home/classes/xl_thanh_vien_dien_dan.php';
 	include '../../classes/phan_trang.php';
 
+	quan_tri('thanh_vien_phan_quyen');
+
 	if(empty($_GET['ma']))
 	{
 		throw new Exception('Lỗi! [Mã thành viên] rỗng, vui lòng thử lại');

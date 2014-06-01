@@ -4,6 +4,8 @@ try{
 	include '../ini_interface.php';
 	include '../../classes/xl_chuyen_muc.php';
 	
+	quan_tri('loai_chuyen_muc_cap_nhat');
+	
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 	if(empty($_GET['ma'])){
 		$_SESSION['msg']='Vui lòng nhập mã loại chuyên mục ';

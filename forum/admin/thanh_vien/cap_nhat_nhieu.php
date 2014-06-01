@@ -2,6 +2,9 @@
 try{
 	include "../ini.php";
 	include "../../classes/xl_thanh_vien_dien_dan.php";
+	
+	quan_tri('thanh_vien_cap_nhat');
+	
 	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	#debug($_POST);
 	if(empty($_POST['item'])){

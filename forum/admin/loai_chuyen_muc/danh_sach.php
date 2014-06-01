@@ -5,6 +5,8 @@ try{
 	include '../../classes/xl_chuyen_muc.php';
 	include '../../classes/phan_trang.php';
 	
+	quan_tri('loai_chuyen_muc_danh_sach');
+	
 	$dt_phan_trang = new phan_trang;
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 	$vi_tri_bat_dau = $dt_phan_trang->tim_trang_hien_tai();

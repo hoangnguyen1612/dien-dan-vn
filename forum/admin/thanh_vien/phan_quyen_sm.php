@@ -3,6 +3,8 @@ try{
 	require '../ini.php';
 	require '../../classes/xl_thanh_vien_dien_dan.php';
 	
+	quan_tri('thanh_vien_phan_quyen');
+	
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	
 	if(empty($_POST['ma_nguoi_dung']))
