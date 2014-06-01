@@ -52,11 +52,13 @@ $(document).ready(function(){
 	  var arr = data.split("~");	
 	  if(arr[0] == 'like'){
 		  	$(".so_luong_thich_bai_viet").html(arr[1]);
+			$(".like").prop('data-original-title', 'Không thích');
 		 	$(".thich-bai-viet").css('color','crimson');
 			  
 	  }
 	  if(arr[0] == 'dislike'){
 		  	$(".so_luong_thich_bai_viet").html(arr[1]);
+			$(".like").prop('data-original-title', 'Thích');
 		    $(".thich-bai-viet").css('color','#CCC');
 	  }
     });
@@ -165,9 +167,13 @@ $(document).ready(function(){
             <div class="space10"></div>
             <div class="content" style="text-align:justify">{$bai_viet.noi_dung}</div>
             <ul class="inline pull-right hidden-phone">
-              <li> <span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini" title="" data-original-title="Thích"><i class="icon-thumbs-up-alt thich-bai-viet" {if $thich_bai_viet == NULL}style="color:#CCC;font-size:1.2em;cursor:pointer"{else}style="color:crimson;font-size:1.2em;cursor:pointer"{/if}></i></a></li>
+            {if $login != '' && $thanh_vien != '' && $thanh_vien.loai_thanh_vien != 3}
+              <li> <span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini"  {if $thich_bai_viet == NULL} data-original-title="Thích"{else} data-original-title="Bỏ thích"{/if}><i class="icon-thumbs-up-alt thich-bai-viet" {if $thich_bai_viet == NULL}style="color:#CCC;font-size:1.2em;cursor:pointer"{else}style="color:crimson;font-size:1.2em;cursor:pointer"{/if}></i></a></li>
            
-              <li><a class="btn btn-mini" href="../bao_cao/index.php" title="" data-original-title="Báo cáo bài viết"><i class="icon-exclamation-sign"></i></a></li>
+              <li><a class="btn btn-mini" href="/{$ma_dien_dan}/bao_cao/them?ma={$bai_viet.ma}&loai=0" title="" data-original-title="Báo cáo bài viết" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)!= NULL} onclick="return false" {/if} ><i class="icon-exclamation-sign" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)== NULL} style="color:#CCC" {else} style="color:crimson" {/if}></i></a></li>
+              {else}
+              	<li><span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini" data- data-original-title="Lượt thích" onclick="return false"><i class="icon-thumbs-up-alt thich-bai-viet" style="color:#CCC;font-size:1.2em;cursor:pointer"></i></a></li>
+              {/if}
             </ul>
           </div>
           <div class="space10"></div>
@@ -180,9 +186,8 @@ $(document).ready(function(){
     <form method="post"  action="../binh_luan/them_sm" name="gui_binh_luan" id="binh_luan_nhanh" onsubmit="return checkValidation_1()">
 
 	
-    <div id="reload">
- 		{include '../elements/binh_luan.tpl'}
-   	</div> 
+   
+
     {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
     	<form method="post"  action="../binh_luan/them_sm" name="gui_binh_luan" id="binh_luan_nhanh" onsubmit="return checkValidation_1()">
 
@@ -207,7 +212,7 @@ $(document).ready(function(){
               <input type="hidden" name="data[ma_bai_viet]" value="{$bai_viet.ma}">
               <input type="hidden" name="data[ma_loai_cha]" value="0">
               <button type="submit" class="btn start" id="load" name="post" autocomplete="off" data-loading-text="Chờ xử lý...<i class='icon-spin icon-spinner icon-large icon-white'></i>">Đăng</button>
-              <button type="button" class="btn start" id="load" name="full_editor" autocomplete="off" data-loading-text="Chờ xử lý...<i class='icon-spin icon-spinner icon-large icon-white'></i>" onclick="window.location.href='../binh_luan/them.php?ma_bai_viet={$bai_viet.ma}'">Bình luận đầy đủ</button>
+              <button type="button" class="btn start" id="load" name="full_editor" autocomplete="off" data-loading-text="Chờ xử lý...<i class='icon-spin icon-spinner icon-large icon-white'></i>" onclick="window.location.href='../binh_luan/them?ma_bai_viet={$bai_viet.ma}'">Bình luận đầy đủ</button>
             </div>
           </div>
         </div>

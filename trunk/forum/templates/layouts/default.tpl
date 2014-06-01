@@ -69,7 +69,7 @@ head.ready(function() {
           <div class="fxicon"> <i class="icon-home"></i> </div>
           <ul class="index-pos">
             <li class="index-title" style="margin-bottom:5px;">
-              <h1 style="font-size:28px;">trang chủ</h1>
+              <h1 style="font-size:28px;">{$title|default:''}</h1>
             </li>
             <li class="index-sub">Chào mừng bạn đến diễn đàn {$dien_dan.ten}</li>
           </ul>
@@ -90,7 +90,19 @@ head.ready(function() {
       <div class="crumbs">
         <ul class="sub-crumb hidden-phone">
           <li><i class="icon-home"></i> <a href="./index.php" accesskey="h" data-original-title="" title="">Hutech</a> <span class="divider"></span></li>
-          <li class="active"> &nbsp;<i class="icon-long-arrow-right"></i> Trang chủ</li>
+            <li class="active"> &nbsp;<a href="/{$ma_dien_dan}"><i class="icon-long-arrow-right"></i>Trang chủ</a></li>
+          {if isset($chuyen_muc_ong_noi)}
+          <li class="active"> &nbsp;<a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc_ong_noi.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_ong_noi.ten}</a></li>
+          {/if}
+           {if isset($chuyen_muc_cha)}
+          <li class="active"> &nbsp;<a  href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc_cha.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_cha.ten}</a></li>
+          {/if}
+          {if isset($chuyen_muc)}
+          <li class="active"> &nbsp;<a  href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc.ten}</a></li>
+          {/if}
+          {if isset($bai_viet)}
+          <li class="active"> &nbsp;<a  href="/{$ma_dien_dan}/bai_viet/chi_tiet?ma={$bai_viet.ma}"><i class="icon-long-arrow-right"></i>{$bai_viet.tieu_de|truncate:100}</a></li>
+          {/if}
         </ul>
         <ul class="top-menu">
         {if $login!=''}

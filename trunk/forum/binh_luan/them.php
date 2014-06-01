@@ -4,6 +4,8 @@ try{
 	include '../ini_interface.php';
 	include '../classes/xl_bai_viet.php';
 	
+	$title = 'Bình luận';
+	
 	kiem_tra_quyen();
 	
 	if(empty($_GET['ma_bai_viet'])){
@@ -15,7 +17,7 @@ try{
 		throw new Exception('Bài viết không tồn tại');
 	}
 	$dt_smarty->assign('bai_viet',$bai_viet);
-		
+	$dt_smarty->assign('title',$title);	
 	$contentForLayout = $dt_smarty->fetch('binh_luan/them.tpl');
 	
 	$dt_smarty->assign('contentForLayout', $contentForLayout);

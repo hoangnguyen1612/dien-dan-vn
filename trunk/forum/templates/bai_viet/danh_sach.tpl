@@ -44,14 +44,139 @@
       <div class="pull-right">
         <div class="btn-group"> </div>
       </div>
-      <div class="pull-left"> <a href="./them?loai={$smarty.get.loai}" data-original-title="Post a new topic" type="button" class="btn"><i class="icon-share-alt"></i>Tạo bài viết mới</a> </div>
+      <div class="pull-left"> <a href="./them?loai={$smarty.get.loai}" data-original-title="Tạo bài viết mới" type="button" class="btn"><i class="icon-share-alt"></i>Tạo bài viết mới</a> </div>
+       <div class="pull-left" style="margin-left:2px"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}&bo_loc=1" class="btn" data-original-title="Danh sách 10 bài viết được yêu thích nhất của chuyên mục"><i class="icon-heart" style="color:crimson;font-size:1.2em" ></i></a> </div>
+        <div class="pull-left" style="margin-left:2px"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}&bo_loc=0" class="btn" data-original-title="Danh sách 10 bài viết mới nhất nhất của chuyên mục"><i class="icon-bolt" style="color:yellow;font-size:1.2em" ></i></a> </div>
     </div>
     <div class="space10"></div>
-    <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
+    {if $ds_chuyen_muc_con != NULL}
+     <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
+      <thead>
+        <tr>
+          <th data-class="expand" class="footable-first-column"><i class="icon-group"></i> Phụ mục : {$chuyen_muc.ten}</th>
+          <th data-hide="phone"><i class="icon-bar-chart"></i> Thống kê</th>
+          <th data-hide="phone" class="footable-last-column"><i class="icon-comments-alt"></i> Bình luận mới</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+     
+      {foreach $ds_chuyen_muc_con as $chuyen_muc_con}
+      	{if empty($thanh_vien) || $thanh_vien.loai_thanh_vien==3}
+        	{if $chuyen_muc_con.rieng_tu==1}
+            	{continue}
+            {/if}
+        {/if} 	
+        	<tr class="">
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="icon-comment"  title="No unread posts"></i>   <a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc_con.ma}" class="topictitle" data-original-title="" title="">{$chuyen_muc_con.ten|truncate:100:"..."}</a> <br><small>{$chuyen_muc_con.ghi_chu|default:''}</small></td>
+        <td class="center">{dem_bai_viet($ma_dien_dan, $chuyen_muc_con.ma)} bài viết </td>
+         {$bai_viet_moi = bai_viet_moi($ma_dien_dan, $chuyen_muc_con.ma)}
+         
+        <td class="center footable-last-column"> 
+        {if $bai_viet_moi!=0}
+          	<i class="icon-user"></i> bởi 
+          <a href="" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_moi.ngay_tao))}</small>
+           {else if} 
+           	  0 bài viết
+           {/if}</td>
+      </tr>
+      {/foreach}
+      </tbody>
+      
+    </table>
+    {/if}
+    
+  
+   
+ 
+    
+
+    {if isset($smarty.get.bo_loc) }
+    	{if $smarty.get.bo_loc == 0}
+            <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
       <thead>
         <tr>
           <th data-class="expand" class="footable-first-column"><i class="icon-group"></i> Bài viết</th>
           <th data-hide="phone"><i class="icon-bar-chart"></i> Thống kê</th>
+          <th data-hide="phone"><i class="icon-bar-chart"></i> Thời gian</th>
+          <th data-hide="phone" class="footable-last-column"><i class="icon-comments-alt"></i> Bình luận mới</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      {if $ds_bai_viet_moi_nhat == NULL}
+      <tr>
+        <td>Chưa có bài viết nào để hiển thị</td>
+      </tr>
+      {/if}
+      {foreach $ds_bai_viet_moi_nhat as $bai_viet_moi_nhat}
+      	{if empty($thanh_vien) || $thanh_vien.loai_thanh_vien==3}
+        	{if $bai_viet_moi_nhat.rieng_tu==1}
+            	{continue}
+            {/if}
+        {/if} 	
+        	<tr class="">
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/images/icons/misc/{$bai_viet_moi_nhat.icon}.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma={$bai_viet_moi_nhat.ma}" class="topictitle" data-original-title="" title="">{$bai_viet_moi_nhat.tieu_de|truncate:100:"..."}</a> <br>
+          <i class="icon-user"></i> bởi <a href="./memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet_moi_nhat.ho_ten}</a>&nbsp;&nbsp; <i class="icon-time"></i> <small>{date('H:i d-m-Y', strtotime($bai_viet_moi_nhat.ngay_tao))}</small></td>
+        <td class="center">{$bai_viet_moi_nhat.so_luong_binh_luan} Trả lời <br>
+          {$bai_viet_moi_nhat.luot_xem} Lượt xem</td>
+           <td class="center">{time_since(time() - strtotime($bai_viet_moi_nhat.ngay_tao))}</td>
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet_moi_nhat.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi_nhat.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_moi_nhat.ngay_tao))}</small></td>
+      </tr>
+      {/foreach}
+      </tbody>
+      
+    </table>
+        {/if}
+       
+        
+     	{if $smarty.get.bo_loc == 1}
+        <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
+      <thead>
+        <tr>
+          <th data-class="expand" class="footable-first-column"><i class="icon-group"></i> Bài viết</th>
+          <th data-hide="phone"><i class="icon-bar-chart"></i> Thống kê</th>
+          <th data-hide="phone"><i class="icon-bar-chart"></i> Lượt thích</th>
+          <th data-hide="phone" class="footable-last-column"><i class="icon-comments-alt"></i> Bình luận mới</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+      {if $ds_bai_viet_yeu_thich_nhat == NULL}
+      <tr>
+        <td>Chưa có bài viết nào để hiển thị</td>
+      </tr>
+      {/if}
+      {foreach $ds_bai_viet_yeu_thich_nhat as $bai_viet_yeu_thich_nhat}
+      	{if empty($thanh_vien) || $thanh_vien.loai_thanh_vien==3}
+        	{if $bai_viet_yeu_thich_nhat.rieng_tu==1}
+            	{continue}
+            {/if}
+        {/if} 	
+        	<tr class="">
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/images/icons/misc/{$bai_viet_yeu_thich_nhat.icon}.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma={$bai_viet_yeu_thich_nhat.ma}" class="topictitle" data-original-title="" title="">{$bai_viet_yeu_thich_nhat.tieu_de|truncate:100:"..."}</a> <br>
+          <i class="icon-user"></i> bởi <a href="./memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet_yeu_thich_nhat.ho_ten}</a>&nbsp;&nbsp; <i class="icon-time"></i> <small>{date('H:i d-m-Y', strtotime($bai_viet_yeu_thich_nhat.ngay_tao))}</small></td>
+        <td class="center">{$bai_viet_yeu_thich_nhat.so_luong_binh_luan} Trả lời <br>
+          {$bai_viet_yeu_thich_nhat.luot_xem} Lượt xem</td>
+           <td class="center">{$bai_viet_yeu_thich_nhat.thich} <i class="icon-thumbs-up-alt" style="color:crimson"></i> <br>
+          {$bai_viet_yeu_thich_nhat.luot_xem} Lượt xem</td>
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_yeu_thich_nhat.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet_yeu_thich_nhat.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_yeu_thich_nhat.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_yeu_thich_nhat.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_yeu_thich_nhat.ngay_tao))}</small></td>
+      </tr>
+      {/foreach}
+      </tbody>
+      
+    </table>
+        {/if}
+         {else}
+        <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
+      <thead>
+        <tr>
+          <th data-class="expand" class="footable-first-column"><i class="icon-group"></i> Bài viết</th>
+          <th data-hide="phone"><i class="icon-bar-chart"></i> Thống kê</th>
+         
           <th data-hide="phone" class="footable-last-column"><i class="icon-comments-alt"></i> Bình luận mới</th>
         </tr>
       </thead>
@@ -73,6 +198,8 @@
           <i class="icon-user"></i> bởi <a href="./memberlist.php?mode=viewprofile&amp;u=2" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ho_ten}</a>&nbsp;&nbsp; <i class="icon-time"></i> <small>{date('H:i d-m-Y', strtotime($bai_viet.ngay_tao))}</small></td>
         <td class="center">{$bai_viet.so_luong_binh_luan} Trả lời <br>
           {$bai_viet.luot_xem} Lượt xem</td>
+        
+        
         <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
           <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet.ngay_tao))}</small></td>
       </tr>
@@ -80,9 +207,10 @@
       </tbody>
       
     </table>
+    {/if}
     <div class="row-fluid">
       <div class="pull-left">
-        <div class="da-panel-content"> <a href="./them?loai={$smarty.get.loai}" data-original-title="Post a new topic" type="button" class="btn"><i class="icon-share-alt"></i> Tạo bài viết mới</a> </div>
+        <div class="da-panel-content"> <a href="./them?loai={$smarty.get.loai}" data-original-title="Tạo bài viết mới" type="button" class="btn"><i class="icon-share-alt"></i> Tạo bài viết mới</a> </div>
       </div>
       <div class="pull-right">
         <div class="pagination pagination-small hidden-phone">

@@ -18,13 +18,7 @@
             <li><a href="./memberlist.php?mode=leaders&amp;sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-group"></i> The team</a></li>
           </ul> -->
         </li>
-        <li class="nav-icon"> <a href="#" data-original-title="" title="">BÀI VIẾT <span class="has-sub"><i class="icon-comments"></i></span></a>
-          <p>Tạo và xem bài viết</p>
-          <ul class="submenu">
-            <li><a href="/{$dien_dan.ma}/bai_viet/danh_sach_theo_loai?loai=0" data-original-title="" title=""><i class="icon-search"></i> Xem 10 bài viết mới nhất</a><span></span></li>
-            <li><a href="/{$dien_dan.ma}/bai_viet/danh_sach_theo_loai?loai=1" data-original-title="" title=""><i class="icon-star"></i>Xem 10 bài viết được bình chọn nhiều</a><span></span></li>
-          </ul>
-        </li>
+       
         <li class="nav-icon"> <a href="#" data-original-title="" title="">TÌM KIẾM <span class="has-sub"><i class="icon-search icon-flip-horizontal"></i></span></a>
           <p>Tìm kiếm nâng cao</p>
           <ul class="submenu">
@@ -33,8 +27,12 @@
             <li><a href="#" data-original-title="" title=""><i class="icon-search icon-flip-horizontal"></i> Tìm kiếm theo chủ đề</a><span></span></li>
           </ul>
         </li>
-        <li class="nav-icon"> <a href="/{$ma_dien_dan}/thanh_vien/danh_sach" data-original-title="" title="">THÀNH VIÊN <span class="has-sub"><i class="icon-signin"></i></span></a>
-          <p>Danh sách</p>
+        <li class="nav-icon"> <a href="/{$ma_dien_dan}/thanh_vien/danh_sach" data-original-title="" title="">CHỨC NĂNG <span class="has-sub"><i class="icon-signin"></i></span></a>
+          <p>Một số tính năng của diễn đàn</p>
+          <ul class = "submenu">
+          <li><a href="/{$dien_dan.ma}/bai_viet/danh_sach_theo_loai?loai=0" data-original-title="" title=""><i class="icon-search"></i> Cách tính điểm thành viên trong diễn đàn</a><span></span>
+          </li>
+          </ul>
         </li>
         <li class="nav-icon"> <a href="./ucp.php?mode=register&amp;sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title="">LIÊN HỆ <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
           <p>Gửi liên hệ</p>
