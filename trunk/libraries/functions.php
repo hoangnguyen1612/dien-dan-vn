@@ -28,7 +28,7 @@ function kiem_tra_rong($value, $content)
 {
 	if(empty($value) || $value=='')
 	{
-		throw new Exception("Lỗi [$content] không được rỗng, vui lòng kiểm tra lại");
+		throw new Exception("Lỗi! [$content] phải có giá trị, vui lòng kiểm tra lại");
 	}
 }
 
@@ -36,15 +36,15 @@ function kiem_tra_gia_tri($variable, $value, $content)
 {
 	if(!in_array($variable, $value))
 	{
-		throw new Exception("Lỗi [$content] không hợp lệ, vui lòng kiểm tra lại");
+		throw new Exception("Lỗi! [$content] không hợp lệ, vui lòng kiểm tra lại");
 	}
 }
 
-function kiem_tra_la_so($value, $content)
+function kiem_tra_la_so($value, $content, $ss = 0)
 {
-	if(!is_numeric($value) && $value<0)
+	if(!is_numeric($value) && $value<$ss)
 	{
-		throw new Exception("Lỗi [$content] phải là số nguyên dương, vui lòng kiểm tra lại");
+		throw new Exception("Lỗi! [$content] phải là số nguyên dương, vui lòng kiểm tra lại");
 	}
 }
 
@@ -102,8 +102,8 @@ function getParents($id, $categories)
 function kiem_tra_loai_cha($id, $categories)
 {
 	$ma_loai_cha = $categories[$id];
-	
-	if($categories[$ma_loai_cha]!=0)
+
+	if(!empty($categories[$ma_loai_cha]))
 	{
 		return 1;
 	}
