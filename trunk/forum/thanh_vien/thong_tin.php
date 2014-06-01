@@ -22,20 +22,24 @@ try{
 		$nguoi_dung = $login;
 	}
 	else
-	{
-		if(!$nguoi_dung = $xl_nguoi_dung->doc(array('ma'=>$ma)))
+	{	
+		$nguoi_dung = $xl_nguoi_dung->doc(array('ma'=>$ma));
+		if(!$nguoi_dung)
 		{
 			throw new Exception('Thành viên không tồn tại');
 		}
 	}
 	
+	$thanh_vien_dien_dan = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$nguoi_dung['ma'],'ma_dien_dan'=>$ma_dien_dan));
+	
 	$dt_smarty->assign('nguoi_dung', $nguoi_dung);
+	$dt_smarty->assign('thanh_vien_dien_dan', $thanh_vien_dien_dan);
 	
 	$contentForLayout = $dt_smarty->fetch('thanh_vien/thong_tin.tpl');
 	
 	$dt_smarty->assign('contentForLayout', $contentForLayout);
 	$dt_smarty->display('layouts/default.tpl');
-	
+
 	include '../end.php';
 }catch(Exception $e){
 	$_SESSION['message']['type'] = 'error';
