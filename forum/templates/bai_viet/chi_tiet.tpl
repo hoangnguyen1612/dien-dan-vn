@@ -165,7 +165,7 @@ $(document).ready(function(){
               <div class="pull-left timepost"> <a href="./viewtopic.php?p=25#p25" title="" data-original-title="Post"></a> bởi &nbsp;<strong><a href="../thong_tin_ca_nhan/index.php" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ten_nguoi_dang}</a></strong>&nbsp; <i class="icon-time"></i> {date('h:i d-m-Y',strtotime($bai_viet.ngay_tao))} </div>
             </div>
             <div class="space10"></div>
-            <div class="content" style="text-align:justify">{$bai_viet.noi_dung}</div>
+            <div class="content" style="text-align:justify;min-height: 150px;">{$bai_viet.noi_dung}</div>
             <ul class="inline pull-right hidden-phone">
             {if $login != '' && $thanh_vien != '' && $thanh_vien.loai_thanh_vien != 3}
               <li> <span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini"  {if $thich_bai_viet == NULL} data-original-title="Thích"{else} data-original-title="Bỏ thích"{/if}><i class="icon-thumbs-up-alt thich-bai-viet" {if $thich_bai_viet == NULL}style="color:#CCC;font-size:1.2em;cursor:pointer"{else}style="color:crimson;font-size:1.2em;cursor:pointer"{/if}></i></a></li>

@@ -3,6 +3,7 @@ try{
 	include '../ini.php';
 	include '../ini_interface.php';
 	include '../classes/xl_bai_viet.php';
+	include '../classes/xl_thanh_vien_dien_dan.php';
 	if($login == ''){
 		header('Location:/');
 		exit;
@@ -24,12 +25,13 @@ try{
 	$data['ma_nguoi_dang'] = $login['ma'];
 	$data['ma_dien_dan'] = $ma_dien_dan;
 	$ma_chuyen_muc = $data['ma_loai_chuyen_muc'];
-
+	
 	$result = $dt_xl_bai_viet->them($data);
 	if($result === false){
 		echo 'Lỗi khi đăng bài , vui lòng thử lại sao';
 		exit;
 	}
+	cong_diem_thanh_vien($login['ma'],$ma_dien_dan,$diem_bai_viet);
 	header("Location:/$ma_dien_dan/bai_viet/danh_sach?loai=$ma_chuyen_muc");
 	exit;
 	

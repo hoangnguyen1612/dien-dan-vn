@@ -42,7 +42,7 @@
                    {if $child!=NULL}
                    	&nbsp;&nbsp;Phụ mục : 
                             	{foreach $child as $k1=>$v1}
-                               <i class="icon-comment"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$k1}">{$v1.ten}</a>,
+                               <i class="icon-comment"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$k1}">{$v1.ten}</a>&nbsp;&nbsp;
                                 {/foreach}
         
        			   {/if}
