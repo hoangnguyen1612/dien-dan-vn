@@ -67,7 +67,7 @@ $(document).ready(function(){
               <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post"></a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a></strong> <i class="icon-time"></i> {date('h:i d/m/Y',strtotime($binh_luan_cha.ngay_tao))} </div>
             </div>
             <div class="space10"></div>
-            <div class="content">{$binh_luan_cha.noi_dung}</div>
+            <div class="content" style="min-height:150px">{$binh_luan_cha.noi_dung}</div>
             <ul class="inline pull-right hidden-phone">
                   {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
                 <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_cha.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
@@ -184,7 +184,7 @@ $(document).ready(function(){
                   <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post"></a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a></strong>&nbsp; <i class="icon-time"></i>{date('h:i d/m/Y',strtotime($binh_luan_con.ngay_tao))}</div>
                 </div>
                 <div class="space18"></div>
-                <div class="content">{$binh_luan_con.noi_dung}</div>
+                <div class="content" style="min-height:150px">{$binh_luan_con.noi_dung}</div>
                 <ul class="inline pull-right hidden-phone">
                    {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
                 <li><a class="btn btn-mini" href="../binh_luan/cap_nhat_binh_luan_dung?ma={$binh_luan_con.ma}" title="" data-original-title="Bình luận đúng" style="color:green"><i class="icon-ok"></i></a></li>
