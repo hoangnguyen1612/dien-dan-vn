@@ -6,6 +6,8 @@ try{
 	include '../../../home/classes/xl_thanh_vien_dien_dan.php';
 	include '../../classes/phan_trang.php';
 	
+	quan_tri('thanh_vien_danh_sach');
+	
 	$dt_phan_trang = new phan_trang;
 	$dt_xl_nguoi_dung = new xl_nguoi_dung;
 	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;

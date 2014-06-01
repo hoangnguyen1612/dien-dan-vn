@@ -5,6 +5,8 @@ try{
 	require '../../classes/xl_bai_viet.php';
 	include '../../classes/phan_trang.php';
 
+	quan_tri('bai_viet_danh_sach');
+
 	$dt_phan_trang = new phan_trang;
 	$vi_tri_bat_dau = $dt_phan_trang->tim_trang_hien_tai();
 	$xl_bai_viet = new xl_bai_viet;

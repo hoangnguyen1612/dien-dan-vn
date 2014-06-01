@@ -3,6 +3,8 @@ try{
 	include '../ini.php';
 	require '../../classes/xl_tinh_diem.php';
 	
+	quan_tri('tinh_diem_cau_hinh');
+	
 	$xl_tinh_diem = new xl_tinh_diem;
 	kiem_tra_rong($_POST['data']['bai_viet'], 'Điểm cho tạo bài viết');
 	kiem_tra_rong($_POST['data']['binh_luan'], 'Điểm cho bình luận');

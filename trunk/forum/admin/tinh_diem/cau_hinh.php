@@ -4,6 +4,8 @@ try{
 	include '../ini_interface.php';
 	require '../../classes/xl_tinh_diem.php';
 	
+	quan_tri('tinh_diem_cau_hinh');
+	
 	$xl_tinh_diem = new xl_tinh_diem;
 	
 	$tinh_diem = $xl_tinh_diem->doc(array('ma_dien_dan'=>$ma_dien_dan), 'bai_viet, binh_luan_dung, binh_luan');

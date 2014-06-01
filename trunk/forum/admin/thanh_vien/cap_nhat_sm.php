@@ -4,6 +4,8 @@ try{
 	include '../ini.php';
 	include '../../../home/classes/xl_thanh_vien_dien_dan.php';
 	
+	quan_tri('thanh_vien_cap_nhat');
+	
 	# gan mang? data cho bien $data
 	$data = $_POST['data'];
 	

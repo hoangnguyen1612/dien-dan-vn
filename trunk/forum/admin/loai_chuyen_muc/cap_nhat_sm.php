@@ -4,6 +4,8 @@ try{
 	include '../ini.php';
 	include '../../classes/xl_chuyen_muc.php';
 	
+	quan_tri('loai_chuyen_muc_cap_nhat');
+	
 	# gan mang? data cho bien $data
 	$data = $_POST['data'];
 

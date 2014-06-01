@@ -4,7 +4,7 @@ try{
 	require '../ini.php';
 	require '../../classes/xl_chuyen_muc.php';
 
-
+	quan_tri('loai_chuyen_muc_cap_nhat');
 
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 

@@ -3,6 +3,8 @@ try{
 	include '../ini.php';
 	require '../../classes/xl_cap_bac.php';
 	
+	quan_tri('cap_bac_tong_quat');
+	
 	$_SESSION['data'] = $_POST['data'];
 	
 	$xl_cap_bac = new xl_cap_bac;

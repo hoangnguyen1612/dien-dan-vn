@@ -7,6 +7,8 @@ try{
 	require '../../classes/xl_feedback_bai_viet.php';
 	require '../../classes/xl_feedback_binh_luan.php';
 	
+	quan_tri('loai_chuyen_muc_xoa');
+	
 	$xl_chuyen_muc = new xl_chuyen_muc;
 	$xl_bai_viet = new xl_bai_viet;
 	$xl_binh_luan = new xl_binh_luan;

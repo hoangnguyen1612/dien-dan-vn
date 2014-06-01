@@ -4,6 +4,7 @@ try{
 	include '../ini_interface.php';
 	include '../../classes/xl_chuyen_muc.php';
 	
+	quan_tri('loai_chuyen_muc_them');
 		
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0, 0, array('ma_dien_dan'=>$ma_dien_dan),'thu_tu_hien_thi ASC', '*', PDO::FETCH_ASSOC, '', false);
