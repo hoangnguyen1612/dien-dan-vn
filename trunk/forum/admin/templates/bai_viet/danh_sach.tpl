@@ -4,7 +4,6 @@
 	
 	<ul class="content-box-tabs">
 		<li><a href="#" class="default-tab">Danh sách</a></li>
-		<li><a href="them.php">Thêm mới</a></li>
 	</ul>
 	
 	<div class="clear"></div>
@@ -16,7 +15,7 @@
 	<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
 
 		{showMessage()}												
-		<form method="get" action="list.php" name="fSearch" id="fSearch">
+		<form method="get" action="danh_sach.php" name="fSearch" id="fSearch">
           Từ Khóa
           <input type="text" name="tu_khoa" class="text-input small-input" value="">
           <input class="button" type="submit" value="Tìm Kiếm">
@@ -30,7 +29,6 @@
                 <th>Mã</th>
                 <th>Tiêu Đề</th>
                 <th>Ngày Tạo</th>
-                <th>Số Lần Xem</th>
                 <th>Tên chuyên mục</th>
                 <th>Trạng Thái</th>
                 <th>Thao Tác</th>
@@ -38,7 +36,7 @@
             </thead>
 		  <tfoot>
 			  <tr>
-				<td colspan="8"><div class="bulk-actions align-left"><img src="/admin/templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')"></div>
+				<td colspan="8"><div class="bulk-actions align-left"><img src="/forum/admin/templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')"></div>
 				 <div class="pagination">
 					 <a class="number disable" title="Trang đầu">&lt;&lt;</a> <a class="number disable" title="Về trang trước">&lt;</a> <a class="number current"><b>1</b></a> <a class="number" href="/admin/thanh_vien/list.php?page=2" title="Trang 2">2</a> <a class="number" href="/admin/thanh_vien/list.php?page=2" title="Dến trang sau">&gt;</a> <a class="number" href="/admin/thanh_vien/list.php?page=2" title="Trang cuối">&gt;&gt;</a>                   </div>
 				  <div class="clear"></div></td>
@@ -46,22 +44,22 @@
 			</tfoot>
 <tbody>
 			
-                            <tr class="alt-row">
-                <td><input name="item[]" type="checkbox" value="16"></td>
-                <td>1</td>
-                <td>Lập trình PHP</td>
-                <td style="text-align:left">25-3-2014</td>
-                <td style="text-align:center">100</td>
-                 <td style="text-align:center">Công nghệ phần mềm</td>
-                <td style="text-align:center"><a href="trang_thai.php?ma=16" title="Hiển Thị"><img src="../templates/images/trang_thai_1.png" width="20" height="20"></a></td>
+            {foreach $ds_bai_viet as $k=>$bai_viet}    
+                <tr class="alt-row">
+                <td><input name="item[]" type="checkbox" value="{$bai_viet.ma}"></td>
+                <td>{$bai_viet.ma}</td>
+                <td>{$bai_viet.tieu_de}</td>
+                <td style="text-align:left">{date('d-m-Y', strtotime($bai_viet.ngay_tao))}</td>
+                <td >Công nghệ phần mềm</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="trang_thai.php?ma=16" title="Hiển Thị"><img src="/forum/admin/templates/images/trang_thai_{$bai_viet.trang_thai}.png" width="20" height="20"></a></td>
                
                 <td><!-- Icons --> 
-                  <a href="update.php?ma=16" title="Edit"><img src="/admin/templates/images/icons/pencil.png" alt="Edit"></a>
-                  <a href="delete.php?ma=16" onclick="return confirm('Bạn có chắc chắn muốn xóa mã 16 không ?')" title="Delete"><img src="../templates/images/icons/cross.png" alt="Delete"></a>
+                  <a href="/{$dien_dan.ma}/bai_viet/chi_tiet?ma={$bai_viet.ma}" target="_blank" title="Xem"><img src="/forum/admin/templates/images/search.png" width="16" alt="Xem"></a>
+                  <a href="delete.php?ma=16" onclick="return confirm('Bạn có chắc chắn muốn xóa mã #{$bai_viet.ma} không ?')" title="xóa"><img src="/forum/admin/templates/images/icons/cross.png" alt="Delete"></a>
                 </td>
               </tr>
-                                    
-                          </tbody>			
+            {/foreach}                        
+			</tbody>			
 		  </table>
 		</form>	
 								

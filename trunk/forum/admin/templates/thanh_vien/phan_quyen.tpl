@@ -28,7 +28,7 @@
         {foreach $thu_muc as $key=>$value}
           <tr>
         
-        <td colspan='2'><p style='font-weight:bold; font-size:15px; color:#999'>{$value}</p>
+        <td colspan='2'><p style='font-weight:bold; font-size:15px; color:#459300'>{$value}</p>
            <table>
             {foreach $thao_tac.$key as $k=>$v}
             	 {$file = noi_chuoi($key, $k, '_')}
@@ -37,7 +37,7 @@
                  	{$chon = 'checked'}
                  {/if}
                  <tr>
-                    <td width="200px"><label for='{$file}'>{$v}</label></td>
+                    <td width="250px"><label for='{$file}'>{$v}</label></td>
                     <td><input type='checkbox' value='{$file}' id='{$file}' name='item[]' {$chon} />
                 </tr> 
             {/foreach}

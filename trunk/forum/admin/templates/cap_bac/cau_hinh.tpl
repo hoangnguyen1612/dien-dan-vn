@@ -64,6 +64,7 @@
         <p style="text-align:center">
           <input type="submit" value="Lưu" name="save-and-continue" class="button">
           <input type="button" onclick="window.location.href='cau_hinh.php'" value="Làm mới" class="button">
+          <input type="button" onclick="window.location.href='../thong_ke/tong_quat.php'" value="Không Lưu" class="button">
         </p>
       </fieldset>
       <div class="clear"></div>
