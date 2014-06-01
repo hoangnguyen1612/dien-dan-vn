@@ -29,13 +29,18 @@
              <td width="2%"><div style="width: 14px; height: auto; padding:3px; text-align:center; border: 1px solid #ccc; border-radius: 5px; background-color: #459300 ; color:white">{$smarty.section.cap_bac.index}</div></td>
               <td width="10%">
                &nbsp;&nbsp;&nbsp;&nbsp;<img src="/forum/upload/rank/{$icon}/{$smarty.section.cap_bac.index}{if $icon=='icon1'}.png{else if}.gif{/if}"/>
+               <input type="hidden" name="data[icon_{$smarty.section.cap_bac.index}]" value="{$smarty.section.cap_bac.index}{if $icon=='icon1'}.png{else if}.gif{/if}" />
               </td>
               <td width="200px">
                <input type="text" placeholder="Tên cấp bậc {$smarty.section.cap_bac.index}" class="text-input large-input" style="font-size:14px !important" name="data[ten_cap_bac_{$smarty.section.cap_bac.index}]" value="{$x = noi_chuoi('ten_cap_bac_',$smarty.section.cap_bac.index)}{$smarty.session.data.$x|default: ''}" />
               </td>
               <td width="50px">
-                <input type="text" placeholder="Từ điểm" class="text-input .so" name="data[tu_diem_{$smarty.section.cap_bac.index}]" onkeypress="return inputNumber(event)" value="{$y = noi_chuoi('tu_diem_',$smarty.section.cap_bac.index)}{$smarty.session.data.$y|default: ''}"/>
-                <input type="text" placeholder="Đến điểm" class="text-input .so" name="data[den_diem_{$smarty.section.cap_bac.index}]" onkeypress="return inputNumber(event)"value="{$z = noi_chuoi('den_diem_',$smarty.section.cap_bac.index)}{$smarty.session.data.$z|default: ''}" />
+                  {if $smarty.section.cap_bac.index == 1}
+                        <input type="text" readonly="readonly" value="0" class="text-input" />
+                  {else if}
+                    <input type="text" placeholder="Từ điểm" class="text-input .so" name="data[tu_diem_{$smarty.section.cap_bac.index}]" onkeypress="return inputNumber(event)" value="{$y = noi_chuoi('tu_diem_',$smarty.section.cap_bac.index)}{$smarty.session.data.$y|default: ''}"/>
+                  {/if}
+                    <input type="text" placeholder="Đến điểm" class="text-input .so" name="data[den_diem_{$smarty.section.cap_bac.index}]" onkeypress="return inputNumber(event)"value="{$z = noi_chuoi('den_diem_',$smarty.section.cap_bac.index)}{$smarty.session.data.$z|default: ''}" />
               </td>
             </tr>
             {/section}
@@ -51,9 +56,14 @@
                <input type="text" placeholder="Tên cấp bậc {$i}" class="text-input large-input" style="font-size:14px !important" name="data[ten_cap_bac_{$i}]" value="{$value.ten}" />
               </td>
               <td width="50px">
-                <input name="data[cap_bac_{$i}]" value="{$value.ma}" type="hidden" />
-                <input type="text" placeholder="Từ điểm" class="text-input .so" name="data[tu_diem_{$i}]" onkeypress="return inputNumber(event)" value="{$value.dau}"/>
+              <input name="data[cap_bac_{$i}]" value="{$value.ma}" type="hidden" />
+              {if $i == 1}
+                <input type="text" readonly="readonly" value="0" class="text-input" />
+              {else if}
+               <input type="text" placeholder="Từ điểm" class="text-input .so" name="data[tu_diem_{$i}]" onkeypress="return inputNumber(event)" value="{$value.dau}"/>
+              {/if}    
                 <input type="text" placeholder="Đến điểm" class="text-input .so" name="data[den_diem_{$i}]" onkeypress="return inputNumber(event)"value="{$value.cuoi}" />
+               
               </td>
             </tr>
             {$i = $i +1}

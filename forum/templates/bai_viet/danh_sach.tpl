@@ -46,7 +46,7 @@
       </div>
       <div class="pull-left"> <a href="./them?loai={$smarty.get.loai}" data-original-title="Tạo bài viết mới" type="button" class="btn"><i class="icon-share-alt"></i>Tạo bài viết mới</a> </div>
        <div class="pull-left" style="margin-left:2px"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}&bo_loc=1" class="btn" data-original-title="Danh sách 10 bài viết được yêu thích nhất của chuyên mục"><i class="icon-heart" style="color:crimson;font-size:1.2em" ></i></a> </div>
-        <div class="pull-left" style="margin-left:2px"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}&bo_loc=0" class="btn" data-original-title="Danh sách 10 bài viết mới nhất nhất của chuyên mục"><i class="icon-bolt" style="color:yellow;font-size:1.2em" ></i></a> </div>
+        <div class="pull-left" style="margin-left:2px"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}&bo_loc=0" class="btn" data-original-title="Danh sách 10 bài viết mới nhất của chuyên mục"><i class="icon-bolt" style="color:yellow;font-size:1.2em" ></i></a> </div>
     </div>
     <div class="space10"></div>
     {if $ds_chuyen_muc_con != NULL}
