@@ -1,22 +1,3 @@
-<script>
-function inputNumber(e)
-{
-	// cho phep nhap so, nut backspace, delete vau dau .
-	var keynum;
-	if(window.event) // IE
-	{
-	  keynum = e.keyCode;
-	}
-	else if(e.which) // Netscape/Firefox/Opera
-	{
-	  keynum = e.which;
-	}
-	if ( ((keynum > 45) && (keynum <58)) || (keynum == 8) || (keynum == 9) || (keynum == 190) || (keynum == 39)|| (keynum == 37) ) return true;
-	else return false;
-	
-	// 37 : left ; 39: right
-}
-</script>
 
 <div class="content-box-header">
   <h3>Chuyên mục [Thêm mới]</h3>

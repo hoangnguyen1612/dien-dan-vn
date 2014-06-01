@@ -15,10 +15,10 @@ try{
 	kiem_tra_la_so($_POST['data']['thu_tu_hien_thi'], 'Thứ tự hiển thị');
 	
 	$ten = $_POST['data']['ten'];
-	if($xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan), 'ma', PDO::FETCH_ASSOC, " and `ten` like '%".$ten."%'"))
+	/*if($xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan), 'ma', PDO::FETCH_ASSOC, " and `ten` like '%".$ten."%'"))
 	{
 		throw new Exception('Lỗi! [Tên chuyên mục] đã tồn tại, vui lòng kiểm tra lại');
-	}
+	}*/
 	
 	$rieng_tu = $_POST['data']['rieng_tu'];
 	$thu_tu_hien_thi = $_POST['data']['thu_tu_hien_thi'];
@@ -34,11 +34,11 @@ try{
 		kiem_tra_la_so($_POST['data']['ma_loai_cha'], 'Mã loại cha');
 		$ma_loai_cha = $_POST['data']['ma_loai_cha'];
 		
-		if(!$tv = $xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ma'=>$ma_loai_cha)))
+		if(!$tv = $xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan), 'ma, ma_loai_cha', PDO::FETCH_ASSOC, " and ma = '$ma_loai_cha'"))
 		{
 			throw new Exception('Lỗi! [Mã chuyên mục cha] không hợp lệ');
 		}
-		
+
 		if($tv['ma_loai_cha']!=0)
 		{
 			$ds_chuyen_muc = $xl_chuyen_muc->danh_sach(0, 0, array('ma_dien_dan'=>$ma_dien_dan),'thu_tu_hien_thi ASC', 'ma, ma_loai_cha', PDO::FETCH_KEY_PAIR, '', false);
