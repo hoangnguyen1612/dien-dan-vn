@@ -9,10 +9,11 @@
 	$ma_dien_dan = $dien_dan['ma'];
 
 	# cấu hình
-	$sql = 'select tu_khoa, noi_dung from cau_hinh where ma_dien_dan = :ma limit 0,1';
+	$sql = 'select tu_khoa, noi_dung from cau_hinh where ma_dien_dan = :ma ';
+
 	$sth = $dbh->prepare($sql);
 	$sth->execute(array('ma'=>$ma_dien_dan));
-	$ds_cau_hinh = $sth->fetch(PDO::FETCH_KEY_PAIR);
+	$ds_cau_hinh = $sth->fetchAll(PDO::FETCH_KEY_PAIR);
 
 	
 	###
