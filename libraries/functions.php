@@ -154,7 +154,7 @@ function getChildrenFirstForum($id, $categories)
 	{
 		if($category['ma_loai_cha'] == $id)
 		{
-			$children[$category['ma']] = array('ten'=>$category['ten'], 'ghi_chu'=>$category['ghi_chu']);
+			$children[$category['ma']] = array('ten'=>$category['ten'], 'ghi_chu'=>$category['ghi_chu'],'rieng_tu'=>$category['rieng_tu']);
 		}
 	}
 	

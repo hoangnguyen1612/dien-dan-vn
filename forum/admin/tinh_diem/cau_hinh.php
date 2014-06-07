@@ -8,7 +8,7 @@ try{
 	
 	$xl_tinh_diem = new xl_tinh_diem;
 	
-	$tinh_diem = $xl_tinh_diem->doc(array('ma_dien_dan'=>$ma_dien_dan), 'bai_viet, binh_luan_dung, binh_luan');
+	$tinh_diem = $xl_tinh_diem->doc(array('ma_dien_dan'=>$ma_dien_dan), 'bai_viet, binh_luan_dung, thich');
 	
 	$dt_smarty->assign('tinh_diem', $tinh_diem);
 	

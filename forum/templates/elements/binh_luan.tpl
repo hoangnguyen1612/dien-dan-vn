@@ -18,7 +18,7 @@ $(document).ready(function(){
   });
 });
 </script> 
-    <div id="p26" class="row-fluid ">
+    <div id="p26" class="row-fluid">
       <article role="article">
         <div class="well well-small ">
           <div class="span3 hidden-phone" id="profile26">

@@ -21,8 +21,8 @@
           + <input type="text" class="text-input small-input" style="width: 50px !important; text-align:center" id="ten" name="data[bai_viet]" value="{$tinh_diem.bai_viet}" onkeypress="return inputNumber(event)">
         </p>
         <p>
-          <label class="admin_tieu_de">Bình luận<b style="color: red;"> (*)</b></label>
-          + <input type="text" class="text-input medium-input" id="ten" style="width: 50px !important; text-align:center" name="data[binh_luan]" value="{$tinh_diem.binh_luan}" onkeypress="return inputNumber(event)">
+          <label class="admin_tieu_de">Điểm thích cho bình luận hoặc bài viết<b style="color: red;"> (*)</b></label>
+          + <input type="text" class="text-input medium-input" id="ten" style="width: 50px !important; text-align:center" name="data[thich]" value="{$tinh_diem.thich}" onkeypress="return inputNumber(event)">
         </p>
         <p>
           <label class="admin_tieu_de">Bình luận đúng<b style="color: red;"> (*)</b></label>

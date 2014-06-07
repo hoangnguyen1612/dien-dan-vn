@@ -7,19 +7,19 @@ try{
 	
 	$xl_tinh_diem = new xl_tinh_diem;
 	kiem_tra_rong($_POST['data']['bai_viet'], 'Điểm cho tạo bài viết');
-	kiem_tra_rong($_POST['data']['binh_luan'], 'Điểm cho bình luận');
+	kiem_tra_rong($_POST['data']['thich'], 'Điểm cho thích bình luận hoặc bài viết');
 	kiem_tra_rong($_POST['data']['binh_luan_dung'], 'Điểm cho bình luận đúng');
 	kiem_tra_la_so($_POST['data']['bai_viet'], 'Điểm cho tạo bài viết', 1);
-	kiem_tra_la_so($_POST['data']['binh_luan'], 'Điểm cho bình luận', 1);
+	kiem_tra_la_so($_POST['data']['thich'], 'Điểm cho thích bình luận hoặc bài viết', 1);
 	kiem_tra_la_so($_POST['data']['binh_luan_dung'], 'Điểm cho bình luận đúng', 1);
 	
 	if($_POST['data']['bai_viet']>500)
 	{
 		throw new Exception('Lỗi! [Điểm cho tạo bài viết] chỉ nằm trong khoảng từ 1 đến 500');
 	}
-	if($_POST['data']['binh_luan']>500)
+	if($_POST['data']['thich']>500)
 	{
-		throw new Exception('Lỗi! [Điểm cho bình luận] chỉ nằm trong khoảng từ 1 đến 500');
+		throw new Exception('Lỗi! [Điểm cho thích bình luận hoặc bài viết] chỉ nằm trong khoảng từ 1 đến 500');
 	}
 	if($_POST['data']['binh_luan_dung']>500)
 	{

@@ -54,6 +54,7 @@ try{
 
 	$ds_binh_luan_con = $dt_xl_binh_luan->danh_sach(0,0,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao ASC',"binh_luan_bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung,(Select thumbnail from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) thumbnail, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung=binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) gioi_tinh",PDO::FETCH_ASSOC,'and ma_loai_cha !=0',false);
 	
+	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','*',PDO::FETCH_ASSOC,'',false);
 	
 	
 	# Lấy ra danh sách các bài viết và bình luận mà người đó có like trong trang chi tiết này
@@ -64,6 +65,7 @@ try{
 
 	
 	$dt_smarty->assign('title',$title);
+	$dt_smarty->assign('ds_chuyen_muc',$ds_chuyen_muc);
 	
 	$pt->tong_record = $ds_binh_luan_cha[1];
 	$tong_so_trang = $pt->ceil_tong_so_trang();
