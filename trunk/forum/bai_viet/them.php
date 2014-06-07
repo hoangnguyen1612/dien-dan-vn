@@ -9,6 +9,7 @@ try{
 	if(empty($_GET['loai'])){
 		throw new Exception('Vui lòng nhập loại chuyên mục');
 	}
+	
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 	$chuyen_muc = $dt_xl_chuyen_muc->doc(array('ma'=>$_GET['loai'],'ma_dien_dan'=>$ma_dien_dan));
 	$dt_smarty->assign('chuyen_muc', $chuyen_muc);	

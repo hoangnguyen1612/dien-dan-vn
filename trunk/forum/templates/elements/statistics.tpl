@@ -7,10 +7,12 @@ $(document).ready(function(){
 		var thanh_vien = arr[0].split(",");
 		var so_luong = arr[1].split(","); 
 		var ma_thanh_vien = arr[3].split(",");
+		var cap_bac = arr[4].split(",");
 		var i;
 		$("#vietvbb_topstats_s_content").html("");
 		for(i=0; i<=arr[2]-1 ; i++){	
-			$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Total Thanks"> '+so_luong[i]+' </em> <span class="topx-content-menu"><a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font color="#2dba97">'+thanh_vien[i]+'</font></a> </span></div>');		
+	
+			$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Total Thanks"> '+so_luong[i]+' </em> <span class="topx-content-menu"><img src="/forum/upload/rankCF/'+cap_bac[i]+'" style="width:20px;height:20px ;margin-right:3px"/><a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font color="#2dba97">'+thanh_vien[i]+'</font></a> </span></div>');		
 		}
      });
 	  }

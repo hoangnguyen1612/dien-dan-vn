@@ -3,13 +3,10 @@
 		var tieu_de_con = document.getElementById('tieu_de_con').value;
 		var noi_dung_con = document.getElementById('noi_dung_con').value;
 		if(tieu_de_con == ''){
-			alert('Vui lòng nhập tiêu đề cho bài viết');
+			alert('Vui lòng nhập tiêu đề cho bình luận con');
 			return false;
 		}
-		if(noi_dung_con == ''){
-			alert('Vui lòng nhập nội dung cho bài viết ');
-			return false;
-		}
+		
 		return true;
 	}
 	function checkValidation_1(){
@@ -171,6 +168,7 @@ $(document).ready(function(){
               <li> <span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini"  {if $thich_bai_viet == NULL} data-original-title="Thích"{else} data-original-title="Bỏ thích"{/if}><i class="icon-thumbs-up-alt thich-bai-viet" {if $thich_bai_viet == NULL}style="color:#CCC;font-size:1.2em;cursor:pointer"{else}style="color:crimson;font-size:1.2em;cursor:pointer"{/if}></i></a></li>
            
               <li><a class="btn btn-mini" href="/{$ma_dien_dan}/bao_cao/them?ma={$bai_viet.ma}&loai=0" title="" data-original-title="Báo cáo bài viết" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)!= NULL} onclick="return false" {/if} ><i class="icon-exclamation-sign" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)== NULL} style="color:#CCC" {else} style="color:crimson" {/if}></i></a></li>
+              {if $ma_nguoi_dung == $bai_viet.ma_nguoi_dang}<li><a href="/{$ma_dien_dan}/bai_viet/cap_nhat?ma={$bai_viet.ma}" class="btn btn-mini" title="Chỉnh sửa bài viết"><i class="icon-pencil" style="color:#CCC;font-size:1.2em;cursor:pointer"></i></a></li>{/if}
               {else}
               	<li><span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini" data- data-original-title="Lượt thích" onclick="return false"><i class="icon-thumbs-up-alt thich-bai-viet" style="color:#CCC;font-size:1.2em;cursor:pointer"></i></a></li>
               {/if}

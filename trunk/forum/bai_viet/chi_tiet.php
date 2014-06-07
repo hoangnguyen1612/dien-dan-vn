@@ -31,8 +31,7 @@ try{
 	
 	$ma = $_GET['ma'];
 
-	$bai_viet = $dt_xl_bai_viet->doc(array('ma'=>$ma,'ma_dien_dan'=>$ma_dien_dan),"bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang, (Select thumbnail from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) thumbnail, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) gioi_tinh, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select loai_thanh_vien from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang) ma_loai_thanh_vien");
-	
+	$bai_viet = $dt_xl_bai_viet->doc(array('ma'=>$ma,'ma_dien_dan'=>$ma_dien_dan),"bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang, (Select thumbnail from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) thumbnail, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) gioi_tinh, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select loai_thanh_vien from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ma_loai_thanh_vien");
 	if(!$bai_viet)
 	{
 		throw new Exception('Bài viết không tồn tại trog diễn đàn');

@@ -41,7 +41,7 @@ class xl_chung{
 		$ds_cot = $this->tao_chuoi_ds_cot($ds_cot);
 		
 		$sql = "SELECT {$ds_cot} {$chuoi} {$them_cau_truy_van} LIMIT 0,1";
-	
+		
 		
 	
 		$sth = $dbh->prepare($sql);
