@@ -15,10 +15,12 @@
 	$sth->execute(array('ma'=>$ma_dien_dan));
 	$ds_cau_hinh = $sth->fetchAll(PDO::FETCH_KEY_PAIR);
 	
-	$sql = 'Select * from tinh_diem where ma_dien_dan = :ma';
+	$sql = 'Select * from tinh_diem';
 	$sth = $dbh->prepare($sql);
-	$sth->execute(array('ma'=>$ma_dien_dan));
+	$sth->execute();
 	$ds_tinh_diem = $sth->fetch(PDO::FETCH_ASSOC);
+
+	
 	
 	$diem_bai_viet = $ds_tinh_diem['bai_viet'];
 	$diem_duoc_thich = $ds_tinh_diem['thich'];

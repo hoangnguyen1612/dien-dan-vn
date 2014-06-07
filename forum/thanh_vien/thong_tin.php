@@ -33,7 +33,7 @@ try{
 	
 	$thanh_vien_dien_dan = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$nguoi_dung['ma'],'ma_dien_dan'=>$ma_dien_dan));
 	
-	$cap_bac = lay_cap_bac($ma_dien_dan,$thanh_vien_dien_dan['diem_so']);
+	$cap_bac = lay_icon_diem($thanh_vien_dien_dan['ma_nguoi_dung'],$ma_dien_dan);
 	
 	$dt_smarty->assign('cap_bac',$cap_bac);
 	$dt_smarty->assign('nguoi_dung', $nguoi_dung);
