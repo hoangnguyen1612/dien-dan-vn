@@ -1,6 +1,6 @@
 <div id="page-body">
   <main role="main">
-  <!--{include "../elements/statistics.tpl"}-->
+  {include "../elements/statistics.tpl"}
   
    {if empty($ds_chuyen_muc)}<span style="color: #999">Chưa có chuyên mục nào để hiển thị</span>{else if}	
       {foreach $ds_chuyen_muc as $chuyen_muc}

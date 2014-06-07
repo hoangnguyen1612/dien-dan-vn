@@ -15,9 +15,14 @@
 	$sth->execute(array('ma'=>$ma_dien_dan));
 	$ds_cau_hinh = $sth->fetchAll(PDO::FETCH_KEY_PAIR);
 	
-	$diem_bai_viet = $ds_cau_hinh['BAI_VIET_MOI'];
-	$diem_duoc_thich = $ds_cau_hinh['THICH'];
-	$diem_bai_viet_dung = $ds_cau_hinh['DUNG'];
+	$sql = 'Select * from tinh_diem where ma_dien_dan = :ma';
+	$sth = $dbh->prepare($sql);
+	$sth->execute(array('ma'=>$ma_dien_dan));
+	$ds_tinh_diem = $sth->fetch(PDO::FETCH_ASSOC);
+	
+	$diem_bai_viet = $ds_tinh_diem['bai_viet'];
+	$diem_duoc_thich = $ds_tinh_diem['thich'];
+	$diem_bai_viet_dung = $ds_tinh_diem['binh_luan_dung'];
 	
 	###
 	$ma_nguoi_dung = '';

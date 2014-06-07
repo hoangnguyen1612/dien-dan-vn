@@ -51,7 +51,9 @@ try{
 	$trang_hien_tai = $pt->tim_trang_hien_tai();
 	############Lấy ra danh sách các chuyên mục con ############
 	$ds_chuyen_muc_con = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_loai_cha'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'thu_tu_hien_thi ASC','*',PDO::FETCH_ASSOC,'',false);
+	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','*',PDO::FETCH_ASSOC,'',false);
 	
+	$dt_smarty->assign('ds_chuyen_muc',$ds_chuyen_muc);
 	$dt_smarty->assign('title',$title);
 	$dt_smarty->assign('ds_chuyen_muc_con',$ds_chuyen_muc_con);
 	#############Chuẩn bị bộ nút #####################
