@@ -39,12 +39,9 @@ try{
 	$dbh->commit();
 	
 	
-	header("Location: /$ma_dien_dan/thanh_vien/yeu_cau_tham_gia");
-	exit;
+	throw new Exception('Đã thêm thành viên vào diễn đàn', 30);
 	
 }catch(Exception $e)
 {
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: {$_SERVER['HTTP_REFERER']}");
+	throwMessage($e);
 }

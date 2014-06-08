@@ -31,8 +31,7 @@
 	$ma_nguoi_dung = '';
 	$login = '';
 	$thanh_vien = '';
-	$ds_thong_bao = '';
-	$thong_bao_moi = 0;
+	$sl_thong_bao_moi = 0;
 	$quyen = array(0=>'Chủ diễn đàn', 1=>'Quản trị', 2=>'Thành viên');
 	
 	if(isset($_SESSION['login']))
@@ -50,22 +49,10 @@
 		{
 			$_SESSION['thanh_vien'] = $thanh_vien;
 		
-			#kiểm tra thông báo gửi đến diễn đàn
-			$thong_bao_da_doc = $thanh_vien['thong_bao_da_doc'];
-			if($thanh_vien['loai_thanh_vien']==0 || $thanh_vien['loai_thanh_vien']==1)
-			{
-				if($thong_bao_da_doc==NULL || $thong_bao_da_doc=='')
-					$sql = 'select * from thong_bao where gui_den = :ma_dien_dan order by ngay_tao DESC';
-				else	
-					$sql = 'select * from thong_bao where gui_den = :ma_dien_dan and ma not in('.$thong_bao_da_doc.') order by ngay_tao DESC';
-				$sth = $dbh->prepare($sql);
-				
-				$sth->execute(array('ma_dien_dan'=>$ma_dien_dan));
-				if($ds_thong_bao = $sth->fetchAll(PDO::FETCH_ASSOC))
-				{
-					$thong_bao_moi = $sth->rowCount();
-				}
-			}
+			$sql = 'select count(*) from thong_bao where gui_den = :ma_nguoi_dung and ma_dien_dan = :ma_dien_dan and trang_thai=0 order by ngay_tao DESC';
+			$sth = $dbh->prepare($sql);
+			$sth->execute(array('ma_nguoi_dung'=>$ma_nguoi_dung, 'ma_dien_dan'=>$ma_dien_dan));
+			$sl_thong_bao_moi = $sth->fetchAll(PDO::FETCH_COLUMN);
 		}
 	}
 	

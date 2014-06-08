@@ -24,10 +24,15 @@ try{
 	require '../classes/xl_thong_bao.php';
 	$xl_thong_bao = new xl_thong_bao;
 	// loại thông báo 0: thành viên mới diễn đàn
-	$xl_thong_bao->them(array('ma_loai_thong_bao'=>0, 'gui_tu'=>$ma_nguoi_dung, 'gui_den'=>$dien_dan['ma_nguoi_tao'], 'ma_dien_dan'=>$ma_dien_dan, 'trang_thai'=>0, 'noi_dung'=>"{$login['ho']} {$login['ten']} đã gửi yêu cầu xin gia nhập vào diễn đàn", 'ngay_tao'=>date('Y-m-d H:i:s')));
+	$xl_thong_bao->them(array('loai_thong_bao'=>0, 'gui_tu'=>$ma_nguoi_dung, 'gui_den'=>$dien_dan['ma_nguoi_tao'], 'ma_dien_dan'=>$ma_dien_dan, 'trang_thai'=>0, 'noi_dung'=>"{$login['ho']} {$login['ten']} đã gửi yêu cầu xin gia nhập vào diễn đàn {$dien_dan['ten']}", 'ngay_tao'=>date('Y-m-d H:i:s'), 
+	'duong_dan'=>"/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/thanh_vien/yeu_cau_tham_gia"));
+	
 	$dbh->commit();
 	
 	throw new Exception('Yêu cầu tham gia diễn đàn của bạn đã được gửi thành công, vui lòng đợi chấp nhận từ ban quản trị', 30);
+}catch(PDOException $e)
+{
+	$e->getMessage();exit;
 }catch(Exception $e)
 {
 	throwMessage($e);
