@@ -260,16 +260,23 @@ function noi_chuoi($str1, $str2, $x='')
 function get_subdomain()
 {
 	global $dbh;
+	
+	if(!isset($_GET['linh_vuc']))
+	{
+		echo ('Forum error');
+		exit;
+	}
 	if(empty($_GET['forum']))
 	{
 		echo ('Forum error');
 		exit;
 	}
-	$ma_dien_dan = $_GET['forum']; 
-	$sql = 'select * from dien_dan where ma = :ma limit 0,1';
+	$domain = $_GET['forum'];
+	$ma_linh_vuc = $_GET['linh_vuc'];
+	$sql = 'select * from dien_dan where domain = :domain and ma_linh_vuc = :ma_linh_vuc limit 0,1';
 	
 	$sth = $dbh->prepare($sql);
-	$sth->execute(array('ma'=>$ma_dien_dan));
+	$sth->execute(array('domain'=>$domain, 'ma_linh_vuc'=>$ma_linh_vuc));
 	
 	$dien_dan = $sth->fetch(PDO::FETCH_ASSOC);
 
