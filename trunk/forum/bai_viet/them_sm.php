@@ -32,7 +32,7 @@ try{
 		exit;
 	}
 	cong_diem_thanh_vien($login['ma'],$ma_dien_dan,$diem_bai_viet);
-	header("Location:/$ma_dien_dan/bai_viet/danh_sach?loai=$ma_chuyen_muc");
+	header("Location:/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/bai_viet/danh_sach?loai=$ma_chuyen_muc");
 	exit;
 	
 

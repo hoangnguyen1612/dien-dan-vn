@@ -34,7 +34,7 @@
 
 <script src="/forum/templates/js/head.min.js"></script>
 <!--<script type="text/javascript" src="/forum/js/jquery.min.js"></script>-->
-<script src="/home/templates/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/forum/templates/js/jquery.min.js"></script>
 
 <script type="text/javascript" src="/forum/templates/js/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="/forum/templates/js/bootstrap/bootstrap-select.js"></script>

@@ -45,8 +45,8 @@
         <div class="btn-group"> </div>
       </div>
       <div class="pull-left"> <a href="./them?loai={$smarty.get.loai}" data-original-title="Tạo bài viết mới" type="button" class="btn"><i class="icon-share-alt"></i>Tạo bài viết mới</a> </div>
-       <div class="pull-left" style="margin-left:2px"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}&bo_loc=1" class="btn" data-original-title="Danh sách 10 bài viết được yêu thích nhất của chuyên mục"><i class="icon-heart" style="color:crimson;font-size:1.2em" ></i></a> </div>
-        <div class="pull-left" style="margin-left:2px"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}&bo_loc=0" class="btn" data-original-title="Danh sách 10 bài viết mới nhất của chuyên mục"><i class="icon-bolt" style="color:yellow;font-size:1.2em" ></i></a> </div>
+       <div class="pull-left" style="margin-left:2px"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc.ma}&bo_loc=1" class="btn" data-original-title="Danh sách 10 bài viết được yêu thích nhất của chuyên mục"><i class="icon-heart" style="color:crimson;font-size:1.2em" ></i></a> </div>
+        <div class="pull-left" style="margin-left:2px"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc.ma}&bo_loc=0" class="btn" data-original-title="Danh sách 10 bài viết mới nhất của chuyên mục"><i class="icon-bolt" style="color:yellow;font-size:1.2em" ></i></a> </div>
     </div>
     <div class="space10"></div>
     {if $ds_chuyen_muc_con != NULL}
@@ -68,14 +68,14 @@
             {/if}
         {/if} 	
         	<tr class="">
-        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="icon-comment"  title="No unread posts"></i>   <a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc_con.ma}" class="topictitle" data-original-title="" title="">{$chuyen_muc_con.ten|truncate:100:"..."}</a> <br><small>{$chuyen_muc_con.ghi_chu|default:''}</small></td>
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="icon-comment"  title="No unread posts"></i>   <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_con.ma}" class="topictitle" data-original-title="" title="">{$chuyen_muc_con.ten|truncate:100:"..."}</a> <br><small>{$chuyen_muc_con.ghi_chu|default:''}</small></td>
         <td class="center">{dem_bai_viet($ma_dien_dan, $chuyen_muc_con.ma)} bài viết </td>
          {$bai_viet_moi = bai_viet_moi($ma_dien_dan, $chuyen_muc_con.ma)}
          
         <td class="center footable-last-column"> 
         {if $bai_viet_moi!=0}
           	<i class="icon-user"></i> bởi 
-          <a href="" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+          <a href="" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
           <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_moi.ngay_tao))}</small>
            {else if} 
            	  0 bài viết
@@ -122,7 +122,7 @@
         <td class="center">{$bai_viet_moi_nhat.so_luong_binh_luan} Trả lời <br>
           {$bai_viet_moi_nhat.luot_xem} Lượt xem</td>
            <td class="center">{time_since(time() - strtotime($bai_viet_moi_nhat.ngay_tao))}</td>
-        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet_moi_nhat.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi_nhat.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet_moi_nhat.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi_nhat.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
           <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_moi_nhat.ngay_tao))}</small></td>
       </tr>
       {/foreach}
@@ -162,7 +162,7 @@
           {$bai_viet_yeu_thich_nhat.luot_xem} Lượt xem</td>
            <td class="center">{$bai_viet_yeu_thich_nhat.thich} <i class="icon-thumbs-up-alt" style="color:crimson"></i> <br>
           {$bai_viet_yeu_thich_nhat.luot_xem} Lượt xem</td>
-        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_yeu_thich_nhat.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet_yeu_thich_nhat.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_yeu_thich_nhat.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_yeu_thich_nhat.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_yeu_thich_nhat.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet_yeu_thich_nhat.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_yeu_thich_nhat.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_yeu_thich_nhat.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
           <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_yeu_thich_nhat.ngay_tao))}</small></td>
       </tr>
       {/foreach}
@@ -200,7 +200,7 @@
           {$bai_viet.luot_xem} Lượt xem</td>
         
         
-        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
           <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet.ngay_tao))}</small></td>
       </tr>
       {/foreach}
@@ -234,7 +234,7 @@
     <div class="row-fluid">
       <div class="row-fluid">
         <div class="pull-left">
-            <form method="post" id="jumpbox" action="/{$ma_dien_dan}/chuyen_trang/chuyen_trang" >
+            <form method="post" id="jumpbox" action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/chuyen_trang/chuyen_trang" >
           <fieldset class="controls-row">
             <label class="control-label" for="f" accesskey="j">Đi đến:</label>
           <select class="selectpicker"  id="ma_chuyen_muc" name="ma_chuyen_muc">

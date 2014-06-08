@@ -90,10 +90,10 @@ function inputNumber(e)
       <br />
       <br />
       <!-- Sidebar Profile links -->
-      <div id="profile-links"> Chào, <a href="#" title="Edit your profile">{$smarty.session.login.ho_ten|default:''}</a><br/>
+      <div id="profile-links"> Chào, <a href="#" title="Edit your profile">{$smarty.session.login.ten|default:''}</a><br/>
         Last login: 12-3-2014 <br />
         <br/>
-        <a href="/{$dien_dan.ma}" title="View the Site" target="_blank">Xem trang</a> | <a href="../quan_tri/dang_xuat.php" title="Đăng xuất">Đăng xuất</a> </div>
+        <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="View the Site" target="_blank">Xem trang</a> | <a href="../quan_tri/dang_xuat.php" title="Đăng xuất">Đăng xuất</a> </div>
       <ul id="main-nav">
         <!-- Accordion Menu -->
         <li><a class="nav-top-item" href="#" id="thong_ke">Thống Kê</a>

@@ -74,7 +74,7 @@
 			
 			<div id="login-content">
 				
-				<form action="/{$dien_dan.ma}/admin/quan_tri/dang_nhap_sm.php" method="post">
+				<form action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin/quan_tri/dang_nhap_sm.php" method="post">
 				
 					<div class="{$smarty.session.style_msg_login}">
 						<div>

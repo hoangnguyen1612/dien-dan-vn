@@ -1,6 +1,6 @@
 <?php
 try{
-	
+
 	require '../ini.php';
 
 	require '../classes/xl_feedback_bai_viet.php';

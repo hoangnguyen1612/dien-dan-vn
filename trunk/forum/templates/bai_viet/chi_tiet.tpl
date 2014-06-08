@@ -29,7 +29,7 @@
 		
 		$.ajax({
 			type: "POST",
-			url: "/{$ma_dien_dan}/binh_luan/test",
+			url: "/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/binh_luan/test",
 			data: data,
 			beforeSend: function() {
 				alert(222);
@@ -37,25 +37,23 @@
 		}).done(function(html){
 			var data = JSON.parse(html);
 			alert(data.message);
-			$("#current-div").load("/{$ma_dien_dan}/binh_luan/du_lieu");
+			$("#current-div").load("/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/binh_luan/du_lieu");
 		});
 		return false;
 	}
 
 $(document).ready(function(){
   $(".like").click(function(){
-    $.get("/{$ma_dien_dan}/bai_viet/feedback",{ ma_bai_viet : "{$bai_viet.ma}" },function(data,status){
-	
+    $.get("/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/feedback",{ ma_bai_viet : "{$bai_viet.ma}" },function(data,status){
+		alert(data);
 	  var arr = data.split("~");	
 	  if(arr[0] == 'like'){
 		  	$(".so_luong_thich_bai_viet").html(arr[1]);
-			$(".like").prop('data-original-title', 'Không thích');
 		 	$(".thich-bai-viet").css('color','crimson');
 			  
 	  }
 	  if(arr[0] == 'dislike'){
 		  	$(".so_luong_thich_bai_viet").html(arr[1]);
-			$(".like").prop('data-original-title', 'Thích');
 		    $(".thich-bai-viet").css('color','#CCC');
 	  }
     });
@@ -129,11 +127,11 @@ $(document).ready(function(){
           <div class="span3 hidden-phone" id="profile25">
             <div class="user-profile-tab">
               <div class="user-profile-avatar">
-                <div class="avatar-frame"> <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $bai_viet.thumbnail!=NULL}{$bai_viet.thumbnail}{else if $bai_viet.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" alt="User avatar"></a> </div>
+                <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $bai_viet.thumbnail!=NULL}{$bai_viet.thumbnail}{else if $bai_viet.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" alt="User avatar"></a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Tên</div>
-                <div class="user-profile-output"> <a href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ten_nguoi_dang}</a> </div>
+                <div class="user-profile-output"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ten_nguoi_dang}</a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Quyền</div>
@@ -166,11 +164,11 @@ $(document).ready(function(){
             <ul class="inline pull-right hidden-phone">
             {if $login != '' && $thanh_vien != '' && $thanh_vien.loai_thanh_vien != 3}
               <li> <span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini"  {if $thich_bai_viet == NULL} data-original-title="Thích"{else} data-original-title="Bỏ thích"{/if}><i class="icon-thumbs-up-alt thich-bai-viet" {if $thich_bai_viet == NULL}style="color:#CCC;font-size:1.2em;cursor:pointer"{else}style="color:crimson;font-size:1.2em;cursor:pointer"{/if}></i></a></li>
-           
-              <li><a class="btn btn-mini" href="/{$ma_dien_dan}/bao_cao/them?ma={$bai_viet.ma}&loai=0" title="" data-original-title="Báo cáo bài viết" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)!= NULL} onclick="return false" {/if} ><i class="icon-exclamation-sign" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)== NULL} style="color:#CCC" {else} style="color:crimson" {/if}></i></a></li>
-              {if $ma_nguoi_dung == $bai_viet.ma_nguoi_dang}<li><a href="/{$ma_dien_dan}/bai_viet/cap_nhat?ma={$bai_viet.ma}" class="btn btn-mini" title="Chỉnh sửa bài viết"><i class="icon-pencil" style="color:#CCC;font-size:1.2em;cursor:pointer"></i></a></li>{/if}
+           	
+              <li><a class="btn btn-mini" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bao_cao/them?ma={$bai_viet.ma}&loai=0" title="Báo cáo bài viết" data-original-title="Báo cáo bài viết" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)!= NULL} onclick="return false" {/if} ><i class="icon-exclamation-sign" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)== NULL} style="color:#CCC" {else} style="color:crimson" {/if}></i></a></li>
+              {if $ma_nguoi_dung == $bai_viet.ma_nguoi_dang}<li><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/cap_nhat?ma={$bai_viet.ma}" class="btn btn-mini" title="Chỉnh sửa bài viết"><i class="icon-pencil" style="color:#CCC;font-size:1.2em;cursor:pointer"></i></a></li>{/if}
               {else}
-              	<li><span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini" data- data-original-title="Lượt thích" onclick="return false"><i class="icon-thumbs-up-alt thich-bai-viet" style="color:#CCC;font-size:1.2em;cursor:pointer"></i></a></li>
+              	<li><span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini" data-original-title="Lượt thích" onclick="return false"><i class="icon-thumbs-up-alt thich-bai-viet" style="color:#CCC;font-size:1.2em;cursor:pointer"></i></a></li>
               {/if}
             </ul>
           </div>
@@ -221,7 +219,7 @@ $(document).ready(function(){
     <div class="row-fluid">
     {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
       <div class="pull-left">
-        <div class="da-panel-content"> <a href="/{$ma_dien_dan}/binh_luan/them?ma_bai_viet={$bai_viet.ma}" data-original-title="Bình luận bài viết" type="button" class="btn"><i class="icon-share-alt"></i> Bình luận</a> </div>
+        <div class="da-panel-content"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/binh_luan/them?ma_bai_viet={$bai_viet.ma}" data-original-title="Bình luận bài viết" type="button" class="btn"><i class="icon-share-alt"></i> Bình luận</a> </div>
       </div>
       {/if}
       <div class="pull-right">
@@ -247,7 +245,7 @@ $(document).ready(function(){
     <div class="pull-right"> </div>
     <div class="row-fluid">
       <div class="pull-left">
-        <form method="post" id="jumpbox" action="/{$ma_dien_dan}/chuyen_trang/chuyen_trang" >
+        <form method="post" id="jumpbox" action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/chuyen_trang/chuyen_trang" >
           <fieldset class="controls-row">
             <label class="control-label" for="f" accesskey="j">Đi đến:</label>
           <select class="selectpicker"  id="ma_chuyen_muc" name="ma_chuyen_muc">
