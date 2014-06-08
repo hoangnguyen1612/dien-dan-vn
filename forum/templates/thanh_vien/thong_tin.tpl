@@ -22,7 +22,7 @@
                   <h4>Thông tin cá nhân</h4>
                   <div class="menubar links primary">
                     <ul class="reset-list">
-                      <li><i class="icon-user"></i> Tên: {$nguoi_dung.ho_ten}</li>
+                      <li><i class="icon-user"></i> Tên: {$nguoi_dung.ho} {$nguoi_dung.ten}</li>
                       <li><i class="icon-map-marker"></i> &nbsp;Địa chỉ:  {$nguoi_dung.dia_chi|default: 'chưa có'}<i class="custom-none icon-large"></i></li>
                       <li><i class="icon-gift"></i> Tuổi: {date('Y')-date('Y', strtotime($nguoi_dung.ngay_sinh))}<i class="custom-none icon-large"></i></li>
                       <!--<li><i class="icon-briefcase"></i> Nghề nghiệp: Sinh Viên <i class="custom-none icon-large"></i></li>-->

@@ -4,13 +4,13 @@
 <header class="header" role="banner"> <!-- Header block -->
   <div class="topArea"> <!-- Logo block -->
     <div class="leftArea">
-      <div class="logo-transition"> <a class="logo" href="/{$dien_dan.ma}" title="" data-original-title="" style="text-transform:uppercase"><span>{$dien_dan.ten[0]}</span>{$dien_dan.ten|substr:1:strlen($dien_dan.ten)}</a> </div>
+      <div class="logo-transition"> <a class="logo" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="" data-original-title="" style="text-transform:uppercase;font-size:40px"><span>{$dien_dan.ten[0]}</span>{$dien_dan.ten|substr:1:strlen($dien_dan.ten)}</a> </div>
       <p class="site-info">{$dien_dan.slogan}&nbsp;<i class="icon-umbrella icon-large"></i></p>
       <div class="clearfix"></div>
     </div>
     <nav class="mainnav" role="navigation" aria-label="Primary"><!-- Main navigation block -->
       <ul>
-        <li class="nav-icon"> <a href="/{$dien_dan.ma}" data-original-title="" title="">TRANG CHỦ<span class="has-sub"><i class="icon-home"></i></span></a>
+        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" data-original-title="" title="">TRANG CHỦ<span class="has-sub"><i class="icon-home"></i></span></a>
           <p>{$dien_dan.ten}</p>
           <!--<ul class="submenu">
             <li><a href="./elements.php?sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-magic"></i> Bootstrap Elements</a><span></span></li>
@@ -27,7 +27,7 @@
             <li><a href="#" data-original-title="" title=""><i class="icon-search icon-flip-horizontal"></i> Tìm kiếm theo chủ đề</a><span></span></li>
           </ul>
         </li>
-        <li class="nav-icon"> <a href="/{$ma_dien_dan}/thanh_vien/danh_sach" data-original-title="" title="">CHỨC NĂNG <span class="has-sub"><i class="icon-signin"></i></span></a>
+        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/danh_sach" data-original-title="" title="">CHỨC NĂNG <span class="has-sub"><i class="icon-signin"></i></span></a>
           <p>Một số tính năng của diễn đàn</p>
           <ul class = "submenu">
           <li><a href="/{$dien_dan.ma}/bai_viet/danh_sach_theo_loai?loai=0" data-original-title="" title=""><i class="icon-search"></i> Cách tính điểm thành viên trong diễn đàn</a><span></span>

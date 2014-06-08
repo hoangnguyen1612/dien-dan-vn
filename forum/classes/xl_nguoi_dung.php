@@ -13,6 +13,6 @@ function thong_tin_nguoi_dung($ma)
 function get_ho_ten($ma)
 {
 	$xl_nguoi_dung = new xl_nguoi_dung;
-	$nguoi_dung = $xl_nguoi_dung->doc(array('ma'=>$ma), 'ho_ten');
-	return $nguoi_dung['ho_ten'];
+	$nguoi_dung = $xl_nguoi_dung->doc(array('ma'=>$ma), 'ten');
+	return $nguoi_dung['ten'];
 }

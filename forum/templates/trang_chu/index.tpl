@@ -14,7 +14,7 @@
         {/if}     	
         <tr>
       
-          <th data-class="expand" class="footable-first-column"><i class="icon-list-ol"></i> <a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}" data-original-title="" title=""> {$chuyen_muc.ten} </a></th>
+          <th data-class="expand" class="footable-first-column"><i class="icon-list-ol"></i> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc.ma}" data-original-title="" title=""> {$chuyen_muc.ten} </a></th>
         
           <th class="large80" data-hide="phone"><i class="icon-bar-chart"></i> Thống kê</th>
           <th class="large20 footable-last-column" data-hide="phone"><i class="icon-comments-alt"></i> Bài mới</th>
@@ -36,13 +36,13 @@
           <td title="No unread posts" class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/styles/BBOOTS/imageset/forum_read.gif); background-repeat: no-repeat;" title="No unread posts"></i> 
           <a class="feed-icon-forum hidden-phone" title="" href="../bai_viet/index.php?loai={$key}" data-original-title="Bình chọn diễn đàn">
           <img src="/forum/templates/images/icons/misc/star-icon.png" /></a> 
-          <a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$key}" class="forumtitle" data-original-title="" title="">{$value.ten}</a><br>
+          <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$key}" class="forumtitle" data-original-title="" title="">{$value.ten}</a><br>
              <small>{$value.ghi_chu|default:''}</small><br />
           {$child = getChildrenFirstForum($key, $ds_chuyen_muc)}
                    {if $child!=NULL}
                    	&nbsp;&nbsp;Phụ mục : 
                             	{foreach $child as $k1=>$v1}
-                               <i class="icon-comment"><a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$k1}">{$v1.ten}</a>&nbsp;&nbsp;
+                               <i class="icon-comment"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$k1}">{$v1.ten}</a>&nbsp;&nbsp;
                                 {/foreach}
         
        			   {/if}
@@ -57,7 +57,7 @@
           <td class="center footable-last-column">
           {if $bai_viet_moi!=0}
           	<i class="icon-user"></i> bởi 
-          <a href="" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi.ma_nguoi_dang)}" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+          <a href="" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
           <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_moi.ngay_tao))}</small>
            {else if} 
            	  0 bài viết

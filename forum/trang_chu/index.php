@@ -19,9 +19,9 @@ try{
 	
 	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan),'thu_tu_hien_thi ASC','loai_chuyen_muc.*,(Select count(ma) as so_luong from bai_viet where loai_chuyen_muc.ma = bai_viet.ma_loai_chuyen_muc) so_luong_bai_viet',PDO::FETCH_ASSOC,'',false);
 	
-	$ds_bai_viet_moi_nhat = $dt_xl_bai_viet->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC','bai_viet.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang',PDO::FETCH_ASSOC,'',false);
+	$ds_bai_viet_moi_nhat = $dt_xl_bai_viet->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC','bai_viet.*,(Select ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang',PDO::FETCH_ASSOC,'',false);
 
-	$ds_top_diem_thanh_vien = $dt_xl_thanh_vien_dien_dan->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'diem_so DESC','thanh_vien_dien_dan.*,(Select ho_ten from nguoi_dung where nguoi_dung.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'',false);
+	$ds_top_diem_thanh_vien = $dt_xl_thanh_vien_dien_dan->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'diem_so DESC','thanh_vien_dien_dan.*,(Select ten from nguoi_dung where nguoi_dung.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'',false);
 	
 	$dt_smarty->assign('ds_top_diem_thanh_vien',$ds_top_diem_thanh_vien); 
 	
