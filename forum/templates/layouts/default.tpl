@@ -133,10 +133,13 @@ head.ready(function() {
       {$contentForLayout}
       <!--{literal}{include '../elements/footer.tpl'}{/literal}--> 
       <!-- page-body id in header --> 
+       {include "../elements/footer.tpl"}
     </div>
     <!-- padding_0_40 in header --> 
+     
   </div>
   <!-- content-forum in header --> 
+
 </div>
 <!-- wrap - corners container in header --> 
 
@@ -157,6 +160,7 @@ head.ready(function() {
     });
 </script> 
 {/literal} 
+
 <!-- Google Analytics: change UA-XXXXXXXX-X to be your site's ID. -->
 </body>
 </html>
