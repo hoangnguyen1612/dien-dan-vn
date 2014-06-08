@@ -24,11 +24,11 @@ try{
 			throw new Exception('Bộ lọc không đúng dữ liệu');
 		}
 		if($_GET['bo_loc'] == 0){
-			$ds_bai_viet_moi_nhat = $dt_xl_bai_viet->danh_sach(0,10,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC',"bai_viet.*,(Select ho_ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,'',false);
+			$ds_bai_viet_moi_nhat = $dt_xl_bai_viet->danh_sach(0,10,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC',"bai_viet.*,(Select ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,'',false);
 			$dt_smarty->assign('ds_bai_viet_moi_nhat',$ds_bai_viet_moi_nhat);
 		}
 		if($_GET['bo_loc'] == 1){
-			$ds_bai_viet_yeu_thich_nhat = $dt_xl_bai_viet->danh_sach(0,10,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'thich DESC',"bai_viet.*,(Select ho_ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,'and thich != 0',false);
+			$ds_bai_viet_yeu_thich_nhat = $dt_xl_bai_viet->danh_sach(0,10,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'thich DESC',"bai_viet.*,(Select ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,'and thich != 0',false);
 			$dt_smarty->assign('ds_bai_viet_yeu_thich_nhat',$ds_bai_viet_yeu_thich_nhat);
 		}
 	}

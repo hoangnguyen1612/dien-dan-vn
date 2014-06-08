@@ -4,7 +4,7 @@
       <div class="side-segment">
         <h3>Báo cáo sai phạm {if $smarty.get.loai == 0 } bài viết : {$bai_viet.tieu_de} {/if} {if $smarty.get.loai == 1} bình luận : {$binh_luan.tieu_de} {/if}</h3>
       </div>
-      <form method="post" action="/{$ma_dien_dan}/bao_cao/them_sm" id="report">
+      <form method="post" action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bao_cao/them_sm" id="report">
         <div class="well">
           <p>Sử dụng mẫu dưới đây để báo cáo sai phạm đến quản trị của diễn đàn. Việc sử dụng báo cáo sai phạm chỉ nên dùng khi bài viết vi phạm nội quy của diễn đàn.</p>
           <fieldset>

@@ -6,7 +6,7 @@ try{
 	
 	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	
-	$ds_thanh_vien_diem_so_cao = $dt_xl_thanh_vien_dien_dan->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'diem_so DESC','ma_dien_dan,ma_nguoi_dung,diem_so,(Select ho_ten from nguoi_dung where nguoi_dung.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'',true);
+	$ds_thanh_vien_diem_so_cao = $dt_xl_thanh_vien_dien_dan->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'diem_so DESC','ma_dien_dan,ma_nguoi_dung,diem_so,(Select ten from nguoi_dung where nguoi_dung.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'',true);
 	$chuoi_ma_thanh_vien ="";
 	$chuoi_thanh_vien = "";
 	$chuoi_so_luong_bai_viet = "";
