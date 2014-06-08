@@ -124,10 +124,8 @@ try{
 	';
 		
 		
-	if(!send_gmail('nt.hoang1612@gmail.com', 'hoangit1612', $email, $ho_ten, 'Kích hoạt tài khoản', $mail, NAME_WEBSITE))
-	{
-		throw new Exception('Lỗi! [Địa chỉ Email] không hợp lệ, vui lòng kiểm tra lại');
-	}
+	send_gmail('nt.hoang1612@gmail.com', 'hoangit1612', $email, $ho_ten, 'Kích hoạt tài khoản', $mail, NAME_WEBSITE);
+
 	unset($_SESSION['data']);
 	
 	$dbh->commit();
