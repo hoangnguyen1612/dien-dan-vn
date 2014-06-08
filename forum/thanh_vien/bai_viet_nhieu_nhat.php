@@ -7,8 +7,7 @@ try{
 	$dt_xl_bai_viet = new xl_bai_viet;
 	$dt_xl_cap_bac = new xl_cap_bac;
 	
-	$ds_thanh_vien_nhieu_bai_viet = $dt_xl_bai_viet->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'so_luong DESC','count(ma) so_luong,ma_nguoi_dang,(Select ho_ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang,(Select diem_so from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = bai_viet.ma_dien_dan) diem_so',PDO::FETCH_ASSOC,'group by ma_nguoi_dang',false);
-
+	$ds_thanh_vien_nhieu_bai_viet = $dt_xl_bai_viet->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'so_luong DESC','count(ma) so_luong,ma_nguoi_dang,(Select ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang,(Select diem_so from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = bai_viet.ma_dien_dan) diem_so',PDO::FETCH_ASSOC,'group by ma_nguoi_dang',false);
 	$chuoi_thanh_vien = "";
 	$chuoi_so_luong_bai_viet = "";
 	$chuoi_ma_thanh_vien ="";

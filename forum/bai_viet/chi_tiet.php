@@ -58,7 +58,7 @@ try{
 	
 	# Lấy ra danh sách các bài viết và bình luận mà người đó có like trong trang chi tiết này
 	$thich_bai_viet = $dt_xl_feedback_bai_viet->doc(array('ma_bai_viet'=>$ma,'ma_nguoi_dung'=>$ma_nguoi_dung));
-
+	
 	#debug($thich_bai_viet);
 	$dt_smarty->assign('thich_bai_viet',$thich_bai_viet);
 
@@ -68,6 +68,9 @@ try{
 	
 	$pt->tong_record = $ds_binh_luan_cha[1];
 	$tong_so_trang = $pt->ceil_tong_so_trang();
+	if($tong_so_trang == 0){
+		$tong_so_trang = 1; 
+	}
 	$trang_hien_tai = $pt->tim_trang_hien_tai();
 	#########In bo nut va tong so tran ##########
 	$dt_smarty->assign('bo_nut',$pt->in_bo_nut());

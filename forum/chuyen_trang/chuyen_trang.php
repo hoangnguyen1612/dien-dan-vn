@@ -5,5 +5,5 @@
 		exit;
 	}
 	$ma_chuyen_muc = $_POST['ma_chuyen_muc'];
-	header("Location: /{$ma_dien_dan}/bai_viet/danh_sach?loai=$ma_chuyen_muc");
+	header("Location: /{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/bai_viet/danh_sach?loai=$ma_chuyen_muc");
 	exit;

@@ -5,12 +5,13 @@ try{
 	include '../classes/xl_nguoi_dung.php';
 	include '../classes/xl_bai_viet.php';
 	include '../classes/xl_cap_bac.php';
-	
+	include '../classes/xl_chuyen_muc.php';
 
 	require '../classes/xl_thanh_vien_dien_dan.php';
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	$xl_nguoi_dung = new xl_nguoi_dung;
 	$xl_cap_bac = new xl_cap_bac;
+	$xl_chuyen_muc = new xl_chuyen_muc;
 	kiem_tra_quyen();
 	
 	if(empty($_GET['ma_thanh_vien']))
@@ -34,7 +35,9 @@ try{
 	$thanh_vien_dien_dan = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$nguoi_dung['ma'],'ma_dien_dan'=>$ma_dien_dan));
 	
 	$cap_bac = lay_icon_diem($thanh_vien_dien_dan['ma_nguoi_dung'],$ma_dien_dan);
+	$ds_chuyen_muc = $xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','*',PDO::FETCH_ASSOC,'',false);
 	
+	$dt_smarty->assign('ds_chuyen_muc',$ds_chuyen_muc);
 	$dt_smarty->assign('cap_bac',$cap_bac);
 	$dt_smarty->assign('nguoi_dung', $nguoi_dung);
 	$dt_smarty->assign('thanh_vien_dien_dan', $thanh_vien_dien_dan);

@@ -54,7 +54,7 @@ try{
 		$ma_bai_viet = $binh_luan['ma_bai_viet'];
 	}
 
-	header("Location:/$ma_dien_dan/bai_viet/chi_tiet?ma={$ma_bai_viet}");
+	header("Location:/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/bai_viet/chi_tiet?ma={$ma_bai_viet}");
 	exit;
 
 }catch(Exception $e){

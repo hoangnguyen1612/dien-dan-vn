@@ -38,7 +38,7 @@ try{
 		echo 'Lỗi cập nhật bài viết , vui lòng thử lại sao';
 		exit;
 	}
-	header("Location:/$ma_dien_dan/bai_viet/chi_tiet?ma=$ma");
+	header("Location:/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/bai_viet/chi_tiet?ma=$ma");
 	exit;
 	
 

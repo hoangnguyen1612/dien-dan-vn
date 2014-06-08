@@ -89,7 +89,7 @@ head.ready(function() {
       </div>
       <div class="crumbs">
         <ul class="sub-crumb hidden-phone">
-          <li><i class="icon-home"></i> <a href="./index.php" accesskey="h" data-original-title="" title="">Hutech</a> <span class="divider"></span></li>
+          <li><i class="icon-home"></i> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" accesskey="h" data-original-title="" title="">{$dien_dan.ten}</a> <span class="divider"></span></li>
             <li class="active"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><i class="icon-long-arrow-right"></i>Trang chủ</a></li>
           {if isset($chuyen_muc_ong_noi)}
           <li class="active"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_ong_noi.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_ong_noi.ten}</a></li>
