@@ -15,11 +15,13 @@
 
 	$ds_dien_dan = '';
 
-	$sql = 'select ma_dien_dan, ten, hinh_dai_dien, ma_linh_vuc, domain from dien_dan, thanh_vien_dien_dan where ma = ma_dien_dan and ma_nguoi_dung = :ma';
-	$sth = $dbh->prepare($sql);
-	$sth->execute(array('ma'=>$login['ma']));
-	$ds_dien_dan = $sth->fetchAll(PDO::FETCH_ASSOC);
-
+	if($login!='')
+	{
+		$sql = 'select ma_dien_dan, ten, hinh_dai_dien, ma_linh_vuc, domain from dien_dan, thanh_vien_dien_dan where ma = ma_dien_dan and ma_nguoi_dung = :ma';
+		$sth = $dbh->prepare($sql);
+		$sth->execute(array('ma'=>$login['ma']));
+		$ds_dien_dan = $sth->fetchAll(PDO::FETCH_ASSOC);
+	}
 	
 	$dt_smarty = new Smarty();
 	$dt_smarty->setTemplateDir('../templates/');

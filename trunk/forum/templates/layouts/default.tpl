@@ -107,16 +107,16 @@ head.ready(function() {
         <ul class="top-menu">
         {if $login!=''}
      		{if $thanh_vien==''}
-        <li class="dropdown"> <a href="/{$dien_dan.ma}/thanh_vien/tham_gia" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-hand-right"></i><span>Gửi yêu cầu tham gia diễn đàn</span></a></li>
+        <li class="dropdown"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/tham_gia" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-hand-right"></i><span>Gửi yêu cầu tham gia diễn đàn</span></a></li>
      		{else if $thanh_vien.loai_thanh_vien==3}
          <li class="dropdown"><i class="icon-spinner"></i>&nbsp;&nbsp;<span>Đã gửi yêu cầu tham gia</span></li>
          	{else if $thanh_vien.loai_thanh_vien!=3}
-          <li class="dropdown"> <a data-toggle="dropdown" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-globe"></i><span>Xin chào, {$login.ho_ten}{if $thong_bao_moi!=0}&nbsp;&nbsp;<span class="badge badge-info">{$thong_bao_moi}</span>{/if}<i class="caret"></i></span></a>
+          <li class="dropdown"> <a data-toggle="dropdown" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-globe"></i><span>Xin chào, {$login.ten}{if $thong_bao_moi!=0}&nbsp;&nbsp;<span class="badge badge-info">{$thong_bao_moi}</span>{/if}<i class="caret"></i></span></a>
             <ul class="dropdown-menu" id="dropdown-menu">
               <!--<li><a title="" href="./ucp.php?i=profile" data-original-title=""><i class="icon-user"></i>Thành Viên</a></li>-->
               <li><a title="" href="#thong_bao_moi" rel="leanModal"><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info">{$thong_bao_moi}</span></a></li>
               <li><a title="" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$ma_nguoi_dung}" data-original-title=""><i class="icon-cog"></i>Thông Tin Thành Viên</a></li>
-              {if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}<li><a title="" href="/{$dien_dan.ma}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>{/if}
+              {if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}<li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>{/if}
               <li><a title="" href="./ucp.php?mode=logout&amp;sid=b3e0d35dad8925f9d80fb5a1387e5b2f" data-original-title=""><i class="icon-off"></i>Đăng Xuất</a></li>
             </ul>
           </li>
