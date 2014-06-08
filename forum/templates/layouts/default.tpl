@@ -90,18 +90,18 @@ head.ready(function() {
       <div class="crumbs">
         <ul class="sub-crumb hidden-phone">
           <li><i class="icon-home"></i> <a href="./index.php" accesskey="h" data-original-title="" title="">Hutech</a> <span class="divider"></span></li>
-            <li class="active"> &nbsp;<a href="/{$ma_dien_dan}"><i class="icon-long-arrow-right"></i>Trang chủ</a></li>
+            <li class="active"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><i class="icon-long-arrow-right"></i>Trang chủ</a></li>
           {if isset($chuyen_muc_ong_noi)}
-          <li class="active"> &nbsp;<a href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc_ong_noi.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_ong_noi.ten}</a></li>
+          <li class="active"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_ong_noi.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_ong_noi.ten}</a></li>
           {/if}
            {if isset($chuyen_muc_cha)}
-          <li class="active"> &nbsp;<a  href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc_cha.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_cha.ten}</a></li>
+          <li class="active"> &nbsp;<a  href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_cha.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_cha.ten}</a></li>
           {/if}
           {if isset($chuyen_muc)}
-          <li class="active"> &nbsp;<a  href="/{$ma_dien_dan}/bai_viet/danh_sach?loai={$chuyen_muc.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc.ten}</a></li>
+          <li class="active"> &nbsp;<a  href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc.ten}</a></li>
           {/if}
           {if isset($bai_viet)}
-          <li class="active"> &nbsp;<a  href="/{$ma_dien_dan}/bai_viet/chi_tiet?ma={$bai_viet.ma}"><i class="icon-long-arrow-right"></i>{$bai_viet.tieu_de|truncate:100}</a></li>
+          <li class="active"> &nbsp;<a  href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet.ma}"><i class="icon-long-arrow-right"></i>{$bai_viet.tieu_de|truncate:100}</a></li>
           {/if}
         </ul>
         <ul class="top-menu">
@@ -115,7 +115,7 @@ head.ready(function() {
             <ul class="dropdown-menu" id="dropdown-menu">
               <!--<li><a title="" href="./ucp.php?i=profile" data-original-title=""><i class="icon-user"></i>Thành Viên</a></li>-->
               <li><a title="" href="#thong_bao_moi" rel="leanModal"><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info">{$thong_bao_moi}</span></a></li>
-              <li><a title="" href="/{$ma_dien_dan}/thanh_vien/thong_tin?ma_thanh_vien={$ma_nguoi_dung}" data-original-title=""><i class="icon-cog"></i>Thông Tin Thành Viên</a></li>
+              <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$ma_nguoi_dung}" data-original-title=""><i class="icon-cog"></i>Thông Tin Thành Viên</a></li>
               {if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}<li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>{/if}
               <li><a title="" href="./ucp.php?mode=logout&amp;sid=b3e0d35dad8925f9d80fb5a1387e5b2f" data-original-title=""><i class="icon-off"></i>Đăng Xuất</a></li>
             </ul>
