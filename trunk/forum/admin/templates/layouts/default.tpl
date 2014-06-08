@@ -117,17 +117,6 @@ function inputNumber(e)
             <li><a href="../loai_chuyen_muc/danh_sach.php" id="loai_chuyen_muc_danh_sach.php">Xem Danh Sách</a></li>
           </ul>
         </li>
-        <li><a class="nav-top-item" href="#" id="tinh_diem">Tính Điểm</a>
-          <ul>
-            <li><a href="../tinh_diem/cau_hinh.php" id="tinh_diem_cau_hinh.php">Cấu Hình</a></li>
-          </ul>
-        </li>
-        <li><a class="nav-top-item" href="#" id="cap_bac">Cấp Bậc Thành Viên</a>
-          <ul>
-            <li><a href="../cap_bac/tong_quat.php" id="cap_bac_tong_quat.php">Biểu tượng và Số lượng</a></li>
-           <li><a href="../cap_bac/cau_hinh.php" id="cap_bac_cau_hinh.php">Cấu hình</a></li>
-          </ul>
-        </li>
       </ul>
       <script>
 					var url = window.location.href;
