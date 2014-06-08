@@ -20,21 +20,15 @@ try{
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	
 	$xl_thanh_vien_dien_dan->them(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma_nguoi_dung, 'loai_thanh_vien'=>3, 'ngay_gia_nhap'=>date('Y-m-d H:i:s'), 'trang_thai'=>1));
-	
-	
+
 	require '../classes/xl_thong_bao.php';
 	$xl_thong_bao = new xl_thong_bao;
 	// loại thông báo 0: thành viên mới diễn đàn
-	$xl_thong_bao->them(array('ma_loai_thong_bao'=>0, 'gui_tu'=>$ma_nguoi_dung, 'gui_den'=>$ma_dien_dan, 'trang_thai'=>0, 'noi_dung'=>"{$login['ho_ten']} đã gửi yêu cầu xin gia nhập vào diễn đàn", 'ngay_tao'=>date('Y-m-d H:i:s')));
+	$xl_thong_bao->them(array('ma_loai_thong_bao'=>0, 'gui_tu'=>$ma_nguoi_dung, 'gui_den'=>$dien_dan['ma_nguoi_tao'], 'ma_dien_dan'=>$ma_dien_dan, 'trang_thai'=>0, 'noi_dung'=>"{$login['ho']} {$login['ten']} đã gửi yêu cầu xin gia nhập vào diễn đàn", 'ngay_tao'=>date('Y-m-d H:i:s')));
 	$dbh->commit();
 	
-	$_SESSION['message']['type'] = 'success'; 
-	$_SESSION['message']['content'] = 'Yêu cầu tham gia diễn đàn của bạn đã được gửi thành công, vui lòng đợi chấp nhận từ ban quản trị';
-	header("Location: /$ma_dien_dan");
-	exit;
+	throw new Exception('Yêu cầu tham gia diễn đàn của bạn đã được gửi thành công, vui lòng đợi chấp nhận từ ban quản trị', 30);
 }catch(Exception $e)
 {
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: {$_SERVER['HTTP_REFERER']}");
+	throwMessage($e);
 }

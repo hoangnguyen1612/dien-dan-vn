@@ -6,7 +6,7 @@
 	
 	$dbh = connection();
 	$dien_dan = get_subdomain();
-	debug($dien_dan);
+
 	$ma_dien_dan = $dien_dan['ma'];
 
 	# cấu hình

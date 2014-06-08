@@ -34,7 +34,7 @@
 
 <script src="/forum/templates/js/head.min.js"></script>
 <!--<script type="text/javascript" src="/forum/js/jquery.min.js"></script>-->
-<script src="/home/templates/scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="/home/templates/js/jquery-1.10.2.min.js" type="text/javascript"></script>
 
 <script type="text/javascript" src="/forum/templates/js/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="/forum/templates/js/bootstrap/bootstrap-select.js"></script>
@@ -45,8 +45,7 @@
 <script type="text/javascript" src="/forum/admin/templates/scripts/ckeditor/ckeditor.js"></script>
 
 
-<script src="/home/templates/scripts/jquery.easing.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/home/templates/scripts/jquery.leanModal.min.js"></script>
+<script src="/home/templates/js/jquery.easing.min.js" type="text/javascript"></script>
 <!-- Scripts start here after the jquery.js -->
 <script>
 // this loads jquery asyncrounously & in parallel
