@@ -15,7 +15,7 @@
 
 	$ds_dien_dan = '';
 
-	$sql = 'select ma_dien_dan, ten, hinh_dai_dien from dien_dan, thanh_vien_dien_dan where ma = ma_dien_dan and ma_nguoi_dung = :ma';
+	$sql = 'select ma_dien_dan, ten, hinh_dai_dien, ma_linh_vuc, domain from dien_dan, thanh_vien_dien_dan where ma = ma_dien_dan and ma_nguoi_dung = :ma';
 	$sth = $dbh->prepare($sql);
 	$sth->execute(array('ma'=>$login['ma']));
 	$ds_dien_dan = $sth->fetchAll(PDO::FETCH_ASSOC);

@@ -51,7 +51,7 @@
                             {if $ds_dien_dan != ''}
                             <ul class="treeview-menu">
                             {foreach $ds_dien_dan as $value}
-                                <li><a href="pages/charts/morris.html" style="margin-left:0px !important"><img src="/home/upload/dien_dan/{$value.hinh_dai_dien}" width="16px" height="16px" /> {$value.ten|truncate: 22}</a></li>
+                                <li><a href="/{$value.ma_linh_vuc}/{$value.domain}" style="margin-left:0px !important"><img src="/home/upload/dien_dan/{$value.hinh_dai_dien}" width="16px" height="16px" /> {$value.ten|truncate: 22}</a></li>
                             {/foreach}
                             </ul>
                             {/if}

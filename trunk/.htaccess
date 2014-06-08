@@ -9,9 +9,9 @@ RewriteRule ^([a-z_]+)/([a-z_]+)\.php$ home/$1/$2.php [L]
 
 
 #forum
-RewriteRule ^([0-9a-zA-Z-.]+)/?$ forum/trang_chu/index.php?forum=$1 [L,QSA]
-RewriteRule ^([0-9a-zA-Z-.]+)/([a-z_]+)/([a-z_]+)$ forum/$2/$3.php?forum=$1 [L,QSA]
+RewriteRule ^([0-9]+)/([0-9a-zA-Z-.]+)/?$ forum/trang_chu/index.php?linh_vuc=$1&forum=$2 [L,QSA]
+RewriteRule ^([0-9]+)/([0-9a-zA-Z-.]+)/([a-z_]+)/([a-z_]+)$ forum/$2/$3.php?linh_vuc=$1&forum=$2 [L,QSA]
 
 ###
-RewriteRule ^([0-9a-zA-Z-.]+)/admin/?$ forum/admin/quan_tri/dang_nhap.php?forum=$1 [L,QSA]
-RewriteRule ^([0-9a-zA-Z-.]+)/admin/([a-z_]+)/([a-z_]+)\.php$ forum/admin/$2/$3.php?forum=$1 [L,QSA]
+RewriteRule ^([0-9]+)/([0-9a-zA-Z-.]+)/admin/?$ forum/admin/quan_tri/dang_nhap.php?linh_vuc=$1&forum=$2 [L,QSA]
+RewriteRule ^([0-9]+)/([0-9a-zA-Z-.]+)/admin/([a-z_]+)/([a-z_]+)\.php$ forum/admin/$2/$3.php?linh_vuc=$1&forum=$2 [L,QSA]
