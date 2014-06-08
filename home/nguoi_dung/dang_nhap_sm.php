@@ -3,18 +3,21 @@ try{
 	require '../ini.php';
 	require '../classes/xl_nguoi_dung.php';
 	
-	if(empty($_POST['email']))
+	$url = '';
+	$_SESSION['data'] = $_POST['data'];
+	
+	if(empty($_POST['data']['email']))
 	{
 		throw new Exception('Địa chỉ email không được để trống');
 	}
 	
-	if(empty($_POST['mat_khau']))
+	if(empty($_POST['data']['mat_khau']))
 	{
 		throw new Exception('Mật khẩu không được để trống');
 	}
 	
-	$email = $_POST['email'];
-	$mat_khau = $_POST['mat_khau'];
+	$email = $_POST['data']['email'];
+	$mat_khau = $_POST['data']['mat_khau'];
 	
 	$xl_nguoi_dung = new xl_nguoi_dung;
 	$nguoi_dung = $xl_nguoi_dung->doc(array('email'=>$email));
@@ -32,18 +35,13 @@ try{
 		throw new Exception('Mật khẩu không đúng, vui lòng kiểm tra lại');
 	}
 	
-	#lưu session
-	$_SESSION['login'] = $nguoi_dung;
+	$_SESSION['login'] =$nguoi_dung;
 	
-	$return['error'] = false;
+	unset($_SESSION['data']);
+	$url = '/';
 	
-	echo json_encode($return);
-	exit;
-	
+	throw new Exception('', 30);
 }catch(Exception $e)
 {
-	$return['error'] = true;
-	$return['message'] = $e->getMessage();
-	
-	echo json_encode($return);
+	throwMessage($e, $url);
 }
