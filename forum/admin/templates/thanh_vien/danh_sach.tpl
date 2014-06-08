@@ -51,7 +51,7 @@
                {foreach $ds_thanh_vien as $tv}   
                 <tr>
                 <td><input name="item[]" type="checkbox" value="{url_encode($tv.ma_nguoi_dung)}"></td>
-                <td >{$tv.ten_thanh_vien}</td>
+                <td >{$tv.ho_thanh_vien} {$tv.ten_thanh_vien}</td>
                 <td >{$loai_thanh_vien[$tv.loai_thanh_vien]}</td>
                 <td class="c"><a href="cap_nhat_trang_thai.php?ma={url_encode($tv.ma_nguoi_dung)}" title="Gia nhập"><img src="/forum/admin/templates/images/trang_thai_{$tv.trang_thai}.png" width="20" height="20"> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td class="c">{_date($tv.ngay_gia_nhap)}</td>
