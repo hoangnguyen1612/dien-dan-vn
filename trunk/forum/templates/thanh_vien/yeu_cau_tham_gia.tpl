@@ -13,8 +13,8 @@
                     <img src="/home/upload/nguoi_dung/{if $thanh_vien.thumbnail!=NULL}{$thanh_vien.thumbnail}{else if $thanh_vien.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" />
                </div>
                <div class="fullname">
-                    <a href="" class="topictitle">{$thanh_vien.ho_ten}</a><br />
-                    <a href="/{$ma_dien_dan}/thanh_vien/them?ma={$thanh_vien.ma_nguoi_dung}" class="topictitle no-bold underline">Thêm</a> / <a href="/{$ma_dien_dan}/thanh_vien/huy_bo?ma={$thanh_vien.ma_nguoi_dung}" class="topictitle no-bold underline">Hủy bỏ</a>
+                    <a href="" class="topictitle">{$thanh_vien.ho_ten }</a><br />
+                    <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/them?ma={$thanh_vien.ma_nguoi_dung}" class="topictitle no-bold underline">Thêm</a> / <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/huy_bo?ma={$thanh_vien.ma_nguoi_dung}" class="topictitle no-bold underline">Hủy bỏ</a>
                </div>
                <div class="clear"></div>
                <div class="spacing"></div>

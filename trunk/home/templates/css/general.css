@@ -85,3 +85,12 @@ body {
 .bg-color-18 { background-color: #A24205;}
 .bg-color-19 { background-color: #F69B9A;}
 .bg-color-20 { background-color: #8C8C8C;} 
+
+
+.dropdown-menu .slimScrollDiv{
+	height: auto !important;
+}
+.dropdown-menu .menu{
+	height:auto !important;
+	max-height: 200px;
+}
