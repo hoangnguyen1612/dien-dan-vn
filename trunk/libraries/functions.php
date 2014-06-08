@@ -13,6 +13,37 @@ function connection()
 
 }
 
+function convert_to_slug($str)
+{
+	$str = convert_vi_to_en($str);
+	
+	$str = strtolower($str);
+	
+	$str = preg_replace('/([^a-z0-9]+)/', '-', $str);
+	$str = preg_replace('/\-{2,}/', '-', $str);
+	
+	return $str;
+}
+
+function convert_vi_to_en($str) {
+  $str = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $str);
+  $str = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $str);
+  $str = preg_replace('/(ì|í|ị|ỉ|ĩ)/', 'i', $str);
+  $str = preg_replace('/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/', 'o', $str);
+  $str = preg_replace('/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/', 'u', $str);
+  $str = preg_replace('/(ỳ|ý|ỵ|ỷ|ỹ)/', 'y', $str);
+  $str = preg_replace('/(đ)/', 'd', $str);
+  $str = preg_replace('/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/', 'A', $str);
+  $str = preg_replace('/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/', 'E', $str);
+  $str = preg_replace('/(Ì|Í|Ị|Ỉ|Ĩ)/', 'I', $str);
+  $str = preg_replace('/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/', 'O', $str);
+  $str = preg_replace('/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/', 'U', $str);
+  $str = preg_replace('/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/', 'Y', $str);
+  $str = preg_replace('/(Đ)/', 'D', $str);
+
+  return $str;
+}
+
 function showMessage()
 {
 	global $dt_smarty;
@@ -163,8 +194,6 @@ function getChildrenFirstForum($id, $categories)
 
 function throwMessage(Exception $e, $url='')
 {
-	global $dbh;
-	
 	$dbh = NULL;
 
 	$_SESSION['message'] = array(
@@ -578,4 +607,89 @@ function imageWaterMark($groundImage,$waterPos=9,$waterImage="nguyena.png"){
 
 } 
 //imageWaterMark("upload/bb.jpg",9,'upload/nguyena.png');
+function resizeImage($CurWidth,$CurHeight,$MaxSize,$DestFolder,$SrcImage,$Quality,$ImageType)
+{
+	//Check Image size is not 0
+	if($CurWidth <= 0 || $CurHeight <= 0) 
+	{
+		return false;
+	}
+	
+	//Construct a proportional size of new image
+	$ImageScale      	= min($MaxSize/$CurWidth, $MaxSize/$CurHeight); 
+	$NewWidth  			= ceil($ImageScale*$CurWidth);
+	$NewHeight 			= ceil($ImageScale*$CurHeight);
+	$NewCanves 			= imagecreatetruecolor($NewWidth, $NewHeight);
+	
+	// Resize Image
+	if(imagecopyresampled($NewCanves, $SrcImage,0, 0, 0, 0, $NewWidth, $NewHeight, $CurWidth, $CurHeight))
+	{
+		switch(strtolower($ImageType))
+		{
+			case 'image/png':
+				imagepng($NewCanves,$DestFolder);
+				break;
+			case 'image/gif':
+				imagegif($NewCanves,$DestFolder);
+				break;			
+			case 'image/jpeg':
+			case 'image/pjpeg':
+				imagejpeg($NewCanves,$DestFolder,$Quality);
+				break;
+			default:
+				return false;
+		}
+	//Destroy image, frees memory	
+	if(is_resource($NewCanves)) {imagedestroy($NewCanves);} 
+	return true;
+	}
+
+}
+
+//This function corps image to create exact square images, no matter what its original size!
+function cropImage($CurWidth,$CurHeight,$iSize,$DestFolder,$SrcImage,$Quality,$ImageType)
+{	 
+	//Check Image size is not 0
+	if($CurWidth <= 0 || $CurHeight <= 0) 
+	{
+		return false;
+	}
+	
+	//abeautifulsite.net has excellent article about "Cropping an Image to Make Square bit.ly/1gTwXW9
+	if($CurWidth>$CurHeight)
+	{
+		$y_offset = 0;
+		$x_offset = ($CurWidth - $CurHeight) / 2;
+		$square_size 	= $CurWidth - ($x_offset * 2);
+	}else{
+		$x_offset = 0;
+		$y_offset = ($CurHeight - $CurWidth) / 2;
+		$square_size = $CurHeight - ($y_offset * 2);
+	}
+	
+	$NewCanves 	= imagecreatetruecolor($iSize, $iSize);	
+	if(imagecopyresampled($NewCanves, $SrcImage,0, 0, $x_offset, $y_offset, $iSize, $iSize, $square_size, $square_size))
+	{
+		switch(strtolower($ImageType))
+		{
+			case 'image/png':
+				imagepng($NewCanves,$DestFolder);
+				break;
+			case 'image/gif':
+				imagegif($NewCanves,$DestFolder);
+				break;			
+			case 'image/jpeg':
+			case 'image/pjpeg':
+				imagejpeg($NewCanves,$DestFolder,$Quality);
+				break;
+			default:
+				return false;
+		}
+	//Destroy image, frees memory	
+	if(is_resource($NewCanves)) {imagedestroy($NewCanves);} 
+	return true;
+
+	}
+	  
+}
 ?>

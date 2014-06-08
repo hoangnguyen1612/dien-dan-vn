@@ -1,0 +1,87 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.red {
+	color: red !important;
+}
+/*=================================================================================================*/
+#signup_form label {
+	font-weight: normal !important;
+}
+#signup_form input[type=text], #signup_form input[type=password] {
+	width: 80%;
+}
+/*=================================================================================================*/
+.header-user {
+	font-family: 'Kaushan Script', cursive;
+	color: white !important;
+}
+.messages-menu {
+	font-size: 15px;
+}
+.div-header {
+	margin-bottom: 20px;
+}
+.radios .radio1 {
+	background-color: #c5e043;
+	display: inline-block;
+	width: 140px;
+	height: 140px;
+	float: left;
+	margin-right: 8px;
+	margin-bottom: 8px;
+	padding: 10px;
+	opacity: 0.3;
+}
+.radios .radio2 {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	padding: 10px;
+	opacity: 0.3;
+}
+.radios input[type=radio] {
+	display: none
+}
+.radios input[type=radio]:checked + .radio1, .radios input[type=radio]:checked + .radio2 {
+	opacity: 1;
+}
+.radio2{
+	border-radius: 3px;
+}
+.radios input[type=radio]:checked + .radio2 {
+	width:25px;
+	height:25px;
+}
+.img {
+	width: auto;
+	margin: auto
+}
+
+.bg-color-1 { background-color: #169FE6;}
+.bg-color-2 { background-color: #F47221;}
+.bg-color-3 { background-color: #E82A50;}
+.bg-color-4 { background-color: #26D483;}
+
+.bg-color-5 { background-color: #103636;}
+.bg-color-6 { background-color: #6ACEEB;}
+.bg-color-7 { background-color: #FF876C;}
+.bg-color-8 { background-color: #592643;}
+
+.bg-color-9 { background-color: #E59E09;}
+.bg-color-10 { background-color: #1B4175;}
+.bg-color-11 { background-color: #D1CF96;}
+.bg-color-12 { background-color: #45B29D;}
+
+.bg-color-13 { background-color: #F8CC0C;}
+.bg-color-14 { background-color: #325DB3;}
+.bg-color-15 { background-color: #8AAED0;}
+.bg-color-16 { background-color: #00CBD4;}
+
+.bg-color-17 { background-color: #D91A2A;}
+.bg-color-18 { background-color: #A24205;}
+.bg-color-19 { background-color: #F69B9A;}
+.bg-color-20 { background-color: #8C8C8C;} 

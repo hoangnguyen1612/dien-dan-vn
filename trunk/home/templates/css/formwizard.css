@@ -1,0 +1,69 @@
+#staff_feedbackform {
+	width: 100%;
+	padding-left: 5%;
+}
+fieldset.sectionwrap { /*fieldset that wraps around each form "page" */
+	border-width: 0;
+	padding: 5px;
+}
+.step {
+}
+legend { /*title shown at top of each form page */
+	font: bold 16px Arial;
+	color: darkred;
+}
+.sectionwrap {
+	width: 100%;
+}
+.sectionwrap legend {
+	display: none;
+}
+div.stepsguide { /*div that contains all the "steps" text located at top of form */
+	width: 900px; /*width of "steps" container*/
+	overflow: hidden;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+div.stepsguide .step { /*div that wraps around each "steps" text */
+	width: 292px;
+	font: bold 24px Arial;
+	float: left;
+	color: #3c8dbc;
+}
+div.stepsguide .disabledstep { /*div that wraps around each "steps" text */
+	color: #C4C4C4;
+}
+div.stepsguide .step .smalltext { /*small footer text inside "steps" text */
+	font-size: 13px;
+	font-weight: normal;
+}
+div.formpaginate { /* CSS for pagination DIV container */
+	width: 500px;
+	overflow: hidden;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 1em;
+}
+div.formpaginate .prev, div.formpaginate .next { /*CSS for "prev" and "next" SPAN elements within paginate container */
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	-webkit-box-shadow: inset 0px -2px 0px 0px rgba(0, 0, 0, 0.09);
+	-moz-box-shadow: inset 0px -2px 0px 0px rgba(0, 0, 0, 0.09);
+	box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.09);
+	background-color: #00acd6;
+	color: white;
+	border-radius: 3px !important;
+	width: 20%;
+}
+#staff_feedbackform input[type=text], #staff_feedbackform textarea {
+	width: 150%;
+}
