@@ -70,5 +70,9 @@
 	}
 	
 	
+	# icon notification
+	$thong_bao_icon = array(0=>'plus-sign', 1=>'thumbs-up-alt', 2=>'check-sign', 3=>'star-empty');
+	
+	
 	
 	

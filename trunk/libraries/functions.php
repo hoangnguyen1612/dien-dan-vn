@@ -25,6 +25,21 @@ function convert_to_slug($str)
 	return $str;
 }
 
+function time_thong_bao($str)
+{
+	$date = date('Y-m-d', strtotime($str));
+	$now = date('Y-m-d');
+	
+	if($date==$now)
+	{
+		return date('H:i', strtotime($str));
+	}
+	else
+	{
+		return date('d', strtotime($str)).' tháng '.date('m', strtotime($str)).' năm '.date('Y', strtotime($str));
+	}
+}
+
 function convert_vi_to_en($str) {
   $str = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $str);
   $str = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $str);
