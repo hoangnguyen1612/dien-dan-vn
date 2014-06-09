@@ -15,11 +15,11 @@ try{
 
 	if(!empty($_SESSION['data']['rGroup']))
 	{
-		$mac_dinh = $xl_linh_vuc->danh_sach(0, 0, array('ma_loai_cha'=>$_SESSION['data']['rGroup']), 'ten ASC', '*', PDO::FETCH_ASSOC, '', false);
+		$mac_dinh = $xl_linh_vuc->danh_sach(0, 0, array('ma_loai_cha'=>$_SESSION['data']['rGroup']), 'ma ASC', '*', PDO::FETCH_ASSOC, '', false);
 	}
 	else
 	{
-		$mac_dinh = $xl_linh_vuc->danh_sach(0, 0, array('ma_loai_cha'=>$danh_sach[0]['ma']), 'ten ASC', '*', PDO::FETCH_ASSOC, '', false);
+		$mac_dinh = $xl_linh_vuc->danh_sach(0, 0, array('ma_loai_cha'=>$danh_sach[0]['ma']), 'ma ASC', '*', PDO::FETCH_ASSOC, '', false);
 	}
 	
 	$dt_smarty->assign('mac_dinh', $mac_dinh);
