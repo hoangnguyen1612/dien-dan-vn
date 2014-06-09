@@ -1,7 +1,7 @@
 <?php
 try{
 	include '../ini.php';
-	
+
 	$url = '/';
 	if($login=='')
 	{
@@ -13,7 +13,15 @@ try{
 	$danh_sach = $xl_linh_vuc->danh_sach(0, 0, array('ma_loai_cha'=>0), 'ma ASC', '*', PDO::FETCH_ASSOC, '', false);
 	$dt_smarty->assign('linh_vuc', $danh_sach);
 
-	$mac_dinh = $xl_linh_vuc->danh_sach(0, 0, array('ma_loai_cha'=>$danh_sach[0]['ma']), 'ten ASC', '*', PDO::FETCH_ASSOC, '', false);
+	if(!empty($_SESSION['data']['rGroup']))
+	{
+		$mac_dinh = $xl_linh_vuc->danh_sach(0, 0, array('ma_loai_cha'=>$_SESSION['data']['rGroup']), 'ten ASC', '*', PDO::FETCH_ASSOC, '', false);
+	}
+	else
+	{
+		$mac_dinh = $xl_linh_vuc->danh_sach(0, 0, array('ma_loai_cha'=>$danh_sach[0]['ma']), 'ten ASC', '*', PDO::FETCH_ASSOC, '', false);
+	}
+	
 	$dt_smarty->assign('mac_dinh', $mac_dinh);
 	
 	$ds_mau = array('color-1'=>'color-1', 'color-2'=>'color-2', 'hong'=>'color-3', 'xanhla'=>'color-4', 'xanhden'=>'color-5', 'xanhduongnhat'=>'color-6', 

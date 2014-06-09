@@ -15,11 +15,11 @@
                     </div>
                     {/if}
                     <!-- search form -->
-                    <form action="#" method="get" class="sidebar-form">
+                    <form action="/tim_kiem/dien_dan" method="get" class="sidebar-form">
                         <div class="input-group">
-                            <input type="text" name="q" class="form-control" placeholder="Tìm kiếm diễn đàn"/>
+                            <input type="text" name="tu_khoa" class="form-control" placeholder="Tìm kiếm diễn đàn" value="{$smarty.get.tu_khoa|default:''}" autofocus="autofocus"/>
                             <span class="input-group-btn">
-                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                                <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
                             </span>
                         </div>
                     </form>
@@ -31,22 +31,23 @@
                                 <i class="fa fa-globe"></i> <span style="font-family: 'Kaushan Script', cursive;">diendan.vn</span>
                             </a>
                         </li>
+                        {if $login!=''}
                         <li>
                             <a href="pages/widgets.html">
                                 <i class="fa fa-user"></i> <span>Tài khoản</span>
                             </a>
                         </li>
                         <li>
-                            <a href="pages/mailbox.html">
-                                <i class="fa fa-envelope"></i> <span>Tin nhắn</span>
-                                <small class="badge pull-right bg-yellow">12</small>
+                            <a href="/thong_bao">
+                                <i class="fa fa-envelope"></i> <span>Thông báo</span>
+                                <small class="badge pull-right bg-yellow">{$sl_thong_bao_moi}</small>
                             </a>
                         </li>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
                                 <span>Diễn đàn</span>
-                                {if $ds_dien_dan != ''}<i class="fa fa-angle-left pull-right"></i>{/if}
+                                {if !empty($ds_dien_dan)}<i class="fa fa-angle-left pull-right"></i>{/if}
                             </a>
                             {if $ds_dien_dan != ''}
                             <ul class="treeview-menu">
@@ -56,6 +57,7 @@
                             </ul>
                             {/if}
                         </li>
+                        {/if}
                     </ul>
                 </section>
                 <!-- /.sidebar -->

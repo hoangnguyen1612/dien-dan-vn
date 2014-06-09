@@ -3,6 +3,7 @@ try{
 	require '../ini.php';
 	require '../classes/xl_nguoi_dung.php';
 	require '../../libraries/send_gmail/send_gmail.php';
+	$xl_nguoi_dung = new xl_nguoi_dung;
 	
 	$url = '';
 	$_SESSION['data'] = $_POST['data'];
@@ -46,6 +47,10 @@ try{
 	if (!in_array($_POST['data']['nghe_nghiep'], array(0, 1, 2, 3))){
 		throw new Exception('Lỗi! [Nghề nghiệp] không hợp lệ');
 	}
+	if($xl_nguoi_dung->doc(array('email'=>$_POST['data']['email']), 'ma'))
+	{
+		throw new Exception('Địa chỉ Email đã được dùng để đăng ký tài khoản, vui lòng chọn một Email khác');
+	}
 	
 	$dbh->beginTransaction();
 		
@@ -66,9 +71,7 @@ try{
 		$avatar = 'no_avatar_female.jpg';
 	}
 		
-		
-		
-	$xl_nguoi_dung = new xl_nguoi_dung;
+	
 	$xl_nguoi_dung->them(array('ma'=>tao_chuoi(15), 'mat_khau'=>md5($email.$mat_khau), 'ho'=>$ho, 'ten'=>$ten, 'gioi_tinh'=>$gioi_tinh, 'ngay_sinh'=>$ngay_sinh,  
 	'email'=>$email, 'ma_kich_hoat'=>$ma_kich_hoat, 'hinh_dai_dien'=>$avatar, 'ngay_tham_gia'=>date('Y-m-d'), 'nghe_nghiep'=>$nghe_nghiep[$_POST['data']['nghe_nghiep']]));
 		

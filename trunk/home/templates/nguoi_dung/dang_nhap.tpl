@@ -1,7 +1,7 @@
 <aside class="right-side"> 
   <!-- Content Header (Page header) -->
   <section class="content-header no-margin">
-    <h1 class="text-center"> Đăng Nhập Tài Khoản </h1>
+    <h1> Đăng Nhập Tài Khoản </h1>
   </section>
   {showMessage()}
   <!-- Main content -->

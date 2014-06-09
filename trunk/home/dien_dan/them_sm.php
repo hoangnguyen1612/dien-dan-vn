@@ -2,9 +2,10 @@
 try{
 	require '../ini.php';
 	
-	$url = '';
-	
+	$url = ''; 
+
 	$_SESSION['data'] = $_POST['data'];
+	$_SESSION['data']['rGroup'] = $_POST['rGroup']; 
 
 	if(empty($_POST['data']['ten_dien_dan']))
 	{
@@ -26,7 +27,12 @@ try{
 	$xl_dien_dan = new xl_dien_dan;
 	$xl_linh_vuc = new xl_linh_vuc;
 	
-	if(!$xl_linh_vuc->doc(array('ma'=>$_POST['data']['ma_linh_vuc'])))
+	if($xl_dien_dan->doc(array('domain'=>convert_to_slug(trim($_POST['data']['ten_dien_dan'])), 'ma_linh_vuc'=>$_POST['data']['chon_linh_vuc']), 'ma'))
+	{
+		throw new Exception('Tên diễn đàn ứng với lĩnh vực bạn chọn đã tồn tại, vui lòng chọn một tên khác');
+	}
+	
+	if(!$xl_linh_vuc->doc(array('ma'=>$_POST['data']['chon_linh_vuc'])))
 	{
 		throw new Exception('Lĩnh vực không tồn tại, vui lòng kiểm tra lại');
 	}
@@ -34,7 +40,7 @@ try{
 	$dbh->beginTransaction();
 	$ma_dien_dan = time();
 	
-	$hinh = '';
+	$hinh = 'no_avatar.png';
 	
 	#upload hình ảnh
 	if($_FILES['image']['name']!='')
@@ -65,11 +71,11 @@ try{
 		#thumb
 		
 	}
-	
+
 	# diễn đàn
 	if(!$xl_dien_dan->them(array('ma'=>$ma_dien_dan, 'ten'=>$_POST['data']['ten_dien_dan'], 'mo_ta'=>$_POST['data']['mo_ta'], 'slogan'=>$_POST['data']['slogan'], 
-	'ngay_tao'=>date('Y-m-d H:i:s'), 'ma_nguoi_tao'=>$_SESSION['login']['ma'], 'hinh_dai_dien'=>$hinh, 'ma_linh_vuc'=>$_POST['data']['ma_linh_vuc'], 
-	'domain'=>convert_to_slug($_POST['data']['ten_dien_dan']))))
+	'ngay_tao'=>date('Y-m-d H:i:s'), 'ma_nguoi_tao'=>$_SESSION['login']['ma'], 'hinh_dai_dien'=>$hinh, 'ma_linh_vuc'=>$_POST['data']['chon_linh_vuc'], 
+	'domain'=>convert_to_slug(trim($_POST['data']['ten_dien_dan'])))))
 	{
 		throw new Exception('Đã có lỗi trong quá trình tạo diễn đàn, vui lòng quay lại sau hoặc liên hệ với ban quản trị để được giải quyết. Chân thành cảm ơn bạn!');
 	}
@@ -99,7 +105,7 @@ try{
 	$dbh->commit();
 	
 	unset($_SESSION['data']);
-	$url = '/';
+	$url = "/{$_POST['data']['chon_linh_vuc']}/".convert_to_slug(trim($_POST['data']['ten_dien_dan']));
 	throw new Exception('Chúc mừng! Diễn đàn của bạn đã được tạo thành công!', 30);
 	
 }catch(Exception $e)

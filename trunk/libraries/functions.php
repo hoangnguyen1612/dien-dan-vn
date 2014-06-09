@@ -36,8 +36,13 @@ function time_thong_bao($str)
 	}
 	else
 	{
-		return date('d', strtotime($str)).' tháng '.date('m', strtotime($str)).' năm '.date('Y', strtotime($str));
+		return intval(date('d', strtotime($str))).' tháng '.intval(date('m', strtotime($str))).' lúc '.date('H:i', strtotime($str));
 	}
+}
+
+function ngay_thang_nam($str)
+{
+	return date('d', strtotime($str)).' tháng '.date('m', strtotime($str)).' năm '.date('Y', strtotime($str));
 }
 
 function convert_vi_to_en($str) {

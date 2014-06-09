@@ -120,9 +120,9 @@ formtowizard.prototype={
 			alert(invalidtext.join('\n'))
 			return validated
 		}
-		
-		var ten_dien_dan = document.getElementById("ten_dien_dan").value
+		var ten_dien_dan = document.getElementById("ten_dien_dan").value 
 		var ma_linh_vuc = document.getElementById("ma_linh_vuc").value
+		
 		var check = true;
 		if(ten_dien_dan!='')
 		{
