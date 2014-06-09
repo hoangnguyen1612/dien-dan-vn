@@ -1,8 +1,9 @@
 <?php
 require '../ini.php';
-require '../classes/xl_linh_vuc.php';
-$xl_linh_vuc = new xl_linh_vuc;
-$danh_sach = $xl_linh_vuc->danh_sach(0, 0, array('ma_loai_cha'=>$_POST['linh_vuc']), 'ten ASC', '*', PDO::FETCH_ASSOC, '', false);
+$sql = 'select * from linh_vuc where ma_loai_cha = :ma_linh_vuc';
+$sth = $dbh->prepare($sql);
+$sth->execute(array('ma_linh_vuc'=>$_POST['linh_vuc']));
+$danh_sach = $sth->fetchAll(PDO::FETCH_ASSOC);
 $str = '';
 foreach($danh_sach as $value)
 {

@@ -35,11 +35,13 @@
                 <td style="padding-left: 20px"><p>
                   </p>
                   <label>Chọn một mục</label><br />
-                  <select class="btn" name="data[chon_linh_vuc]" id="ma_linh_vuc" style="border: 1px solid #ccc">
+                  <select class="btn" name="data[chon_linh_vuc]" onchange="document.getElementById('lv').value = document.getElementById('ma_linh_vuc').value" id="ma_linh_vuc" style="border: 1px solid #ccc">
                     {foreach $mac_dinh as $value}
                       <option value="{$value.ma}">{$value.ten}</option>
                     {/foreach}
-                  </select></td>
+                  </select>
+                  <input type="hidden" name="data[chon_linh_vuc]" id="lv" />
+                  </td>
               </tr>
             </table>
             {literal}
