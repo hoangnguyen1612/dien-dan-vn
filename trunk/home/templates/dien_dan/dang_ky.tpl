@@ -37,10 +37,22 @@
                   <label>Chọn một mục</label><br />
                   <select class="btn" name="data[chon_linh_vuc]" onchange="document.getElementById('lv').value = document.getElementById('ma_linh_vuc').value" id="ma_linh_vuc" style="border: 1px solid #ccc">
                     {foreach $mac_dinh as $value}
+                      {$x=$value.ma}
                       <option value="{$value.ma}">{$value.ten}</option>
                     {/foreach}
                   </select>
                   <input type="hidden" name="data[chon_linh_vuc]" id="lv" />
+                  <script>
+                  	window.onload = function()
+					{
+						document.getElementById("lv").value = document.getElementById("ma_linh_vuc").value;
+					}
+					
+					function change()
+					{
+						document.getElementById("lv").value = document.getElementById("ma_linh_vuc").value;
+					}
+                  </script>
                   </td>
               </tr>
             </table>
@@ -55,6 +67,7 @@
 						success: function(result) {
 							$("#ma_linh_vuc").find('option').remove();
 							$("#ma_linh_vuc").append(result);
+							change();
 						}
 					});
 				});
