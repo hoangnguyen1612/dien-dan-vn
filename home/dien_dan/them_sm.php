@@ -5,7 +5,7 @@ try{
 	$url = ''; 
 
 	$_SESSION['data'] = $_POST['data'];
-	$_SESSION['data']['rGroup'] = $_POST['rGroup']; 
+	$_SESSION['data']['rGroup'] = $_POST['rGroup'];
 
 	if(empty($_POST['data']['ten_dien_dan']))
 	{
