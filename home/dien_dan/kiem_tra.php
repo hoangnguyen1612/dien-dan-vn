@@ -1,6 +1,6 @@
 <?php
 	require '../ini.php';
-	$ten_dien_dan = convert_to_slug($_POST['ten_dien_dan']);
+	$ten_dien_dan = convert_to_slug(trim($_POST['ten_dien_dan']));
 	$ma_linh_vuc = $_POST['ma_linh_vuc'];
 	
 	require '../classes/xl_dien_dan.php';

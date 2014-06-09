@@ -20,10 +20,10 @@
                   <div class="side-segment">
                     <h3>Liên hệ</h3>
                   </div>
-                  <p>Địa chỉ : 475 Điện Biên Phủ , phường 25 , Quận Bình Thạnh , TP.HCM</p>
+                  <!--<p>Địa chỉ : 475 Điện Biên Phủ , phường 25 , Quận Bình Thạnh , TP.HCM</p>
                   <p>Số điện thoại:098765432.</p>
-                  <p>Fax:09-664-657-87.</p>
-                 
+                  <p>Fax:09-664-657-87.</p>-->
+                 <p class="logo" style="text-transform:capitalize; font-size: 14px;"><span>Diễn đàn {$dien_dan.ten}</span></p>
                 </div>
               </div>
             </div>

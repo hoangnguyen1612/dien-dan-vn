@@ -6,6 +6,8 @@ RewriteRule ^/?$ home/trang_chu/index.php [L]
 RewriteRule ^nguoi_dung/kich_hoat$ home/nguoi_dung/kich_hoat.php [L,QSA]
 RewriteRule ^([a-z_]+)/([a-z_]+)\.html$ home/$1/$2.php [L]
 RewriteRule ^([a-z_]+)/([a-z_]+)\.php$ home/$1/$2.php [L]
+RewriteRule ^tim_kiem/dien_dan$ home/tim_kiem/dien_dan.php [L,QSA]
+RewriteRule ^([a-z_]+)$ home/$1/index.php [L]
 
 
 #forum

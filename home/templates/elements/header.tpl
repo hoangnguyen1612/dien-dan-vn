@@ -1,5 +1,5 @@
 <header class="header">
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 Diendan.vn
             </a>
@@ -48,7 +48,7 @@
                                                     <div class="pull-left">
                                                         <img src="/home/upload/nguoi_dung/{$thong_bao.hinh_dai_dien}" class="img-circle" alt="user image"/>
                                                     </div>
-                                                    <p style="width: 200px;">{$thong_bao.noi_dung}<br /><small><i class="fa fa-clock-o"></i> 2 hours</small></p>
+                                                    <p style="width: 200px;">{$thong_bao.noi_dung}<br /><small><i class="fa fa-clock-o"></i> {time_since(time() - strtotime($thong_bao.ngay_tao))}</small></p>
                                                 </a>
                                             </li>
                                           {/foreach}
@@ -58,13 +58,13 @@
                                                 <div class="pull-left">
                                                    
                                                 </div>
-                                                <p>Không có tin nhắn mới nào</p>
+                                                <p>Không có thông báo mới nào</p>
                                             </a>
                                         </li>
                                      {/if}
                                     </ul>
                                 </li>
-                                <li class="footer"><a href="#">Xem tất cả các tin nhắn</a></li>
+                                <li class="footer"><a href="/thong_bao">Xem tất cả các thông báo</a></li>
                             </ul>
                         </li>
                         <li class="dropdown user user-menu">

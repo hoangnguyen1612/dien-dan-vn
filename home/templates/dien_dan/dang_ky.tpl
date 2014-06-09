@@ -20,7 +20,12 @@
               <tr>
                 <td width="350px"><div class="radios"> {$i=0}
                     {foreach $linh_vuc as $value}
-                    <input type="radio" class="btn-radio" name="rGroup" value="{$value.ma}" id="{$value.ma}" {if $value.ma==1}checked{/if}/>
+                    <input type="radio" class="btn-radio" name="rGroup" value="{$value.ma}" id="{$value.ma}" 
+                    {if isset($smarty.session.data.rGroup) && $smarty.session.data.rGroup==$value.ma}
+                    	checked
+                    {else if $value.ma==1}
+                    	checked
+                    {/if}/>
                     <label class="radio1 bg-{$mau.$i}" for="{$value.ma}">
                     <p style="margin-top: 40%; text-align:center">{$value.ten}</p>
                     </label>
@@ -30,9 +35,9 @@
                 <td style="padding-left: 20px"><p>
                   </p>
                   <label>Chọn một mục</label><br />
-                  <select class="btn" name="data[ma_linh_vuc]" id="ma_linh_vuc" style="border: 1px solid #ccc">
+                  <select class="btn" name="data[chon_linh_vuc]" id="ma_linh_vuc" style="border: 1px solid #ccc">
                     {foreach $mac_dinh as $value}
-                    	<option value="{$value.ma}">{$value.ten}</option>
+                      <option value="{$value.ma}">{$value.ten}</option>
                     {/foreach}
                   </select></td>
               </tr>
@@ -95,21 +100,26 @@
             <legend>Chọn màu sắc</legend>
             <p style="width:95%; color:#3c8dbc">Bước cuối cùng hãy chọn màu sắc cho diễn đàn của bạn. Click vào <a target="_blank" style="color:crimson; text-decoration:underline" href="http://diendan.vn/home/demo.html">đây</a> để xem mẫu thử màu. Nếu bạn bỏ qua bước này thì diễn đàn của bạn sẽ được hệ thống chọn màu mặc định!</p>
            
- 			<div class="radios">
+ 			<div class="radios" style="width: 590px;">
             	{foreach $ds_mau as $key=>$value}
-                	<input type="radio" class="btn-radio" name="data[css]" value="{$value}" id="{$key}" {if $key=='color-1'} checked{/if}/>
+                	<input type="radio" class="btn-radio" name="data[css]" value="{$key}" id="{$key}"
+                    {if isset($smarty.session.data.css) && $smarty.session.data.css==$key}
+                    	checked
+                    {else if $value=='color-1'} 
+                    	checked
+                     {/if}/>
             		<label class="radio2 bg-{$value}" for="{$key}"></label>
                     {if $value=='color-10'}<br /><br />{/if}
-                {/foreach}
+                {/foreach}<br /><br />
             </div>
             <br /><br />
-            <div style="width:auto; float:right; top: 152px; right: 100px; position:absolute"><input type="submit" value="Hoàn tất" class="btn btn-warning"/></div>
+            <div style="width:auto; float:right; top: 191px; right: 100px; position:absolute"><input type="submit" value="Hoàn tất" class="btn btn-warning"/></div>
           </fieldset>
         </form>
         <script type="text/javascript">
                 var myform3=new formtowizard({
                 formid: 'staff_feedbackform',
-                validate: ['ten_dien_dan'],
+                validate: ['ten_dien_dan', 'slogan', 'mo_ta'],
                 revealfx: ['slide', 500] //<--no comma after last setting
                 })
             </script> 
