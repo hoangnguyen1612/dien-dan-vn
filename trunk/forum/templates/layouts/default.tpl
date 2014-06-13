@@ -16,7 +16,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <!-- WIN8 Tiles setup --><!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-<title>Hutech</title>
+<title>{$dien_dan.ten}</title>
 
 {include "../elements/css_js.tpl"}
 {literal}

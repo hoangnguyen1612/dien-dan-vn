@@ -46,7 +46,7 @@
                                             <li>
                                                 <a href="/{$thong_bao.ma_linh_vuc}/{$thong_bao.domain}/thong_bao/da_doc?ma={$thong_bao.ma}" style="white-space:normal">
                                                     <div class="pull-left">
-                                                        <img src="/home/upload/nguoi_dung/{$thong_bao.hinh_dai_dien}" class="img-circle" alt="user image"/>
+                                                        <img src="/home/upload/tai_khoan/{$thong_bao.hinh_dai_dien}" class="img-circle" alt="user image"/>
                                                     </div>
                                                     <p style="width: 200px;">{$thong_bao.noi_dung}<br /><small><i class="fa fa-clock-o"></i> {time_since(time() - strtotime($thong_bao.ngay_tao))}</small></p>
                                                 </a>
@@ -76,7 +76,7 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="/home/upload/nguoi_dung/{$login.hinh_dai_dien}" class="img-circle" alt="User Image" />
+                                    <img src="/home/upload/tai_khoan/{$login.hinh_dai_dien}" class="img-circle" alt="User Image" />
                                     <p style="color:white">
                                         {$login.ho} {$login.ten}<br />
                                         <span style="font-size: 13px">Nghề nghiệp: {$login.nghe_nghiep}</span>
@@ -101,19 +101,19 @@
                                         <a href="#" class="btn btn-default btn-flat">Tài khoản</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="/nguoi_dung/dang_xuat.html" class="btn btn-default btn-flat">Đăng xuất</a>
+                                        <a href="/tai_khoan/dang_xuat.html" class="btn btn-default btn-flat">Đăng xuất</a>
                                     </div>
                                 </li>
                             </ul>
                         </li>  
                     {else if}
                     	<li class="dropdown messages-menu">
-                            <a href="/nguoi_dung/dang_ky.html" class="dropdown-toggle header-user">
+                            <a href="/tai_khoan/dang_ky.html" class="dropdown-toggle header-user">
                                 <i class="fa fa-pencil"></i> <span>Đăng ký</span>
                             </a>
                         </li>
                         <li class="dropdown messages-menu">
-                            <a href="/nguoi_dung/dang_nhap.html" class="dropdown-toggle header-user">
+                            <a href="/tai_khoan/dang_nhap.html" class="dropdown-toggle header-user">
                                 <i class="fa fa-key"></i> <span>Đăng nhập</span>
                             </a>
                         </li>  

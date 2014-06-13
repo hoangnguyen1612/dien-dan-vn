@@ -25,8 +25,8 @@ body {
 .radios .radio1 {
 	background-color: #c5e043;
 	display: inline-block;
-	width: 140px;
-	height: 140px;
+	width: 100px;
+	height: 100px;
 	float: left;
 	margin-right: 8px;
 	margin-bottom: 8px;
@@ -93,4 +93,27 @@ body {
 .dropdown-menu .menu{
 	height:auto !important;
 	max-height: 200px;
+}
+.fa-index{
+	color:white; border: 1px solid white; background-color:#3c8dbc; font-size: 15px; width: 21px; height: 20px; float:left; margin-right: 5px; text-align:center; line-height: 20px; border-radius: 3px;
+}
+h3.box-title{
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+.box{
+	border-color: white;
+}
+.custom-padding{
+	padding-right: 0.8%;
+	padding-left: 2%;
+}
+.forum{
+	width: 23.9%; height: auto; float:left; margin-right: 1%;
+}
+.forum .header{
+	text-align: left; word-break:break-all; text-align:center; color: #999; font-size:11px;
+}
+.forum .header .title{
+	color:#3c8dbc; font-weight:bold; font-size: 15px;
 }

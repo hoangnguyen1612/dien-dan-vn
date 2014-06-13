@@ -15,24 +15,10 @@
         <form id="staff_feedbackform" action="them_sm.php" method="post" enctype="multipart/form-data">
           <fieldset class="sectionwrap">
             <legend>Chọn lĩnh vực</legend>
-            <p style="width:85%; color:#3c8dbc">Hãy chọn lĩnh vực cho diễn đàn của bạn. Cột bên trái liệt kê các chủ đề lớn, cột bên phải liệt kê các lĩnh vực có liên quan đến chủ đề mà bạn đã chọn!</p>
+            <p style="width:85%; color:#3c8dbc">Hãy chọn lĩnh vực cho diễn đàn của bạn!</p>
             <table>
               <tr>
-                <td width="350px"><div class="radios"> {$i=0}
-                    {foreach $linh_vuc as $value}
-                    <input type="radio" class="btn-radio" name="rGroup" value="{$value.ma}" id="{$value.ma}" 
-                    {if isset($smarty.session.data.rGroup) && $smarty.session.data.rGroup==$value.ma}
-                    	checked
-                    {else if $value.ma==1}
-                    	checked
-                    {/if}/>
-                    <label class="radio1 bg-{$mau.$i}" for="{$value.ma}">
-                    <p style="margin-top: 40%; text-align:center">{$value.ten}</p>
-                    </label>
-                    {$i = $i+1}
-                    {/foreach} </div></td>
-                <td><i class="fa  fa-arrow-circle-right" style="font-size:18px"></i></td>
-                <td style="padding-left: 20px"><p>
+              		<td style="padding-left: 20px" align="center"><p>
                   </p>
                   <label>Chọn một mục</label><br />
                   <select class="btn" name="data[chon_linh_vuc]" onchange="document.getElementById('lv').value = document.getElementById('ma_linh_vuc').value" id="ma_linh_vuc" style="border: 1px solid #ccc">
@@ -54,6 +40,23 @@
 					}
                   </script>
                   </td>
+              </tr>
+              <tr><td>&nbsp;</td></tr>
+              <tr>
+                <td width="100%" align="center"><div class="radios"> {$i=0}
+                    {foreach $linh_vuc as $value}
+                    <input type="radio" class="btn-radio" name="rGroup" value="{$value.ma}" id="{$value.ma}" 
+                    {if isset($smarty.session.data.rGroup) && $smarty.session.data.rGroup==$value.ma}
+                    	checked
+                    {else if $value.ma==1}
+                    	checked
+                    {/if}/>
+                    <label class="radio1 bg-{$mau.$i}" for="{$value.ma}">
+                    <p style="text-align:center">{$value.ten}</p>
+                    </label>
+                    
+                    {$i = $i+1}
+                    {/foreach} </div></td>
               </tr>
             </table>
             {literal}
