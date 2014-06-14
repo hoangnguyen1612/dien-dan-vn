@@ -111,6 +111,11 @@ function inputNumber(e)
             <li><a href="../bai_viet/danh_sach.php" id="bai_viet_danh_sach.php">Xem Danh Sách</a></li>
           </ul>
         </li>
+         <li><a class="nav-top-item" href="#" id="bao_cao">Báo Cáo Sai Phạm </a>
+          <ul>
+            <li><a href="../bao_cao/danh_sach.php" id="bao_cao_sai_pham.php">Xem Danh Sách</a></li>
+          </ul>
+        </li>
         <li><a class="nav-top-item" href="#" id="loai_chuyen_muc">Chuyên Mục</a>
           <ul>
             <li><a href="../loai_chuyen_muc/them.php" id="loai_chuyen_muc_them.php">Thêm</a></li>

@@ -28,3 +28,9 @@ function tru_like_bai_viet($ma_bai_viet){
 	$xl_bai_viet = new xl_bai_viet;
 	$xl_bai_viet->cap_nhat_bo_dem_tru_dieu_kien(array('ma'=>$ma_bai_viet),'thich',1);
 }
+function trang_thai_bai_viet($ma_bai_viet,$ma_dien_dan){
+	$xl_bai_viet = new xl_bai_viet;
+	$bai_viet = $xl_bai_viet->doc(array('ma'=>$ma_bai_viet,'ma_dien_dan'=>$ma_dien_dan));
+	return $bai_viet['trang_thai'];
+	
+}
