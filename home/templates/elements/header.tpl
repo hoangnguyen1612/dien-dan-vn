@@ -21,8 +21,8 @@
                         </a>
                     </li>
                     <li class="dropdown messages-menu">
-                        <a href="/dien_dan/dang_ky.html" class="dropdown-toggle header-user">
-                            <i class="fa fa-info-circle"></i> <span>Giới thiệu</span>
+                        <a href="/gioi_thieu/thong_tin.html" class="dropdown-toggle header-user">
+                            <i class="fa fa-info-circle"></i> <span>Về chúng tôi</span>
                         </a>
                     </li>
                     {if $login!=''}
@@ -32,21 +32,27 @@
                             </a>
                     	</li>
                         <li class="dropdown messages-menu">
+                            <a href="/lien_he/bieu_mau.html" class="dropdown-toggle header-user">
+                                <i class="fa fa-twitter"></i> <span>Liên hệ</span>
+                            </a>
+                    	</li>  
+                        <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
-                                {if $sl_thong_bao_moi!=0}<span class="label label-success">{$sl_thong_bao_moi}</span>{/if}
+                               <span class="label label-success" id="thong_bao_moi">{$sl_thong_bao_moi}</span>
                             </a>
                             <ul class="dropdown-menu">
-                                {if $sl_thong_bao_moi!=0}<li class="header">Bạn có {$sl_thong_bao_moi} tin nhắn mới</li>{/if}
+                                <li class="header">Bạn có <span id="tbm">{$sl_thong_bao_moi}</span> tin nhắn mới</li>
+                                <input type="hidden" id="sl_thong_bao_moi" value="{$sl_thong_bao_moi}" />
                                 <li>
                                     <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
+                                    <ul class="menu" id="menu">
                                      {if $sl_thong_bao_moi!=0}
                                      	{foreach $thong_bao_moi as $thong_bao}
                                             <li>
                                                 <a href="/{$thong_bao.ma_linh_vuc}/{$thong_bao.domain}/thong_bao/da_doc?ma={$thong_bao.ma}" style="white-space:normal">
                                                     <div class="pull-left">
-                                                        <img src="/home/upload/tai_khoan/{$thong_bao.hinh_dai_dien}" class="img-circle" alt="user image"/>
+                                                        <img src="/home/upload/nguoi_dung/{$thong_bao.hinh_dai_dien}" class="img-circle" alt="user image"/>
                                                     </div>
                                                     <p style="width: 200px;">{$thong_bao.noi_dung}<br /><small><i class="fa fa-clock-o"></i> {time_since(time() - strtotime($thong_bao.ngay_tao))}</small></p>
                                                 </a>
@@ -76,29 +82,17 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="/home/upload/tai_khoan/{$login.hinh_dai_dien}" class="img-circle" alt="User Image" />
+                                    <img src="/home/upload/nguoi_dung/{$login.hinh_dai_dien}" class="img-circle" alt="User Image" />
                                     <p style="color:white">
                                         {$login.ho} {$login.ten}<br />
                                         <span style="font-size: 13px">Nghề nghiệp: {$login.nghe_nghiep}</span>
                                         <small>Kể từ tháng {date('m', strtotime($login.ngay_tham_gia))} năm  {date('Y', strtotime($login.ngay_tham_gia))}</small>
                                     </p>
                                 </li>
-                                <!-- Menu Body -->
-                                <!--<li class="user-body">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </li>-->
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Tài khoản</a>
+                                        <a href="/tai_khoan/{$login.ma}-{convert_to_dot(noi_chuoi($login.ho, $login.ten, ' '))}" class="btn btn-default btn-flat">Tài khoản</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="/tai_khoan/dang_xuat.html" class="btn btn-default btn-flat">Đăng xuất</a>
@@ -117,8 +111,30 @@
                                 <i class="fa fa-key"></i> <span>Đăng nhập</span>
                             </a>
                         </li>  
-                    {/if}    
+                    {/if}  
+                    
                     </ul>
                 </div>
             </nav>
         </header>
+        
+        <script type="text/javascript">
+        	var delay = 1000;
+			var bing = window.setInterval(checkNotification, delay);
+			
+			function checkNotification()
+			{
+				$.getJSON('../thong_bao/cap_nhat.php', {
+						ma_nguoi_dung:'{$login.ma}', sl_cu:document.getElementById("sl_thong_bao_moi").value
+						}, function(data){
+						if(data.co==1)
+						{
+							document.getElementById("thong_bao_moi").innerHTML = data.sl;
+							document.getElementById("tbm").innerHTML = data.sl;
+							document.getElementById("menu").innerHTML = '';
+							document.getElementById("menu").innerHTML = data.ds;
+							document.getElementById("sl_thong_bao_moi").value = data.sl;
+						}
+				});
+			}
+        </script>

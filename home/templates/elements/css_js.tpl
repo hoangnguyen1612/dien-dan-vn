@@ -15,7 +15,7 @@
 <!-- bootstrap wysihtml5 - text editor -->
 <link href="/home/templates/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 <!-- Theme style -->
-<link href="/home/templates/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="/home/templates/css/AdminLTE.css" rel="stylesheet" type="ztext/css" />
 <!-- general style -->
 <link href="/home/templates/css/general.css" rel="stylesheet" type="text/css" />
 

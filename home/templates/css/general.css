@@ -109,7 +109,10 @@ h3.box-title{
 	padding-left: 2%;
 }
 .forum{
-	width: 23.9%; height: auto; float:left; margin-right: 1%;
+	width: 18%; height: auto; float:left; margin-right: 1.9%; padding:1%;
+	box-shadow: 1px 1px 1px #ccc;
+	border: 1px solid #f1f1f1;
+	margin-bottom: 5px;
 }
 .forum .header{
 	text-align: left; word-break:break-all; text-align:center; color: #999; font-size:11px;
@@ -117,3 +120,18 @@ h3.box-title{
 .forum .header .title{
 	color:#3c8dbc; font-weight:bold; font-size: 15px;
 }
+.disable{
+	cursor: not-allowed;
+}
+.current{
+	background-color: darkgrey !important;
+	border-color: darkgrey !important;
+}
+.img{
+	width: 100px;
+	height: 70px;
+}
+.right-side > .content-header > h1{
+	font-size: 18px;
+}
+
