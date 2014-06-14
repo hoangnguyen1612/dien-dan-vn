@@ -9,6 +9,9 @@
 </h1>
 </section>-->
 
+<<<<<<< .mine
+ <!-- /.content -->
+ </aside><!-- /.right-side -->=======
 <section class="content">
 <div class="row">
 <div class="col-xs-12 connectedSortable">
@@ -116,4 +119,4 @@
 
 </section>
 
- </aside>
+ </aside>>>>>>>> .r59
