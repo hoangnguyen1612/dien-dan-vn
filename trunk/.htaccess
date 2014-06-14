@@ -9,6 +9,7 @@ RewriteRule ^([a-z_]+)/([a-z_]+)\.php$ home/$1/$2.php [L]
 RewriteRule ^tim_kiem/dien_dan$ home/tim_kiem/dien_dan.php [L,QSA]
 RewriteRule ^([a-z_]+)$ home/$1/index.php [L]
 RewriteRule ^([a-z_]+)$ home/$1/index.php [L]
+RewriteRule tai_khoan/([a-zA-z0-9]+)-([a-z.]+)$ home/tai_khoan/thong_tin.php?ma=$1 [L,QSA]
 
 
 #forum

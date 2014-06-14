@@ -8,22 +8,11 @@
   <section class="content"> 
     <!-- MAILBOX BEGIN -->
     <div class="mailbox row">
-      <div class="col-xs-12">
+      <div class="col-xs-9">
         <div class="box box-solid">
           <div class="box-body">
-            <div class="row">
-              <div class="col-md-3 col-sm-4"> 
-                <!-- BOXES are complex enough to move the .box-header around.
-                                                 This is an example of having the box header within the box body -->
-                <div class="box-header"> <i class="fa fa-refresh"></i>
-                  <h4 class="box-title">SỬ DỤNG TÀI KHOẢN</h4>
-                </div>
-                <!-- compose message btn --> 
-                <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-facebook-square"></i> Facebook</a><br />
-                <br />
-                <a class="btn btn-block btn-primary btn-warning" data-toggle="modal" data-target="#compose-modal"><i class="fa  fa-google-plus-square"></i> Google</a> </div>
+            <div class="row" style="margin-left: 50px">
               <!-- /.col (LEFT) -->
-              <div class="col-md-9 col-sm-8">
                 <div class="row pad"> {literal} 
                   <script>
 						function validateEmail(email) { 
@@ -201,10 +190,6 @@
                   <div class="col-sm-6 search-form"> </div>
                 </div>
                 <!-- /.row -->
-                
-                <div class="table-responsive"> </div>
-                <!-- /.table-responsive --> 
-              </div>
               <!-- /.col (RIGHT) --> 
             </div>
             <!-- /.row --> 

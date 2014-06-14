@@ -111,10 +111,10 @@ head.ready(function() {
      		{else if $thanh_vien.loai_thanh_vien==3}
          <li class="dropdown"><i class="icon-spinner"></i>&nbsp;&nbsp;<span>Đã gửi yêu cầu tham gia</span></li>
          	{else if $thanh_vien.loai_thanh_vien!=3}
-          <li class="dropdown"> <a data-toggle="dropdown" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-globe"></i><span>Xin chào, {$login.ten}{if $sl_thong_bao_moi!=0}&nbsp;&nbsp;<span class="badge badge-info">{$sl_thong_bao_moi}</span>{/if}<i class="caret"></i></span></a>
+          <li class="dropdown"> <a data-toggle="dropdown" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-globe"></i><span>Xin chào, {$login.ten} &nbsp;<span class="badge badge-info" id="tbm2">{$sl_thong_bao_moi}</span><i class="caret"></i></span></a>
             <ul class="dropdown-menu" id="dropdown-menu">
               <!--<li><a title="" href="./ucp.php?i=profile" data-original-title=""><i class="icon-user"></i>Thành Viên</a></li>-->
-              <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thong_bao/danh_sach" ><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info">{$sl_thong_bao_moi}</span></a></li>
+              <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thong_bao/danh_sach" ><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info" id="tbm1">{$sl_thong_bao_moi}</span></a></li>
               <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$ma_nguoi_dung}" data-original-title=""><i class="icon-cog"></i>Thông Tin Thành Viên</a></li>
               {if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}<li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>{/if}
               <li><a title="" href="./ucp.php?mode=logout&amp;sid=b3e0d35dad8925f9d80fb5a1387e5b2f" data-original-title=""><i class="icon-off"></i>Đăng Xuất</a></li>
@@ -160,7 +160,25 @@ head.ready(function() {
     });
 </script> 
 {/literal} 
-
+<input type="hidden" id="sl_thong_bao_moi" value="{$sl_thong_bao_moi}" />
+<script type="text/javascript">
+	var delay = 2000;
+	var bing = window.setInterval(checkNotification, delay);
+	
+	function checkNotification()
+	{
+		$.getJSON('../{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thong_bao/cap_nhat', {
+				sl_cu:document.getElementById("sl_thong_bao_moi").value
+				}, function(data){
+				if(data.co==1)
+				{
+					document.getElementById("tbm1").innerHTML = data.sl;
+					document.getElementById("tbm2").innerHTML = data.sl;
+					document.getElementById("sl_thong_bao_moi").value = data.sl;
+				}
+		});
+	}
+</script>
 <!-- Google Analytics: change UA-XXXXXXXX-X to be your site's ID. -->
 </body>
 </html>

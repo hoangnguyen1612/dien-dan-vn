@@ -47,6 +47,18 @@ function convert_to_slug($str)
 	return $str;
 }
 
+function convert_to_dot($str)
+{
+	$str = convert_vi_to_en($str);
+	
+	$str = strtolower($str);
+	
+	$str = preg_replace('/([^a-z0-9]+)/', '.', $str);
+	$str = preg_replace('/\-{2,}/', '.', $str);
+	
+	return $str;
+}
+
 function time_thong_bao($str)
 {
 	$date = date('Y-m-d', strtotime($str));
