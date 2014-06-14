@@ -194,7 +194,7 @@
             {/if}
         {/if} 	
         	<tr class="">
-        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/images/icons/misc/{$bai_viet.icon}.gif); background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma={$bai_viet.ma}" class="topictitle" data-original-title="" title="">{$bai_viet.tieu_de|truncate:100:"..."}</a> <br>
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="{if $bai_viet.trang_thai == 0}background-image: url(/forum/templates/images/icons/misc/lock_closed.png){else} background-image: url(/forum/templates/images/icons/misc/{$bai_viet.icon}.gif) {/if}; background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma={$bai_viet.ma}" class="topictitle" data-original-title="" title="" {if $bai_viet.trang_thai == 0} style="text-decoration:line-through" {/if}>{$bai_viet.tieu_de|truncate:100:"..."}</a> <br>
           <i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ho_ten}</a>&nbsp;&nbsp; <i class="icon-time"></i> <small>{date('H:i d-m-Y', strtotime($bai_viet.ngay_tao))}</small></td>
         <td class="center">{$bai_viet.so_luong_binh_luan} Trả lời <br>
           {$bai_viet.luot_xem} Lượt xem</td>

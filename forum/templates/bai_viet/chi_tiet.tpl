@@ -147,6 +147,7 @@ $(document).ready(function(){
               </div>
             </div>
           </div>   
+          {if $bai_viet.trang_thai == 1}
           <div class="postbody span9">
             <div class="row-fluid">
               <ul class="inline pull-right visible-phone">
@@ -172,6 +173,23 @@ $(document).ready(function(){
               {/if}
             </ul>
           </div>
+          {else}
+          <div class="postbody span9">
+            <div class="row-fluid">
+              <ul class="inline pull-right visible-phone">
+                <li><a class="btn btn-small" href="./report.php?f=2&amp;p=25" title="" data-original-title="Report this post"><i class="icon-exclamation-sign"></i></a></li>
+              </ul>
+              <div class="pull-left">
+                <h3><a href="#p25" data-original-title="" title="">{$bai_viet.tieu_de}</a></h3>
+              </div>
+            </div>
+            <div class="row-fluid">
+          
+            </div>
+            <div class="space10"></div>
+            <div class="content" style="text-align:justify;min-height: 150px; color:red">Bài viết đã bị khóa </div>
+          </div>    
+          {/if}
           <div class="space10"></div>
         </div>
       </article>
