@@ -67,6 +67,7 @@ $(document).ready(function(){
               <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post"></a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a></strong> <i class="icon-time"></i> {date('h:i d/m/Y',strtotime($binh_luan_cha.ngay_tao))} </div>
             </div>
             <div class="space10"></div>
+            {if $binh_luan_cha.trang_thai == 1}
             <div class="content" style="min-height:150px">{$binh_luan_cha.noi_dung}</div>
             <ul class="inline pull-right hidden-phone">
                   {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
@@ -92,6 +93,9 @@ $(document).ready(function(){
                      </span></i></a></li>
                        
                   </ul>
+                  {else}
+                      <div class="content" style="min-height:150px;color:red">Nội dung bình luận đã bị bị khóa vì vi phạm nội quy diễn đàn</div>
+                  {/if}
           </div>
           
           <div class="space10"></div>
@@ -186,6 +190,7 @@ $(document).ready(function(){
                   <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post"></a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a></strong>&nbsp; <i class="icon-time"></i>{date('h:i d/m/Y',strtotime($binh_luan_con.ngay_tao))}</div>
                 </div>
                 <div class="space18"></div>
+                {if $binh_luan_con.trang_thai == 1}
                 <div class="content" style="min-height:150px">{$binh_luan_con.noi_dung}</div>
                 <ul class="inline pull-right hidden-phone">
                    {if $login!='' && $login.ma == $bai_viet.ma_nguoi_dang}
@@ -200,6 +205,9 @@ $(document).ready(function(){
                  		<li><span class="so_luong_thich_bai_viet">{$binh_luan_con.thich}</span> <a class="like btn btn-mini" data- data-original-title="Lượt thích" onclick="return false"><i class="icon-thumbs-up-alt thich-bai-viet" style="color:black;font-size:1.2em;cursor:pointer"></i></a></li>
                   {/if}
                   </ul>
+                  {else}
+                  <div class="content" style="min-height:150px;color:red">Nội dung bình luận đã bị khóa vì vi phạm nội quy của diễn đàn</div>
+                  {/if}
               </div>
           
           <div class="space10"></div>    
