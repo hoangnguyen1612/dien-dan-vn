@@ -40,7 +40,6 @@
                         <li>
                             <a href="/thong_bao">
                                 <i class="fa fa-envelope"></i> <span>Thông báo</span>
-                                <small class="badge pull-right bg-yellow">{$sl_thong_bao_moi}</small>
                             </a>
                         </li>
                         <li class="treeview">

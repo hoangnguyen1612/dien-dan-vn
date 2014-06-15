@@ -245,3 +245,6 @@ h3.box-title{
     display: none;
 }
 
+#mytable td{
+	margin-bottom: 5px;
+}
