@@ -1,18 +1,6 @@
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
-               
-           
-<!--<section class="content-header">
-<h1>
-<i class="fa fa-heart fa-index"></i> Yêu thích trên DienDanVn
-<small></small>
-</h1>
-</section>-->
-
-<<<<<<< .mine
- <!-- /.content -->
- </aside><!-- /.right-side -->=======
-<section class="content">
+     <section class="content">
 <div class="row">
 <div class="col-xs-12 connectedSortable">
 
@@ -118,5 +106,4 @@
 </div>
 
 </section>
-
- </aside>>>>>>>> .r59
+ </aside>

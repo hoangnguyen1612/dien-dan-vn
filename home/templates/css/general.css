@@ -134,4 +134,114 @@ h3.box-title{
 .right-side > .content-header > h1{
 	font-size: 18px;
 }
+.user-info{
+	padding: 10px;
+}
+.user-info h4{
+	color: #999;
+	font-size: 14px;
+	font-weight:bold;
+}
+.user-info .field{
+	color: #3c8dbc;
+}
+.user-name {
+	font-size: 17px;
+	line-height: 1.5em;
+	letter-spacing: -0.05em;
+	margin-bottom: 20px;
+	padding: .1em 0;
+	color: #3c8dbc;
+	position: relative;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+	text-transform:capitalize;
+	font-weight:bold;
+}
+.user-name:before,
+.user-name:after {
+	content: "";
+	position: relative;
+	display: inline-block;
+	width: 50%;
+	height: 1px;
+	vertical-align: middle;
+	background: #f0f0f0;
+}
+.user-name:before {    
+	left: -.5em;
+	margin: 0 0 0 -50%;
+}
+.user-name:after {    
+	left: .5em;
+	margin: 0 -50% 0 0;
+}
+.user-name > span {
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+}
+#userphoto {
+	display: block;
+	float: right;
+	margin-left: 10px;
+	margin-bottom: 8px;
+}
+#userphoto img {
+	width: 154px;
+	height: 154px;
+	display: block;
+	padding: 2px;
+	background: #fff;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+#content-user {
+	display: block;
+	width: 100%;
+	padding: 0px 25px 20px 35px;
+}
+#content-user section{
+	margin-top: 50px;
+}
+#profiletabs {
+  display: block;
+  margin-bottom: 4px;
+  height: 50px;
+}
+
+#profiletabs ul { list-style: none; display: block; width: 70%; height: 30px; }
+#profiletabls ul li { float: left; }
+#profiletabs ul li a { 
+	display: block;
+	float: left;
+	padding: 8px 11px;
+	font-weight: bold;
+	background: white;
+	color: #3c8dbc;
+	box-shadow: 1px 1px 1px #f1f1f1;
+	border: 1px solid #f1f1f1;
+}
+#profiletabs ul li a:hover {
+	text-decoration: none;
+	background: #f1f1f1;
+}
+
+#profiletabs ul li a.sel {
+	color: black;
+	border-color: #f1f1f1;
+	border-bottom: 1px solid #3c8dbc;
+}
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}
 
