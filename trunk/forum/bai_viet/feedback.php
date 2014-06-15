@@ -44,12 +44,11 @@ try{
 		echo "dislike~$so_luong_nguoi_thich";exit;
 	}
 	echo 'Lỗi trong quá trình thích bài viết ,vui lòng thử lại sau';exit;
+	
 }catch(PDOException $e)
 {
 	echo $e->getMessage();exit;
 }catch(Exception $e)
 {
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: {$_SERVER['HTTP_REFERER']}");
+	throwMessage($e);
 }

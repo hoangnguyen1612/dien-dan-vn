@@ -176,7 +176,7 @@ head.ready(function() {
 	
 	function checkNotification()
 	{
-		$.getJSON('../{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thong_bao/cap_nhat', {
+		$.getJSON('/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thong_bao/cap_nhat', {
 				sl_cu:document.getElementById("sl_thong_bao_moi").value
 				}, function(data){
 				if(data.co==1)

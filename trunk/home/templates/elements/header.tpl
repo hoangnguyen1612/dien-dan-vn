@@ -119,7 +119,7 @@
         </header>
         
         <script type="text/javascript">
-        	var delay = 1000;
+        	var delay = 2000;
 			var bing = window.setInterval(checkNotification, delay);
 			
 			function checkNotification()
