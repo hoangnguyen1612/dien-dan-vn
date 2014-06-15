@@ -13,13 +13,14 @@ try{
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	
 	$nguoi_dung = $xl_nguoi_dung->doc(array('ma'=>$ma));
-	
-	$sql = 'select ma_linh_vuc, ten, hinh_dai_dien from thanh_vien_dien_dan t, dien_dan d where ma_dien_dan = ma and ma_nguoi_dung = :ma_nguoi_dung';
+
+	$sql = 'select ma_linh_vuc, ten, hinh_dai_dien, domain from thanh_vien_dien_dan t, dien_dan d where ma_dien_dan = ma and ma_nguoi_dung = :ma_nguoi_dung';
 	$sth = $dbh->prepare($sql);
 	$sth->execute(array('ma_nguoi_dung'=>$ma));
 	$ds_dien_dan = $sth->fetchAll(PDO::FETCH_ASSOC);
-	
-	
+		
+	$dt_smarty->assign('nguoi_dung', $nguoi_dung);
+	$dt_smarty->assign('ds_dien_dan', $ds_dien_dan);
 		
 	$contentForLayout = $dt_smarty->fetch('nguoi_dung/thong_tin.tpl');
 	$dt_smarty->assign('contentForLayout', $contentForLayout);

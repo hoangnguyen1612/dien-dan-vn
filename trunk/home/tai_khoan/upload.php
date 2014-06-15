@@ -97,15 +97,11 @@ if(isset($_POST))
 		require '../classes/xl_nguoi_dung.php';
 		$xl_nguoi_dung = new xl_nguoi_dung;
 		$nguoi_dung = $xl_nguoi_dung->doc(array('ma'=>$login['ma'], 'hinh_dai_dien, thumbnail'));
-		if($nguoi_dung['hinh_dai_dien']!='' && $nguoi_dung['hinh_dai_dien']!=NULL)
+		if($nguoi_dung['hinh_dai_dien']!='' && $nguoi_dung['hinh_dai_dien']!=NULL && $nguoi_dung['hinh_dai_dien']!='no_avatar_male.jpg' && $nguoi_dung['hinh_dai_dien']!='no_avatar_female.jpg')
 		{
 			unlink('../upload/nguoi_dung/'.$nguoi_dung['hinh_dai_dien']);
 		}
-		if($nguoi_dung['thumbnail']!='')
-		{
-			unlink('../upload/nguoi_dung/'.$nguoi_dung['thumbnail']);
-		}
-		
+	
 		
 		$xl_nguoi_dung->cap_nhat(array('ma'=>$login['ma'], 'hinh_dai_dien'=>$NewImageName,'thumbnail'=>$ThumbPrefix.$NewImageName));
 		
