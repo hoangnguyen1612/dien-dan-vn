@@ -46,10 +46,10 @@
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
                                 <span>Diễn đàn</span>
-                                <!--{if !empty($ds_dien_dan)}<i class="fa fa-angle-left pull-right"></i>{/if}-->
+                                {if !empty($ds_dien_dan)}<i class="fa fa-angle-left pull-right"></i>{/if}
                             </a>
                             {if $ds_dien_dan != ''}
-                            <ul class="treeview-menu" style="display:block">
+                            <ul class="treeview-menu">
                             {foreach $ds_dien_dan as $value}
                                 <li><a href="/{$value.ma_linh_vuc}/{$value.domain}" style="margin-left:0px !important"><img src="/home/upload/dien_dan/{$value.hinh_dai_dien}" width="16px" height="16px" /> {$value.ten|truncate: 22}</a></li>
                             {/foreach}

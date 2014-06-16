@@ -15,9 +15,9 @@
 <!-- bootstrap wysihtml5 - text editor -->
 <link href="/home/templates/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
 <!-- Theme style -->
-<link href="/home/templates/css/AdminLTE.css" rel="stylesheet" type="ztext/css" />
-<!-- general style -->
+<link href="/home/templates/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 <link href="/home/templates/css/general.css" rel="stylesheet" type="text/css" />
+
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,6 +27,7 @@
 <![endif]-->
 
 <!-- jQuery 2.0.2 -->
+<script type="text/javascript" src="/home/templates/js/jquery-1.10.2.min.js"></script> 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <!-- jQuery UI 1.10.3 -->
 <script src="/home/templates/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
@@ -54,8 +55,8 @@
 <!-- AdminLTE App -->
 <script src="/home/templates/js/AdminLTE/app.js" type="text/javascript"></script>
 
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/home/templates/js/AdminLTE/dashboard.js" type="text/javascript"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) 
+<script src="/home/templates/js/AdminLTE/dashboard.js" type="text/javascript"></script>-->
 
 <!-- AdminLTE for demo purposes -->
 <script src="/home/templates/js/AdminLTE/demo.js" type="text/javascript"></script>

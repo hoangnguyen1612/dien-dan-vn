@@ -34,30 +34,8 @@
                     <tr>
                       <td width="5%"><i class="fa fa-gift"></i></td>
                       <td class="field" width="30%">Ngày sinh</td>
-                      
-                      <script src="/home/templates/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/home/templates/js/jquery.form.min.js"></script> 
-                      <script type="text/javascript" src="/home/templates/js/ui/jquery-ui.custom.js"></script>
-                      <link rel="stylesheet" type="text/css" href="/home/templates/js/ui-lightness/jquery-ui.css" />
-                      
+                     
                       <td><span id="ngay_sinh" class="datainfo">{ngay_thang_nam($nguoi_dung.ngay_sinh)}</span></td>
-                    <script>
-					$(function() {
-						$( "#datepicker" ).datepicker(
-							{
-								changeMonth: true,
-							 	changeYear: true,
-								yearRange: '1950:2000',
-								dateFormat: "yy-mm-dd",
-								monthNamesShort: [ "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12" ],
-								dayNamesMin: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
-								defaultDate: '1990-01-01'
-							}
-						);
-					});
-					</script>  
-                    
-
                     </tr>
                     <tr>
                       <td><i class="fa fa-{if $nguoi_dung.gioi_tinh==0}male{else if}female{/if}"></i></td>
@@ -116,7 +94,7 @@ $(function(){
   });
 });
 </script> 
-<script type="text/javascript" src="/home/templates/js/jquery.leanModal.min.js"></script>
+
 <div id="change-image" class="form" style="width:45%; display: none; box-shadow: 1px 1px 1px #f1f1f1; top: 15% !important; background-color:#f1f1f1">
   <div class="form-header"> <i class="fa fa-picture-o"></i>&nbsp;&nbsp;Chỉnh Sửa Hình Ảnh <a class="modal_close" href="#"></a> </div>
   <div id="content" style="padding: 10px">
@@ -141,12 +119,6 @@ $(function(){
 </div>
 
 
- 
-<script type="text/javascript">
-	$(function() {
-		$('a[rel*=leanModal]').leanModal({ top : 50, closeButton: ".modal_close" });	
-	});
-</script>
 <script type="text/javascript">
 $(document).ready(function() { 
 	var progressbox     = $('#progressbox');
