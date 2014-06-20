@@ -1,5 +1,6 @@
 <?php 
 try{
+	
 	include '../ini.php';
 	require '../classes/xl_nguoi_dung.php';
 	require '../classes/xl_thanh_vien_dien_dan.php';
@@ -18,6 +19,7 @@ try{
 	$sth = $dbh->prepare($sql);
 	$sth->execute(array('ma_nguoi_dung'=>$ma));
 	$ds_dien_dan = $sth->fetchAll(PDO::FETCH_ASSOC);
+	
 		
 	$dt_smarty->assign('nguoi_dung', $nguoi_dung);
 	$dt_smarty->assign('ds_dien_dan', $ds_dien_dan);

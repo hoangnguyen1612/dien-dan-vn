@@ -1,4 +1,4 @@
-{if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}
+{if $thanh_vien != '' && $thanh_vien.loai_thanh_vien==0}
 <div id="switcher-icon" ><a href="#toggle" title="" data-original-title=""><i class="icon-cogs"></i></a></div>
 <div style="display: none;" class="theme-switcher" id="slickbox">
   <ul class="subnav" id="nav">

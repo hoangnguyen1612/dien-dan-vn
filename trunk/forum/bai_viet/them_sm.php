@@ -26,6 +26,24 @@ try{
 	$data['ma_dien_dan'] = $ma_dien_dan;
 	$ma_chuyen_muc = $data['ma_loai_chuyen_muc'];
 	
+	$file = (isset($_FILES['file']['name']))? $_FILES['file']['name'] : "";
+	
+	if($file != ""){
+		#Kiểm tra file upload lên có đầy đủ ko
+		if($_FILES['file']['error']!=0){
+			throw new Exception('Lỗi trong quá trình upload hình ảnh , vui lòng kiểm tra lại');
+		}
+		# Kiểm tra file lớn hơn 200KB thì báo lỗi
+		if($_FILES['file']['size']>500000){
+			throw new Exception('Dung lượng file lớn , vui lòng thử lại');
+		}
+		
+		$file = time().'_'.$file;
+		move_uploaded_file($_FILES['file']['tmp_name'],"../upload/file_upload/$file");
+		
+	}
+	$data['file'] = $file;
+	
 	$result = $dt_xl_bai_viet->them($data);
 	if($result === false){
 		echo 'Lỗi khi đăng bài , vui lòng thử lại sao';

@@ -62,7 +62,7 @@ try{
 	#debug($thich_bai_viet);
 	$dt_smarty->assign('thich_bai_viet',$thich_bai_viet);
 
-	
+
 	$dt_smarty->assign('title',$title);
 	$dt_smarty->assign('ds_chuyen_muc',$ds_chuyen_muc);
 	

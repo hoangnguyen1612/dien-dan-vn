@@ -27,7 +27,7 @@ try{
 		throw new Exception('Thành viên không tồn tại trong diễn đàn');
 	}
 	// loại 3 : gửi thông báo cảnh cáo đến thành viên diễn đàn
-	$result = $dt_xl_thong_bao->them(array('loai_thong_bao'=>3,'gui_tu'=>$ma_nguoi_dung,'gui_den'=>$data['ma_nguoi_dang'],'ma_dien_dan'=>$ma_dien_dan,'trang_thai'=>0,'noi_dung'=>"Bài viết : '{$bai_viet['tieu_de']}' của bạn đã vi phạm nội quy của diễn đàn . Lí do : {$data['noi_dung']}",'ngay_tao'=>date('Y-m-d h:i:s'),'duong_dan'=>""));
+	$result = $dt_xl_thong_bao->them(array('loai_thong_bao'=>3,'gui_tu'=>$ma_nguoi_dung,'gui_den'=>$data['ma_nguoi_dang'],'ma_dien_dan'=>$ma_dien_dan,'trang_thai'=>0,'noi_dung'=>"Bài viết : '{$bai_viet['tieu_de']}' của bạn đã vi phạm nội quy của diễn đàn . Lí do : {$data['noi_dung']}",'ngay_tao'=>date('Y-m-d h:i:s'),'duong_dan'=>"/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/bai_viet/chi_tiet?ma={$bai_viet['ma']}"));
 	if($result === false){
 		throw new Exception('Đã có lỗi trong quá trình lưu');
 	}

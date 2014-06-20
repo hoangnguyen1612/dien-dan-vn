@@ -6,8 +6,10 @@ try{
 	include '../classes/xl_chuyen_muc.php';
 	include '../classes/phan_trang_1.php';
 	include '../classes/xl_nguoi_dung.php';
-	
+
 	$title = 'Bài viết';
+	
+	
 	if(!isset($_GET['loai'])){
 		throw new Exception('Vui lòng loại chuyên mục');
 	}
@@ -33,7 +35,7 @@ try{
 		}
 	}
 	
-
+	
 	
 	
 	$chuyen_muc = $dt_xl_chuyen_muc->doc(array('ma'=>$loai,'ma_dien_dan'=>$ma_dien_dan));
@@ -45,7 +47,12 @@ try{
 			$dt_smarty->assign('chuyen_muc_ong_noi',$chuyen_muc_ong_noi);
 		}
 	}
+	if(isset($_GET['tu_khoa'])){
+		$tu_khoa = $_GET['tu_khoa'];
+		$ds_bai_viet_theo_loai = $dt_xl_bai_viet->danh_sach($start,$limit,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC',"bai_viet.*,(Select ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,"and tieu_de like '%$tu_khoa%'",true);
+	}else{
 	$ds_bai_viet_theo_loai = $dt_xl_bai_viet->danh_sach($start,$limit,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC',"bai_viet.*,(Select ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,'',true);
+	}
 	$pt->tong_record = $ds_bai_viet_theo_loai[1];
 	$tong_so_trang = $pt->ceil_tong_so_trang();
 	$trang_hien_tai = $pt->tim_trang_hien_tai();
@@ -55,6 +62,7 @@ try{
 	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','*',PDO::FETCH_ASSOC,'',false);
 	
 	$dt_smarty->assign('ds_chuyen_muc',$ds_chuyen_muc);
+
 	$dt_smarty->assign('title',$title);
 	$dt_smarty->assign('ds_chuyen_muc_con',$ds_chuyen_muc_con);
 	#############Chuẩn bị bộ nút #####################
@@ -64,6 +72,7 @@ try{
 	
 	$dt_smarty->assign('trang_hien_tai',$trang_hien_tai);
 	$dt_smarty->assign('chuyen_muc', $chuyen_muc);
+	
 	
 	
 	
