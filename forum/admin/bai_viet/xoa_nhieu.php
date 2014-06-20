@@ -5,32 +5,31 @@ echo '</pre>';
 exit;	*/
 try{
 	include '../ini.php';
-	include("../../classes/xl_san_pham.php");
-	$dt_san_pham = new xl_san_pham;
+	include("../../classes/xl_bai_viet.php");
+	$dt_bai_viet = new xl_bai_viet;
 	
-	# Kiểm tra mã sản phẩm
+	# Kiểm tra mã bài viết
 	if(empty($_POST['data'])){
-		throw new Exception('Vui lòng chọn sản phẩm cần xóa');	
+		throw new Exception('Vui lòng chọn bài viết cần xóa');	
 	}			
 	
 	
-	# Tạo vòng lặp , xóa từng sản phẩm
+	# Tạo vòng lặp , xóa từng bài viết
 	foreach($_POST['data'] as $ma){
 		# Kiểm tra logic
 		# Kiểm tra mã sữa có tồn tại ko 
-		$row = $dt_san_pham->doc($ma);
+		$row = $dt_bai_viet->doc(array('ma'=>$ma,'ma_dien_dan'=>$ma_dien_dan));
 		if ($row == NULL) {
-			throw new Exception('Mã sản phẩm không tồn tại');	
+			throw new Exception('Mã bài viết không tồn tại');	
 		}
-		$dt_san_pham->xoa($ma);
+		$dt_bai_viet->xoa(array('ma'=>$ma,'ma_dien_dan'=>$ma_dien_dan));
 		// Xóa file hình	
-		unlink('../../upload/san_pham/'.$row['hinh']);
-		
+		if($row['file'] != NULL){
+			unlink('../../upload/file_upload/'.$row['file']);
+		}
 	}
 	$dbh=NULL;
-	$_SESSION['msg']= 'Xóa thành công sản phẩm';
-	$_SESSION['style_msg'] = 'notification success png_bg';
-	header('Location: danh_sach.php');	
+	throw new Exception('Cập nhật thành công',30);	
 	exit;
 }catch(PDOException $e){
 	echo $e->getMessage();
@@ -39,9 +38,7 @@ try{
 }
 catch(Exception $e){
 	$dbh = NULL;
-	$_SESSION['msg'] = $e->getMessage();
-	$_SESSION['style_msg'] = 'notification error png_bg';
-	header('Location: danh_sach.php');		
+	throwMessage($e);	
 }
 
 	

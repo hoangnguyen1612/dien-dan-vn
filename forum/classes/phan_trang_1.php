@@ -31,9 +31,12 @@ class phan_trang{
 	{
 		$str='';
 		$tenfile = $_SERVER['REDIRECT_URL'];
+	
 		$mang = explode('/',$_SERVER['REDIRECT_URL']);	
+	
 		
-		$tenthamso = str_replace("forum=$mang[1]&",'',$_SERVER['QUERY_STRING']);
+		$tenthamso = str_replace("linh_vuc=$mang[1]&forum=$mang[2]",'',$_SERVER['QUERY_STRING']);
+		
 		
 		$page = $this->tim_trang_hien_tai();
 		

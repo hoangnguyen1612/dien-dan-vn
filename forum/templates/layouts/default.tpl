@@ -86,9 +86,9 @@ head.ready(function() {
           <div class="search-pos pull-right">
           <div class="search-box">
            
-          <form action="./search.php" method="get">
+          <form action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/tim_kiem" method="get">
            <fieldset> 
-            <input name="keywords" id="keywords" type="text" maxlength="128" title="Search for keywords" placeholder="Search" value="Tìm kiếm bài viết…" onclick="if(this.value=='Search…')this.value='';" onblur="if(this.value=='')this.value='Search…';">
+            <input name="tu_khoa" id="keywords" type="text" placeholder="Tìm kiếm bài viết"/>
            </fieldset>
           </form>
          </div>	

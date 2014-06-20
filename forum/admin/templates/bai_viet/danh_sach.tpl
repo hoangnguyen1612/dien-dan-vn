@@ -1,3 +1,12 @@
+<script type="text/javascript">
+function change(){
+	document.getElementById("form1").action = "danh_sach.php";
+	document.getElementById("form1").method = "GET";
+	document.getElementById("form1").submit();	
+}
+</script>
+
+
 <div class="content-box-header">
 					
 	<h3>Bài viết [Danh sách]</h3>
@@ -21,7 +30,7 @@
           <input class="button" type="submit" value="Tìm Kiếm">
           <input class="button" type="button" value="Tất cả" onclick="window.location.href='danh_sach.php'">
         </form>
-		<form action="delete_all.php" method="post">
+		<form action="xoa_nhieu.php" method="post" id="form1">
 		  <table class="table">
 <thead>
               <tr>
@@ -36,26 +45,48 @@
             </thead>
 		  <tfoot>
 			  <tr>
-				<td colspan="8"><div class="bulk-actions align-left"><img src="/forum/admin/templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')"></div>
+				<td colspan="7"><div class="bulk-actions align-left"><img src="/forum/admin/templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')">
+              
+                 <select class="selectpicker"  id="ma_chuyen_muc" onchange="change()" name="ma_chuyen_muc">
+               		<option value="0">Các bài viết trong chuyên mục</option>
+                    {*  Tuong tuong la se co 2 tham so nay: $ds_lcm,  $ma, kitu *}                                                            
+                    {function in_loai_chuyen_muc}
+                    	{foreach $ds_lcm as $lcm}
+                        	{if $lcm.ma_loai_cha == $ma}
+                            	<option value="{$lcm.ma}">{$kitu}{$lcm.ten}</option>
+                                {in_loai_chuyen_muc ds_lcm=$ds_lcm ma=$lcm.ma kitu="$kitu$kitu"}
+                        	{/if}
+                        {/foreach}
+                    
+                    {/function}
+                    
+                    
+                    {in_loai_chuyen_muc  ds_lcm=$ds_chuyen_muc ma=0 kitu='='}
+                    
+                </select>
+              
+                
+                </div>
+               
 				 <div class="pagination">
-					 <a class="number disable" title="Trang đầu">&lt;&lt;</a> <a class="number disable" title="Về trang trước">&lt;</a> <a class="number current"><b>1</b></a> <a class="number" href="/admin/thanh_vien/list.php?page=2" title="Trang 2">2</a> <a class="number" href="/admin/thanh_vien/list.php?page=2" title="Dến trang sau">&gt;</a> <a class="number" href="/admin/thanh_vien/list.php?page=2" title="Trang cuối">&gt;&gt;</a>                   </div>
+					 {$bo_nut}               </div>
 				  <div class="clear"></div></td>
 			  </tr>
 			</tfoot>
 <tbody>
 			
             {foreach $ds_bai_viet as $k=>$bai_viet}    
-                <tr class="alt-row">
-                <td><input name="item[]" type="checkbox" value="{$bai_viet.ma}"></td>
+                <tr>
+                <td><input name="data[]" type="checkbox" value="{$bai_viet.ma}"></td>
                 <td>{$bai_viet.ma}</td>
                 <td>{$bai_viet.tieu_de}</td>
                 <td style="text-align:left">{date('d-m-Y', strtotime($bai_viet.ngay_tao))}</td>
-                <td >Công nghệ phần mềm</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="trang_thai.php?ma=16" title="Hiển Thị"><img src="/forum/admin/templates/images/trang_thai_{$bai_viet.trang_thai}.png" width="20" height="20"></a></td>
+                <td >{ten_chuyen_muc($bai_viet.ma_loai_chuyen_muc,$dien_dan.ma)}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="trang_thai_bai_viet.php?ma={$bai_viet.ma}" title="Hiển Thị"><img src="/forum/admin/templates/images/trang_thai_{$bai_viet.trang_thai}.png" width="20" height="20"></a></td>
                
                 <td><!-- Icons --> 
-                  <a href="/{$dien_dan.ma}/bai_viet/chi_tiet?ma={$bai_viet.ma}" target="_blank" title="Xem"><img src="/forum/admin/templates/images/search.png" width="16" alt="Xem"></a>
-                  <a href="delete.php?ma=16" onclick="return confirm('Bạn có chắc chắn muốn xóa mã #{$bai_viet.ma} không ?')" title="xóa"><img src="/forum/admin/templates/images/icons/cross.png" alt="Delete"></a>
+                  <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet.ma}" target="_blank" title="Xem"><img src="/forum/admin/templates/images/search.png" width="16" alt="Xem"></a>
+                  <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin/bai_viet/xoa.php?ma={$bai_viet.ma}" onclick="return confirm('Bạn có chắc chắn muốn xóa mã #{$bai_viet.ma} không ?')" title="xóa"><img src="/forum/admin/templates/images/icons/cross.png" alt="Delete"></a>
                 </td>
               </tr>
             {/foreach}                        

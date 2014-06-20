@@ -58,7 +58,13 @@
 	
 	
 	# icon notification
-	$thong_bao_icon = array(0=>'plus-sign', 1=>'thumbs-up-alt', 2=>'check-sign', 3=>'star-empty');
+	# 0 tham gia
+	# 1 binh luan dung
+	# 2 thong bao da xu ly bao cao
+	# 3 gui canh cao den thanh vien dien dan
+	# 4 Gui thong bao khoa tai khoan
+	# 5 Gui thong bao kich hoat tai khoan
+	$thong_bao_icon = array(0=>'plus-sign', 1=>'thumbs-up-alt', 2=>'info-sign', 3=>'exclamation-sign',4=>'remove-sign',5=>'ok-sign');
 	
 	
 	

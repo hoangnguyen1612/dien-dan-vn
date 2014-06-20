@@ -19,7 +19,7 @@
                   </center>
                 </div> {/if}
               </div>
-              <h1 class="user-name"><i class="fa fa-star-o"></i>&nbsp;&nbsp;Nguyễn Thanh Hoàng&nbsp;&nbsp;<i class="fa fa-star-o"></i></h1>
+              <h1 class="user-name"><i class="fa fa-star-o"></i>&nbsp;&nbsp;{$nguoi_dung.ho} {$nguoi_dung.ten}&nbsp;&nbsp;<i class="fa fa-star-o"></i></h1>
               <nav id="profiletabs">
                 <ul class="clearfix" style="padding-left: 10px;">
                   <li><a href="#thong_tin" class="sel">Thông tin</a></li>
@@ -34,8 +34,20 @@
                     <tr>
                       <td width="5%"><i class="fa fa-gift"></i></td>
                       <td class="field" width="30%">Ngày sinh</td>
+<<<<<<< .mine
+                      
+                      <script src="/home/templates/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/home/templates/js/jquery.form.min.js"></script> 
+
+                      
+=======
                      
+>>>>>>> .r70
                       <td><span id="ngay_sinh" class="datainfo">{ngay_thang_nam($nguoi_dung.ngay_sinh)}</span></td>
+<<<<<<< .mine
+
+=======
+>>>>>>> .r70
                     </tr>
                     <tr>
                       <td><i class="fa fa-{if $nguoi_dung.gioi_tinh==0}male{else if}female{/if}"></i></td>
