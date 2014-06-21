@@ -7,6 +7,8 @@ try{
 	
 	$dt_smarty->display('layouts/default.tpl');
 	
+	include '../end.php';
+	
 }catch(Exception $e)
 {
 	throwMessage($e);

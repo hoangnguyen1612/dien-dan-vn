@@ -34,8 +34,8 @@
           </li>
           </ul>
         </li>
-        <li class="nav-icon"> <a href="./ucp.php?mode=register&amp;sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title="">LIÊN HỆ <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
-          <p>Gửi liên hệ</p>
+        <li class="nav-icon"> <a href="/" data-original-title="" title="">PHẢN HỒI <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
+          <p>Gửi thông tin phản hồi</p>
         </li>
       </ul>
       <div id="navBtn" class="" data-toggle="collapse" data-target=".nav-collapse">MENU<i class="icon  icon-list"></i></div>

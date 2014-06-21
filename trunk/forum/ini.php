@@ -67,5 +67,20 @@
 	$thong_bao_icon = array(0=>'plus-sign', 1=>'thumbs-up-alt', 2=>'info-sign', 3=>'exclamation-sign',4=>'remove-sign',5=>'ok-sign');
 	
 	
+	#bo_dem
+	include '../classes/xl_bo_dem.php';
+	$data = array();
+	
+	$data['ma_dien_dan'] = $ma_dien_dan;
+	$data['dia_chi_ip'] = $_SERVER['REMOTE_ADDR'];
+	$data['trinh_duyet'] = $_SERVER['HTTP_USER_AGENT'];
+	$data['thoi_gian'] = date('Y-m-d h:i:s');
+	$data['url'] = $_SERVER['REQUEST_URI'];
+	
+	$xl_bo_dem = new xl_bo_dem;
+
+	$xl_bo_dem->them($data);
+	
+	
 	
 	
