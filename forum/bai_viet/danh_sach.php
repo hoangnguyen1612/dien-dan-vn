@@ -16,7 +16,7 @@ try{
 	$loai = $_GET['loai'];
 	$dt_xl_bai_viet = new xl_bai_viet;
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
-	$limit = 4;
+	$limit = 10;
 	# khởi tạo đối tượng phân trang
 	$pt = new phan_trang('page',$limit);	
 	$pt->so_pt_tren_mot_trang = $limit;

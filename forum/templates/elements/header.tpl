@@ -34,7 +34,7 @@
           </li>
           </ul>
         </li>
-        <li class="nav-icon"> <a href="/" data-original-title="" title="">PHẢN HỒI <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
+        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/phan_hoi/them" data-original-title="" title="">PHẢN HỒI <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
           <p>Gửi thông tin phản hồi</p>
         </li>
       </ul>

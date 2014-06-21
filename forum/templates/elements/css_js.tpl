@@ -63,7 +63,7 @@ function find_username(e){popup(e,760,570,"_usersearch");return false}var jump_p
 {/literal}
 
 
-{if isset($smarty.session.message) && $smarty.session.message.type == 'error'}
+{if isset($smarty.session.message) && $smarty.session.message.type != ''}
 <script>
 window.onload = function()
 {

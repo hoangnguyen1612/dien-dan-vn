@@ -79,6 +79,11 @@ function ngay_thang_nam($str)
 	return date('d', strtotime($str)).' tháng '.date('m', strtotime($str)).' năm '.date('Y', strtotime($str));
 }
 
+function dmy_his($str)
+{
+	return date('H:i', strtotime($str)).' ngày '.date('d', strtotime($str)).' tháng '.date('m', strtotime($str)).' năm '.date('Y', strtotime($str));
+}
+
 function convert_vi_to_en($str) {
   $str = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $str);
   $str = preg_replace('/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/', 'e', $str);
