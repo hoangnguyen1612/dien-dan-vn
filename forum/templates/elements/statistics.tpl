@@ -107,11 +107,11 @@ function submitChat(){
                 </div>
                 <div id="tabs-2">
                 <form name="form1">
-                	<div class="chatlogs">
-                	<div class="footable-first-column">Chat box</div>
-               		<div id="chatlogs" >Đang tải đoạn chat , vui lòng chờ ....</div>   
-                     </div>
-                    <input type="text" name="msg" id="msg" style="margin-top:20px;width:400px" placeholder="Nhập nội dung hội thoại trong diễn đàn..."/><a href="#" onclick="submitChat()" class="btn" style="margin-top:10px;margin-left:2px">Gửi</a>  
+                
+               		<div id="chatlogs" class="chatlogs" >Đang tải đoạn chat , vui lòng chờ ....</div>   
+               
+                    <input type="text" name="msg" style="margin-top:20px;width:400px" placeholder="Nhập nội dung hội thoại trong diễn đàn..."/>
+                    <a href="#" onclick="submitChat()" class="btn" style="margin-top:10px;margin-left:2px">Gửi</a>  
                    
                 </form>
                 </div>
