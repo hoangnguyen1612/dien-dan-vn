@@ -56,7 +56,6 @@ function submitChat(){
 	xmlhttp.open('GET',"/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/trang_chu/insert?msg="+ msg,true);
 	xmlhttp.send();
 }
-
 </script>
 <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
       <thead>
@@ -110,7 +109,7 @@ function submitChat(){
                 
                		<div id="chatlogs" class="chatlogs" >Đang tải đoạn chat , vui lòng chờ ....</div>   
                
-                    <input type="text" name="msg" style="margin-top:20px;width:400px" placeholder="Nhập nội dung hội thoại trong diễn đàn..."/>
+                    <input type="text" name="msg"  style="margin-top:20px;width:400px" placeholder="Nhập nội dung hội thoại trong diễn đàn..." onKeyDown="if(event.keyCode==13) submitChat();" />
                     <a href="#" onclick="submitChat()" class="btn" style="margin-top:10px;margin-left:2px">Gửi</a>  
                    
                 </form>

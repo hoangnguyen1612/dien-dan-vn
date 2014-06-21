@@ -57,7 +57,6 @@ head.ready(function() {
 });
 </script>
 {/literal}
-<script type="text/javascript" src="./SiteSplat.com Index page_files/391407906655965184"></script>
 </head>
 <body id="phpbb" class="section-index ltr">
 <!--Theme Switcher--> 
@@ -161,14 +160,7 @@ head.ready(function() {
 <div> </div>
 
 <!-- injected via a module or an include --> 
-{literal} 
-<script>
-    // some function that depends on bootstrap and jquery
-	head.ready(function () {
-	   $.fn.tooltip&&$('[rel="tooltip"]').tooltip();$.fn.popover&&$('[rel="popover"]').popover();$(".selectpicker").selectpicker();$(".selectpicker").tooltip("disable");$(".btn-group [title]").tooltip({container:"body"});twitterFetcher.fetch("391407906655965184","example1",3,true,false);var totop=$("#totop");totop.click(function(){$("html, body").stop(true,true).animate({scrollTop:0},500);return false});$(window).scroll(function(){if($(this).scrollTop()>600){totop.fadeIn()}else{totop.fadeOut()}});$("button[data-loading-text]").click(function(){var e=$(this);e.button("loading");setTimeout(function(){e.button("reset")},3e3)});$("#nav-listen").on("show hide",function(e){if($(e.target).attr("id")!="nav-listen"){return}$("#nav-shown").toggleClass("icon-list icon-align-justify",200)});$("#target-col").on("show hide",function(e){if($(e.target).attr("id")!="target-col"){return}$("#target-shown").toggleClass("icon-arrow-up icon-arrow-down",200)});jQuery(function(e){e("a").tooltip({html:true,container:"body"})});$(".btn-group [title]").tooltip({container:"body"})
-    });
-</script> 
-{/literal} 
+
 <input type="hidden" id="sl_thong_bao_moi" value="{$sl_thong_bao_moi}" />
 <script type="text/javascript">
 	var delay = 2000;
