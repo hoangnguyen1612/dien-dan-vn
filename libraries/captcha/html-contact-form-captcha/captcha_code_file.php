@@ -81,7 +81,7 @@ imagettftext($image, $font_size, 0, $x, $y, $text_color, $font , $code);
 header('Content-Type: image/jpeg');// defining the image type to be shown in browser widow
 imagejpeg($image);//showing the image
 imagedestroy($image);//destroying the image instance
-$_SESSION['6_letters_code'] = $code;
+$_SESSION['captcha'] = $code;
 
 function hexrgb ($hexstr)
 {

@@ -1,5 +1,9 @@
 RewriteEngine on
 
+###
+RewriteRule ^admin/?$ home/admin/quan_tri/dang_nhap.php [L]
+RewriteRule ^admin/([a-z_]+)/([a-z_]+)\.php$ home/admin/$3/$4.php [L,QSA]
+
 #home
 RewriteRule ^home/demo.html$ home/demo.html [L]
 RewriteRule ^/?$ home/trang_chu/index.php [L]
@@ -11,7 +15,6 @@ RewriteRule ^([a-z_]+)$ home/$1/index.php [L]
 RewriteRule ^([a-z_]+)$ home/$1/index.php [L]
 RewriteRule tai_khoan/([a-zA-z0-9]+)-([a-z.]+)$ home/tai_khoan/thong_tin.php?ma=$1 [L,QSA]
 
-
 #forum
 RewriteRule ^([0-9]+)/([0-9a-zA-Z-.]+)/?$ forum/trang_chu/index.php?linh_vuc=$1&forum=$2 [L,QSA]
 RewriteRule ^([0-9]+)/([0-9a-zA-Z-.]+)/([a-z_]+)/([a-z_]+)$ forum/$3/$4.php?linh_vuc=$1&forum=$2 [L,QSA]
@@ -19,3 +22,4 @@ RewriteRule ^([0-9]+)/([0-9a-zA-Z-.]+)/([a-z_]+)/([a-z_]+)$ forum/$3/$4.php?linh
 ###
 RewriteRule ^([0-9]+)/([0-9a-zA-Z-.]+)/admin/?$ forum/admin/quan_tri/dang_nhap.php?linh_vuc=$1&forum=$2 [L,QSA]
 RewriteRule ^([0-9]+)/([0-9a-zA-Z-.]+)/admin/([a-z_]+)/([a-z_]+)\.php$ forum/admin/$3/$4.php?linh_vuc=$1&forum=$2 [L,QSA]
+

@@ -15,12 +15,20 @@ try{
 	
 	$nguoi_dung = $xl_nguoi_dung->doc(array('ma'=>$ma));
 
-	$sql = 'select ma_linh_vuc, ten, hinh_dai_dien, domain from thanh_vien_dien_dan t, dien_dan d where ma_dien_dan = ma and ma_nguoi_dung = :ma_nguoi_dung';
+	$sql = 'select ma, ma_linh_vuc, ten, hinh_dai_dien, domain from thanh_vien_dien_dan t, dien_dan d where ma_dien_dan = ma and ma_nguoi_dung = :ma_nguoi_dung';
 	$sth = $dbh->prepare($sql);
 	$sth->execute(array('ma_nguoi_dung'=>$ma));
 	$ds_dien_dan = $sth->fetchAll(PDO::FETCH_ASSOC);
 	
-		
+	$dt_smarty->assign('gt', array(0=>'Nam', 1=>'Nữ'));
+
+	$co = 1;
+	if($login['ma'] != $nguoi_dung['ma'])
+	{
+		$co = 0;
+	}
+
+	$dt_smarty->assign('co', $co);
 	$dt_smarty->assign('nguoi_dung', $nguoi_dung);
 	$dt_smarty->assign('ds_dien_dan', $ds_dien_dan);
 		

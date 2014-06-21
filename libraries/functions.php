@@ -125,6 +125,10 @@ function kiem_tra_gia_tri($variable, $value, $content)
 	}
 }
 
+function dmy($str)
+{
+	return date('d-m-Y', strtotime($str));
+}
 function kiem_tra_la_so($value, $content, $ss = 0)
 {
 	if(!is_numeric($value) && $value<$ss)

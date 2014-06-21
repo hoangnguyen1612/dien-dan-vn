@@ -84,11 +84,11 @@ class xl_chung{
 			
 			if($chuoi_dieu_kien)
 			{
-				$chuoi .= " WHERE {$chuoi_dieu_kien}0";
+				$chuoi .= " WHERE {$chuoi_dieu_kien}";
 			}
 			
 			$sql = "DELETE {$chuoi} {$them_cau_truy_van}";
-			
+
 			$sth = $dbh->prepare($sql);
 			
 			return $sth->execute($du_lieu);
@@ -162,13 +162,14 @@ class xl_chung{
 			{
 				$chuoi_ds = "SELECT {$ds_cot} {$chuoi} {$them_cau_truy_van} ORDER BY {$sap_xep} LIMIT $vi_tri, $so_luong";
 			}
+
 			$sth = $dbh->prepare($chuoi_ds);
 			$sth->execute($du_lieu);
 			return $sth->fetchAll($dinh_dang);
 		}
 		
 		$chuoi_ds = "SELECT {$ds_cot} {$chuoi} {$them_cau_truy_van} ORDER BY {$sap_xep} LIMIT {$vi_tri}, {$so_luong}";
-		
+
 		$sth = $dbh->prepare($chuoi_ds);
 		$sth->execute($du_lieu);
 		
@@ -311,4 +312,125 @@ class xl_chung{
 			return $chuoi;
 		}
 	}
+	
+	function so_luong_tong_cong() {
+			global $dbh;
+			$sql="SELECT COUNT(ma) FROM `bo_dem`";
+			$sth = $dbh->query($sql);
+			$result =  $sth->fetch(PDO::FETCH_NUM);
+			return $result[0];	
+		}
+	
+	
+		function so_luong_hom_nay() {
+			global $dbh;
+			$from = date('Y-m-d 0:0:0');
+			$to =  date('Y-m-d 23:59:59');
+			
+			$sql="SELECT COUNT(ma) FROM `bo_dem` WHERE '$from' <= thoi_gian AND thoi_gian <= '$to'";
+			$sth = $dbh->query($sql);
+			$result =  $sth->fetch(PDO::FETCH_NUM);
+			return $result[0];		
+		}
+		
+		function so_luong_theo_ngay($ngay) {
+			global $dbh;
+			$from = date("$ngay 0:0:0");
+			$to =  date("$ngay 23:59:59");
+			
+			$sql="SELECT COUNT(ma) FROM `bo_dem` WHERE '$from' <= thoi_gian AND thoi_gian <= '$to'";
+			$sth = $dbh->query($sql);
+			$result =  $sth->fetch(PDO::FETCH_NUM);
+			return $result[0];		
+		}
+	
+	
+		function so_luong_hom_qua() {
+			global $dbh;
+			$from = date('Y-m-d 0:0:0',  strtotime('-1 days'));
+			$to =  date('Y-m-d 23:59:59', strtotime('-1 days'));
+			
+			$sql="SELECT COUNT(ma) FROM `bo_dem` WHERE '$from' <= thoi_gian AND thoi_gian <= '$to'";
+			$sth = $dbh->query($sql);
+			$result =  $sth->fetch(PDO::FETCH_NUM);
+			return $result[0];		
+		}
+	
+		function so_luong_tuan_nay() {
+			global $dbh;
+			
+			$x = date('w');	
+			$from = date('Y-m-d 0:0:0',  strtotime("-$x days"));
+			$to =  date('Y-m-d 23:59:59');
+			
+			$sql="SELECT COUNT(ma) FROM `bo_dem` WHERE '$from' <= thoi_gian AND thoi_gian <= '$to'";
+			$sth = $dbh->query($sql);
+			$result =  $sth->fetch(PDO::FETCH_NUM);
+			return $result[0];	
+		}
+	
+	
+		function so_luong_thang_nay() {
+			global $dbh;
+			
+			$x = date('w');	
+			$from = date('Y-m-1 0:0:0');
+			$to =  date('Y-m-d 23:59:59');
+			
+			$sql="SELECT COUNT(ma) FROM `bo_dem` WHERE '$from' <= thoi_gian AND thoi_gian <= '$to'";
+			$sth = $dbh->query($sql);
+			$result =  $sth->fetch(PDO::FETCH_NUM);
+			return $result[0];		
+		}
+		
+		function dien_dan_truy_cap(){
+			global $dbh;
+			$from = date('Y-m-d 0:0:0',  strtotime('-6 days'));
+			$to =  date('Y-m-d 23:59:59');
+			
+			$sql = "SELECT ma_dien_dan FROM `bo_dem` WHERE '$from' <= thoi_gian AND thoi_gian <= '$to'
+					group by ma_dien_dan
+					order by count(ma) DESC
+					limit 0,7
+			";
+			$sth = $dbh->prepare($sql);
+			$sth->execute();
+			return $sth->fetchAll(PDO::FETCH_COLUMN);
+		}
+		
+		function dien_dan_truy_cap_nhieu_nhat(){
+			global $dbh;
+			
+			$sql = "SELECT ma_dien_dan FROM `bo_dem`
+					group by ma_dien_dan
+					order by count(ma) DESC
+					limit 0,10
+			";
+			$sth = $dbh->prepare($sql);
+			$sth->execute();
+			return $sth->fetchAll(PDO::FETCH_COLUMN);
+		}
+		function cap_nhat_dieu_kien($du_lieu, $dieu_kien)
+		{
+			global $dbh;
+
+			$chuoi = ''; 
+			foreach($du_lieu as $key=>$value)
+			{
+				$chuoi .= "`{$key}` = :{$key},";
+			}
+			$chuoi = trim($chuoi, ',');
+			
+			$chuoi_dieu_kien = ''; 
+			foreach($dieu_kien as $key=>$value)
+			{
+				$chuoi_dieu_kien.=" `{$key}` = :{$key} and";
+			}
+			$chuoi_dieu_kien.= ' 1';
+			
+			$sql = "UPDATE `{$this->bang}` SET {$chuoi} WHERE {$chuoi_dieu_kien} LIMIT 1"; 
+	
+			$sth = $dbh->prepare($sql);
+			return $sth->execute(array_merge($du_lieu, $dieu_kien));
+		}
 }
