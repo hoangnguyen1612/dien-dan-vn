@@ -66,6 +66,7 @@ class xl_chung{
 		
 		$sql = "INSERT INTO `{$this->bang}` ({$chuoi_cot}) VALUES ({$chuoi_gia_tri})"; 
 		
+		
 		$sth = $dbh->prepare($sql);
 		return $sth->execute($du_lieu);
 	}
