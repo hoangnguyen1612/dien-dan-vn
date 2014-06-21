@@ -1,5 +1,13 @@
 <script>
 $(document).ready(function(){
+	 $(function() {
+    $( "#tabs1" ).tabs();
+  });
+
+$.ajaxSetup({ cache:false });
+setInterval(function(){ $("#chatlogs").load("/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/trang_chu/logs") },2000);
+
+	
   $("#vietvbb_topstats_s").change(function(){
 	  if($("#vietvbb_topstats_s").val()=="bai_viet_nhieu_nhat"){
     $.get("/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/bai_viet_nhieu_nhat",function(data,status){
@@ -33,6 +41,21 @@ $(document).ready(function(){
 	  }
   });
 });
+function submitChat(){
+	if(form1.msg.value == ''){
+		alert('Vui lòng nhập nội dung để chat');
+		return;
+	}
+	var msg = form1.msg.value;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function(){
+		if(xmlhttp.readyState==4 && xmlhttp.status==200){
+			document.getElementById('chatlogs').innerHTML= xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open('GET',"/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/trang_chu/insert?msg="+ msg,true);
+	xmlhttp.send();
+}
 
 </script>
 <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
@@ -66,24 +89,33 @@ $(document).ready(function(){
                 </div>
               </div>
             </div></td>
-          <td colspan="2" class="footable-last-column"><div class="right-mainbox">
-              <div class="mainbox">
+          <td colspan="2" class="footable-last-column"><div class="right-mainbox" >
+              <div class="mainbox" id="tabs1">
                 <ul class="tabs" id="vietvbb_topstats_t">
-                  <li id="latest_posts" class="current"><span style="padding: 0px 8px;">Bài mới</span></li>
-                  <li style="border-right: 0px; display: none;" id="vietvbb_topstats_t_loading"><img src="images/misc/13x13progress.gif" border="0" align="middle" alt=""></li>
+           <li class="current"><span style="padding: 0px 8px;"><a href="#tabs-1">Bài mới</a></span></li>
+  			 <li><span style="padding: 0px 8px;"><a href="#tabs-2">Chat box</a></span></li>           
                 </ul>
-                <div class="topx-content" id="vietvbb_topstats_t_content">
+                <div id="tabs-1">
               		{if $ds_bai_viet_moi_nhat == NULL}
-                    <div class="topx-bit" style="margin-bottom:2px">Chưa có bài viết nào trong diễn đàn</div>
+                    <div class="topx-bit" style="margin-bottom:2px" >Chưa có bài viết nào trong diễn đàn</div>
                     {/if}
          			{foreach $ds_bai_viet_moi_nhat as $bai_viet_moi_nhat}
                   <div class="topx-bit" style="margin-bottom:2px"> <em> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}" title=""> <font color="#2dba97">{$bai_viet_moi_nhat.ten_nguoi_dang}</font> </a> </em> <span class="topx-content-tab"> <img src="/forum/templates/images/icons/post_new.gif" border="0" alt=""> &nbsp; <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet_moi_nhat.ma}">{$bai_viet_moi_nhat.tieu_de}</a> </span>   
                   </div>
                     {/foreach}
-                      
-                
-            
+                    
                 </div>
+                <div id="tabs-2">
+                <form name="form1">
+                	<div class="chatlogs">
+                	<div class="footable-first-column">Chat box</div>
+               		<div id="chatlogs" >Đang tải đoạn chat , vui lòng chờ ....</div>   
+                     </div>
+                    <input type="text" name="msg" id="msg" style="margin-top:20px;width:400px" placeholder="Nhập nội dung hội thoại trong diễn đàn..."/><a href="#" onclick="submitChat()" class="btn" style="margin-top:10px;margin-left:2px">Gửi</a>  
+                   
+                </form>
+                </div>
+               
               </div>
             </div></td>
         </tr>
