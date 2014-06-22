@@ -1,7 +1,6 @@
 <?php
 try{
 	include '../ini.php';
-	include '../../classes/xl_lien_he.php';
 	$xl_lien_he = new xl_lien_he;
 	
 	if(empty($_GET['ma']))

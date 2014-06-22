@@ -2,7 +2,6 @@
 
 try{	
 	include '../ini.php';
-	include '../../classes/xl_lien_he.php';
 	include '../../classes/phan_trang_admin.php';
 	
 	# số phần tử trên 1 trang

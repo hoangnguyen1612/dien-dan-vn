@@ -2,7 +2,6 @@
 
 	try{
 		include('../ini.php');
-		include '../../classes/xl_lien_he.php';
 	
 		if(empty($_GET['ma']))
 		{
