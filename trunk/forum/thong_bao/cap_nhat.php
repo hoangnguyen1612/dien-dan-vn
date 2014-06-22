@@ -1,5 +1,8 @@
 <?php
-require '../ini.php';
+require '../../libraries/functions.php';
+require '../../config.php';
+
+$dbh = connection();
 
 $sl_cu = $_GET['sl_cu'];
 

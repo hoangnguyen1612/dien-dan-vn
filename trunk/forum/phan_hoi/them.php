@@ -18,7 +18,15 @@ try{
 	$title = 'Phản hồi diễn đàn';
 	
 	$xl_feedback_dien_dan = new xl_feedback_dien_dan;
-	$danh_sach = $xl_feedback_dien_dan->danh_sach($start, $limit, array('ma_dien_dan'=>$ma_dien_dan), 'ngay_tao DESC', '*, (select hinh_dai_dien from nguoi_dung where ma = ma_nguoi_dung) as hinh_dai_dien, (select concat(ho, concat(" ", ten)) from nguoi_dung where ma = ma_nguoi_dung) as ho_ten', PDO::FETCH_ASSOC, '', true);
+	
+	if(isset($_GET['bo_loc']) && ($_GET['bo_loc']==0 || $_GET['bo_loc'] == 1))
+	{
+		$danh_sach = $xl_feedback_dien_dan->danh_sach($start, $limit, array('ma_dien_dan'=>$ma_dien_dan, 'loai'=>$_GET['bo_loc']), 'ngay_tao DESC', '*, (select hinh_dai_dien from nguoi_dung where ma = ma_nguoi_dung) as hinh_dai_dien, (select concat(ho, concat(" ", ten)) from nguoi_dung where ma = ma_nguoi_dung) as ho_ten', PDO::FETCH_ASSOC, '', true);
+	}
+	else
+	{
+		$danh_sach = $xl_feedback_dien_dan->danh_sach($start, $limit, array('ma_dien_dan'=>$ma_dien_dan), 'ngay_tao DESC', '*, (select hinh_dai_dien from nguoi_dung where ma = ma_nguoi_dung) as hinh_dai_dien, (select concat(ho, concat(" ", ten)) from nguoi_dung where ma = ma_nguoi_dung) as ho_ten', PDO::FETCH_ASSOC, '', true);
+	}
 
 	$pt->tong_record = $danh_sach[1];
 	$tong_so_trang = $pt->ceil_tong_so_trang();
@@ -28,6 +36,7 @@ try{
 	$dt_smarty->assign('tong_so_trang',$tong_so_trang);
 	$dt_smarty->assign('trang_hien_tai',$trang_hien_tai);
 	$dt_smarty->assign('danh_sach',$danh_sach[0]);
+	$dt_smarty->assign('bo_loc', array(0=>'Không thích', 1=>'Thích'));
 	
 	$contentForLayout = $dt_smarty->fetch('phan_hoi/them.tpl');
 	$dt_smarty->assign('title', $title);

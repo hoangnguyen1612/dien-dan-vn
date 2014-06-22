@@ -20,7 +20,6 @@
 <div id="page-body">
   <main role="main">
     <h2><a href="./viewtopic.php?f=2&amp;t=15" data-original-title="" title=""></a></h2>
-    <form id="postform" method="post" action="them_sm" onsubmit="return checkValidation()">
       <div class="well well-sm" id="preview" style="display:none">
         <h3 id="preview-title"></h3>
         <div id="content"></div>
@@ -31,7 +30,7 @@
             <span style="font-size: 18px; color:#8C8C8C; text-transform: uppercase">Tỉ lệ bình chọn cho diễn đàn {$dien_dan.ten}: <span class="badge badge-info" id="tbm1" style="font-size:16.844px; padding: 8px 6px">{$dien_dan.feedback}%</span> </span>
           </div>
           <div class="space10"></div>
-        {if !empty($danh_sach)}  
+        
           <div class="side-segment">
             <h3>Phản hồi của người dùng</h311>
           </div>
@@ -43,7 +42,7 @@
 		  .feedback .content{
 		    margin-left: 40px;
 			border-bottom: 1px solid #ddd;
-			background-color: #f8f8f8;
+			background-color: #f1f1f1;
 			padding: 5px 10px 10px 10px;
 			font-size: 16px;
 			font-family: Arial, Helvetica, sans-serif;
@@ -54,7 +53,32 @@
 		  	text-shadow: none;
 		  }
           </style>
-          
+		  <div style="float:right">
+          <form method="get" action="them" id="form_bo_loc">
+           <span style="font-weight:bold; font-size: 15px">Lọc theo:</span> <select style="width: 120px;" name="bo_loc" id="bo_loc">
+             <option value="2">Tất cả</option>
+             {foreach $bo_loc as $key=>$value}
+             <option value="{$key}" {if isset($smarty.get.bo_loc) && $smarty.get.bo_loc == $key}selected{/if}>{$value}</option>
+             {/foreach}
+            </select>
+          </form>
+     
+          <script>
+          $("#bo_loc").change(function(){
+		  	var bo_loc = $("#bo_loc").val();
+			if(bo_loc==2)
+			{
+				window.location.href = '/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/phan_hoi/them';
+			}
+			else
+			{
+				$("#form_bo_loc").submit();
+			}
+		  });
+          </script>  
+          </div>
+          <div class="clear"></div>  
+          {if !empty($danh_sach)}   
           {foreach $danh_sach as $feedback}
           	<div class="feedback">
           	<div class="image">
@@ -69,6 +93,7 @@
             <div style="clear:both"></div>
           </div>
           {/foreach}
+          {/if} 
           <div class="row-fluid">
       <div class="pull-right">
         <div class="pagination pagination-small hidden-phone">
@@ -82,13 +107,14 @@
           <div style="clear:both"></div>
           <div class="space10"></div>
           <div class="space10"></div>
-         {/if} 
+         
           <div class="side-segment">
             <h3>Viết phản hồi</h311>
           </div>
           <script>
 			onload_functions.push('apply_onkeypress_event()');
 		  </script>
+          <form id="postform" method="post" action="them_sm" onsubmit="return checkValidation()">
           <fieldset>
             <label class="control-label" for="subject">Bình chọn:</label>
             <div class="controls controls-row">
