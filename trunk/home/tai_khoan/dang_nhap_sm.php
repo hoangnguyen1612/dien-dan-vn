@@ -2,7 +2,6 @@
 try{
 	require '../ini.php';
 	require '../classes/xl_nguoi_dung.php';
-	
 	$url = '';
 	$_SESSION['data'] = $_POST['data'];
 	
@@ -39,8 +38,12 @@ try{
 	
 	unset($_SESSION['data']);
 	$url = '/';
+	if(isset($_POST['forum'])){
+		$url = $_SERVER['HTTP_REFERER'];
+	}
 	
-	throw new Exception('', 30);
+	
+	throw new Exception('Đăng nhập thành công', 30);
 }catch(Exception $e)
 {
 	throwMessage($e, $url);

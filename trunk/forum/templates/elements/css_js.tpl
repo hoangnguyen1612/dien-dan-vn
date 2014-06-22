@@ -27,6 +27,7 @@
 <!-- Footable CSS files --><!-- FontAwesome CSS files -->
 <link href="/forum/templates/styles/BBOOTS/theme/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="/forum/templates/css/general.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/forum/templates/css/slide.css" type="text/css" media="screen" />
 <link href="/forum/templates/css/colors/{$ds_cau_hinh.CSS}.css" rel="stylesheet" id="color">
 <!-- Custom Font CSS files -->
 
@@ -42,6 +43,7 @@
 <script type="text/javascript" src="/forum/templates/js/footable/footable.js"></script>
 <script type="text/javascript" src="/forum/templates/js/jquery.cookie.min.js"></script>
 <script type="text/javascript" src="/forum/templates/js/twitterFetcher_v10_min.js"></script>
+<script type="text/javascript" src="/forum/templates/js/slide.js"></script>
 <script type="text/javascript" src="/forum/admin/templates/scripts/ckeditor/ckeditor.js"></script>
 
 
