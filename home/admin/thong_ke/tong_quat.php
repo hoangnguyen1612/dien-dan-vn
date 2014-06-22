@@ -11,12 +11,13 @@ try{
 
 	
 	$ds_dien_dan = $xl_bo_dem->dien_dan_truy_cap();
+	
 	$from = date('Y-m-d 0:0:0',  strtotime('-6 days'));
 	$to =  date('Y-m-d 23:59:59');
 	$ngay = 'Từ ngày '. date('d-m-Y', strtotime('-6 days')).'đến ngày '.date('d-m-Y');
 	
 	shuffle($ds_dien_dan);
-	
+
 	for($i=0; $i<7; $i++)
 	{
 		$ten = $xl_dien_dan->doc(array('ma'=>$ds_dien_dan[$i], 'ten'));

@@ -16,6 +16,8 @@
 	$dt_smarty->assign('quyen', $quyen);
 	$dt_smarty->assign('ma_nguoi_dung', $ma_nguoi_dung);
 	$dt_smarty->assign('thong_bao_icon', $thong_bao_icon);
-		
+	if(isset($ds_dien_dan)){
+		$dt_smarty->assign('ds_dien_dan', $ds_dien_dan);
+	}
 		
 		

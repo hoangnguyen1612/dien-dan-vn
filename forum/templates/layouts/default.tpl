@@ -59,6 +59,7 @@ head.ready(function() {
 {/literal}
 </head>
 <body id="phpbb" class="section-index ltr">
+{include '../elements/login.tpl'}
 <!--Theme Switcher--> 
 <!-- include switcher.tpl --> 
 {include '../elements/switcher.tpl'}
@@ -125,7 +126,7 @@ head.ready(function() {
               <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$ma_nguoi_dung}" data-original-title=""><i class="icon-cog"></i>Thông Tin Thành Viên</a></li>
               {if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}<li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>
               {/if}
-              <li><a title="" href="./ucp.php?mode=logout&amp;sid=b3e0d35dad8925f9d80fb5a1387e5b2f" data-original-title=""><i class="icon-off"></i>Đăng Xuất</a></li>
+              <li><a title="" href="/tai_khoan/dang_xuat.html" data-original-title=""><i class="icon-off"></i>Đăng Xuất</a></li>
             </ul>
           </li>
           	{/if}
