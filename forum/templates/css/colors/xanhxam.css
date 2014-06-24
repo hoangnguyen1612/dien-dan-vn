@@ -8,6 +8,9 @@ Global Color Change
 	border-color: #8AAED0;
 }
 
+.bg-color{background-color: #8AAED0}
+.text-color{color: #8AAED0}
+
 footer .navList a {
   color: #8AAED0 !important;
 }

@@ -1,5 +1,5 @@
 <div id="toppanel">
-	<div id="panel">
+	<div id="panel" class="bg-color">
 		<div class="content clearfix">
         {if $login == ''}
 			<div class="left">
@@ -53,25 +53,21 @@
 		</div>
 </div> <!-- /login -->	
 
-	<!-- The tab on top -->	
+	<!-- The tab on top -->
 	<div class="tab">
 		<ul class="login">
-			<li class="left">&nbsp;</li>
-            {if $login ==''}
-			<li>Chào!</li>
-            {else}
-            <li>Chào {$login.ten} !</li>
-            {/if}
-			<li class="sep">|</li>
-			<li id="toggle">
+			<li class="left bg-color">&nbsp;</li>
+       		<li class="bg-color">Diễn Đàn Việt Nam</li>
+        	<li class="sep bg-color">|</li>
+			<li id="toggle" class="bg-color">
             	{if $login == ''}
-				<a id="open" class="open" href="#">Đăng nhập</a>
+				<a id="open" class="open" href="#">Đăng nhập&nbsp;&nbsp;&frasl;&nbsp;&nbsp;Đăng ký</a>
                 {else}
                 <a id="open" class="open" href="#">Thông tin thêm</a>
                 {/if}
-				<a id="close" style="display: none;font-size:11px" class="close" href="#">Đóng</a>			
+				<a id="close-tab" style="display: none;font-size:11px" href="#">Đóng</a>			
 			</li>
-			<li class="right">&nbsp;</li>
+			<li class="right bg-color">&nbsp;</li>
 		</ul> 
 	</div> <!-- / top -->
 	

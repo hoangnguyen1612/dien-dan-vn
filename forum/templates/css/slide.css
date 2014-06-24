@@ -16,11 +16,12 @@ Version: 1.0
 
 /* Panel Tab/button */
 .tab {
-  	background: url(/forum/templates/images/tab_b.png) repeat-x 0 0;
-	height: 42px;
+  	/*background: url(/forum/templates/images/tab_b.png) repeat-x 0 0;*/
+	height: 25px;
 	position: relative;
     top: 0;
     z-index: 999;
+	font-size: 15px !important;
 }
 
 .tab ul.login {
@@ -40,23 +41,25 @@ Version: 1.0
 }
 
 .tab ul.login li.left {
-  	background: url(/forum/templates/images/tab_l.png) no-repeat left 0;
-  	height: 42px;
-	width: 30px;
+  	/*background: url(/forum/templates/images/tab_l.png) no-repeat left 0;*/
+  	height: 32px;
+	width: 10px;
 	padding: 0;
 	margin: 0;
   	display: block;
 	float: left;
+	border-bottom-left-radius: 20px;
 }
 
 .tab ul.login li.right {
-  	background: url(/forum/templates/images/tab_r.png) no-repeat left 0;
-  	height: 42px;
-	width: 30px;
+  	/*background: url(/forum/templates/images/tab_r.png) no-repeat left 0;*/
+  	height: 32px;
+	width: 10px;
 	padding: 0;
 	margin: 0;
   	display: block;
 	float: left;
+	border-bottom-right-radius: 20px;
 }
 
 .tab ul.login li {
@@ -64,9 +67,11 @@ Version: 1.0
   	padding: 0 6px;
 	display: block;
 	float: left;
-	height: 42px;
-  	background: url(/forum/templates/images/tab_m.png) repeat-x 0 0;
+	height: 32px;
+  	/*background: url(/forum/templates/images/tab_m.png) repeat-x 0 0;*/
+	line-height: 32px;
 }
+
 
 .tab ul.login li a {
 	color: #15ADFF;
@@ -76,8 +81,12 @@ Version: 1.0
 	color: white;
 }
 
-.tab .sep {color:#414141}
+.tab .sep {color:white}
 
+.tab a.open, .tab a.close{color:white !important}
+
+.tab #close-tab{color: white}
+/*
 .tab a.open, .tab a.close {
 	height: 20px;
 	line-height: 20px !important;
@@ -89,14 +98,13 @@ Version: 1.0
 	top: 11px;
 }
 
-.tab a.open {background: url(/forum/templates/images/bt_open.png) no-repeat left 0;}
-.tab a.close {background: url(/forum/templates/images/bt_close.png) no-repeat left 0;}
+/*.tab a.close {background: url(/forum/templates/images/bt_close.png) no-repeat left 0;}
 .tab a:hover.open {background: url(/forum/templates/images/bt_open.png) no-repeat left -19px;}
-.tab a:hover.close {background: url(/forum/templates/images/bt_close.png) no-repeat left -19px;}
+.tab a:hover.close {background: url(/forum/templates/images/bt_close.png) no-repeat left -19px;}*/
 
 /* sliding panel */
 #toppanel {
-    position: absolute;   /*Panel will overlap  content */
+    position: relative;   /*Panel will overlap  content */
     /*position: relative;*/   /*Panel will "push" the content down */
     top: 0;
     width: 100%;
@@ -110,11 +118,11 @@ Version: 1.0
 	width: 100%;
 	height: 285px;
 	color: #999999;
-	background: #3C8DBC;
 	overflow: hidden;
 	position: relative;
 	z-index: 3;
 	display: none;
+	box-shadow: 1px 1px 1px #ccc;
 }
 
 #panel h1 {
@@ -232,4 +240,3 @@ Version: 1.0
 	font-size: 0.95em;
 	text-decoration: underline;
 }
-
