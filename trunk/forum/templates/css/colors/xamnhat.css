@@ -12,6 +12,9 @@ footer .navList a {
   color: #8C8C8C !important;
 }
 
+.bg-color{background-color: #8C8C8C}
+.text-color{color: #8C8C8C}
+
 .subheader {
     border-top: 4px solid #8C8C8C !important;
 }

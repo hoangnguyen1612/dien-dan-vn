@@ -9,6 +9,9 @@ Global Color Change
 	border-color: #6ACEEB;
 }
 
+.bg-color{background-color: #6ACEEB}
+.text-color{color: #6ACEEB}
+
 footer .navList a {
   color: #6ACEEB !important;
 }

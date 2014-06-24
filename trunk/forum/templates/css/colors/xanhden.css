@@ -9,6 +9,9 @@ Global Color Change
 	border-color: #103636;
 }
 
+.bg-color{background-color: #103636}
+.text-color{color: #103636}
+
 .subheader {
     border-top: 4px solid #103636 !important;
 }
