@@ -58,6 +58,7 @@
 		$sth = $dbh->prepare($sql);
 		$sth->execute(array('ma'=>$login['ma']));
 		$ds_dien_dan = $sth->fetchAll(PDO::FETCH_ASSOC);
+		include '../../libraries/online.php';
 	}
 	
 	
@@ -80,7 +81,7 @@
 	$data['trinh_duyet'] = $_SERVER['HTTP_USER_AGENT'];
 	$data['thoi_gian'] = date('Y-m-d h:i:s');
 	$data['url'] = $_SERVER['REQUEST_URI'];
-	
+
 	$xl_bo_dem = new xl_bo_dem;
 
 	$xl_bo_dem->them($data);
