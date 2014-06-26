@@ -31,6 +31,16 @@ function tru_like_bai_viet($ma_bai_viet){
 function trang_thai_bai_viet($ma_bai_viet,$ma_dien_dan){
 	$xl_bai_viet = new xl_bai_viet;
 	$bai_viet = $xl_bai_viet->doc(array('ma'=>$ma_bai_viet,'ma_dien_dan'=>$ma_dien_dan));
-	return $bai_viet['trang_thai'];
+	return $bai_viet['trang_thai'];	
+}
+function so_luong_bai_viet_theo_ngay($ngay,$ma_dien_dan) {
+	global $dbh;
+	$from = date("$ngay 0:0:0");
+	$to =  date("$ngay 23:59:59");
 	
+	$sql="SELECT COUNT(ma) FROM `bai_viet` WHERE '$from' <= ngay_tao AND ngay_tao <= '$to' and ma_dien_dan=:ma_dien_dan";
+	$sth = $dbh->prepare($sql);
+	$sth->execute(array('ma_dien_dan'=>$ma_dien_dan));
+	$result =  $sth->fetch(PDO::FETCH_NUM);
+	return $result[0];		
 }
