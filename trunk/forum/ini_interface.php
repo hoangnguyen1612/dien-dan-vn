@@ -19,5 +19,8 @@
 	if(isset($ds_dien_dan)){
 		$dt_smarty->assign('ds_dien_dan', $ds_dien_dan);
 	}
+	if(isset($ds_online)){
+		$dt_smarty->assign('ds_online', $ds_online);
+	}
 		
 		

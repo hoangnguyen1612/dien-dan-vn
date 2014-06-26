@@ -114,13 +114,28 @@ function submitChat(){
                     		<th class="footable-first-column" data-hide="phone" style="color:#8C8C8C;border-radius:0px"><i class="icon-comments-alt" style="color:#8C8C8C"></i>
                             	CHAT BOX
                         	</th>
+                            <th data-hide="phone" style="color:#8C8C8C;border-radius:0px;width:250px"><i class="icon-user" style="color:#8C8C8C"></i>
+                            	Danh sách người online
+                        	</th>
                         </tr>
                     </thead>
                     <tbody>
                     <tr>
-               		<td class="expand footable-first-column"><div id="chatlogs" class="chatlogs" >Đang tải đoạn chat , vui lòng chờ ....</div></td>   
+               		<td class="expand footable-first-column"><div id="chatlogs" class="chatlogs" >Đang tải đoạn chat , vui lòng chờ ....</div></td> 
+                    <td class="expand footable-first-column">
+                    	{if isset($ds_online)}
+                    	{foreach $ds_online as $online}
+                    	<div style="overflow:auto">
+                        	<i class="icon-smile" style="color:orangered"></i>
+                        	{$online.ho_nguoi_dung} {$online.ten_nguoi_dung}
+                        </div>
+                        {/foreach}
+                        {/if}
+                    </td>     
+                    
                  
                     </tr>
+                    
                     </tbody>
                		</table>
                     <input type="text" name="msg"  style="margin-left:5px; width:42%" placeholder="Nhập nội dung hội thoại trong diễn đàn..." onKeyDown="if(event.keyCode==13) submitChat();" />
