@@ -129,7 +129,7 @@ padding:10px !important;
 
 .btn-link:hover, .btn-link:focus{
 text-decoration: none !important;
-color:#8C8C8C !important;
+color:black !important;
 }
 
 
@@ -875,7 +875,7 @@ width:20%;
 .table-primary tbody td {
     background: none repeat scroll 0 0 #FAFAFA;
     border-width: 0;
-    color: #7C7C7C;
+    color: black;
 }
 .table-primary tbody td.important {
     color: #4A8BC2;
@@ -1374,7 +1374,7 @@ a {
 }
 
 .user-menu > i {
-    color: #8C8C8C;
+    color: black;
     display: inline-block;
     float: left;
     font-size: 18px;
@@ -1383,7 +1383,7 @@ a {
 }
 
 .user-menu > span {
-    color: gray;
+    color: black;
     display: block;
     font-size: 11px;
     font-weight: bold;
@@ -1546,14 +1546,14 @@ a {
 li.index-title h1, .titleLineCharts h2 {
   font-size: 30px;
   line-height: 25px;
-  color: #8C8C8C;
+  color: black;
   text-transform: uppercase;
   font-style: normal;
   font-weight: 400;
 }
 
 li.index-sub {
-    color: #8C8C8C;
+    color: black;
     font-size: 11px;
     font-weight: 400;
     line-height: 9px;
@@ -1767,7 +1767,7 @@ header .leftArea {
 }
 
 header .leftArea .logo {
-    color: #8C8C8C;
+    color: black;
     font-family: 'BebasNeueRegular','Arial','Helvetica',sans-serif;
     font-size: 70px;
     font-style: normal;
@@ -1810,7 +1810,7 @@ font-size: 14px;
 .logo-transition a::before {
   margin-right: 3px;
   content: '{';
-  color:#8C8C8C;
+  color:black;
   line-height: 16px;
   font-family: 'BebasNeueRegular','Arial','Helvetica',sans-serif;
     font-size: 70px;
@@ -1899,7 +1899,7 @@ outline: none;
 
 
 .mainnav > ul > li > a {
-    color: #8C8C8C;
+    color: black;
     display: block;
 	-webkit-font-smoothing: antialiased; /* Fix for webkit rendering, well at least for the time being */
 	-webkit-text-stroke: 0.2px; /* Fix for webkit rendering, well at least for the time being */
@@ -2188,7 +2188,7 @@ header .leftArea .logo {
 }
 
   .caret {
-    border-top: 4px solid #8C8C8C !important;
+    border-top: 4px solid black !important;
 }
 
 }
@@ -2386,7 +2386,7 @@ header .leftArea .logo {
 	FOOTER LAYOUT
  -------------------------------------------------------------------------------*/
 .promo-box p {
-    color: #8C8C8C;
+    color: black;
     font-family: 'Roboto Condensed','Arial','Helvetica',sans-serif;
     margin: 0 !important;
 	font-size: 14px;
@@ -2476,7 +2476,7 @@ footer {
 }
 
 #footerContent blockquote p {
-color: #8C8C8C;
+color: black;
 font-family: 'BebasNeueRegular','Arial','Helvetica',sans-serif;
 font-size: 20px;
 }
@@ -3106,7 +3106,7 @@ p.separator {
 border-bottom: medium none !important;
 font-size: 22px !important;
 font-family: 'BebasNeueRegular','Arial','Helvetica',sans-serif !important;
-color: #8C8C8C;
+color: black;
 font-style: normal;
 }
 

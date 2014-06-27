@@ -59,6 +59,16 @@ head.ready(function() {
 {/literal}
 </head>
 <body id="phpbb" class="section-index ltr">
+<div class="toggle-menu menu-left push-body" style="border-color: #CFDAE1;
+border-radius: 500px 500px 500px 500px;
+border-style: solid;
+border-width: 1px;
+color: white;
+overflow: hidden;
+width: 25px;
+padding: 12px 10px; margin-left: 10px; margin-top: 10px; font-size: 20px; text-align:center; float:left">
+<i class="icon-reorder"></i>
+</div>
 {include '../elements/login.tpl'}
 <!--Theme Switcher--> 
 <!-- include switcher.tpl --> 

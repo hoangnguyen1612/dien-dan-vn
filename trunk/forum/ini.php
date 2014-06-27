@@ -32,6 +32,7 @@
 	$login = '';
 	$thanh_vien = '';
 	$sl_thong_bao_moi = 0;
+	$ds_dien_dan = '';
 	$quyen = array(0=>'Chủ diễn đàn', 1=>'Quản trị', 2=>'Thành viên');
 	
 	if(isset($_SESSION['login']))

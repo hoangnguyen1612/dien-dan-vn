@@ -8,6 +8,9 @@ Global Color Change
     background-color: #F8CC0C;
 	border-color: #F8CC0C;
 }
+a:hover{
+	color:#F8CC0C;
+}
 
 footer .navList a {
   color: #F8CC0C !important;
