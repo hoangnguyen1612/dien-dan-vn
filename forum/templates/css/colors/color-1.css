@@ -8,6 +8,9 @@ Global Color Change
 	border-color: #169FE6;
 }
 
+a:hover{
+	color:#169FE6;
+}
 .subheader {
     border-top: 4px solid #169FE6 !important;
 }

@@ -582,7 +582,6 @@ $(window).load(function() {
     "use strict";
 
     $.fn.tree = function() {
-
         return this.each(function() {
             var btn = $(this).children("a").first();
             var menu = $(this).children(".treeview-menu").first();

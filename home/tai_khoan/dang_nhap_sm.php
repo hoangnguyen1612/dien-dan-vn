@@ -2,7 +2,7 @@
 try{
 	require '../ini.php';
 	require '../classes/xl_nguoi_dung.php';
-	$url = '';
+	$url = '/tai_khoan/dang_nhap.html';
 	$_SESSION['data'] = $_POST['data'];
 	
 	if(empty($_POST['data']['email']))
@@ -42,7 +42,7 @@ try{
 		$url = $_SERVER['HTTP_REFERER'];
 	}
 	
-	
+	$url = $_SERVER['HTTP_REFERER'];
 	throw new Exception('Đăng nhập thành công', 30);
 }catch(Exception $e)
 {

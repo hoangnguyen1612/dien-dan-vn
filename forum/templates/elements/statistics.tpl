@@ -80,7 +80,7 @@ function submitChat(){
                 <div style="display:block;background: url(vietvbb/topx/list.gif) no-repeat top left; border-top: 0px none; padding: 0px;">
                   <div class="topx-content" id="vietvbb_topstats_s_content">
                   {foreach $ds_top_diem_thanh_vien as $thanh_vien}
-                    <div class="topx-bit" style="margin-bottom:2px"><em title="Total Thanks"> {$thanh_vien.diem_so} </em> <span class="topx-content-menu"> <img src="/forum/upload/rankCF/{lay_icon_diem($thanh_vien.ma_nguoi_dung,$thanh_vien.ma_dien_dan)}" style="width:20px;height:20px ;margin-right:3px"/><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$thanh_vien.ma_nguoi_dung}" title=""><font color="#2dba97">{$thanh_vien.ten_nguoi_dung}</font></a> </span>
+                    <div class="topx-bit" style="margin-bottom:2px"><em title="Total Thanks"> {$thanh_vien.diem_so} </em> <span class="topx-content-menu"> <img src="/forum/upload/rankCF/{lay_icon_diem($thanh_vien.ma_nguoi_dung,$thanh_vien.ma_dien_dan)}" style="width:20px;height:20px ;margin-right:3px"/><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$thanh_vien.ma_nguoi_dung}" title=""><font size="-1" color="#2dba97">{$thanh_vien.ten_nguoi_dung}</font></a> </span>
                     
                      </div>
                     {/foreach}
@@ -99,7 +99,7 @@ function submitChat(){
                     <div class="topx-bit" style="margin-bottom:2px" >Chưa có bài viết nào trong diễn đàn</div>
                     {/if}
          			{foreach $ds_bai_viet_moi_nhat as $bai_viet_moi_nhat}
-                  <div class="topx-bit" style="margin-bottom:2px"> <em> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}" title=""> <font color="#2dba97">{$bai_viet_moi_nhat.ten_nguoi_dang}</font> </a> </em> <span class="topx-content-tab"> <img src="/forum/templates/images/icons/post_new.gif" border="0" alt=""> &nbsp; <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet_moi_nhat.ma}">{$bai_viet_moi_nhat.tieu_de}</a> </span>   
+                  <div class="topx-bit" style="margin-bottom:2px"> <em> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}" title=""> <font size="-2" color="#2dba97">{$bai_viet_moi_nhat.ten_nguoi_dang}</font> </a> </em> <span class="topx-content-tab"> <img src="/forum/templates/images/icons/post_new.gif" border="0" alt=""> &nbsp; <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet_moi_nhat.ma}">{$bai_viet_moi_nhat.tieu_de}</a> </span>   
                   </div>
                     {/foreach}
                     

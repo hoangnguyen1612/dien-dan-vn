@@ -7,7 +7,9 @@ Global Color Change
     background-color: #26D483;
 	border-color: #26D483;
 }
-
+a:hover{
+	color:#26D483;
+}
 .bg-color{background-color: #26D483}
 .text-color{color: #26D483}
 

@@ -42,7 +42,7 @@
                    {if $child!=NULL}
                    	&nbsp;&nbsp;Phụ mục : 
                             	{foreach $child as $k1=>$v1}
-                               <i class="icon-comment"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$k1}">{$v1.ten}</a>&nbsp;&nbsp;
+                               <i class="icon-comment"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$k1}">{$v1.ten}</a>&nbsp;&nbsp;
                                 {/foreach}
         
        			   {/if}
@@ -57,7 +57,7 @@
           <td class="center footable-last-column">
           {if $bai_viet_moi!=0}
           	<i class="icon-user"></i> bởi 
-          <a href="" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
+          <a href="" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi.ma_nguoi_dang}"> <i class="mobile-post icon-signout"></i></a> <br>
           <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_moi.ngay_tao))}</small>
            {else if} 
            	  0 bài viết

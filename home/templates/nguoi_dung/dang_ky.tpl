@@ -86,7 +86,7 @@
 						}
                  	</script> 
                   {/literal}
-                  <form id="signup_form" style="text-align:left" method="post" action="dang_ky_sm.php">
+                  <form id="signup_form" style="text-align:left" method="post" action="dang_ky_sm.php" autocomplete="off">
                     <table style="width:100%">
                       <tr>
                         <td><label>Họ và Tên</label>
@@ -122,7 +122,7 @@
                       <tr>
                         <td><label>Email</label>
                           <span class="red">*</span><br />
-                          <input  style="float:left" class="form-control" name="data[email]" type="text" id="email" value="{$smarty.session.data.email|default:''}" />
+                          <input  style="float:left" class="form-control" name="data[email]" type="text" id="email" value="{$smarty.session.data.email|default:''}" autocomplete="off" />
                           <div id="loading" style="float:left; margin-left: 10px; margin-top: 4px; width: 25px; height: 25px"></div>
                           <script>
 						  $("#email").change(function(){
