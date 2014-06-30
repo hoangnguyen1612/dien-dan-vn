@@ -15,7 +15,30 @@
                     onmouseout="document.getElementById('edit-image').style.display = 'none'"><img src="/home/upload/nguoi_dung/{$nguoi_dung.hinh_dai_dien}" alt="default avatar"> {if $login.ma = $nguoi_dung.ma}
                 <div id="edit-image" style="width:154px; display:none; background-color:#f1f1f1;height: 40px; position:absolute; top: 125px; opacity: 0.5">
                   <center>
-                    <a style="line-height: 40px; color:black" id="change" rel="leanModal" href="#change-image">Cập nhật</a>
+                    <a style="line-height: 40px; color:black" id="change" class="topopup" href="#change-image">Cập nhật</a> 
+                    <script type="text/javascript" src="/home/templates/js/script.js"></script>
+                    <link href="/home/templates/css/popup.css" rel="stylesheet" type="text/css">
+                    <div id="toPopup">
+                      <div class="close"></div>
+                      <span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span>
+                      <div id="popup_content"> <!--your content start-->
+                        <p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, 
+                          feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi 
+                          vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, 
+                          commodo Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique 
+                          senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, 
+                          feugiat vitae, ultricies eget, tempor sit amet, ante. </p>
+                        <br />
+                        <p> Donec eu libero sit amet quam egestas semper. Aenean ultricies mi 
+                          vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, 
+                          commodo Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
+                        <p align="center"><a href="#" class="livebox">Click Here Trigger</a></p>
+                      </div>
+                      <!--your content end--> 
+                      
+                    </div>
+                    <div class="loader"></div>
+                    <div id="backgroundPopup"></div>
                   </center>
                 </div>
                 {/if} </div>
@@ -57,28 +80,24 @@
 								}
 							);
 						});
-					</script> 
+					</script>
                       <td><span class="text_wrapper" id="ngay_sinh_info">{ngay_thang_nam($nguoi_dung.ngay_sinh)|default:'chưa có'}</span>&nbsp;&nbsp;&nbsp;<a href="#" id="ngay_sinh" class="edit_link" title="chỉnh sửa">(chỉnh sửa)</a>
-                      <div class="edit_ngay_sinh edit" style="display:none">  
-                        <input type="text" name="data[ngay_sinh]" id="editbox_ngay_sinh" class="editbox form-control" style="width:300px" value="{$nguoi_dung.ngay_sinh|default:''}"/>
-					  </div></td>
+                        <div class="edit_ngay_sinh edit" style="display:none">
+                          <input type="text" name="data[ngay_sinh]" id="editbox_ngay_sinh" class="editbox form-control" style="width:300px" value="{$nguoi_dung.ngay_sinh|default:''}"/>
+                        </div></td>
                     </tr>
                     <tr>
                       <td><i class="fa fa-{if $nguoi_dung.gioi_tinh==0}male{else if}female{/if}"></i></td>
                       <td class="field">Giới tính</td>
-                      <td>
-                      <span class="text_wrapper" id="gioi_tinh_info">{if $nguoi_dung.gioi_tinh==0}Nam{else if}Nữ{/if} </span>&nbsp;&nbsp;&nbsp;<a href="#" id="gioi_tinh" class="edit_link" title="chỉnh sửa">(chỉnh sửa)</a>
-                      <div class="edit_gioi_tinh edit" style="display:none; margin-top: -17px">  
-                       {foreach $gt as $key=>$value} 
-                        <input type="radio" id="{$key}" name="gioi_tinh" class="gt" value="{$key}" {if $key==$nguoi_dung.gioi_tinh}checked{/if} />
-						<label for="{$key}">{$value}</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                       {/foreach} 
-					  </div></td>
-               
+                      <td><span class="text_wrapper" id="gioi_tinh_info">{if $nguoi_dung.gioi_tinh==0}Nam{else if}Nữ{/if} </span>&nbsp;&nbsp;&nbsp;<a href="#" id="gioi_tinh" class="edit_link" title="chỉnh sửa">(chỉnh sửa)</a>
+                        <div class="edit_gioi_tinh edit" style="display:none; margin-top: -17px"> {foreach $gt as $key=>$value}
+                          <input type="radio" id="{$key}" name="gioi_tinh" class="gt" value="{$key}" {if $key==$nguoi_dung.gioi_tinh}checked{/if} />
+                          <label for="{$key}">{$value}</label>
+                          &nbsp;&nbsp;&nbsp;&nbsp;
+                          {/foreach} </div></td>
                     </tr>
                   </table>
                 </div>
-                
                 <div class="user-info">
                   <h4>Thông tin liên hệ</h4>
                   <table width="100%" id="mytable" cellpadding="5">
@@ -86,11 +105,11 @@
                       <td width="5%"><i class="fa fa-map-marker"></i></td>
                       <td class="field" width="30%">Địa chỉ</td>
                       <td><span class="text_wrapper" id="dia_chi_info">{$nguoi_dung.dia_chi|default:'chưa có'}</span>&nbsp;&nbsp;&nbsp;<a href="#" id="dia_chi" class="edit_link" title="chỉnh sửa">(chỉnh sửa)</a>
-                      <div class="edit_dia_chi edit" style="display:none">  
-                        <input type="text" name="data[dia_chi]" id="editbox_dia_chi" class="editbox form-control" style="width:300px" value="{$nguoi_dung.dia_chi|default:''}"/>
-					  </div>
-						{if $co ==1}	
-							<script type="text/javascript">
+                        <div class="edit_dia_chi edit" style="display:none">
+                          <input type="text" name="data[dia_chi]" id="editbox_dia_chi" class="editbox form-control" style="width:300px" value="{$nguoi_dung.dia_chi|default:''}"/>
+                        </div>
+                        {if $co ==1} 
+                        <script type="text/javascript">
 							$(document).ready(function()
 							{
 							
@@ -180,16 +199,15 @@
 								});
 														
 							});
-							</script>{/if}
-                            </td>
+							</script>{/if} </td>
                     </tr>
                     <tr>
                       <td><i class="fa fa-phone"></i></td>
                       <td class="field">Điện thoại</td>
                       <td><span class="text_wrapper" id="dien_thoai_info">{$nguoi_dung.dien_thoai|default:'chưa có'}</span>&nbsp;&nbsp;&nbsp;<a href="#" id="dien_thoai" class="edit_link" title="chỉnh sửa">(chỉnh sửa)</a>
-                      <div class="edit_dien_thoai edit" style="display:none">  
-                        <input type="text" name="data[dien_thoai]" id="editbox_dien_thoai" class="editbox form-control" style="width:300px" value="{$nguoi_dung.dien_thoai|default:''}"/>
-					  </div></td>
+                        <div class="edit_dien_thoai edit" style="display:none">
+                          <input type="text" name="data[dien_thoai]" id="editbox_dien_thoai" class="editbox form-control" style="width:300px" value="{$nguoi_dung.dien_thoai|default:''}"/>
+                        </div></td>
                     </tr>
                   </table>
                 </div>
