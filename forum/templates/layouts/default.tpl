@@ -59,16 +59,39 @@ head.ready(function() {
 {/literal}
 </head>
 <body id="phpbb" class="section-index ltr">
-<div class="toggle-menu menu-left push-body" style="border-color: #CFDAE1;
-border-radius: 500px 500px 500px 500px;
-border-style: solid;
-border-width: 1px;
-color: white;
-overflow: hidden;
-width: 25px;
-padding: 12px 10px; margin-left: 10px; margin-top: 10px; font-size: 20px; text-align:center; float:left">
-<i class="icon-reorder"></i>
-</div>
+<button id="home-btn" title="Thanh điều khiển" class="toggle-menu menu-left push-body" style="
+padding: 5px;
+border-bottom-right-radius: 20px;
+border-top-right-radius: 20px;
+background-color: white;
+border-collapse: collapse;
+border: 1px solid #ccc;">
+<span style="font-family:'Kaushan Script', cursive !important" class="text-color"><img id="arrow" src="/forum/templates/images/ani-arrow.gif" 
+style="vertical-align:inherit;"> Diendan.vn</span>
+</button>
+<style>
+#home-btn{
+	-webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+     
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+}
+#home-btn:hover{
+	border: 1px solid #ccc;border-bottom-right-radius: 20px;
+border-top-right-radius: 20px;
+-webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+}
+#home-btn:focus{
+	outline: 0 !important;
+}
+</style>
 {include '../elements/login.tpl'}
 <!--Theme Switcher--> 
 <!-- include switcher.tpl --> 
@@ -87,7 +110,7 @@ padding: 12px 10px; margin-left: 10px; margin-top: 10px; font-size: 20px; text-a
           <div class="fxicon"> <i class="icon-home"></i> </div>
           <ul class="index-pos">
             <li class="index-title" style="margin-bottom:5px;">
-              <h1 style="font-size:28px;">{$title|default:''}</h1>
+              <h1 style="font-size:20px;">{$title|default:''}</h1>
             </li>
             <li class="index-sub">Chào mừng bạn đến diễn đàn {$dien_dan.ten}</li>
           </ul>

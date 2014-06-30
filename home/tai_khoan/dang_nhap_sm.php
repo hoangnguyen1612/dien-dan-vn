@@ -43,7 +43,7 @@ try{
 	}
 	
 	$url = $_SERVER['HTTP_REFERER'];
-	throw new Exception('Đăng nhập thành công', 30);
+	throw new Exception('', 30);
 }catch(Exception $e)
 {
 	throwMessage($e, $url);

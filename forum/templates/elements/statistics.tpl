@@ -55,6 +55,7 @@ function submitChat(){
 	}
 	xmlhttp.open('GET',"/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/trang_chu/insert?msg="+ msg,true);
 	xmlhttp.send();
+	$("#chat-text").val("");
 }
 </script>
 <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
@@ -111,11 +112,11 @@ function submitChat(){
                 	<table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
                     <thead>
                     	<tr>
-                    		<th class="footable-first-column" data-hide="phone" style="color:#8C8C8C;border-radius:0px"><i class="icon-comments-alt" style="color:#8C8C8C"></i>
+                    		<th class="footable-first-column" data-hide="phone" style="color:black;border-radius:0px"><i class="icon-comments-alt" style="color:black"></i>
                             	CHAT BOX
                         	</th>
-                            <th data-hide="phone" style="color:#8C8C8C;border-radius:0px;width:250px"><i class="icon-user" style="color:#8C8C8C"></i>
-                            	Danh sách người online
+                            <th data-hide="phone" style="color:black;border-radius:0px;width:250px"><i class="icon-user" style="color:black"></i>
+                            	Danh sách trực tuyến
                         	</th>
                         </tr>
                     </thead>
@@ -126,7 +127,7 @@ function submitChat(){
                     	{if isset($ds_online)}
                     	{foreach $ds_online as $online}
                     	<div style="overflow:auto">
-                        	<i class="icon-smile" style="color:orangered"></i>
+                        	<i class="icon-smile" style="color:#3c763d"></i>
                         	{$online.ho_nguoi_dung} {$online.ten_nguoi_dung}
                         </div>
                         {/foreach}
@@ -138,8 +139,8 @@ function submitChat(){
                     
                     </tbody>
                		</table>
-                    <input type="text" name="msg"  style="margin-left:5px; width:42%" placeholder="Nhập nội dung hội thoại trong diễn đàn..." onKeyDown="if(event.keyCode==13) submitChat();" />
-                    <a href="#" onclick="submitChat()" class="btn" style="margin-top:-11px;margin-left:2px">Gửi</a>                
+                    <input type="text" name="msg"  style="margin-left:5px; width:42%" placeholder="Nhập nội dung hội thoại trong diễn đàn..." onKeyDown="if(event.keyCode==13) submitChat();" id="chat-text" />
+                    <a href="#tabs-2" onclick="submitChat()" class="btn" style="margin-top:-11px;margin-left:2px">Gửi</a>                
                 </form>
                 </div>
                

@@ -1,40 +1,21 @@
-<section class="social-top">
-  <div class="pull-right"> <a title="" data-original-title="Google+" href="http://www.sitesplat.com/demo/phpBB3/index.php#1"><i class="icon-google-plus-sign icon-large google-plus-color"></i></a> <a title="" data-original-title="Github" href="http://www.sitesplat.com/demo/phpBB3/index.php#2"><i class="icon-github-sign icon-large github-color"> </i></a> <a title="" data-original-title="Pinterest" href="http://www.sitesplat.com/demo/phpBB3/index.php#4"><i class="icon-pinterest-sign icon-large pinterest-color"> </i></a> <a title="" data-original-title="Facebook" href="http://www.sitesplat.com/demo/phpBB3/index.php#5"><i class="icon-facebook-sign icon-large facebook-color"> </i></a> <a title="" data-original-title="Twitter" href="http://www.sitesplat.com/demo/phpBB3/index.php#6"><i class="icon-twitter-sign icon-large twitter-color"> </i></a> <a title="" data-original-title="rss" href="http://www.sitesplat.com/demo/phpBB3/feed.php"><i class="icon-rss-sign icon-large rss-color"> </i></a> </div>
-</section>
 <header class="header" role="banner"> <!-- Header block -->
   <div class="topArea"> <!-- Logo block -->
     <div class="leftArea">
-      <div class="logo-transition"> <a class="logo" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="" data-original-title="" style="text-transform:uppercase;font-size:28px"><span>{$dien_dan.ten[0]}</span>{$dien_dan.ten|substr:1:strlen($dien_dan.ten)}</a> </div>
+      <div class="logo-transition"> <a class="logo" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="" data-original-title="" style="text-transform:uppercase;font-size:28px"><span>{$dien_dan.ten[0]}</span><span class="text-color">{$dien_dan.ten|substr:1:strlen($dien_dan.ten)}</span></a> </div>
       <p class="site-info">{$dien_dan.slogan}&nbsp;<i class="icon-umbrella icon-large"></i></p>
       <div class="clearfix"></div>
     </div>
     <nav class="mainnav" role="navigation" aria-label="Primary"><!-- Main navigation block -->
       <ul>
-        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" data-original-title="" title="">TRANG CHỦ<span class="has-sub"><i class="icon-home"></i></span></a>
-          <p>{$dien_dan.ten}</p>
-          <!--<ul class="submenu">
-            <li><a href="./elements.php?sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-magic"></i> Bootstrap Elements</a><span></span></li>
-            <li><a href="./faq.php?sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-question-sign"></i> FAQ</a><span></span></li>
-            <li><a href="./memberlist.php?mode=leaders&amp;sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-group"></i> The team</a></li>
-          </ul> -->
-        </li>
+        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" data-original-title="" title="" style="color:#00c08b">TRANG CHỦ<span class="has-sub"><i class="icon-home"></i></span></a></li>
        
-        <li class="nav-icon"> <a href="#" data-original-title="" title="">TÌM KIẾM <span class="has-sub"><i class="icon-search icon-flip-horizontal"></i></span></a>
-          <p>Tìm kiếm nâng cao</p>
-          <ul class="submenu">
-            <li><a href="./search.php?sid=bd17d981b9b4204315ed142a9491085e" data-original-title="" title=""><i class="icon-search icon-flip-horizontal"></i> Tìm theo tên</a><span></span></li>
-            <li><a href="#" data-original-title="" title=""><i class="icon-search icon-flip-horizontal"></i> Tìm kiếm theo thời gian</a><span></span></li>
-            <li><a href="#" data-original-title="" title=""><i class="icon-search icon-flip-horizontal"></i> Tìm kiếm theo chủ đề</a><span></span></li>
-          </ul>
+        <li class="nav-icon"> <a href="#" data-original-title="" title="" style="color:#ea5080">NỘI QUY <span class="has-sub"><i class="icon-search icon-flip-horizontal"></i></span></a>
+        <p>Quy định của diễn đàn</p>
         </li>
-        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/danh_sach" data-original-title="" title="">CHỨC NĂNG <span class="has-sub"><i class="icon-signin"></i></span></a>
-          <p>Một số tính năng của diễn đàn</p>
-          <ul class = "submenu">
-          <li><a href="/{$dien_dan.ma}/bai_viet/danh_sach_theo_loai?loai=0" data-original-title="" title=""><i class="icon-search"></i> Cách tính điểm thành viên trong diễn đàn</a><span></span>
-          </li>
-          </ul>
+        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/danh_sach" data-original-title="" title="" style="color:#53bfe2">THÀNH VIÊN <span class="has-sub"><i class="icon-signin"></i></span></a>
+          <p>Danh sách thành viên</p>
         </li>
-        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/phan_hoi/them" data-original-title="" title="">PHẢN HỒI <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
+        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/phan_hoi/them" data-original-title="" title="" style="color:#f8c54d">PHẢN HỒI <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
           <p>Gửi thông tin phản hồi</p>
         </li>
       </ul>
