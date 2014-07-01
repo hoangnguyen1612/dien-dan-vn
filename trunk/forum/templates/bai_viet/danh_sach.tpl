@@ -255,7 +255,7 @@
         </div>
       </div>
       <div class="row-fluid">
-        <div class="pull-left"> <a href="./index.php" accesskey="r" data-original-title="" title="">Trở về đầu trang</a> </div>
+        <div class="pull-left"> <a href="#" accesskey="r" data-original-title="" title="">Trở về đầu trang</a> </div>
       </div>
     </div>
     <div class="row-fluid">
@@ -328,8 +328,11 @@
     </div>
     <div class="side-segment">
       <h3>Ai đang online</h3>
-    </div>
-    <p><small>Users browsing this forum: No registered users and 1 guest</small></p>
+    </div>{if isset($so_luong_online) && isset($ds_online)}
+    <p><small>Tổng số {$so_luong_online} thành viên đang online : {foreach $ds_online as $online} {$online.ten_nguoi_dung} {/foreach}</small></p>
+    {else}
+    <p><small>Hiện không có ai đang online</small></p>
+    {/if}
     <!--  change the attribute "none" to "block" to display the forum permission -->
     <div style="display:none;">
       <div class="side-segment">
