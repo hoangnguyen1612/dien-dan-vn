@@ -1,7 +1,7 @@
 <div id="page-body">
   <main role="main">
     <div class="side-segment">
-      <h3><a href="#" data-original-title="" title="">Số lượng bài viết tìm kiếm : {$tong_so_bai_viet}</a></h3>
+      <h3>Số lượng bài viết tìm kiếm : <span style="color:crimson">{$tong_so_bai_viet}</span></h3>
     </div>
     <div> 
       <!-- NOTE: remove the style="display: none" when you want to have the forum description on the forum body -->
@@ -46,7 +46,7 @@
       <tbody>
       {if $ds_bai_viet == NULL}
       <tr>
-        <td>Danh sách tìm kiếm bài viết tìm thấy : {$tong_so_bai_viet}</td>
+        <td>Danh sách tìm kiếm bài viết tìm thấy : <span style="color:crimson">{$tong_so_bai_viet}</span></td>
       </tr>
       {/if}
       {foreach $ds_bai_viet as $bai_viet}
@@ -196,7 +196,11 @@
     <div class="side-segment">
       <h3>Ai đang online</h3>
     </div>
-    <p><small>Users browsing this forum: No registered users and 1 guest</small></p>
+   {if isset($so_luong_online) && isset($ds_online)}
+    <p><small>Tổng số {$so_luong_online} thành viên đang online : {foreach $ds_online as $online} {$online.ten_nguoi_dung} {/foreach}</small></p>
+    {else}
+    <p><small>Hiện không có ai đang online</small></p>
+    {/if}
     <!--  change the attribute "none" to "block" to display the forum permission -->
     <div style="display:none;">
       <div class="side-segment">

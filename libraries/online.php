@@ -1,4 +1,4 @@
-<?php
+  <?php
 $time = time();
 $time_check = time()-600; // 10 phút
 $sql="SELECT * FROM online WHERE ma_dien_dan=:ma_dien_dan and ma_nguoi_dung=:ma_nguoi_dung";
@@ -19,6 +19,7 @@ $sql3="SELECT online.*,(Select ho from nguoi_dung where nguoi_dung.ma = online.m
 $sth = $dbh->prepare($sql3);
 $sth->execute(array('ma_dien_dan'=>$ma_dien_dan));
 $ds_online = $sth->fetchAll(PDO::FETCH_ASSOC);
+$so_luong_online = $sth->rowCount();
 //Nếu quá 10 phút, xóa bỏ session
 $sql4="DELETE FROM online WHERE thoi_gian<$time_check";
 $sth = $dbh->prepare($sql4);

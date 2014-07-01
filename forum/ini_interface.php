@@ -21,5 +21,7 @@
 	if(isset($ds_online)){
 		$dt_smarty->assign('ds_online', $ds_online);
 	}
-		
+	if(isset($so_luong_online)){
+		$dt_smarty->assign('so_luong_online', $so_luong_online);
+	}
 		
