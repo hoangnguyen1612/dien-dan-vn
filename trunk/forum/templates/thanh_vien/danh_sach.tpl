@@ -91,7 +91,7 @@
                     {in_loai_chuyen_muc  ds_lcm=$ds_chuyen_muc ma=0 kitu='='}
                     
                 </select>
-            <button type="submit" class="btn">Đi</button>
+            <button type="submit" class="btn" style="margin-bottom: 10px;">Đi</button>
           </fieldset>
         </form>
       </div>

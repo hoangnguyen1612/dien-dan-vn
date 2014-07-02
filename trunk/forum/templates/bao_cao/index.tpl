@@ -14,7 +14,7 @@
               <label class="control-label" for="reason_id">Lý do:</label>
               <div class="controls controls-row">
                 <div class="selector">
-                  <select class="selectpicker" name="noi_dung" id="reason_id" data-original-title="" title="" style="display: none;">
+                  <select class="selectpicker" name="noi_dung" id="reason_id" data-original-title="" title="">
                     <option value="Bài viết có chứa link độc hại.">Bài viết có chứa link độc hại.</option>
                     <option value="Báo cáo bài viết vi phạm bản quyền của người khác.">Báo cáo bài viết vi phạm bản quyền của người khác.</option>
                     <option value="Bình luận sai thông tin.">Bình luận sai thông tin.</option>
