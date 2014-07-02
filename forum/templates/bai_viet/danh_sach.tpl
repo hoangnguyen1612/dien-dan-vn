@@ -259,72 +259,7 @@
       </div>
     </div>
     <div class="row-fluid">
-      <form method="post" action="./viewforum.php?f=2">
-        <fieldset>
-          <div class="row-fluid hidden-phone"> 
-            <!-- // Column -->
-            <div class="span12">
-              <div class="widget-collapsible">
-                <div class="sorting widget-content collapse">
-                  <div class="widget-body-text">
-                    <div class="controls controls-row">
-                      <div class="span4">
-                        <label class="control-label" for="bday_day">Hiển thị:</label>
-                        <div class="controls">
-                          <div class="selector">
-                            <select class="selectpicker" data-width="120px" data-container="body" name="st" id="st" data-original-title="" title="" style="display: none;">
-                              <option value="0" selected="selected">Tất cả Bài viết</option>
-                              <option value="1">1 ngày</option>
-                              <option value="7">7 ngày</option>
-                              <option value="14">2 tuần</option>
-                              <option value="30">1 tháng</option>
-                              <option value="90">3 tháng</option>
-                              <option value="180">6 tháng</option>
-                              <option value="365">1 năm</option>
-                            </select>
-                            
-                          </div>
-                        </div>
-                      </div>
-                      <div class="span4">
-                        <label class="control-label" for="bday_day">Sắp xếp theo</label>
-                        <div class="controls">
-                          <div class="selector">
-                            <select class="selectpicker" data-width="120px" data-container="body" name="sk" id="sk" data-original-title="" title="" style="display: none;">
-                              <option value="a">Tác giả</option>
-                              <option value="t" selected="selected">Thời gian đăng bài</option>
-                              <option value="r">Trả lời</option>
-                              <option value="v">Lượt xem</option>
-                            </select>
-                            
-                          </div>
-                        </div>
-                      </div>
-                      <div class="span4">
-                        <label class="control-label" for="bday_day">Sắp xếp theo</label>
-                        <div class="controls">
-                          <div class="input-append">
-                            <div class="selector">
-                              <select class="selectpicker" data-width="120px" data-container="body" name="sd" id="sd" data-original-title="" title="" style="display: none;">
-                                <option value="a">Tăng dần</option>
-                                <option value="d" selected="selected">Giảm dần</option>
-                              </select>
-                              
-                            </div>
-                            <button class="btn" name="sort" type="submit">Đi</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- // Widget --> 
-            </div>
-            <!-- // Column --><!-- // Column --> 
-          </div>
-        </fieldset>
-      </form>
+      
     </div>
     <div class="side-segment">
       <h3>Ai đang online</h3>

@@ -291,80 +291,23 @@ $(document).ready(function(){
                     {in_loai_chuyen_muc  ds_lcm=$ds_chuyen_muc ma=0 kitu='='}
                     
                 </select>	
-            <button type="submit" class="btn">Đi</button>
+            <button type="submit" class="btn" style="margin-bottom: 10px;">Đi</button>
           </fieldset>
         </form>
       </div>
     </div>
     <div class="row-fluid">
-      <div class="pull-left"> <a href="./viewforum.php?f=2" accesskey="r" data-original-title="" title="">Return to Your first forum</a> </div>
+      <div class="pull-left"> <a href="#" accesskey="r" data-original-title="" title="">Trở về đầu trang</a> </div>
     </div>
-    <form id="viewtopic" method="post" action="./viewtopic.php?f=2&amp;t=15">
-      <fieldset>
-        <div class="row-fluid hidden-phone"> 
-          <!-- // Column -->
-          <div class="span12">
-            <div class="widget-collapsible">
-              <div class="sorting widget-content in collapse" style="height: auto;">
-                <div class="widget-body-text">
-                  <div class="controls controls-row">
-                    <div class="span4">
-                      <label class="control-label" for="bday_day">Hiển thị:</label>
-                      <div class="controls">
-                        <div class="selector">
-                          <select class="selectpicker" data-width="120px" data-container="body" name="st" id="st" data-original-title="" title="" style="display: none;">
-                            <option value="0" selected="selected">Tất cả bài viết</option>
-                            <option value="1">1 day</option>
-                            <option value="7">7 days</option>
-                            <option value="14">2 weeks</option>
-                            <option value="30">1 month</option>
-                            <option value="90">3 months</option>
-                            <option value="180">6 months</option>
-                            <option value="365">1 year</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="span4">
-                      <label class="control-label" for="bday_day">Sắp xếp theo </label>
-                      <div class="controls">
-                        <div class="selector">
-                          <select class="selectpicker" data-width="120px" data-container="body" name="sk" id="sk" data-original-title="" title="" style="display: none;">
-                            <option value="a">Tác giả</option>
-                            <option value="t" selected="selected">Thời gian đăng bài</option>
-                            <option value="s">Tiêu đề</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="span4">
-                      <label class="control-label" for="bday_day">Sắp xếp theo</label>
-                      <div class="controls">
-                        <div class="input-append">
-                          <div class="selector">
-                            <select class="selectpicker" data-width="120px" data-container="body" name="sd" id="sd" data-original-title="" title="" style="display: none;">
-                              <option value="a" selected="selected">Tăng dần</option>
-                              <option value="d">Giảm dần</option>
-                            </select>
-                          </div>
-                          <button class="btn" name="sort" type="submit" style="margin-bottom: 10px;">Đi</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- // Widget --> 
-          </div>
-          <!-- // Column --><!-- // Column --> 
-        </div>
-      </fieldset>
-    </form>
+   
     <div class="side-segment">
       <h3><a href="./viewonline.php" data-original-title="" title="">Ai đang online</a></h3>
     </div>
-    <p><small>Số thành viên:10 <a href="./memberlist.php?mode=viewprofile&amp;u=114" data-original-title="" title="">hung</a> and 9 guests</small></p>
+   {if isset($so_luong_online) && isset($ds_online)}
+    <p><small>Tổng số {$so_luong_online} thành viên đang online : {foreach $ds_online as $online} {$online.ten_nguoi_dung} {/foreach}</small></p>
+    {else}
+    <p><small>Hiện không có ai đang online</small></p>
+    {/if}
   </main>
 </div>
 <script type="text/javascript">

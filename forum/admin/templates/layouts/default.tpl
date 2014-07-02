@@ -124,6 +124,11 @@ function inputNumber(e)
             <li><a href="../loai_chuyen_muc/danh_sach.php" id="loai_chuyen_muc_danh_sach.php">Xem Danh Sách</a></li>
           </ul>
         </li>
+        <li><a class="nav-top-item" href="#" id="loai_chuyen_muc">Màu sắc menu</a>
+          <ul>
+            <li><a href="../cau_hinh/danh_sach.php" id="loai_chuyen_muc_danh_sach.php">Xem Danh Sách</a></li>
+          </ul>
+        </li>
       </ul>
       <script>
 					var url = window.location.href;
