@@ -128,7 +128,7 @@ onload_functions.push('apply_onkeypress_event()');
         <fieldset>
           <div class="control-group">
             <label class="control-label" for="fileupload">Tên file:</label>   
-                <input type="file" value="" name="file">
+                <input type="file" value="" name="file"> <span style="color:red">*File upload không quá 5MB*</span>
              
          </div>
           <div class="control-group">
