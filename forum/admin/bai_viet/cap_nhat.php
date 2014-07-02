@@ -3,6 +3,7 @@ try{
 	include '../ini.php';
 	include '../../classes/xl_san_pham.php';
 	include '../../classes/xl_loai_san_pham.php';
+	quan_tri('bai_viet_cap_nhat');
 	if(empty($_GET['ma'])){
 		$_SESSION['msg']='Vui lòng nhập mã sản phẩm ';
 		$_SESSION['style_msg'] = 'notification error png_bg';

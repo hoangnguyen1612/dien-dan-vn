@@ -1,6 +1,6 @@
 <?php
 try{
-
+	
 	require '../ini.php';
 
 	require '../classes/xl_feedback_bai_viet.php';
@@ -21,13 +21,14 @@ try{
 	$ma_bai_viet = $_GET['ma_bai_viet'];
 	
 	$xl_bai_viet = new xl_bai_viet;
-
+		
 	if(!$xl_bai_viet->doc(array('ma'=>$ma_bai_viet, 'ma_dien_dan'=>$ma_dien_dan)))
 	{
 		echo 'Mã bài_viết không hợp lệ';exit;
 	}
 	
 	$bai_viet_thich = $xl_feedback_bai_viet->doc(array('ma_bai_viet'=>$ma_bai_viet,'ma_nguoi_dung'=>$ma_nguoi_dung),'ma');
+	
 	if($bai_viet_thich == NULL){		
 		$xl_feedback_bai_viet->them(array('ma_bai_viet'=>$ma_bai_viet, 'ngay_tao'=>date('Y-m-d H:i:s'), 'ma_nguoi_dung'=>$ma_nguoi_dung));	
 		cong_like_bai_viet($ma_bai_viet);

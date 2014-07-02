@@ -5,12 +5,12 @@ $(document).ready(function(){
     $.get("/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/binh_luan/feedback",{ ma_binh_luan : "{$binh_luan_cha.ma}" },function(data,status){
 	
 	  var arr = data.split("~");	
-	  if(arr[0] == 'like'){
+	  if($.trim(arr[0]) =='like'){
 		  	$(".so_luong_thich_binh_luan{$binh_luan_cha.ma}").html(arr[1]);
 		 	$(".thich-binh-luan{$binh_luan_cha.ma}").css('color','crimson');
 			  
 	  }
-	  if(arr[0] == 'dislike'){
+	  if($.trim(arr[0]) == 'dislike'){
 		  	$(".so_luong_thich_binh_luan{$binh_luan_cha.ma}").html(arr[1]);
 		    $(".thich-binh-luan{$binh_luan_cha.ma}").css('color','black');
 	  }
@@ -80,7 +80,7 @@ $(document).ready(function(){
                     <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}{$binh_luan_cha.ma_nguoi_dung}" data-original-title="Trả lời bài viết"><i class="icon-comment"></i></a></li>
                   
                      {else}
-                        	<li><span class="so_luong_thich_bai_viet">{$binh_luan_cha.thich}</span> <a class="like btn btn-mini" data- data-original-title="Lượt thích" onclick="return false"><i class="icon-thumbs-up-alt thich-bai-viet" style="color:black;font-size:1.2em;cursor:pointer"></i></a></li>
+                        	<li><span class="so_luong_thich_binh_luan{$binh_luan_cha.ma}">{$binh_luan_cha.thich}</span> <a class="btn btn-mini" data- data-original-title="Lượt thích" onclick="return false"><i class="icon-thumbs-up-alt thich-binh-luan{$binh_luan_cha.ma}" style="color:black;font-size:1.2em;"></i></a></li>
                       {/if}
                      <li><a class="btn btn-mini" data-toggle="collapse" data-target="#{$binh_luan_cha.ma}" data-original-title="Xem các trả lời"><i class="icon-comment"> <span class="badge badge-info">
                         {foreach $ds_binh_luan_con as $binh_luan_con}
@@ -141,12 +141,12 @@ $(document).ready(function(){
     $.get("/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/binh_luan/feedback",{ ma_binh_luan : "{$binh_luan_con.ma}" },function(data,status){
 
 	  var arr = data.split("~");	
-	  if(arr[0] == 'like'){
+	  if($.trim(arr[0]) == 'like'){
 		  	$(".so_luong_thich_binh_luan{$binh_luan_con.ma}").html(arr[1]);
 		 	$(".thich-binh-luan{$binh_luan_con.ma}").css('color','crimson');
 			  
 	  }
-	  if(arr[0] == 'dislike'){
+	  if($.trim(arr[0]) == 'dislike'){
 		  	$(".so_luong_thich_binh_luan{$binh_luan_con.ma}").html(arr[1]);
 		    $(".thich-binh-luan{$binh_luan_con.ma}").css('color','black');
 	  }
@@ -202,7 +202,7 @@ $(document).ready(function(){
                     <li><a class="btn btn-mini" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bao_cao/them?ma={$binh_luan_con.ma}&loai=1" title="" data-original-title="Báo cáo bình luận" {if trang_thai_bao_cao_binh_luan($binh_luan_con.ma,$ma_nguoi_dung,$ma_dien_dan)!=NULL} onclick ="return false" {/if}><i class="icon-exclamation-sign"  {if trang_thai_bao_cao_binh_luan($binh_luan_con.ma,$ma_nguoi_dung,$ma_dien_dan)==NULL} style="color:black"{else}style="color:crimson"  {/if} ></i></a></li>
                      {if $ma_nguoi_dung == $binh_luan_con.ma_nguoi_dung}<li><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/binh_luan/cap_nhat?ma={$binh_luan_con.ma}" class="btn btn-mini" title="Chỉnh sửa bài viết"><i class="icon-pencil" style="color:black;font-size:1.2em;cursor:pointer"></i></a></li>{/if}
                    {else}
-                 		<li><span class="so_luong_thich_bai_viet">{$binh_luan_con.thich}</span> <a class="like btn btn-mini" data- data-original-title="Lượt thích" onclick="return false"><i class="icon-thumbs-up-alt thich-bai-viet" style="color:black;font-size:1.2em;cursor:pointer"></i></a></li>
+                 		<li><span class="so_luong_thich_binh_luan{$binh_luan_con.ma}">{$binh_luan_con.thich}</span> <a class="btn btn-mini" data- data-original-title="Lượt thích" onclick="return false"><i class="icon-thumbs-up-alt thich-binh-luan{$binh_luan_con.ma}" style="color:black;font-size:1.2em;"></i></a></li>
                   {/if}
                   </ul>
                   {else}

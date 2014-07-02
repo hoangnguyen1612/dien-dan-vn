@@ -25,13 +25,13 @@ try{
 	$dt_xl_bao_cao_bai_viet = new xl_bao_cao_bai_viet;
 	$dt_xl_bao_cao_binh_luan = new xl_bao_cao_binh_luan;
 	
-	$data['ngay_tao'] = date('Y-m-d H:i:s');
-	$data['ma_nguoi_bao_cao'] = $login['ma'];
-	$data['ma_dien_dan'] = $ma_dien_dan;
+	$data_baocao['ngay_tao'] = date('Y-m-d H:i:s');
+	$data_baocao['ma_nguoi_bao_cao'] = $login['ma'];
+	$data_baocao['ma_dien_dan'] = $ma_dien_dan;
 	if($_POST['noi_dung_khac'] != ''){
-		$data['noi_dung'] = $_POST['noi_dung_khac'];
+		$data_baocao['noi_dung'] = $_POST['noi_dung_khac'];
 	}else{
-		$data['noi_dung'] = $_POST['noi_dung'];
+		$data_baocao['noi_dung'] = $_POST['noi_dung'];
 	}
 
 	if($_POST['loai'] == 0){		
@@ -39,8 +39,8 @@ try{
 		if(!$dt_xl_bai_viet->doc(array('ma'=>$_POST['ma'],'ma_dien_dan'=>$ma_dien_dan))){
 			throw new Exception('Bài viết không tồn tại');
 		}
-		$data['ma_bai_viet'] = $_POST['ma'];
-		$dt_xl_bao_cao_bai_viet->them($data);	
+		$data_baocao['ma_bai_viet'] = $_POST['ma'];
+		$dt_xl_bao_cao_bai_viet->them($data_baocao);	
 		$ma_bai_viet = $_POST['ma'];
 	}
 	if($_POST['loai'] == 1){
@@ -48,9 +48,9 @@ try{
 		if($binh_luan == NULL){
 			throw new Exception('Bài bình luận không tồn tại');
 		}
-		$data['ma_binh_luan'] = $_POST['ma'];
+		$data_baocao['ma_binh_luan'] = $_POST['ma'];
 		
-		$dt_xl_bao_cao_binh_luan->them($data);
+		$dt_xl_bao_cao_binh_luan->them($data_baocao);
 		$ma_bai_viet = $binh_luan['ma_bai_viet'];
 	}
 
