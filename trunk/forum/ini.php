@@ -15,13 +15,18 @@
 	$sth = $dbh->prepare($sql);
 	$sth->execute(array('ma'=>$ma_dien_dan));
 	$ds_cau_hinh = $sth->fetchAll(PDO::FETCH_KEY_PAIR);
-	
+	if(isset($ds_cau_hinh['MAU_MENU'])){	
+		$mang_mau_sac = explode(',',$ds_cau_hinh['MAU_MENU']);
+	}
+	else{
+		$mang_mau_sac = array(0=>'red',1=>'blue',2=>'green',3=>'black');
+	}
 	$sql = 'Select * from tinh_diem';
 	$sth = $dbh->prepare($sql);
 	$sth->execute();
 	$ds_tinh_diem = $sth->fetch(PDO::FETCH_ASSOC);
 
-	
+
 	
 	$diem_bai_viet = $ds_tinh_diem['bai_viet'];
 	$diem_duoc_thich = $ds_tinh_diem['thich'];

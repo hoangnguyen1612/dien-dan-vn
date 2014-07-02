@@ -24,4 +24,8 @@
 	if(isset($so_luong_online)){
 		$dt_smarty->assign('so_luong_online', $so_luong_online);
 	}
+	if(isset($mang_mau_sac)){
+		$dt_smarty->assign('mang_mau_sac', $mang_mau_sac);
+	}
+	
 		
