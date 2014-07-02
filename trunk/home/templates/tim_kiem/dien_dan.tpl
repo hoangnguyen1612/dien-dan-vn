@@ -40,7 +40,7 @@
                  {foreach $danh_sach as $dien_dan}
                   <tr>
                    <td width="120px">
-                   	<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><img src="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" width="130" height="110" /></a>
+                   	<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><img src="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" width="100" height="80" /></a>
                    </td>
                    <td width="400px">
                    	<p class="header"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}">{$dien_dan.ten}</a></p>
@@ -69,8 +69,11 @@
 						font-size: 16px;
 					}
 					.search img{
-						box-shadow: 1px 1px 1px #ccc;
-						border-radius: 3px;
+						padding: 5px;
+						box-shadow: 0 0 14px #ccc;
+						border: 1px solid #f1f1f1;
+						border-radius: 50%;
+						margin-top: 5px;
 					}
                 </style>
 

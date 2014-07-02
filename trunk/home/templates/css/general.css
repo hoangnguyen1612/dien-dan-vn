@@ -248,3 +248,6 @@ h3.box-title{
 #mytable td{
 	margin-bottom: 5px;
 }
+.no-print{
+	display: none;
+}

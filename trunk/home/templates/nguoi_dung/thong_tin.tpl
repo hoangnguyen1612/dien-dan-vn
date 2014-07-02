@@ -13,32 +13,9 @@
             <div class="row" id="content-user">
               <div id="userphoto" onmouseover="document.getElementById('edit-image').style.display = 'block'"
                     onmouseout="document.getElementById('edit-image').style.display = 'none'"><img src="/home/upload/nguoi_dung/{$nguoi_dung.hinh_dai_dien}" alt="default avatar"> {if $login.ma = $nguoi_dung.ma}
-                <div id="edit-image" style="width:154px; display:none; background-color:#f1f1f1;height: 40px; position:absolute; top: 125px; opacity: 0.5">
+                <div id="edit-image" style="width:154px; display:none;height: 40px; position:absolute; top: 125px;">
                   <center>
-                    <a style="line-height: 40px; color:black" id="change" class="topopup" href="#change-image">Cập nhật</a> 
-                    <script type="text/javascript" src="/home/templates/js/script.js"></script>
-                    <link href="/home/templates/css/popup.css" rel="stylesheet" type="text/css">
-                    <div id="toPopup">
-                      <div class="close"></div>
-                      <span class="ecs_tooltip">Press Esc to close <span class="arrow"></span></span>
-                      <div id="popup_content"> <!--your content start-->
-                        <p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, 
-                          feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi 
-                          vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, 
-                          commodo Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque habitant morbi tristique 
-                          senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, 
-                          feugiat vitae, ultricies eget, tempor sit amet, ante. </p>
-                        <br />
-                        <p> Donec eu libero sit amet quam egestas semper. Aenean ultricies mi 
-                          vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, 
-                          commodo Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
-                        <p align="center"><a href="#" class="livebox">Click Here Trigger</a></p>
-                      </div>
-                      <!--your content end--> 
-                      
-                    </div>
-                    <div class="loader"></div>
-                    <div id="backgroundPopup"></div>
+                    <a style="line-height: 40px; color:#3c8dbc" id="change" class="topopup" href="#change-image">Cập nhật</a> 
                   </center>
                 </div>
                 {/if} </div>
@@ -64,8 +41,6 @@
                     <tr>
                       <td width="5%"><i class="fa fa-gift"></i></td>
                       <td class="field" width="30%">Ngày sinh</td>
-                      <link rel="stylesheet" type="text/css" href="/home/templates/js/ui-lightness/jquery-ui.css" />
-                      <script type="text/javascript" src="/home/templates/js/ui/jquery-ui.custom.js"></script> 
                       <script>
 						$(function() {
 							$( "#editbox_ngay_sinh" ).datepicker(
@@ -302,3 +277,142 @@ top: 38%;" width="30" />
 	font-weight: normal !important;
 }
 </style>
+
+<script type="text/javascript" src="/home/templates/js/script.js"></script>
+<script type="text/javascript" src="/home/templates/js/jquery.form.min.js"></script>
+<link href="/home/templates/css/popup.css" rel="stylesheet" type="text/css">
+<div id="toPopup" style="z-index:999999; width: 50%; left: 55%">
+<div class="close" style="opacity: 1"></div>
+<span class="ecs_tooltip" style="height: 24px">Đóng<span class="arrow"></span></span>
+<div id="popup_content"> <!--your content start-->
+<div id="change-image" class="form" style="width:100%;box-shadow: 1px 1px 1px #f1f1f1; top: 15% !important; background-color:#f1f1f1">
+  <div class="form-header" style="color:#3c8dbc; font-size: 18px; margin: auto; width:192px"> <i class="fa fa-picture-o"></i>&nbsp;&nbsp;Chỉnh Sửa Hình Ảnh</div>
+  <div id="content" style="padding: 10px">
+	<div id="upload-wrapper">
+	  <div align="center"> <span class="" style="font-size:15px">Các File hình ảnh: <span style="color:crimson">JPEG, JPG, PNG</span> và <span style="color:crimson">GIF</span>. <br />
+		Kích thước tối đa <span style="color:crimson">2 MB</span></span><br /><br />
+		<form action="/home/tai_khoan/upload.php" onSubmit="return false" method="post" enctype="multipart/form-data" id="MyUploadForm">
+		  <input name="ImageFile" id="imageInput" type="file" />
+		  <br />
+		  <input type="submit"  id="submit-btn" value="Tải Lên" class="btn btn-info" />
+		  <img src="/home/templates/images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Vui lòng đợi"/>
+		</form>
+		<div id="progressbox">
+		  <div id="progressbar"></div >
+		  <div id="statustxt" style="display:none;">0%</div>
+		</div>
+		<div id="output"></div>
+	  </div>
+	</div>
+  </div>
+</div>
+</div>
+<!--your content end--> 
+
+</div>
+<div class="loader"></div>
+<div id="backgroundPopup" style="z-index: 99999"></div>
+
+<script type="text/javascript">
+$(document).ready(function() { 
+	var progressbox     = $('#progressbox');
+	var progressbar     = $('#progressbar');
+	var statustxt       = $('#statustxt');
+	var completed       = '0%';
+	
+	var options = { 
+			target:   '#output',   // target element(s) to be updated with server response 
+			beforeSubmit:  beforeSubmit,  // pre-submit callback 
+			uploadProgress: OnProgress,
+			success:       afterSuccess,  // post-submit callback 
+			resetForm: true        // reset the form after successful submit 
+		}; 
+		
+	 $('#MyUploadForm').submit(function() {
+			$(this).ajaxSubmit(options);  			
+			// return false to prevent standard browser submit and page navigation 
+			return false; 
+		});
+	
+//when upload progresses	
+function OnProgress(event, position, total, percentComplete)
+{
+	//Progress bar
+	progressbar.width(percentComplete + '%') //update progressbar percent complete
+	statustxt.html(percentComplete + '%'); //update status text
+	if(percentComplete>50)
+		{
+			statustxt.css('color','#fff'); //change status text to white after 50%
+		}
+}
+
+//after succesful upload
+function afterSuccess()
+{
+	$('#submit-btn').show(); //hide submit button
+	$('#loading-img').hide(); //hide submit button
+
+}
+
+//function to check file size before uploading.
+function beforeSubmit(){
+    //check whether browser fully supports all File API
+   if (window.File && window.FileReader && window.FileList && window.Blob)
+	{
+
+		if( !$('#imageInput').val()) //check empty input filed
+		{
+			$("#output").html("<span style='color:crimson'>Vui lòng chọn hình ảnh để tải lên!</span>");
+			return false
+		}
+		
+		var fsize = $('#imageInput')[0].files[0].size; //get file size
+		var ftype = $('#imageInput')[0].files[0].type; // get file type
+		
+		//allow only valid image file types 
+		switch(ftype)
+        {
+            case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
+                break;
+            default:
+                $("#output").html("<b>"+ftype+"</b> File không hợp lệ!");
+				return false
+        }
+		
+		//Allowed file size is less than 1 MB (1048576)
+		if(fsize>2048576) 
+		{
+			$("#output").html("<b>"+bytesToSize(fsize) +"</b> File có kích thước trên 2Mb! <br />Vui lòng chọn File khác.");
+			return false
+		}
+		
+		//Progress bar
+		progressbox.show(); //show progressbar
+		progressbar.width(completed); //initial value 0% of progressbar
+		statustxt.html(completed); //set status text
+		statustxt.css('color','#000'); //initial color of status text
+
+				
+		$('#submit-btn').hide(); //hide submit button
+		$('#loading-img').show(); //hide submit button
+		$("#output").html("");  
+	}
+	else
+	{
+		//Output error to older unsupported browsers that doesn't support HTML5 File API
+		$("#output").html("Please upgrade your browser, because your current browser lacks some new features we need!");
+		return false;
+	}
+}
+
+//function to format bites bit.ly/19yoIPO
+function bytesToSize(bytes) {
+   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+   if (bytes == 0) return '0 Bytes';
+   var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+   return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+}
+
+}); 
+
+</script>

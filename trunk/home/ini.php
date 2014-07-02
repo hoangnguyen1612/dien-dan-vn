@@ -45,5 +45,12 @@
 		$dt_smarty->assign('thong_bao_moi', $thong_bao_moi);
 	}	
 	
+	$sql = 'select * from linh_vuc';
+	$sth = $dbh->prepare($sql);
+	$sth->execute();
+	$danh_sach_linh_vuc = $sth->fetchAll();
+	
+	
 	$dt_smarty->assign('login', $login);
 	$dt_smarty->assign('ds_dien_dan', $ds_dien_dan);
+	$dt_smarty->assign('danh_sach_linh_vuc', $danh_sach_linh_vuc);
