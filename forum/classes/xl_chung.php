@@ -140,6 +140,7 @@ class xl_chung{
 		$chuoi_dieu_kien.= ' 1';
 		
 		$sql = "UPDATE `{$this->bang}` SET {$chuoi} WHERE {$chuoi_dieu_kien} LIMIT 1";
+		
 
 		$sth = $dbh->prepare($sql);
 		return $sth->execute(array_merge($du_lieu, $dieu_kien));
