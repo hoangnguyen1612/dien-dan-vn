@@ -63,3 +63,4 @@
 
 <link rel="stylesheet" type="text/css" href="/home/templates/js/ui-lightness/jquery-ui.css" />
 <script type="text/javascript" src="/home/templates/js/ui/jquery-ui.custom.js"></script> 
+<script src="/home/templates/js/jquery.validate.min.js"></script>

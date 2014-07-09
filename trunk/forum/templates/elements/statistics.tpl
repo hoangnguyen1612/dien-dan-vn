@@ -93,7 +93,7 @@ function submitChat(){
               <div class="mainbox" id="tabs1">
                 <ul class="tabs" id="vietvbb_topstats_t">
            <li class="current"><span style="padding: 0px 8px;"><a href="#tabs-1">Bài mới</a></span></li>
-  			 <li><span style="padding: 0px 8px;"><a href="#tabs-2">Chat box</a></span></li>           
+  			 <li><span style="padding: 0px 8px;"><a href="#tabs-2">Trò chuyện</a></span></li>           
                 </ul>
                 <div id="tabs-1">
               		{if $ds_bai_viet_moi_nhat == NULL}
@@ -113,7 +113,7 @@ function submitChat(){
                     <thead>
                     	<tr>
                     		<th class="footable-first-column" data-hide="phone" style="color:black;border-radius:0px"><i class="icon-comments-alt" style="color:black"></i>
-                            	CHAT BOX
+                            	Trò chuyện
                         	</th>
                             <th data-hide="phone" style="color:black;border-radius:0px;width:250px"><i class="icon-user" style="color:black"></i>
                             	Danh sách trực tuyến

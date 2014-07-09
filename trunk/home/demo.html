@@ -103,13 +103,12 @@ head.ready(function() {
 		<li class="color-20"><a href="#" onClick="changeColor('xamnhat')" data-color="./styles/BBOOTS/theme/style20.css" title="" data-original-title="">Eternal Gray</a></li>
 	</ul>	
 </div>
-<input type="hidden" name="css" id="css" value="color-1">
-
+<input type="hidden" id="tam" value="color-1">
         <script>
 		function changeColor(color)
 		{
 			$("#color").attr("href", "/forum/templates/css/colors/"+color+".css");
-			$("#css").val(color);
+			$("#tam").val(color);
 		}
 </script>
 <div id="wrap" class="corners container"> 
@@ -117,59 +116,34 @@ head.ready(function() {
   <div id="content-forum">
     <div class="padding_0_40"> 
       <!-- include header.tpl --> 
-      <section class="social-top">
-  <div class="pull-right"> <a title="" data-original-title="Google+" href="#"><i class="icon-google-plus-sign icon-large google-plus-color"></i></a> <a title="" data-original-title="Github" href="#"><i class="icon-github-sign icon-large github-color"> </i></a> <a title="" data-original-title="Pinterest" href="#"><i class="icon-pinterest-sign icon-large pinterest-color"> </i></a> <a title="" data-original-title="Facebook" href="#"><i class="icon-facebook-sign icon-large facebook-color"> </i></a> <a title="" data-original-title="Twitter" href="#"><i class="icon-twitter-sign icon-large twitter-color"> </i></a> <a title="" data-original-title="rss" href="#"><i class="icon-rss-sign icon-large rss-color"> </i></a> </div>
-</section>
+      
 	  <header class="header" role="banner"> <!-- Header block -->
   <div class="topArea"> <!-- Logo block -->
     <div class="leftArea">
       <div class="logo-transition"> <a class="logo" href="./index.php?sid=bd17d981b9b4204315ed142a9491085e" title="" data-original-title=""><span>H</span>UTECH</a> </div>
-      <p class="site-info">Đại học Công Nghệ Tp.HCM <i class="icon-umbrella icon-large"></i></p>
+      <p class="site-info">Tri thức - Đạo đức - Sáng tạo <i class="icon-umbrella icon-large"></i></p>
       <div class="clearfix"></div>
     </div>
     <nav class="mainnav" role="navigation" aria-label="Primary"><!-- Main navigation block -->
       <ul>
-        <li class="nav-icon"> <a href="#" data-original-title="" title="">TRANG CHỦ <span class="has-sub"><i class="icon-home"></i></span></a>
-          <p>Hutech</p>
+        <li class="nav-icon"> <a href="#" data-original-title="" title="" style="color:#00c08b">TRANG CHỦ<span class="has-sub"><i class="icon-home"></i></span></a></li>
+        <li class="nav-icon"> <a href="#" data-original-title="" title="" style="color:#53bfe2">THÀNH VIÊN <span class="has-sub"><i class="icon-signin"></i></span></a>
+          <p>Danh sách thành viên</p>
         </li>
-        <li class="nav-icon"> <a href="#" data-original-title="" title="">BÀI VIẾT <span class="has-sub"><i class="icon-comments"></i></span></a>
-          <p>Tạo và xem bài viết</p>
-          <ul class="submenu">
-            <li><a href="#" data-original-title="" title=""><i class="icon-search"></i> Xem các bài viết chưa có bình luận</a><span></span></li>
-            <li><a href="#" data-original-title="" title=""><i class="icon-star"></i>Xem các bài viết được bình chọn nhiều</a><span></span></li>
-          </ul>
-        </li>
-        <li class="nav-icon"> <a href="#" data-original-title="" title="">TÌM KIẾM <span class="has-sub"><i class="icon-search icon-flip-horizontal"></i></span></a>
-          <p>Tìm kiếm nâng cao</p>
-          <ul class="submenu">
-            <li><a href="#" data-original-title="" title=""><i class="icon-search icon-flip-horizontal"></i> Tìm theo tên</a><span></span></li>
-            <li><a href="#" data-original-title="" title=""><i class="icon-search icon-flip-horizontal"></i> Tìm kiếm theo thời gian</a><span></span></li>
-            <li><a href="#" data-original-title="" title=""><i class="icon-search icon-flip-horizontal"></i> Tìm kiếm theo chủ đề</a><span></span></li>
-          </ul>
-        </li>
-        <li class="nav-icon"> <a href="#" data-original-title="" title="">THÀNH VIÊN <span class="has-sub"><i class="icon-signin"></i></span></a>
-          <p>Quản lý tài khoản</p>
-        </li>
-        <li class="nav-icon"> <a href="#" data-original-title="" title="">LIÊN HỆ <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
-          <p>Gửi liên hệ</p>
+        <li class="nav-icon"> <a href="#" data-original-title="" title="" style="color:#f8c54d">PHẢN HỒI <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
+          <p>Gửi thông tin phản hồi</p>
         </li>
       </ul>
-      <div id="navBtn" class="" data-toggle="collapse" data-target=".nav-collapse">MENU<i class="icon  icon-list"></i></div>
+      <div id="navBtn" class="" data-toggle="collapse" data-target=".nav-collapse">Thanh điều hướng<i class="icon  icon-list"></i></div>
     </nav>
     <!-- Main navigation block --><!-- Everything you want hidden at 940px or less, place within here -->
     <div id="nav-listen" class="nav-collapse collapse flexnav-show">
       <nav class="hidden-desktop hidden-tablet"> <!-- MOBILE Navigation block -->
         <ul class="flexnav">
-          <li><a href="" data-original-title="" title=""><i class="icon-thumbs-up"></i> Register</a></li>
-          <li><a href="" data-original-title="" title=""><i class="icon-question-sign"></i> FAQ</a></li>
-          <li><a href="" data-original-title="" title=""><i class="icon-group"></i> The team</a></li>
-          <li class="item-with-ul"> <a href="" data-original-title="" title=""><i class="icon-search"></i> Advanced search</a>
-            <ul class="collapse viewdetails">
-              <li><a href="" data-original-title="" title=""><i class="icon-search"></i> View unanswered posts</a></li>
-              <li><a href="" data-original-title="" title=""><i class="icon-star"></i> View active topics</a></li>
-            </ul>
-            <a class="touch-button" href="javascript:void(0);" data-toggle="collapse" data-target=".viewdetails" data-original-title="" title=""><i class="navicon icon-sort-down"></i></a> </li>
-        </ul>
+          <li><a href="" data-original-title="" title=""><i class="icon-home"></i> Trang chủ</a></li>
+          <li><a href="" data-original-title="" title=""><i class="icon-group"></i> Thành viên</a></li>
+          <li><a href="" data-original-title="" title=""><i class="icon-thumbs-up"></i> &nbsp;Phản hồi</a></li>
+         </ul> 
       </nav>
       <!-- MOBILE Navigation block --> 
     </div>
@@ -384,30 +358,6 @@ head.ready(function() {
     <div class="row-fluid">
     
     </div>
-    
-    <!-- Promo Box
-
-  <section class="promo-box">
-	<div class="row-fluid">
-	
-	<div class="pull-left">
-	<h2>About Us</h2>
-	<p>BBOOTS&#8482; Is The First And Only Responsive phpBB&reg; Unofficial HTML5/CSS3 Theme. Based On Bootstrap Framework Is Sure To AMAZE The phpBB Fan Club. </p> 
-	<p>It’s Clean And Crisp Design Looks AWESOME Across All Browsers And Devices. Granted. <i aria-hidden="true" class="custom-firefox"></i> <i aria-hidden="true" class="custom-chrome"></i> <i aria-hidden="true" class="custom-IE"></i> <i aria-hidden="true" class="custom-opera"></i> <i aria-hidden="true" class="custom-safari"></i></p>
-	</div>
-		<div class="promo-icon">
-		    <i class="custom-screen screen-pos"></i> 
-			<i class="custom-tablet laptop-pos"></i> 
-			<i class="custom-mobile mobile-pos"></i>
-		</div>
-	</div>
-  </section>
-  
-  <div class="space10"></div>
-	<div class="space10"></div>
-	  <div class="space10"></div>
-	  
- Promo Box  -->
     
     <div class="row-fluid">
       <div class="span12 statistics">

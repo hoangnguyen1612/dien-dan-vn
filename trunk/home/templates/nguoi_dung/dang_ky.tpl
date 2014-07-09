@@ -13,86 +13,75 @@
           <div class="box-body">
             <div class="row" style="margin-left: 50px">
               <!-- /.col (LEFT) -->
-                <div class="row pad"> {literal} 
+                <div class="row pad">
                   <script>
-						function validateEmail(email) { 
-							var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>	()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-							return re.test(email);
-						}
-
-						function kiem_tra()
-						{
-							var ho = document.getElementById("ho");
-							var ten = document.getElementById("ten");
-							var ngay_sinh = document.getElementById("ngay_sinh");
-							var email = document.getElementById("email");
-							var mat_khau = document.getElementById("mat_khau");
-							var re_mat_khau = document.getElementById("re_mat_khau");
-							
-							if(ho.value == '')
-							{
-								alert('Vui lòng nhập đầy đủ họ tên');
-								ho.focus();
-								return false;
-							}
-							if(ten.value == '')
-							{
-								alert('Vui lòng nhập đầy đủ họ tên');
-								ten.focus();
-								return false;
-							}
-							if(ngay_sinh.value == '')
-							{
-								alert('Vui lòng chọn ngày sinh');
-								ngay_sinh.focus();
-								return false;
-							}
-							if(email.value == '')
-							{
-								alert('Vui lòng nhập email');
-								email.focus();
-								return false;
-							}
-							if(validateEmail(email.value)==false)
-							{
-								alert('Địa chỉ email không hợp lệ');
-								email.select();
-								return false;
-							}
-							if(mat_khau.value == '')
-							{
-								alert('Vui lòng nhập mật khẩu');
-								mat_khau.focus();
-								return false;
-							}
-							if(re_mat_khau.value == '')
-							{
-								alert('Vui lòng nhập mật khẩu xác nhận');
-								re_mat_khau.focus();
-								return false;
-							}
-							if(re_mat_khau.value != mat_khau.value)
-							{
-								alert('Mật khẩu xác nhận và mật khẩu không trùng khớp');
-								re_mat_khau.select();
-								return false;
-							}
-							if(document.getElementById("check").value == 1)
-							{
-								alert('Địa chỉ Email này đã được sử dụng, vui lòng chọn một địa chỉ Email khác');
-								email.select();
-								return false;
-							}
-						}
-                 	</script> 
-                  {/literal}
+                  	$(document).ready(function(e) {
+                        var validator = $("#signup_form").validate({
+							 rules: { 
+									ho: {
+										required: true
+									},
+									ten: {
+										required: true
+									},
+									ngay_sinh: {
+										required: true
+									},
+									'data[email]': {
+										required: true,
+										email: true,
+										remote:{   //gọi AJAX tương tự $.ajax của jquery
+											url: "/home/tai_khoan/kiem_tra_email.php",// gọi đến trang kiểm tra username
+											type: "post",
+										}
+									},
+									'data[mat_khau]': {
+										required: true,
+										minlength: 6
+									},
+									'data[nhap_lai_mat_khau]': {
+										required: true,
+										equalTo: "#mat_khau" 
+									},
+								}, 
+								messages: { 
+									'data[ho]':{
+										required:" Vui lòng nhập họ",
+									},
+									'data[ten]':{
+										required:" Vui lòng nhập tên",
+									},
+									'data[ngay_sinh]':{
+										required:" Vui lòng nhập ngày sinh",
+									},
+									'data[email]':{
+										required:" Vui lòng nhập địa chỉ email",
+										email:" Địa chỉ email không hợp lệ",
+										remote:' Địa chỉ email này đã tồn tại, vui lòng chọn địa chỉ email khác'
+									},
+									'data[mat_khau]':{
+										required:" Vui lòng nhập mật khẩu",
+										minlength: " Mật khẩu phải có ít nhất 6 ký tự"
+									},
+									'data[nhap_lai_mat_khau]':{
+										required:" Vui lòng nhập mật khẩu xác nhận",
+										equalTo: ' Mật khẩu xác nhận không trùng khớp'
+									},
+								},
+								
+						})	
+                    });
+                  </script>
                   <form id="signup_form" style="text-align:left" method="post" action="dang_ky_sm.php" autocomplete="off">
                     <table style="width:100%">
                       <tr>
                         <td><label>Họ và Tên</label>
                           <span class="red">*</span><br />
                           <input class="required form-control" id="ho" style="width:50%; float:left; margin-right:1%" name="data[ho]" type="text" autofocus="autofocus" value="{$smarty.session.data.ho|default:''}" placeholder="Họ" />
-                          <input class="required form-control" id="ten" style="width:29%; float:left" name="data[ten]" type="text" autofocus="autofocus" value="{$smarty.session.data.ten|default:''}" placeholder="Tên" /></td>
+                          <input class="required form-control" id="ten" style="width:29%; float:left" name="data[ten]" type="text" autofocus="autofocus" value="{$smarty.session.data.ten|default:''}" placeholder="Tên" /><div class="clear"></div>
+                          <label for="ho" generated="true" class="error" style="display:none"></label>
+                          <label for="ten" generated="true" class="error" style="display:none"></label>
+                          </td>
                       </tr>
                       <tr>
                         <td>&nbsp;</td>
@@ -114,7 +103,24 @@
                       <tr>
                         <td><label>Ngày Sinh</label>
                           <span class="red">*</span><br />
-                          <input class="required form-control" name="data[ngay_sinh]" type="text" id="ngay_sinh" value="{$smarty.session.data.ngay_sinh|default:''}"/></td>
+                          <input class="required form-control" name="data[ngay_sinh]" type="text" id="ngay_sinh" value="{$smarty.session.data.ngay_sinh|default:''}"/>
+                          <label for="ngay_sinh" generated="true" class="error" style="display:none"></label>
+                          </td>
+                          <script>
+						$(function() {
+							$( "#ngay_sinh" ).datepicker(
+								{
+									changeMonth: true,
+									changeYear: true,
+									yearRange: '1950:2000',
+									dateFormat: "yy-mm-dd",
+									monthNamesShort: [ "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12" ],
+									dayNamesMin: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
+									defaultDate: '1990-01-01'
+								}
+							);
+						});
+					</script>
                       </tr>
                       <tr>
                         <td>&nbsp;</td>
@@ -122,30 +128,9 @@
                       <tr>
                         <td><label>Email</label>
                           <span class="red">*</span><br />
-                          <input  style="float:left" class="form-control" name="data[email]" type="text" id="email" value="{$smarty.session.data.email|default:''}" autocomplete="off" />
-                          <div id="loading" style="float:left; margin-left: 10px; margin-top: 4px; width: 25px; height: 25px"></div>
-                          <script>
-						  $("#email").change(function(){
-						  	if($("#email").val()!='')
-							{
-								$('#loading').html('<img src="/home/templates/images/loading.gif" width="25" height="25"/>');
-								$.get('kiem_tra_email.php?email=' + $('#email').val(), function(data){
-									if (data == 'yes') {
-										$('#loading').html('<img src="/home/templates/images/warning-icon.png"/>');
-										alert('Địa chỉ Email này đã được sử dụng, vui lòng chọn một địa chỉ Email khác');
-										document.getElementById("check").value = 1;
-									} else if (data == 'no') {
-										$('#loading').html('<img src="/home/templates/images/ok.png"/>');
-										document.getElementById("check").value = 0;
-									}
-								})
-							}
-							else
-							{
-								$('#loading').html('');
-							}
-						  });
-							</script></td>
+                          <input style="float:left" class="required form-control" name="data[email]" type="text" id="email" value="{$smarty.session.data.email|default:''}" />
+                          <label for="email" generated="true" class="error" style="display:none"></label>
+                          </td>
                       </tr>
                       <tr>
                         <td>&nbsp;</td>
@@ -153,7 +138,9 @@
                       <tr>
                         <td><label>Mật Khẩu</label>
                           <span class="red">*</span><br />
-                          <input class="required form-control" name="data[mat_khau]" type="password" id="mat_khau" /></td>
+                          <input id="mat_khau" class="required form-control" name="data[mat_khau]" type="password" />
+                          <label for="mat_khau" generated="true" class="error" style="display:none"></label>
+                          </td>
                       </tr>
                       <tr>
                         <td>&nbsp;</td>
@@ -163,6 +150,7 @@
                           <span class="red">*</span><br />
                           <input class="form-control" name="data[nhap_lai_mat_khau]" type="password" id="re_mat_khau" />
                           <input id="check" value="0" type="hidden" />
+                          <label for="re_mat_khau" generated="true" class="error" style="display:none"></label>
                           </td>
                       </tr>
                       <tr>
@@ -181,9 +169,9 @@
                         <td>&nbsp;</td>
                       </tr>
                       <tr>
-                        <td align="center"><input type="submit" value="Đăng Ký" class="btn btn-info" onclick="return kiem_tra()" />
+                        <td align="center"><input type="submit" value="Đăng Ký" class="btn custom warning" />
                           &nbsp;&nbsp;&nbsp;
-                          <input type="button" value="Thoát" class="btn btn-info" onclick="window.location.href='/'" /></td>
+                          <input type="button" value="Thoát" class="btn custom" onclick="window.location.href='/'" /></td>
                       </tr>
                     </table>
                   </form>

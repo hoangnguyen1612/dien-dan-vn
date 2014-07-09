@@ -1,7 +1,7 @@
 <?php
 try{
 	require '../ini.php';
-	
+debug($_POST);
 	$url = ''; 
 
 	$_SESSION['data'] = $_POST['data'];
