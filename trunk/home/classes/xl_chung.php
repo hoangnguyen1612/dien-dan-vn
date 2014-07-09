@@ -180,7 +180,6 @@ class xl_chung{
 		$sth = $dbh->prepare($chuoi_sl);
 		$sth->execute($du_lieu);
 		$sl = $sth->fetchColumn(0);
-		echo $sl;
 		return array($ds, $sl);
 	}
 	

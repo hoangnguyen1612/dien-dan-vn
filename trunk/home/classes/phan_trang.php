@@ -91,5 +91,52 @@ class phan_trang{
 		}
 		return $str;			  
 	}
+	function prev_and_next()
+	{
+		$str='';
+		$tenfile = $_SERVER['SCRIPT_NAME'];
+		$tenthamso = $_SERVER['QUERY_STRING'];
+		
+		$page = $this->tim_trang_hien_tai();
+		
+		$sotrang = $this->ceil_tong_so_trang();
+		
+		if($sotrang!=0)
+		{
+			$tenthamso = str_replace("&$this->tentrang=$page",'',$tenthamso);
+			$tenthamso = str_replace("$this->tentrang=$page",'',$tenthamso);
+			
+			if($tenthamso!='')
+				{
+					$tenthamso.="&";
+				}
+			if($page!=1)
+				$back = $page-1;
+			else
+				$back = $page;	
+			
+			if($page!=$sotrang)
+				$next = $page+1;
+			else
+				$next = $page;
+				
+			$vt_dau = max($page-2,1);
+			
+			$vt_sau = min($page+2,$sotrang);	
+					
+			if($page==1)
+				$str.= "<a class='btn btn-xs btn-primary disable'><i class='fa fa-caret-left'></i></a> ";
+			else
+				$str.= "<a href='$tenfile?$tenthamso"."page=$back' class='btn btn-xs btn-primary' title='Về trang trước'><i class='fa fa-caret-left'></i></a> ";
+			
+
+			if($vt_sau<$sotrang) $str.= '...';
+			if($page==$sotrang)
+				$str.="<a class='btn btn-xs btn-primary disable'><i class='fa fa-caret-right'></i></a> ";
+			else
+				$str.="<a class='btn btn-xs btn-primary' href='$tenfile?$tenthamso"."page=$next' title='Đến trang sau'><i class='fa fa-caret-right'></i></a> ";      
+		}
+		return $str;			  
+	}
 }
 ?>

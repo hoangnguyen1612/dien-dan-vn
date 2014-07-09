@@ -294,3 +294,7 @@ h3.box-title{
     -ms-box-shadow: 0 0 10px 5px #0b616b inset;
     -o-box-shadow: 0 0 10px 5px #0b616b inset; 
 }
+
+.table.table-mailbox td{
+	font-size: 14px;
+}
