@@ -87,7 +87,7 @@ if(isset($_POST))
 		//echo '</tr><tr>';
 		//echo '<td align="center"><img src="../upload/hinh_dai_dien/'.$ThumbPrefix.$NewImageName.'" alt="Resized Image"></td>';
 		echo '</tr>';
-		echo '<tr><td>Nếu muốn thay đổi, bạn hãy chọn lại hình ảnh ở trên</td></tr>';
+		echo '<tr><td style="color:#3c8dbc; text-align:center">Nếu muốn thay đổi, bạn hãy chọn lại hình ảnh ở trên!</td></tr>';
 		echo '</table>';
 
 		$_SESSION['login']['hinh_dai_dien'] = $NewImageName;

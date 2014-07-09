@@ -40,8 +40,8 @@
 					</script>
                     <div style="clear:both"></div>
                     <div style="margin-top:10px;">
-                    	<input type="submit" value="Gửi liên hệ" class="btn btn-info" onclick="return kt_lien_he()" />&nbsp;&nbsp;
-                        <input type="button" id="reset" value="Nhập lại" class="btn btn-info" />
+                    	<input type="submit" value="Gửi liên hệ" class="btn custom btn-info" onclick="return kt_lien_he()" />&nbsp;&nbsp;
+                        <input type="button" id="reset" value="Nhập lại" class="btn custom btn-info" />
                     </div>
                 </form>
                 <script>

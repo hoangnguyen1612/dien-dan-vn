@@ -294,7 +294,7 @@ top: 38%;" width="30" />
 		<form action="/home/tai_khoan/upload.php" onSubmit="return false" method="post" enctype="multipart/form-data" id="MyUploadForm">
 		  <input name="ImageFile" id="imageInput" type="file" />
 		  <br />
-		  <input type="submit"  id="submit-btn" value="Tải Lên" class="btn btn-info" />
+		  <input type="submit"  id="submit-btn" value="Tải Lên" class="btn btn-info" /><br />
 		  <img src="/home/templates/images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Vui lòng đợi"/>
 		</form>
 		<div id="progressbox">
