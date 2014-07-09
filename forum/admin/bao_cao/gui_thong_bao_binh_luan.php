@@ -4,7 +4,7 @@ try{
 	require '../../classes/xl_thong_bao.php';
 	require '../../classes/xl_thanh_vien_dien_dan.php';
 	require '../../classes/xl_binh_luan.php';
-
+	quan_tri('bao_cao_gui_thong_bao_binh_luan');
 	if(empty($_GET['ma_nguoi_bao_cao'])){
 		throw new Exception('Vui lòng nhập mã người báo cáo sai phạm');
 	}

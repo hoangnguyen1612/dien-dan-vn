@@ -188,7 +188,7 @@ class xl_chung{
 		$ds = $sth->fetchAll($dinh_dang);
 		
 		$chuoi_sl = "SELECT count(`ma`) {$chuoi} {$them_cau_truy_van}";
-		
+	
 	
 		$sth = $dbh->prepare($chuoi_sl);
 		$sth->execute($du_lieu);

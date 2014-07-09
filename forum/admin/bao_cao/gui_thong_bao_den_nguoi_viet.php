@@ -4,7 +4,7 @@ try{
 	require '../ini_interface.php';
 	require '../../classes/xl_thanh_vien_dien_dan.php';
 	require '../../classes/xl_bai_viet.php';
-	
+	quan_tri('bao_cao_gui_thong_bao_den_nguoi_viet');
 	if(empty($_GET['ma_nguoi_viet'])){
 		throw new Exception('Vui lòng nhập mã người viết bài sai phạm');
 	}

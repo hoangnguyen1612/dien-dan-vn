@@ -81,7 +81,45 @@
       
     </table>
     {/if}
-    
+    <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
+      <thead>
+        <tr>
+          <th data-class="expand" class="footable-first-column"><i class="icon-group"></i> Bài viết được đánh dấu</th>
+          <th data-hide="phone"><i class="icon-bar-chart"></i> Thống kê</th>
+         
+          <th data-hide="phone" class="footable-last-column"><i class="icon-comments-alt"></i> Bình luận mới</th>
+        </tr>
+      </thead>
+      <tbody>
+     	{if $ds_bai_viet_danh_dau != NULL}
+        {foreach $ds_bai_viet_danh_dau as $bai_viet_danh_dau}       	 	
+        <tr class="">
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style=" background-image: url(/forum/templates/images/icons/misc/0.gif) ; background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma=24" class="topictitle" data-original-title="" title=""><i class="icon-tag"></i> <span style="color:red">Chú ý :</span> {$bai_viet_danh_dau.tieu_de}</a>
+        {if $thanh_vien != ''  && ($thanh_vien.loai_thanh_vien == 0 || $thanh_vien.loai_thanh_vien == 1)}	
+        <a class="feed-icon-forum hidden-phone" title="Bỏ đánh dấu bài viết" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/trang_thai_danh_dau?ma={$bai_viet_danh_dau.ma}" data-original-title="Bình chọn diễn đàn">
+          <i class="icon-tag"></i></a>
+         {/if} 
+         <br>
+          <i class="icon-user"></i> bởi <a href="/29/sinh-vien-hutech/thanh_vien/thong_tin?ma_thanh_vien=EIG1dndwHsw7bbs" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet_danh_dau.ho_ten}</a>&nbsp;&nbsp; <i class="icon-time"></i> <small>{$bai_viet_danh_dau.ngay_tao}</small></td>
+        <td class="center">{$bai_viet_danh_dau.so_luong_binh_luan} Trả lời <br>
+          {$bai_viet_danh_dau.luot_xem} Lượt xem</td>
+        
+        
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/29/sinh-vien-hutech/thanh_vien/thong_tin?ma_thanh_vien=EIG1dndwHsw7bbs" data-original-title="" title="">{$bai_viet_danh_dau.ho_ten}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến Hùng" href="/29/sinh-vien-hutech/thanh_vien/thong_tin?ma_thanh_vien=EIG1dndwHsw7bbs"><i class="mobile-post icon-signout"></i></a> <br>
+          <i class="icon-time"></i> <small>{$bai_viet_danh_dau.ngay_tao}</small></td>
+      </tr>
+        {/foreach}
+        {else}
+        <tr>
+        <td>Chưa có bài viết nào được đánh dấu</td>
+        </tr>
+        
+        {/if}
+            	 	
+        	
+            </tbody>
+      
+    </table>
   
    
  
@@ -189,7 +227,12 @@
             {/if}
         {/if} 	
         	<tr class="">
-        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="{if $bai_viet.trang_thai == 0}background-image: url(/forum/templates/images/icons/misc/lock_closed.png){else} background-image: url(/forum/templates/images/icons/misc/{$bai_viet.icon}.gif) {/if}; background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma={$bai_viet.ma}" class="topictitle" data-original-title="" title="" {if $bai_viet.trang_thai == 0} style="text-decoration:line-through" {/if}>{$bai_viet.tieu_de|truncate:100:"..."}</a> <br>
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="{if $bai_viet.trang_thai == 0}background-image: url(/forum/templates/images/icons/misc/lock_closed.png){else} background-image: url(/forum/templates/images/icons/misc/{$bai_viet.icon}.gif) {/if}; background-repeat: no-repeat;" title="No unread posts"></i> <a href="./chi_tiet?ma={$bai_viet.ma}" class="topictitle" data-original-title="" title="" {if $bai_viet.trang_thai == 0} style="text-decoration:line-through" {/if}>{$bai_viet.tieu_de|truncate:100:"..."}</a>
+        {if $thanh_vien != ''  && ($thanh_vien.loai_thanh_vien == 0 || $thanh_vien.loai_thanh_vien == 1) && $bai_viet.stick == 0}	
+        <a class="feed-icon-forum hidden-phone" title="Đánh dấu bài viết" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/trang_thai_danh_dau?ma={$bai_viet.ma}" data-original-title="Bình chọn diễn đàn">
+          <i class="icon-tag"></i></a>
+         {/if} 
+          <br />
           <i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet.ho_ten}</a>&nbsp;&nbsp; <i class="icon-time"></i> <small>{date('H:i d-m-Y', strtotime($bai_viet.ngay_tao))}</small></td>
         <td class="center">{$bai_viet.so_luong_binh_luan} Trả lời <br>
           {$bai_viet.luot_xem} Lượt xem</td>

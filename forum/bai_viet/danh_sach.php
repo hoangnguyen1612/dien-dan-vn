@@ -53,11 +53,18 @@ try{
 	}else{
 	$ds_bai_viet_theo_loai = $dt_xl_bai_viet->danh_sach($start,$limit,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC',"bai_viet.*,(Select ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,'',true);
 	}
+	$ds_bai_viet_danh_dau = $dt_xl_bai_viet->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan,'stick'=>1,'ma_loai_chuyen_muc'=>$loai),'ngay_tao DESC','bai_viet.*,(Select ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan',PDO::FETCH_ASSOC,'',false);
+
+	
+	
 	$pt->tong_record = $ds_bai_viet_theo_loai[1];
 	$tong_so_trang = $pt->ceil_tong_so_trang();
 	$trang_hien_tai = $pt->tim_trang_hien_tai();
 
 	############Lấy ra danh sách các chuyên mục con ############
+	$dt_smarty->assign('ds_bai_viet_danh_dau',$ds_bai_viet_danh_dau);
+	
+	
 	$ds_chuyen_muc_con = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_loai_cha'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'thu_tu_hien_thi ASC','*',PDO::FETCH_ASSOC,'',false);
 	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','*',PDO::FETCH_ASSOC,'',false);
 	

@@ -3,6 +3,7 @@ try{
 	include("../ini.php");
 	require "../../classes/xl_bai_viet.php";
 	require '../../classes/xl_binh_luan.php';
+	quan_tri('bai_viet_xoa');
 	$dt_xl_binh_luan = new xl_binh_luan;
 	$dt_xl_bai_viet = new xl_bai_viet;
 	

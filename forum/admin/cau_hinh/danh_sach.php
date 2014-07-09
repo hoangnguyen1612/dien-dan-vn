@@ -3,7 +3,7 @@ try{
 	include '../ini.php';
 	include '../ini_interface.php';
 	require '../../classes/xl_cau_hinh.php';
-	
+	quan_tri('cau_hinh_danh_sach');
 	$xl_cau_hinh = new xl_cau_hinh;
 	
 	$mau_sac = $xl_cau_hinh->doc(array('tu_khoa'=>'MAU_MENU','ma_dien_dan'=>$ma_dien_dan));

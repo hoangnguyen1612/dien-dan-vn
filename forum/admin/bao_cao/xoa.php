@@ -3,7 +3,7 @@ try{
 	require '../ini.php';
 	require '../../classes/xl_bao_cao_bai_viet.php';
 	$dt_xl_bao_cao_bai_viet = new xl_bao_cao_bai_viet;
-	
+	quan_tri('bao_cao_xoa');
 	# Kiểm tra mã sữa
 	if(empty($_GET['ma'])){
 		throw new Exception('Vui lòng nhập mã báo cáo');	

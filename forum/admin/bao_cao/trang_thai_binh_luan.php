@@ -4,7 +4,7 @@ try{
 	require '../ini.php';
 	require '../../classes/xl_binh_luan.php';
 
-	#quan_tri('thanh_vien_cap_nhat');
+	quan_tri('bao_cao_cap_nhat_trang_thai_binh_luan');
 
 	$dt_xl_binh_luan = new xl_binh_luan;
 
