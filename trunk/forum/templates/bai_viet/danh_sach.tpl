@@ -22,7 +22,7 @@
         <div class="pagination pagination-small hidden-phone">
           <ul>
             <li class="active"><a data-original-title="" title="">{$tong_so_bai_viet} Bài viết</a></li>
-            <li><a data-original-title="" title="">Trang <strong>{$trang_hien_tai}</strong> trên <strong>{$tong_so_trang}</strong></a></li>
+            <li><a data-original-title="" title="">Trang <strong>{$trang_hien_tai}</strong> trên <strong>{if $tong_so_trang == 0} 1 {else} {$tong_so_trang} {/if}</strong></a></li>
             <li>{$bo_nut}</li>
           </ul>
         </div>
@@ -255,7 +255,7 @@
           <ul>
             <li><a title="" data-original-title="" href="javascript:void(0);" data-target=".sorting" data-toggle="collapse">Lựa chọn</a></li>
             <li class="active"><a data-original-title="" title="">{$tong_so_bai_viet} Bài viết</a></li>
-            <li><a data-original-title="" title="">Trang <strong>{$trang_hien_tai}</strong> trên <strong>{$tong_so_trang}</strong></a></li>
+            <li><a data-original-title="" title="">Trang <strong>{$trang_hien_tai}</strong> trên <strong>{if $tong_so_trang == 0} 1 {else} {$tong_so_trang} {/if}</strong></a></li>
             <li>{$bo_nut}</li>
           </ul>
         </div>
