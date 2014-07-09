@@ -8,10 +8,10 @@
                     <h3>Ưa thích</h3>
                   </div>
                   <ul class="navList">
-                    <li><a href="#" data-original-title="" title=""><i class="icon-home"></i> Trang chủ</a></li>
-                    <li><a href="#" data-original-title="" title=""><i class="icon-picture"></i> Bài viết</a></li>
-                    <li><a href="#" data-original-title="" title=""><i class="icon-group"></i> Thành viên</a></li>
-                    <li><a href="#" data-original-title="" title=""><i class="icon-comments"></i> Chat</a></li>
+                    <li><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/" data-original-title="" title=""><i class="icon-home"></i> Trang chủ</a></li>
+               
+                    <li><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/danh_sach" data-original-title="" title=""><i class="icon-group"></i> Thành viên</a></li>
+                    <li><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/phan_hoi/them" data-original-title="" title=""><i class="icon-comments"></i> Phản hồi</a></li>
                     <li><a href="#" data-original-title="" title=""><i class="icon-bar-chart"></i> Thống kê</a></li>
                    
                   </ul>

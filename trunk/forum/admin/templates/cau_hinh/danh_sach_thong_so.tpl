@@ -27,11 +27,11 @@
             </thead>
 		
 <tbody>
-				<tr>
+			<!--	<tr>
                 <td>Tên diễn đàn</td>
                 <td style="text-align:left"><input type="text" name="data[ten]" class="text-input small-input"  value="{$dien_dan.ten}" /><small class="admin_tieu_de" style="color:red">  (Việc thay đổi tên diễn đàn sẽ thay đổi đường link vào diễn đàn)</small></p></td>
                 </tr>
-                <tr>
+                <tr> -->
                 <td>Slogan</td>
                 <td style="text-align:left"><textarea type="text" name="data[slogan]" class="text-input textarea">{$dien_dan.slogan}</textarea></td>
                 </tr>
@@ -43,7 +43,7 @@
                 <td>Hình đại diện</td>
                 <td style="text-align:left"><input type="file" name="hinh_dai_dien" value="{$dien_dan.hinh_dai_dien}"  class="text-input small-input" /><img src="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" width="100" height="100" style="margin-bottom:-30px"/><small class="admin_tieu_de" style="color:red">(*.gif , *.jpg ,*.png &lt; 200kb)</small></p></td><br>
                 
-                </tr>
+              <!--  </tr>
                 <td>Lĩnh vực</td>
                 <td>
                 	<select class="selectpicker"  id="ma_chuyen_muc" name="data[ma_linh_vuc]">
@@ -63,7 +63,7 @@
                     
                 </select>
                 
-                </td>
+                </td> -->
            <tr><td colspan="2" align="center"><input type="submit" value="Cập nhật" class="button" style="margin-left:300px"/> </tr>                   
 			</tbody>			
 		  </table>
