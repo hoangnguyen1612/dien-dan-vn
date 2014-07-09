@@ -124,9 +124,10 @@ function inputNumber(e)
             <li><a href="../loai_chuyen_muc/danh_sach.php" id="loai_chuyen_muc_danh_sach.php">Xem Danh Sách</a></li>
           </ul>
         </li>
-        <li><a class="nav-top-item" href="#" id="loai_chuyen_muc">Màu sắc menu</a>
+        <li><a class="nav-top-item" href="#" id="loai_chuyen_muc">Cấu hình</a>
           <ul>
-            <li><a href="../cau_hinh/danh_sach.php" id="loai_chuyen_muc_danh_sach.php">Xem Danh Sách</a></li>
+            <li><a href="../cau_hinh/danh_sach.php" id="loai_chuyen_muc_danh_sach.php">Màu sắc Menu</a></li>
+            <li><a href="../cau_hinh/danh_sach_thong_so.php" id="loai_chuyen_muc_danh_sach.php">Thông số khác</a></li>
           </ul>
         </li>
       </ul>
