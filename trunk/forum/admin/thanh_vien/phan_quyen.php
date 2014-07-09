@@ -21,15 +21,15 @@ try{
 		throw new Exception('Lỗi! [Mã thành viên] không tồn tại trong diễn đàn, vui lòng thử lại');
 	}
 	
-	$thu_muc = array('thong_ke'=>'Thống kê', 'bai_viet'=>'Bài viết', 'loai_chuyen_muc'=>'Chuyên mục', 'cau_hinh'=>'Cấu hình', 'thanh_vien'=>'Thành viên', 'tinh_diem'=>'Tính điểm', 'cap_bac'=>'Cấp bậc thành viên');
+$thu_muc = array('thong_ke'=>'Thống kê', 'bai_viet'=>'Bài viết', 'loai_chuyen_muc'=>'Chuyên mục', 'cau_hinh'=>'Cấu hình', 'thanh_vien'=>'Thành viên','bao_cao'=>'Báo cáo','cau_hinh'=>'Cấu hình');
 	$thao_tac = array(
 		'thong_ke'=>array('tong_quat'=>'Tổng quát'),
 		'bai_viet'=>array('xoa'=>'Xóa', 'cap_nhat'=>'Cập nhật'),
 		'loai_chuyen_muc'=>array('danh_sach'=>'Danh sách', 'them'=>'Thêm', 'cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa'),
 		'cau_hinh'=>array('danh_sach'=>'Danh sách', 'them'=>'Thêm', 'cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa'),
 		'thanh_vien'=>array('danh_sach'=>'Danh sách', 'cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa', 'phan_quyen'=>'Phân quyền'),
-		'tinh_diem'=>array('cau_hinh'=>'Cấu hình'),
-		'cap_bac'=>array('cau_hinh'=>'Cấu hình', 'tong_quat'=>'Tổng quát')
+		'bao_cao'=>array('danh_sach_bai_viet'=>'Danh sách bài viết', 'danh_sach_binh_luan'=>'Danh sách bình luận','xoa'=>'Xóa','gui_thong_bao'=>'Gửi thông báo đến người viết báo cáo','gui_thong_bao_binh_luan'=>'Gửi thông báo đến người viết báo cáo bình luận','gui_thong_bao_den_nguoi_viet'=>'Gửi cảnh cáo đến người viết bài','gui_thong_bao_den_nguoi_viet_binh_luan'=>'Gửi cảnh cáo đến người bình luận','cap_nhat_trang_thai_bai_viet'=>'Cập nhật trạng thái bài viết','cap_nhat_trang_thai_binh_luan'=>'Cập nhật trạng thái bình luận','cap_nhat_tai_khoan'=>'Cập nhật trạng thái tài khoản'),
+		'cau_hinh'=>array('danh_sach'=>'Danh sách','cap_nhat_mau_sac'=>'Cập nhật màu sắc menu')
 	);
 	
 	$dt_smarty->assign('thu_muc', $thu_muc);

@@ -5,7 +5,7 @@ try{
 	require '../../classes/xl_thanh_vien_dien_dan.php';
 	require '../../classes/xl_thong_bao.php';
 
-	#quan_tri('thanh_vien_cap_nhat');
+	quan_tri('bao_cao_cap_nhat_tai_khoan');
 
 	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	$dt_xl_thong_bao = new xl_thong_bao;

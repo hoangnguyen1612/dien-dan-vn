@@ -2,9 +2,9 @@
 try{
 	
 	require '../ini.php';
-	require '../../classes/xl_bai_viet.php';
+	require '../classes/xl_bai_viet.php';
 
-	quan_tri('bao_cao_cap_nhat_trang_thai_bai_viet');
+	#quan_tri('thanh_vien_cap_nhat');
 
 	$dt_xl_bai_viet = new xl_bai_viet;
 
@@ -24,14 +24,15 @@ try{
 	
 	$ma_dien_dan = $dien_dan['ma'];
 	
-	$result = $dt_xl_bai_viet->cap_nhat_trang_thai_1('trang_thai',"ma = '{$_GET['ma']}'and ma_dien_dan = '$ma_dien_dan'");
+	$result = $dt_xl_bai_viet->cap_nhat_trang_thai_1('stick',"ma = '{$_GET['ma']}'and ma_dien_dan = '$ma_dien_dan'");
 	if($result === false){
 		throw new Exception('Lỗi trong quá trình lưu dữ liệu , vui lòng thử lại');
 	}
 	#Them thanh cong san pham
 	# Đóng kết nối
 	$dbh = NULL;
-	throw new Exception('Cập nhật thành công',30);	
+	header('Location:'.$_SERVER['HTTP_REFERER']);
+	exit;
 }catch (PDOException $e){
 
 	echo $e->getMessage();

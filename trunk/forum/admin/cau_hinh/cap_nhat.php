@@ -3,7 +3,7 @@ try{
 	include '../ini.php';
 	include '../../classes/xl_cau_hinh.php';
 	
-	quan_tri('cau_hinh_cap_nhat');
+	quan_tri('cau_hinh_cap_nhat_mau_sac');
 	
 	# gan mang? data cho bien $data
 

@@ -8,7 +8,7 @@ try{
 	require '../../classes/xl_thanh_vien_dien_dan.php';
 	require '../../classes/xl_bai_viet.php';
 
-	#quan_tri('bao_cao_danh_sach');
+	quan_tri('bao_cao_danh_sach_bai_viet');
 
 	$dt_xl_bao_cao_bai_viet = new xl_bao_cao_bai_viet;
 	$dt_xl_bao_cao_binh_luan = new xl_bao_cao_binh_luan;

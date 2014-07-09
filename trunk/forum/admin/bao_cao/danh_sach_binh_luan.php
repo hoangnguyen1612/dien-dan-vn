@@ -8,7 +8,7 @@ try{
 	require '../../classes/xl_binh_luan.php';
 
 
-	#quan_tri('bao_cao_danh_sach');
+	quan_tri('bao_cao_danh_sach_binh_luan');
 
 	$dt_xl_bao_cao_binh_luan = new xl_bao_cao_binh_luan;
 	
