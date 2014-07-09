@@ -18,9 +18,12 @@ try{
 	
 	shuffle($ds_dien_dan);
 
-	for($i=0; $i<7; $i++)
+	$n = count($ds_dien_dan);
+	if($n>7) $n = 7;
+
+	for($i=0; $i<$n; $i++)
 	{
-		$ten = $xl_dien_dan->doc(array('ma'=>$ds_dien_dan[$i], 'ten'));
+		$ten = $xl_dien_dan->doc(array('ma'=>$ds_dien_dan["$i"]), 'ten');
 		$title.= "'".$ten['ten']."',";
 		$so_luong_truy_cap.=$xl_bo_dem->dem(array('ma_dien_dan'=>$ds_dien_dan[$i]), 'ma', PDO::FETCH_ASSOC, " and '$from' <= thoi_gian AND thoi_gian <= '$to'").',';
 	}
@@ -35,6 +38,6 @@ try{
 	
 }catch(Exception $e)
 {
-	
+	throwMessage($e);
 }
 ?>
