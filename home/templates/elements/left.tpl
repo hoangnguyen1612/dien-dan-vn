@@ -58,7 +58,6 @@
       <li class="active"> <a href="index.html" style="background-color: #fff; box-shadow:0 0 14px #FFFFFF; color:#3c8dbc; text-transform:capitalize"> <i class="fa fa-globe"></i> <span style="">Cá nhân</span> </a> </li>
       {if $login!=''}
       <li> <a href="pages/widgets.html"> <i class="fa fa-user"></i> <span>Tài khoản</span> </a> </li>
-      <li> <a href="/thong_bao"> <i class="fa fa-envelope"></i> <span>Thông báo</span> </a> </li>
       <li class="treeview"> <a href="#"> <i class="fa fa-bar-chart-o"></i> <span>Diễn đàn</span> {if !empty($ds_dien_dan)}<i class="fa fa-angle-left pull-right"></i>{/if} </a> {if $ds_dien_dan != ''}
         <ul class="treeview-menu">
           {foreach $ds_dien_dan as $value}
@@ -66,6 +65,7 @@
           {/foreach}
         </ul>
         {/if} </li>
+      <li> <a href="/thong_bao"> <i class="fa fa-envelope"></i> <span>Thông báo</span> </a> </li>
       {/if}
     </ul>
   </section>
