@@ -13,29 +13,28 @@ try{
 
 	#Kiểm tra dữ liệu thô
 		#Kiểm tra dữ liệu bắt buộc phải có
-
-	if(empty($data['ten'])){
-		throw new Exception('Vui lòng nhập tên diễn đàn');
-	}
-	if(empty($data['slogan'])){
-		throw new Exception('Vui lòng nhập tên Slogan ');
-	}
-	if(empty($data['mo_ta'])){
-		throw new Exception('Vui lòng nhập mô tả');
-	}
-	if(!is_numeric($data['ma_linh_vuc'])){
-		throw new Exception('Vui lòng nhập lĩnh vực');
-	}
-	if($data['ma_linh_vuc'] == 0){
-		throw new Exception('Vui lòng nhập lĩnh vực con');
-	}
 	
-	$xl_linh_vuc = new xl_linh_vuc;
+	/*if(empty($data['ten'])){
+		throw new Exception('Vui lòng nhập tên diễn đàn');
+	} */
+
+	if(empty($data['slogan']) || strlen($data['slogan'])  < 10){
+		throw new Exception('Vui lòng nhập tên Slogan và độ dài ít nhất 10 kí tự ');
+	}
+	if(empty($data['mo_ta']) || strlen($data['mo_ta']) < 10){
+		throw new Exception('Vui lòng nhập mô tả và độ dài ít nhất 10 kí tự ');
+	}
+	/*if(!is_numeric($data['ma_linh_vuc'])){
+		throw new Exception('Vui lòng nhập lĩnh vực');
+	}*/
+
+	
+	/*$xl_linh_vuc = new xl_linh_vuc;
 	
 	$linh_vuc = $xl_linh_vuc->doc(array('ma'=>$data['ma_linh_vuc']));
 	if($linh_vuc == NULL){
 		throw new Exception('Lĩnh vực không tồn tại');
-	}
+	}*/
 	$hinh = (isset($_FILES['hinh_dai_dien']['name']))? $_FILES['hinh_dai_dien']['name'] : ""; 
 	
 
@@ -62,7 +61,7 @@ try{
 		$hinh = $dien_dan['hinh_dai_dien'];
 	}
 	$data['hinh_dai_dien'] = $hinh;
-	$data['domain'] = convert_to_slug(trim($data['ten']));
+	/*$data['domain'] = convert_to_slug(trim($data['ten']));*/
 	$xl_dien_dan->cap_nhat_dieu_kien($data,array('ma'=>$ma_dien_dan));
 	########################################################################
 	
