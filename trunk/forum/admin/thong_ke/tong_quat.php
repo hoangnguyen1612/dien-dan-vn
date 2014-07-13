@@ -25,6 +25,9 @@ try{
 	$dt_smarty->assign('so_luong_bai_viet', $so_luong_bai_viet);
 	$dt_smarty->assign('title', $title);
 	
+	$ngay = date('d/m', strtotime('- 6days')).' - '. date('d/m');
+	$dt_smarty->assign('ngay', $ngay);
+	
 	quan_tri('thong_ke_tong_quat');
 	
 	$contentForLayout = $dt_smarty->fetch('thong_ke/tong_quat.tpl');

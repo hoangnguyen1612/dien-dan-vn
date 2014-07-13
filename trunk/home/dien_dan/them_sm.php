@@ -1,7 +1,6 @@
 <?php
 try{
 	require '../ini.php';
-debug($_POST);
 	$url = ''; 
 
 	$_SESSION['data'] = $_POST['data'];
@@ -92,7 +91,7 @@ debug($_POST);
 	# cấu hình
 	require_once '../classes/xl_cau_hinh.php';
 	$xl_cau_hinh = new xl_cau_hinh;
-	$data = array('TEN'=>$_POST['data']['ten_dien_dan'], 'CSS'=>$_POST['data']['css']);
+	$data = array('TEN'=>$_POST['data']['ten_dien_dan'], 'CSS'=>$_POST['data']['css'], 'MAU_MENU'=>'#ff0000,#80ff80,#0080c0,#00ff40');
 
 	foreach($data as $tu_khoa=>$noi_dung)
 	{

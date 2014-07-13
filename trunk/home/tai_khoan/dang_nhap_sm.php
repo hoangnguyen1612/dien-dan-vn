@@ -33,6 +33,10 @@ try{
 	{
 		throw new Exception('Mật khẩu không đúng, vui lòng kiểm tra lại');
 	}
+	if($nguoi_dung['trang_thai']==0)
+	{
+		throw new Exception('Tài khoản của bạn đang tạm khóa, vui lòng gửi liên hệ về ban quản trị Diendan.vn để biết thêm thông tin chi tiết');
+	}
 	
 	$_SESSION['login'] =$nguoi_dung;
 	

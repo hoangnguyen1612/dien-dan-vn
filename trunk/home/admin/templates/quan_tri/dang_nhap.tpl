@@ -66,9 +66,10 @@
 		<div id="login-wrapper" class="png_bg">
 			<div id="login-top">
 			
-				<h1>Simpla Admin</h1>
+				<h1 style="text-transform:capitalize">Hệ Thống Quản Trị Diễn Đàn Việt Nam</h1>
 				<!-- Logo (221px width) -->
-				<img id="logo" src="/home/admin/templates/images/logo.png" alt="Simpla Admin logo" />
+				<!--<img id="logo" src="/forum/admin/templates/images/logo.png" alt="Simpla Admin logo" />-->
+                <div id="logo" style="font-size: 24px; font-weight:bold">Hệ Thống Quản Trị Diễn Đàn Việt Nam</div>
 			</div> <!-- End #logn-top -->
 			
 			<div id="login-content">

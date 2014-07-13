@@ -24,7 +24,7 @@ $(function () {
                 text: 'Thống kê lượng người truy cập và bài viết trong 7 ngày gần nhất'
             },
             subtitle: {
-                text: '1/2014-12/2014'
+                text: '{/literal}{$ngay}{literal}'
             },
             xAxis: [{
                 categories: [{/literal}{$title}{literal}]

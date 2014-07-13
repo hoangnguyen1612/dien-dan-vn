@@ -31,10 +31,10 @@
                 <td>Trang chủ</td>
                 <td style="text-align:left"><input type="color" name="trang_chu" style="cursor:pointer" value="{$mang_mau_sac[0]}" /></td>
                 </tr>
-                <tr>
-                <td>Nội Quy</td>
+               <!--  <tr>
+               <td>Nội Quy</td>
                 <td style="text-align:left"><input type="color" name="noi_quy" style="cursor:pointer" value="{$mang_mau_sac[1]}" /></td>
-                </tr>
+                </tr>-->
                 <tr>
                 <td>Thành viên</td>
                 <td style="text-align:left"><input type="color" name="thanh_vien" style="cursor:pointer" value="{$mang_mau_sac[2]}" /></td>
