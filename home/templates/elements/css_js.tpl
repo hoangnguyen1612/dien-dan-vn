@@ -64,3 +64,10 @@
 <link rel="stylesheet" type="text/css" href="/home/templates/js/ui-lightness/jquery-ui.css" />
 <script type="text/javascript" src="/home/templates/js/ui/jquery-ui.custom.js"></script> 
 <script src="/home/templates/js/jquery.validate.min.js"></script>
+{if isset($smarty.session.message) && !empty($smarty.session.message.content)}
+		<script>
+		window.onload = function(){
+        	alert('{$smarty.session.message.content}');
+		}
+        </script>												
+{/if}   

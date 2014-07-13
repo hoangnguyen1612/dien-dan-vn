@@ -1,7 +1,13 @@
 <?php 
 try{
 	include '../ini.php';
-	//debug($login);
+	
+	$url = '/';
+	if($login!='')
+	{
+		throw new Exception('');
+	}
+	
 	require '../classes/xl_nguoi_dung.php';
 
 	
@@ -14,6 +20,6 @@ try{
 	
 }catch(Exception $e)
 {
-	throwMessage($e);
+	throwMessage($e, $url);
 }
 ?>

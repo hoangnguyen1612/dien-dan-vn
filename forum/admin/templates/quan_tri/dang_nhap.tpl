@@ -69,7 +69,7 @@
 				<h1 style="text-transform:capitalize">Hệ Thống Quản Trị Diễn Đàn {$dien_dan.ten}</h1>
 				<!-- Logo (221px width) -->
 				<!--<img id="logo" src="/forum/admin/templates/images/logo.png" alt="Simpla Admin logo" />-->
-                <div id="logo" style="font-size: 24px; font-weight:bold">Hệ Thống Quản Trị Diễn Đàn Hutech</div>
+                <div id="logo" style="font-size: 24px; font-weight:bold">Hệ Thống Quản Trị Diễn Đàn {$dien_dan.ten}</div>
 			</div> <!-- End #logn-top -->
 			
 			<div id="login-content">
