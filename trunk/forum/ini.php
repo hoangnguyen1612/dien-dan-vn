@@ -3,7 +3,6 @@
 	include '../../config.php';
 	include '../../libraries/functions.php';
 	//session_destroy();exit;
-	
 	$dbh = connection();
 	$dien_dan = get_subdomain();
 

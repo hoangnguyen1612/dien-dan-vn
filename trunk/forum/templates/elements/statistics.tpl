@@ -47,14 +47,22 @@ function submitChat(){
 		return;
 	}
 	var msg = form1.msg.value;
+	var mausac = form1.mausac.value; 
+	var params = "msg="+ msg + "&mausac="+mausac;
+	var url = "/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/trang_chu/insert";
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function(){
 		if(xmlhttp.readyState==4 && xmlhttp.status==200){
 			document.getElementById('chatlogs').innerHTML= xmlhttp.responseText;
+			var objDiv = document.getElementById("chatlogs");
+			objDiv.scrollTop = objDiv.scrollHeight;
 		}
 	}
-	xmlhttp.open('GET',"/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/trang_chu/insert?msg="+ msg,true);
-	xmlhttp.send();
+	xmlhttp.open('POST',url,true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader("Content-length", params.length);
+	xmlhttp.setRequestHeader("Connection", "close");
+	xmlhttp.send(params);
 	$("#chat-text").val("");
 }
 </script>
@@ -139,9 +147,18 @@ function submitChat(){
                     
                     </tbody>
                		</table>
-                    <input type="text" name="msg"  style="margin-left:5px; width:42%" placeholder="Nhập nội dung hội thoại trong diễn đàn..." onKeyDown="if(event.keyCode==13) submitChat();" id="chat-text" />
-                    <a href="#tabs-2" onclick="submitChat()" class="btn" style="margin-top:-11px;margin-left:2px">Gửi</a>                
-                </form>
+                    <input type="text" name="msg"  style="margin-left:5px; width:42%" placeholder="Nhập nội dung hội thoại trong diễn đàn..."  id="chat-text" />
+                    <a onclick="submitChat()" id="gui" class="btn" style="margin-top:-11px;margin-left:2px;cursor:pointer">Gửi</a>                
+                    <input type="color" name="mausac" style="margin-top:-11px;margin-left:2px;width:30px" title="Màu sắc của tên khi chat"  />
+     
+                    </form>
+                    <script>
+						$("#chat-text").keyup(function(event){
+						if(event.keyCode == 13){
+							$("#gui").click();
+						}
+						});
+					</script>
                 </div>
                
               </div>
