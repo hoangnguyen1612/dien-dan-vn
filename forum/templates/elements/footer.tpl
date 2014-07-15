@@ -5,7 +5,7 @@
               
                 <div class="span3">
                   <div class="side-segment">                
-                    <h3>Ưa thích</h3>
+                    <h3>Yêu thích</h3>
                   </div>
                   <ul class="navList">
                     <li><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/" data-original-title="" title=""><i class="icon-home"></i> Trang chủ</a></li>
@@ -30,8 +30,8 @@
             <!-- About us , links, twitter, recent posts layout -->
             
             <div class="row-fluid bottomLinks"> <!-- Credit, links and copyright block do not remove please -->
-              <div class="pull-left"> <small>Powered by <a href="#" title="" target="_blank" data-original-title="Forum Software © phpBB® Group"><i aria-hidden="true" class="icon-moon-forphp"></i></a> <i aria-hidden="true" class="icon-moon-bootstrap"></i> <i aria-hidden="true" class="icon-moon-html5"></i> <i aria-hidden="true" class="icon-moon-css3"></i> <i aria-hidden="true" class="icon-moon-forjq"></i> <i aria-hidden="true" class="icon-moon-less_c"></i> <a href="#" title="" target="_blank" data-original-title="Conform to W3C HTML5 Standard"> <i aria-hidden="true" class="icon-moon-w3c"></i></a> </small> </div>
-              <div class="pull-right"> <small>Copyright with&nbsp;<i class="icon-heart rosso"></i> By<a href="http://www.sitesplat.com/" title="" target="_blank" data-original-title="SiteSplat.com">DienDanVN</a> on <i class="icon-moon-earth earth"></i>&nbsp; ©DienDanVN 2014</small> </div>
+              <div class="pull-left"> <small><a href="#" title="" target="_blank" data-original-title="Forum Software © phpBB® Group"><i aria-hidden="true" class="icon-moon-forphp"></i></a> <i aria-hidden="true" class="icon-moon-bootstrap"></i> <i aria-hidden="true" class="icon-moon-html5"></i> <i aria-hidden="true" class="icon-moon-css3"></i> <i aria-hidden="true" class="icon-moon-forjq"></i> <i aria-hidden="true" class="icon-moon-less_c"></i> <a href="#" title="" target="_blank" data-original-title="Conform to W3C HTML5 Standard"> <i aria-hidden="true" class="icon-moon-w3c"></i></a> </small> </div>
+              <div class="pull-right"> <small>Copyright with&nbsp;<i class="icon-heart rosso"></i> By<a href="http://www.sitesplat.com/" title="" target="_blank" data-original-title="SiteSplat.com">DienDanVN</a> on <i class="icon-moon-earth earth"></i>&nbsp; &copy; DienDanVN 2014</small> </div>
             </div>
             <!-- Credit, links and copyright block do not remove please --> 
             

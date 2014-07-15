@@ -27,8 +27,6 @@
         </div>
       </form>
     </div>
-    <div class="row-fluid"> </div>
-    <div class="space10"></div>
   </main>
 </div>
 

@@ -16,8 +16,35 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <!-- WIN8 Tiles setup --><!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-<title>{$dien_dan.ten}</title>
+<script type="text/javascript">
+var rev = "fwd";
+function titlebar(val)
+{
+	var msg  = "{$dien_dan.ten}";
+	var res = " ";
+	var speed = 200;
+	var pos = val;
 
+	var le = msg.length;
+	if(rev == "fwd"){
+		if(pos < le){
+		pos = pos+1;
+		scroll = msg.substr(0,pos);
+		document.title = scroll;
+		timer = window.setTimeout("titlebar("+pos+")",speed);
+		}
+		else{
+		rev = "bwd";
+		timer = window.setTimeout("titlebar("+pos+")",speed);
+		}
+	}
+}
+
+titlebar(0);
+</script>
+
+<title>{$dien_dan.ten}</title>
+<link href="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" rel="shortcut icon" type="image/icon">
 {include "../elements/css_js.tpl"}
 {literal}
 <script>
@@ -65,10 +92,8 @@ border-bottom-right-radius: 20px;
 border-top-right-radius: 20px;
 background-color: white;
 border-collapse: collapse;
-border: 1px solid #ccc;">
-<span style="font-family:'Kaushan Script', cursive !important" class="text-color"><img id="arrow" src="/forum/templates/images/ani-arrow.gif" 
-style="vertical-align:inherit;"> Diendan.vn</span>
-</button>
+border: 1px solid #ccc;"> <span style="font-family:'Kaushan Script', cursive !important" class="text-color"><img id="arrow" src="/forum/templates/images/ani-arrow.gif" 
+style="vertical-align:inherit;"> Diendan.vn</span> </button>
 <style>
 #home-btn{
 	-webkit-transition-duration: 0.8s;
@@ -92,10 +117,10 @@ border-top-right-radius: 20px;
 	outline: 0 !important;
 }
 </style>
-{include '../elements/login.tpl'}
+{include '../elements/login.tpl'} 
 <!--Theme Switcher--> 
 <!-- include switcher.tpl --> 
-{include '../elements/switcher.tpl'}
+{include '../elements/switcher.tpl'} 
 <!--Theme Switcher End-->
 <div id="wrap" class="corners container"> 
   <!-- start content -->
@@ -104,38 +129,32 @@ border-top-right-radius: 20px;
       <!-- include header.tpl --> 
       {include '../elements/header.tpl'} 
       <!-- Header block -->
-      <div id="top-line"></div>
-      <div id="breadcrumb">
-        <div class="index-header-head row-fluid">
-          <div class="fxicon"> <i class="icon-home"></i> </div>
-          <ul class="index-pos">
-            <li class="index-title" style="margin-bottom:5px;">
-              <h1 style="font-size:20px;">{$title|default:''}</h1>
-            </li>
-            <li class="index-sub">Chào mừng bạn đến diễn đàn {$dien_dan.ten}</li>
+      <div id="top-line" style="height:2px"></div>
+      <div id="breadcrumb" style="padding: 0px">
+        <div class="index-header-head row-fluid" style="height:1px;"></div>
+      </div>
+      <div id="menu-header" style="width:100%; background-color:#ffffff; border-bottom:1px solid #f1f1f1;  border-top:1px solid #f1f1f1; height: 38px;">
+        <nav class="mainnav" role="navigation" aria-label="Primary"><!-- Main navigation block -->
+          <ul style="margin-left: 0px;">
+            <li class="nav-icon"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" data-original-title="" title="" style="color:{$mang_mau_sac[0]}"><span class="has-sub"><i class="icon-home"></i></span> Trang chủ</a></li>
+            <li class="line">|</li>
+            <li class="nav-icon"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/danh_sach" data-original-title="" title="" style="color:{$mang_mau_sac[1]}"><span class="has-sub"><i class="icon-user"></i></span> Thành viên</a> </li>
+            <li class="line">|</li>
+            <li class="nav-icon"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/phan_hoi/them" data-original-title="" title="" style="color:{$mang_mau_sac[2]}"><span class="has-sub"><i class="icon-thumbs-up"></i></span> Phản hồi</a> </li>
           </ul>
-          
-          <!-- SEARCH block -->
-          <div class="search-pos pull-right">
-          <div class="search-box">
-           
-          <form action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/tim_kiem" method="get">
-           <fieldset> 
-            <input name="tu_khoa" id="keywords" type="text" placeholder="Tìm kiếm bài viết"/>
-           </fieldset>
-          </form>
-         </div>	
-        </div>
-        </div>
+          <div id="navBtn" class="" data-toggle="collapse" data-target=".nav-collapse">MENU<i class="icon  icon-list"></i></div>
+        </nav>
+      </div>
+      <div id="breadcrumb" style="padding: 0px;">
+        <div class="index-header-head row-fluid" style="height:1px; border-bottom:1px solid #f1f1f1;"></div>
       </div>
       <div class="crumbs">
         <ul class="sub-crumb hidden-phone">
-          <li><i class="icon-home"></i> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" accesskey="h" data-original-title="" title="">{$dien_dan.ten}</a> <span class="divider"></span></li>
-            <li class="active"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><i class="icon-long-arrow-right"></i>Trang chủ</a></li>
+          <li class="active"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><i class="icon-flag"></i> Trang chủ</a></li>
           {if isset($chuyen_muc_ong_noi)}
           <li class="active"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_ong_noi.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_ong_noi.ten}</a></li>
           {/if}
-           {if isset($chuyen_muc_cha)}
+          {if isset($chuyen_muc_cha)}
           <li class="active"> &nbsp;<a  href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_cha.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_cha.ten}</a></li>
           {/if}
           {if isset($chuyen_muc)}
@@ -146,55 +165,84 @@ border-top-right-radius: 20px;
           {/if}
         </ul>
         <ul class="top-menu">
-        {if $login!=''}
-     		{if $thanh_vien==''}
-        <li class="dropdown"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/tham_gia" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-hand-right"></i><span>Gửi yêu cầu tham gia diễn đàn</span></a></li>
-     		{else if $thanh_vien.loai_thanh_vien==3}
-         <li class="dropdown"><i class="icon-spinner"></i>&nbsp;&nbsp;<span>Đã gửi yêu cầu tham gia</span></li>
-         	{else if $thanh_vien.loai_thanh_vien!=3}
-          <li class="dropdown"> <a data-toggle="dropdown" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-globe"></i><span>Xin chào, {$login.ten} &nbsp;<span class="badge badge-info" id="tbm2">{$sl_thong_bao_moi}</span><i class="caret"></i></span></a>
+          {if $login!=''}
+          {if $thanh_vien==''}
+          <li class="dropdown"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/tham_gia" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-hand-right"></i><span>Gửi yêu cầu tham gia diễn đàn</span></a></li>
+          {else if $thanh_vien.loai_thanh_vien==3}
+          <li class="dropdown"><i class="icon-spinner"></i>&nbsp;&nbsp;<span>Đã gửi yêu cầu tham gia</span></li>
+          {else if $thanh_vien.loai_thanh_vien!=3}
+          <li class="dropdown"> <a data-toggle="dropdown" class="user-menu" id="user-menu" data-original-title="" title=""><i class="icon-globe"></i><span>Xin chào, {$login.ten} &nbsp;<span class="badge badge-info" id="tbm2" title="{if $sl_thong_bao_moi==0}Không có thông báo mới nào{else if}Có {$sl_thong_bao_moi} thông báo mới{/if}">{$sl_thong_bao_moi}</span><i class="caret"></i></span></a>
             <ul class="dropdown-menu" id="dropdown-menu">
               <!--<li><a title="" href="./ucp.php?i=profile" data-original-title=""><i class="icon-user"></i>Thành Viên</a></li>-->
-              <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thong_bao/danh_sach" ><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info" id="tbm1">{$sl_thong_bao_moi}</span></a></li>
+              <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thong_bao/danh_sach" ><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info" id="tbm1" title="{if $sl_thong_bao_moi==0}Không có thông báo mới nào{else if}Có {$sl_thong_bao_moi} thông báo mới{/if}">{$sl_thong_bao_moi}</span></a></li>
               <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$ma_nguoi_dung}" data-original-title=""><i class="icon-cog"></i>Thông Tin Thành Viên</a></li>
-              {if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}<li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>
+              {if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}
+              <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>
               {/if}
               <li><a title="" href="/tai_khoan/dang_xuat.html" data-original-title=""><i class="icon-off"></i>Đăng Xuất</a></li>
             </ul>
           </li>
-          	{/if}
-         {/if}   
+          {/if}
+          {/if}
         </ul>
       </div>
-      <!-- Lower Breadcrumb block -->
-      <ul class="sub-breadcrumb">
-        <li class="pull-left"> <span class="time"><i class="icon-clock"></i> {date('d-m-Y', strtotime($dien_dan.ngay_tao))}</span> </li>
-        <li class="pull-right hidden-phone"> </li>
-      </ul>
-      <!-- Lower Breadcrumb block --> 
       {$contentForLayout}
-      <!--{literal}{include '../elements/footer.tpl'}{/literal}--> 
-      <!-- page-body id in header --> 
-       {include "../elements/footer.tpl"}
-    </div>
+      <div class="row-fluid">
+        <div class="pull-left" style="height: 60px;">
+          <form method="post" id="jumpbox" action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/chuyen_trang/chuyen_trang" >
+            <fieldset class="controls-row">
+              <label class="control-label" for="f" accesskey="j">Đi đến:</label>
+              <select class="selectpicker"  id="ma_chuyen_muc" name="ma_chuyen_muc">
+                <option value="0">Chọn diễn đàn cần đến</option>
+                
+                    {*  Tuong tuong la se co 2 tham so nay: $ds_lcm,  $ma, kitu *}                                                            
+                    {function in_loai_chuyen_muc}
+                    	{foreach $ds_lcm as $lcm}
+                        	{if $lcm.ma_loai_cha == $ma}
+                            	
+                <option value="{$lcm.ma}">{$kitu}{$lcm.ten}</option>
+                
+                                {in_loai_chuyen_muc ds_lcm=$ds_lcm ma=$lcm.ma kitu="$kitu$kitu"}
+                        	{/if}
+                        {/foreach}
+                    
+                    {/function}
+                    
+                    
+                    {in_loai_chuyen_muc  ds_lcm=$ds_chuyen_muc ma=0 kitu='='}
+                    
+                
+              </select>
+              <button type="submit" class="btn" style="margin-bottom: 10px;">Đi</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <div class="side-segment">
+        <h3><a data-original-title="" title="">Ai đang online</a></h3>
+      </div>
+      {if isset($so_luong_online) && isset($ds_online)}
+      <p class="online">Tổng số <span class="text-color">{$so_luong_online}</span> thành viên đang online : <span class="text-color">{foreach $ds_online as $online} {$online.ten_nguoi_dung} {/foreach}</span></p>
+      {else}
+      <p class="online">Hiện không có ai đang online</p>
+      {/if}
+      {include "../elements/footer.tpl"} </div>
     <!-- padding_0_40 in header --> 
-     
+    
   </div>
   <!-- content-forum in header --> 
-
+  
 </div>
 <!-- wrap - corners container in header --> 
 
 <a id="totop" class="topstyle" href="" onclick="return false;" style="display:none;" data-original-title="" title=""><i class="icon-chevron-up"></i></a>
 <div class="container">
-  <div class="copyright"> <small class="pull-left"> Time : 0.035s | 8 Queries | GZIP : On<!-- <a href="http://www.sitesplat.com/phpBB3/">BBOOTS</a> --> 
-    </small> <small class="pull-right"> All times are UTC </small> </div>
+  <div class="copyright"> <small class="pull-left"><!-- <a href="http://www.sitesplat.com/phpBB3/">BBOOTS</a> --> 
+    </small> <small class="pull-right"></small> </div>
 </div>
 <div class="space10"></div>
 <div> </div>
-
-<!-- injected via a module or an include --> 
-
 <input type="hidden" id="sl_thong_bao_moi" value="{$sl_thong_bao_moi}" />
 <script type="text/javascript">
 	var delay = 2000;
@@ -213,8 +261,27 @@ border-top-right-radius: 20px;
 				}
 		});
 	}
-</script>
-<!-- Google Analytics: change UA-XXXXXXXX-X to be your site's ID. -->
+</script> 
+<a class="back-to-top text-color" title="Về đầu trang"><i class="icon-circle-arrow-up"></i></a>
 </body>
 </html>
-
+<script>
+$(document).ready(function(e) {
+    var offset = 300;
+	var time = 500;
+	jQuery(window).scroll(function(){
+		if(jQuery(window).scrollTop()>offset){
+			jQuery(".back-to-top").fadeIn(time);
+		}else{
+			jQuery(".back-to-top").fadeOut(time);
+		}
+	});
+	
+	jQuery(".back-to-top").click(function(event){
+		event.preventDefault();
+		jQuery('html, body').animate({
+			scrollTop: 0}, time);
+		return false;
+	});
+});
+</script>

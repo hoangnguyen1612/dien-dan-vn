@@ -65,14 +65,10 @@ $(document).ready(function(){
     <div class="side-segment">
       <h3><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$bai_viet.ma_loai_chuyen_muc}" data-original-title="" title="">{ten_chuyen_muc($bai_viet.ma_loai_chuyen_muc,$ma_dien_dan)}</a></h3>
     </div>
-    <!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
-    <div style="display: none !important;">Description of your first forum. it can be really really long so let's see what happens to the container here.<br>
-    </div>
     <div class="row-fluid">
       <div class="pull-right">
         <div class="pagination pagination-small hidden-phone">
           <ul>
-            <li class="active"><a data-original-title="" title="">{$tong_so_bai_viet+1} bài viết</a></li>
             <li><a data-original-title="" title="">Trang <strong>{$trang_hien_tai}</strong> trên <strong>{$tong_so_trang}</strong></a></li>
             <li>{$bo_nut}</li>
           </ul>
@@ -89,36 +85,18 @@ $(document).ready(function(){
         <form method="get" id="topic-search" action="./search.php" class="hidden-phone">
           <fieldset>
             <div class="input-append input-icon left"> <i class="icon-search"></i>
-              <input type="text" class="span9" size="9" name="keywords" id="search_keywords" placeholder="Tìm kiếm bài viết">
-              <a href="./search.php" class="btn" title="" type="submit" data-original-title="Advanced search"><span class="icon-cog"></span></a>
+              <input type="text" class="span10" size="9" name="keywords" id="search_keywords" placeholder="Tìm kiếm bài viết">
               <button type="submit" class="btn">Tìm kiếm</button>
             </div>
-            <input type="hidden" name="t" value="15">
-            <input type="hidden" name="sf" value="msgonly">
-          </fieldset>
-        </form>
-        <form method="get" id="topic-search" action="./search.php" class="visible-phone">
-          <fieldset>
-            <div class="input-append">
-              <input type="text" class="medium" size="9" name="keywords" id="search_keywords" placeholder="Search this topic…">
-              <button type="submit" class="btn"><i class="icon-search"></i></button>
-            </div>
+             {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
+      		<a style="margin-left: 50px; margin-top: -10px;" href="../binh_luan/them?ma_bai_viet={$bai_viet.ma}" data-original-title="Bình luận bài viết" type="button" class="btn"><i class="icon-share-alt"></i>Bình luận</a>
+      		{/if}
             <input type="hidden" name="t" value="15">
             <input type="hidden" name="sf" value="msgonly">
           </fieldset>
         </form>
       </div>
     </div>
-    <div class="row-fluid">
-      <div class="pull-right">
-        <div class="btn-group"> <a href="./memberlist.php?mode=email&amp;t=15" title="" class="btn" data-original-title="E-mail friend"><i class="icon-envelope"></i></a><a class="btn" href="./viewtopic.php?f=2&amp;t=15&amp;view=print" title="" accesskey="p" data-original-title="Print view"><i class="icon-print"></i></a> </div>
-        <div class="btn-group"> <a href="./viewtopic.php?uid=114&amp;f=2&amp;t=15&amp;unwatch=topic&amp;start=0&amp;hash=8846177a" class="btn" title="" data-original-title="Unsubscribe topic"><i class="icon-remove"> </i></a><a href="./viewtopic.php?f=2&amp;t=15&amp;bookmark=1&amp;hash=8846177a" class="btn" title="" data-original-title="Đánh dấu bài viết"><i class="icon-bookmark"></i></a> </div>
-      </div>
-      {if $thanh_vien!='' && $thanh_vien.loai_thanh_vien!=3 && $thanh_vien.trang_thai!=0}
-      <div class="pull-left"> <a href="../binh_luan/them?ma_bai_viet={$bai_viet.ma}" data-original-title="Bình luận bài viết" type="button" class="btn"><i class="icon-share-alt"></i>Bình luận</a> </div>
-      {/if}
-    </div>
-    <div class="space10"></div>
     {if $trang_hien_tai == 1}
     <div id="p25" class="row-fluid ">
       <article role="article" >
@@ -251,8 +229,6 @@ $(document).ready(function(){
       <div class="pull-right">
         <div class="pagination pagination-small hidden-phone">
           <ul>
-            <li><a title="" data-original-title="" href="javascript:void(0);" data-target=".sorting" data-toggle="collapse" class="">Lựa chọn</a></li>
-            <li class="active"><a data-original-title="" title="">{$tong_so_bai_viet + 1} bài viết</a></li>
             <li><a data-original-title="" title="">Trang <strong>{$trang_hien_tai}</strong> trên <strong>{$tong_so_trang}</strong></a></li>
             <li>{$bo_nut}</li>
           </ul>
@@ -269,45 +245,6 @@ $(document).ready(function(){
     </div>
     <div class="space10"></div>
     <div class="pull-right"> </div>
-    <div class="row-fluid">
-      <div class="pull-left">
-        <form method="post" id="jumpbox" action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/chuyen_trang/chuyen_trang" >
-          <fieldset class="controls-row">
-            <label class="control-label" for="f" accesskey="j">Đi đến:</label>
-          <select class="selectpicker"  id="ma_chuyen_muc" name="ma_chuyen_muc">
-               		<option value="0">Chọn diễn đàn cần đến</option>
-                    {*  Tuong tuong la se co 2 tham so nay: $ds_lcm,  $ma, kitu *}                                                            
-                    {function in_loai_chuyen_muc}
-                    	{foreach $ds_lcm as $lcm}
-                        	{if $lcm.ma_loai_cha == $ma}
-                            	<option value="{$lcm.ma}">{$kitu}{$lcm.ten}</option>
-                                {in_loai_chuyen_muc ds_lcm=$ds_lcm ma=$lcm.ma kitu="$kitu$kitu"}
-                        	{/if}
-                        {/foreach}
-                    
-                    {/function}
-                    
-                    
-                    {in_loai_chuyen_muc  ds_lcm=$ds_chuyen_muc ma=0 kitu='='}
-                    
-                </select>	
-            <button type="submit" class="btn" style="margin-bottom: 10px;">Đi</button>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-    <div class="row-fluid">
-      <div class="pull-left"> <a href="#" accesskey="r" data-original-title="" title="">Trở về đầu trang</a> </div>
-    </div>
-   
-    <div class="side-segment">
-      <h3><a href="./viewonline.php" data-original-title="" title="">Ai đang online</a></h3>
-    </div>
-   {if isset($so_luong_online) && isset($ds_online)}
-    <p><small>Tổng số {$so_luong_online} thành viên đang online : {foreach $ds_online as $online} {$online.ten_nguoi_dung} {/foreach}</small></p>
-    {else}
-    <p><small>Hiện không có ai đang online</small></p>
-    {/if}
   </main>
 </div>
 <script type="text/javascript">
