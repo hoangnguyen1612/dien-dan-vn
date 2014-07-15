@@ -8,7 +8,7 @@ try{
 	# gan mang? data cho bien $data
 
 	$xl_cau_hinh = new xl_cau_hinh;
-
+	$_POST['noi_quy'] = 'blue';
 	
 	#Kiểm tra dữ liệu thô
 		#Kiểm tra dữ liệu bắt buộc phải có
