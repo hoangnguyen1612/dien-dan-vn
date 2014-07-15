@@ -16,9 +16,6 @@ try{
 	if(empty($_POST['trang_chu'])){
 		throw new Exception('Vui lòng nhập màu sắc trang chủ');
 	}
-	if(empty($_POST['noi_quy'])){
-		throw new Exception('Vui lòng nhập màu sắc nội quy ');
-	}
 	if(empty($_POST['thanh_vien'])){
 		throw new Exception('Vui lòng nhập màu sắc thành viên');
 	}
@@ -29,7 +26,7 @@ try{
 	#############Kiểm tra xem chuyên mục đó có con hay không ###############
 	
 	########################################################################
-	$data_mau_sac['noi_dung'] = $_POST['trang_chu'].','.$_POST['noi_quy'].','.$_POST['thanh_vien'].','.$_POST['phan_hoi'];
+	$data_mau_sac['noi_dung'] = $_POST['trang_chu'].','.$_POST['thanh_vien'].','.$_POST['phan_hoi'];
 	$xl_cau_hinh->cap_nhat_dieu_kien($data_mau_sac,array('tu_khoa'=>'MAU_MENU','ma_dien_dan'=>$ma_dien_dan));
 	$dbh = NULL;
 	throw new Exception("Cập nhật thành công màu sắc mới, bấm vào trang chủ để xem chi tiết", 30);

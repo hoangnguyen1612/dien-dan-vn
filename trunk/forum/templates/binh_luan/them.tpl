@@ -83,8 +83,6 @@ onload_functions.push('apply_onkeypress_event()');
               </div>
             </fieldset>
           </div>
-     
-        <div class="space10"></div>
       </div>
     </form>
   </main>

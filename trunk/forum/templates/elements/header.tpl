@@ -1,26 +1,13 @@
 <header class="header" role="banner"> <!-- Header block -->
   <div class="topArea"> <!-- Logo block -->
     <div class="leftArea">
-      <div class="logo-transition"><a class="logo" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="" data-original-title="" style="text-transform:uppercase;font-size:28px"><span>{$dien_dan.ten[0]}</span><span class="text-color">{$dien_dan.ten|substr:1:strlen($dien_dan.ten)}</span></a> </div>
-      <p class="site-info">{$dien_dan.slogan}&nbsp;<i class="icon-umbrella icon-large"></i></p>
+      <div id="logo" style="width: 100px; height:100px;"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="{$dien_dan.ten}"><img src="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" width="100" height="100"/></a></div>
+      <div class="logo-transition" style="margin-left: 110px; margin-top: -90px; float:left;">
+      <a class="logo" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="{$dien_dan.ten}" data-original-title="" style="text-transform:uppercase;font-size:28px"><span>{$dien_dan.ten[0]}</span><span class="text-color">{$dien_dan.ten|substr:1:strlen($dien_dan.ten)}</span></a> 
+      <span class="site-info">{$dien_dan.slogan}&nbsp;<i class="icon-umbrella icon-large"></i></span>
+      </div>
       <div class="clearfix"></div>
     </div>
-    <nav class="mainnav" role="navigation" aria-label="Primary"><!-- Main navigation block -->
-      <ul>
-        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" data-original-title="" title="" style="color:{$mang_mau_sac[0]}">TRANG CHỦ<span class="has-sub"><i class="icon-home"></i></span></a></li>
-    <!--   
-        <li class="nav-icon"> <a href="#" data-original-title="" title="" style="color:{$mang_mau_sac[1]}">NỘI QUY <span class="has-sub"><i class="icon-search icon-flip-horizontal"></i></span></a>
-        <p>Quy định của diễn đàn</p>
-        </li>-->
-        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/danh_sach" data-original-title="" title="" style="color:{$mang_mau_sac[2]}">THÀNH VIÊN <span class="has-sub"><i class="icon-signin"></i></span></a>
-          <p>Danh sách thành viên</p>
-        </li>
-        <li class="nav-icon"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/phan_hoi/them" data-original-title="" title="" style="color:{$mang_mau_sac[3]}">PHẢN HỒI <span class="has-sub"><i class="icon-thumbs-up"></i></span></a>
-          <p>Gửi thông tin phản hồi</p>
-        </li>
-      </ul>
-      <div id="navBtn" class="" data-toggle="collapse" data-target=".nav-collapse">MENU<i class="icon  icon-list"></i></div>
-    </nav>
     <!-- Main navigation block --><!-- Everything you want hidden at 940px or less, place within here -->
     <div id="nav-listen" class="nav-collapse collapse flexnav-show">
       <nav class="hidden-desktop hidden-tablet"> <!-- MOBILE Navigation block -->

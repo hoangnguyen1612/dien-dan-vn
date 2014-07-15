@@ -1419,7 +1419,7 @@ a {
 }
 
 .sub-crumb, .sub-crumb a{
-    color: black !important;
+    color: black;
 	
 }
 

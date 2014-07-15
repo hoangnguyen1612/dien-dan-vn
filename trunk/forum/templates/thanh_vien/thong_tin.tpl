@@ -64,35 +64,6 @@
         </div>
       </form>
     </div>
-    <div class="row-fluid">
-      <div class="pull-left">
-        <form method="post" id="jumpbox" action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/chuyen_trang/chuyen_trang" onsubmit="if(this.f.value == -1){ return false; }">
-          <fieldset class="controls-row">
-            <label class="control-label" for="f" accesskey="j">Đi đến:</label>
-            <select class="selectpicker"  id="ma_chuyen_muc" name="ma_chuyen_muc">
-               		<option value="0">Chọn diễn đàn cần đến</option>
-                    {*  Tuong tuong la se co 2 tham so nay: $ds_lcm,  $ma, kitu *}                                                            
-                    {function in_loai_chuyen_muc}
-                    	{foreach $ds_lcm as $lcm}
-                        	{if $lcm.ma_loai_cha == $ma}
-                            	<option value="{$lcm.ma}">{$kitu}{$lcm.ten}</option>
-                                {in_loai_chuyen_muc ds_lcm=$ds_lcm ma=$lcm.ma kitu="$kitu$kitu"}
-                        	{/if}
-                        {/foreach}
-                    
-                    {/function}
-                    
-                    
-                    {in_loai_chuyen_muc  ds_lcm=$ds_chuyen_muc ma=0 kitu='='}
-                    
-                </select>
-            <button type="submit" class="btn">Đi</button>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-    <div class="row-fluid"> </div>
-    <div class="space10"></div>
   </main>
 </div>
 
