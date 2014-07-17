@@ -10,14 +10,14 @@ try{
 	$xl_dien_dan = new xl_dien_dan;
 
 	
-	$ds_dien_dan = $xl_bo_dem->dien_dan_truy_cap_nhieu_nhat();
+	$ds_dien_dan = $xl_bo_dem->dien_dan_truy_cap_nhieu_nhat(0, 10);
 	
 	$n = 10;
 	if(count($ds_dien_dan)<10)
 	{
 		$n = count($ds_dien_dan);
 	}
-	
+
 	for($i=0; $i<$n; $i++)
 	{
 		$ten = $xl_dien_dan->doc(array('ma'=>$ds_dien_dan[$i], 'ten'));
@@ -28,7 +28,7 @@ try{
 	$dt_smarty->assign('title', $title);
 	$dt_smarty->assign('n', $n);
 	$dt_smarty->assign('so_luong_truy_cap', $so_luong_truy_cap);
-	$contentForLayout = $dt_smarty->fetch('thong_ke/top.tpl');
+	$contentForLayout = $dt_smarty->fetch('thong_ke/luot_truy_cap_nhieu_nhat.tpl');
 
 	$dt_smarty->assign('contentForLayout', $contentForLayout);
 	$dt_smarty->display('layouts/default.tpl');

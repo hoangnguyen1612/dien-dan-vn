@@ -377,6 +377,11 @@ function debug($arr)
 	exit;
 }
 
+function tim_trong_mang($value, $arr)
+{
+	return (in_array($value, $arr))?1:0;
+}
+
 function copyfileimage($oldpic,$newpic,$maxwidth=800,$maxheight=600,$quatily=65){
 
   $imagesize = getImageSize($oldpic);

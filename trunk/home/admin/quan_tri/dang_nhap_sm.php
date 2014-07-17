@@ -59,7 +59,7 @@ try{
 		exit;
 	}
 
-	header('Location: ../thong_ke/tong_quat.php');
+	header('Location: ../thong_ke/luot_truy_cap.php');
 	
 }catch(Exception $e)
 {

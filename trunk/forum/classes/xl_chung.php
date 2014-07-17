@@ -41,8 +41,6 @@ class xl_chung{
 		$ds_cot = $this->tao_chuoi_ds_cot($ds_cot);
 		
 		$sql = "SELECT {$ds_cot} {$chuoi} {$them_cau_truy_van} LIMIT 0,1";
-		
-		
 	
 		$sth = $dbh->prepare($sql);
 		$sth->execute($du_lieu);
@@ -75,7 +73,7 @@ class xl_chung{
 	#xóa
 	function xoa($dieu_kien, $them_cau_truy_van = '')
 	{
-		global $dbh;
+		global $dbh; 
 		if(is_array($dieu_kien))
 		{
 			$chuoi = " FROM `{$this->bang}`";
@@ -89,7 +87,6 @@ class xl_chung{
 			}
 			
 			$sql = "DELETE {$chuoi} {$them_cau_truy_van}";
-			
 			$sth = $dbh->prepare($sql);
 			
 			return $sth->execute($du_lieu);
@@ -116,7 +113,6 @@ class xl_chung{
 		
 		$sql = "UPDATE `{$this->bang}` SET {$chuoi} WHERE `{$ma}` = :{$ma} LIMIT 1";
 	
-	
 		$sth = $dbh->prepare($sql);
 		return $sth->execute($du_lieu);
 	}
@@ -137,11 +133,10 @@ class xl_chung{
 		{
 			$chuoi_dieu_kien.=" `{$key}` = :{$key} and";
 		}
-		$chuoi_dieu_kien.= ' 1';
-		
+		$chuoi_dieu_kien = rtrim($chuoi_dieu_kien, 'and');
+				
 		$sql = "UPDATE `{$this->bang}` SET {$chuoi} WHERE {$chuoi_dieu_kien} LIMIT 1";
 		
-
 		$sth = $dbh->prepare($sql);
 		return $sth->execute(array_merge($du_lieu, $dieu_kien));
 	}

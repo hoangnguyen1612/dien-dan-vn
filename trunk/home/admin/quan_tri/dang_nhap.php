@@ -7,7 +7,7 @@ try{
 	# khi đã đăng nhập thì không đăng nhập tiếp
 	if(isset($_SESSION['LOGIN']) && $_SESSION['LOGIN']=='OK')
 	{
-		header('Location: /home/admin/thong_ke/tong_quat.php');
+		header('Location: /home/admin/thong_ke/luot_truy_cap.php');
 		exit;
 	}
 	$dt_smarty = new Smarty();

@@ -13,17 +13,14 @@ try{
 	
 	kiem_tra_rong($_POST['data']['ten'], 'Tên chuyên mục');
 	kiem_tra_gia_tri($_POST['data']['rieng_tu'], array(0,1), 'Trạng thái riêng tư');
-	kiem_tra_rong($_POST['data']['thu_tu_hien_thi'], 'Thứ tự hiển thị');
-	kiem_tra_la_so($_POST['data']['thu_tu_hien_thi'], 'Thứ tự hiển thị');
 	
 	$ten = $_POST['data']['ten'];
-	/*if($xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan), 'ma', PDO::FETCH_ASSOC, " and `ten` like '%".$ten."%'"))
+	if($xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ten'=>$ten), 'ma'))
 	{
 		throw new Exception('Lỗi! [Tên chuyên mục] đã tồn tại, vui lòng kiểm tra lại');
-	}*/
+	}
 	
 	$rieng_tu = $_POST['data']['rieng_tu'];
-	$thu_tu_hien_thi = $_POST['data']['thu_tu_hien_thi'];
 	$ghi_chu = '';
 	$ma_loai_cha = 0;
 	if(isset($_POST['data']['ghi_chu']))
@@ -51,12 +48,21 @@ try{
 			}
 		}
 	}
-	if($item = $xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan, 'thu_tu_hien_thi'=>$thu_tu_hien_thi), "ma, (select ten from loai_chuyen_muc where ma = '$ma_loai_cha') ten", PDO::FETCH_ASSOC, " and ma_loai_cha = '$ma_loai_cha'"))
+	
+	if(!empty($_POST['data']['ma_loai_cha']))
 	{
-		if(empty($ma_loai_cha))
-			throw new Exception('Lỗi! [Thứ tự hiển thị] này đã tồn tại trong những chuyên mục lớn của diễn đàn');
-		else
-			throw new Exception('Lỗi! [Thứ tự hiển thị] này đã tồn tại trong chuyên mục '.$item['ten']);
+		$ttht = $xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan), 'thu_tu_hien_thi, ten', PDO::FETCH_ASSOC, 
+		' and thu_tu_hien_thi = (select max(thu_tu_hien_thi) from loai_chuyen_muc where ma_dien_dan = "'.$ma_dien_dan.'" and ma_loai_cha = "'.$_POST['data']['ma_loai_cha'].'")');
+	}
+	else
+	{
+		$ttht = $xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan), 'thu_tu_hien_thi, ten', PDO::FETCH_ASSOC, 
+		' and thu_tu_hien_thi = (select max(thu_tu_hien_thi) from loai_chuyen_muc where ma_dien_dan = "'.$ma_dien_dan.'" and ma_loai_cha = 0)');
+	}
+	$thu_tu_hien_thi = 1;
+	if($ttht['thu_tu_hien_thi']!=NULL)
+	{ 
+		$thu_tu_hien_thi = ++$ttht['thu_tu_hien_thi'];
 	}
 	
 	$xl_chuyen_muc->them(array('ma'=>tao_chuoi(18), 'ma_dien_dan'=>$ma_dien_dan, 'ten'=>$ten, 'ghi_chu'=>$ghi_chu, 'ma_loai_cha'=>$ma_loai_cha, 'thu_tu_hien_thi'=>$thu_tu_hien_thi, 'rieng_tu'=>$rieng_tu));
