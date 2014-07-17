@@ -1,7 +1,11 @@
 <div class="content-box-header">
 					
-	<h3>Thống kê [Tổng quát]</h3>
-	
+	<h3>Thống kê [Lượt truy cập nhiều nhất]</h3>
+	<ul class="content-box-tabs">
+		<li><a href="luot_truy_cap.php" >Lượt truy cập 7 ngày gần nhất</a></li>
+        <li><a href="#" class="default-tab">Lượt truy cập nhiều nhất</a></li>
+        <li><a href="luot_truy_cap_chi_tiet.php">Lượt truy cập chi tiết</a></li>
+	</ul>
 	<div class="clear"></div>
 	
 </div> <!-- End .content-box-header -->
@@ -21,10 +25,10 @@ $(function () {
                     type: 'column'
                 },
                 title: {
-                    text: 'Biểu đồ thống kê tình hình truy cập trên toàn hệ thống trong 7 ngày gần nhất'
+                    text: 'Biểu đồ thống kê {/literal}{$n}{literal} diễn đàn có lượt truy cập nhiều nhất'
                 },
                 subtitle: {
-                    text: '({/literal}{$ngay}{literal})'
+                    text: ''
                 },
                 xAxis: {
                     categories: [{/literal}{$title}{literal}]

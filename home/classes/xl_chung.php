@@ -398,18 +398,33 @@ class xl_chung{
 			return $sth->fetchAll(PDO::FETCH_COLUMN);
 		}
 		
-		function dien_dan_truy_cap_nhieu_nhat(){
+		function dien_dan_truy_cap_nhieu_nhat($start, $limit){
 			global $dbh;
 			
 			$sql = "SELECT ma_dien_dan FROM `bo_dem`
 					group by ma_dien_dan
 					order by count(ma) DESC
-					limit 0,10
+					limit $start, $limit
 			";
 			$sth = $dbh->prepare($sql);
 			$sth->execute();
 			return $sth->fetchAll(PDO::FETCH_COLUMN);
 		}
+		
+		function truy_cap_chi_tiet($start, $limit){
+			global $dbh;
+			
+			$sql = "SELECT ma_dien_dan, ten, count(d.ma) as luot_xem FROM `bo_dem` b, dien_dan d
+					where b.ma_dien_dan = d.ma
+					group by ma_dien_dan
+					order by count(d.ma) DESC
+					limit $start, $limit
+			";
+			$sth = $dbh->prepare($sql);
+			$sth->execute();
+			return $sth->fetchAll(PDO::FETCH_ASSOC);
+		}
+		
 		function cap_nhat_dieu_kien($du_lieu, $dieu_kien)
 		{
 			global $dbh;

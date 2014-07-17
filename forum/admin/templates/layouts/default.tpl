@@ -4,8 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{$dien_dan.ten} | {$titleForLayout|Default:''}</title>
-
+<title>{$dien_dan.ten}</title>
+<link rel="icon" href="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" />
 <!--                       CSS                       -->
 
 <!-- Reset Stylesheet -->
@@ -84,7 +84,7 @@ function inputNumber(e)
       
       <!-- Logo (221px wide) --> 
       <a href="#" style="display:block; margin: 0px"><!--<img id="logo" src="/home/upload/dien_dan/thumb/{$dien_dan.hinh_dai_dien}" width="60px" height="60px" alt="Simpla Admin logo" style="border-radius: 3px; margin: 10px 0px 10px 85px" />--><br />
-      <div style="font-size: 23px;; font-weight:bold; text-transform:uppercase; color:white; text-align:center; width: 100%; word-break:break-all">{$dien_dan.ten}</div>
+      <div style="font-size: 23px;; font-weight:bold; text-transform:uppercase; color:white; text-align:center; width: 100%; word-break:break-word">{$dien_dan.ten}</div>
       </a>
       <div class="clear"></div>
       <br />
@@ -124,10 +124,10 @@ function inputNumber(e)
             <li><a href="../loai_chuyen_muc/danh_sach.php" id="loai_chuyen_muc_danh_sach.php">Xem Danh Sách</a></li>
           </ul>
         </li>
-        <li><a class="nav-top-item" href="#" id="loai_chuyen_muc">Cấu hình</a>
+        <li><a class="nav-top-item" href="#" id="cau_hinh">Cấu hình</a>
           <ul>
-            <li><a href="../cau_hinh/danh_sach.php" id="loai_chuyen_muc_danh_sach.php">Màu sắc Menu</a></li>
-            <li><a href="../cau_hinh/danh_sach_thong_so.php" id="loai_chuyen_muc_danh_sach.php">Thông số khác</a></li>
+            <li><a href="../cau_hinh/danh_sach.php" id="cau_hinh_danh_sach.php">Màu sắc Menu</a></li>
+            <li><a href="../cau_hinh/danh_sach_thong_so.php" id="cau_hinh_danh_sach_thong_so.php">Thông số khác</a></li>
           </ul>
         </li>
       </ul>

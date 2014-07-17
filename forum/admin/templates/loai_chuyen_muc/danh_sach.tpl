@@ -42,7 +42,7 @@
             	{foreach $ds as $k=>$chuyen_muc}
                 	{if empty($chuyen_muc.ma_loai_cha)}
                 	<option value="{$chuyen_muc.ma}" 
-                    {if isset($smarty.session.data.ma_loai_cha) && $smarty.session.data.ma_loai_cha==$chuyen_muc.ma}selected{/if}>&nbsp;&rArr;&nbsp;{$chuyen_muc.ten}</option>
+                    {if isset($smarty.session.data.ma_loai_cha) && $smarty.session.data.ma_loai_cha==$chuyen_muc.ma}selected{/if}>&nbsp;{$chuyen_muc.ten}</option>
                    	{$children = getChildrenFirst($chuyen_muc.ma, $ds)}
                     {if $children!=NULL}
                     	{foreach $children as $key=>$value}
@@ -70,13 +70,16 @@
                 <tr>
                 <td >{$chuyen_muc.ma}</td>
                 <td >{$chuyen_muc.ten}</td>
-                <td >{$chuyen_muc.ten_loai_cha|default: '<span style="font-weight:bold; text-transform:capitalize">Chuyên Mục Lớn</span>'}</td>
+                <td >{if empty($chuyen_muc.ma_loai_cha)}<span style="font-weight:bold; text-transform:capitalize">Chuyên Mục Lớn</span>
+                {else if}{$chuyen_muc.ten_loai_cha}{/if}
+                </td>
                 <td class="c" >{$chuyen_muc.thu_tu_hien_thi}</td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="cap_nhat_trang_thai.php?ma={$chuyen_muc.ma}" title="Hiển Thị"><img src="/forum/admin/templates/images/trang_thai_{$chuyen_muc.rieng_tu}.png" width="20" height="20"> </a></td>
                 <td class="r"><!-- Icons --> 
-                 <a href="cap_nhat.php?ma={$chuyen_muc.ma}" title="Edit"><img alt="Edit" src="/forum/admin/templates/images/icons/pencil.png"></a>
+                 <a href="cap_nhat_ttht.php?ma={$chuyen_muc.ma}" title="Chỉnh sửa thứ tự hiển thị"><img alt="Chỉnh sửa thứ tự hiển thị" src="/forum/admin/templates/images/icons/order-icon.png"></a>
+                 <a href="cap_nhat.php?ma={$chuyen_muc.ma}" title="Chỉnh sửa"><img alt="Chỉnh sửa" src="/forum/admin/templates/images/icons/pencil.png"></a>
                  
-                 <a href="xoa.php?ma={$chuyen_muc.ma}" onclick="return confirm('Khi xóa chuyên mục, tất cả những dữ liệu về chuyên mục cũng sẽ được xóa. Bạn vẫn muốn tiếp tục xóa {$chuyen_muc.ten}?')" title="Delete"><img style="cursor:pointer" alt="Xóa" src="/forum/admin/templates/images/icons/cross.png"> </a></td>
+                 <a href="xoa.php?ma={$chuyen_muc.ma}" onclick="return confirm('Khi xóa chuyên mục, tất cả những dữ liệu về chuyên mục cũng sẽ được xóa. Bạn vẫn muốn tiếp tục xóa {$chuyen_muc.ten}?')" title="Xóa"><img style="cursor:pointer" alt="Xóa" src="/forum/admin/templates/images/icons/cross.png"> </a></td>
               </tr>      
  				{/foreach} 
               

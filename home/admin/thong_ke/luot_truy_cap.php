@@ -31,7 +31,7 @@ try{
 	$dt_smarty->assign('so_luong_truy_cap', $so_luong_truy_cap);
 	$dt_smarty->assign('title', $title);
 	$dt_smarty->assign('ngay', $ngay);
-	$contentForLayout = $dt_smarty->fetch('thong_ke/tong_quat.tpl');
+	$contentForLayout = $dt_smarty->fetch('thong_ke/luot_truy_cap.tpl');
 
 	$dt_smarty->assign('contentForLayout', $contentForLayout);
 	$dt_smarty->display('layouts/default.tpl');

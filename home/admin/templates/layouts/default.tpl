@@ -83,8 +83,11 @@ function inputNumber(e)
       <h1 id="sidebar-title"><a href="#">DienDanVn</a></h1>
       
       <!-- Logo (221px wide) -->
-	  <a href="#"><img id="logo" src="../templates/images/logo.png" alt="Simpla Admin logo" /></a>
-            
+	  <a href="#" style="display:block; margin: 0px"><!--<img id="logo" src="/home/upload/dien_dan/thumb/{$dien_dan.hinh_dai_dien}" width="60px" height="60px" alt="Simpla Admin logo" style="border-radius: 3px; margin: 10px 0px 10px 85px" />--><br />
+      <div style="font-size: 22px;; font-weight:bold; text-transform:uppercase; color:white; text-align:center; width: 100%; word-break:break-word">
+      Quản Trị Diễn Đàn</div>
+      </a>
+         <br />   
       <!-- Sidebar Profile links -->
       <div id="profile-links"> Chào, {$admin.ho_ten}<a href="#" title="Edit your profile"></a><br/>
         Lần đăng nhập cuối: {date('H:i:s d/m/Y', strtotime($admin.lan_dang_nhap_cuoi))}<br />
@@ -94,8 +97,8 @@ function inputNumber(e)
         <!-- Accordion Menu -->
         <li><a class="nav-top-item" href="#" id="thong_ke">Thống Kê</a>
           <ul>
-            <li><a href="../thong_ke/tong_quat.php" id="thong_ke_tong_quat.php">Tổng quát</a></li>
-            <li><a href="../thong_ke/top.php" id="thong_ke_top.php">Truy cập nhiều nhất</a></li>
+            <li><a href="../thong_ke/luot_truy_cap.php" id="thong_ke_luot_truy_cap.php">Lượt truy cập</a></li>
+            <li><a href="../thong_ke/phan_hoi.php" id="thong_ke_phan_hoi.php">Phản hồi</a></li>
           </ul>
         </li>
         <li><a class="nav-top-item" href="#" id="dien_dan">Diễn Đàn</a>

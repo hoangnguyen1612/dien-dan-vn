@@ -18,10 +18,27 @@
         <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
         </span> </div>
     </form>
-    <!-- /.search form --> 
-    <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu">
       </li>
+      <li class="active"> <a href="index.html" style="background-color: #fff; box-shadow:0 0 14px #FFFFFF; color:#3c8dbc; text-transform:capitalize"> <i class="fa fa-globe"></i> <span style="">Cá nhân</span> </a> </li>
+      {if $login!=''}
+      <li> <a href="pages/widgets.html"> <i class="fa fa-user"></i> <span>Tài khoản</span> </a> </li>
+      <li class="treeview"> <a href="#"> <i class="fa fa-bar-chart-o"></i> <span>Diễn đàn</span> {if !empty($ds_dien_dan)}<i class="fa fa-angle-left pull-right"></i>{/if} </a> {if $ds_dien_dan != ''}
+        <ul class="treeview-menu">
+          {foreach $ds_dien_dan as $value}
+          <li><a href="/{$value.ma_linh_vuc}/{$value.domain}" style="margin-left:0px !important"><img src="/home/upload/dien_dan/{$value.hinh_dai_dien}" width="16px" height="16px" /> {$value.ten|truncate: 22}</a></li>
+          {/foreach}
+        </ul>
+        {/if} </li>
+      <li> <a href="/thong_bao"> <i class="fa fa-envelope"></i> <span>Thông báo</span> </a> </li>
+      {else if}
+      	<li class="active">
+        <p style="padding: 10px;">Nếu bạn chưa có tài khoản hãy đăng ký ngay bây giờ!</p>
+  <button id="dang-ky-btn" style="display:block; padding: 5px; width: 100px; color: white; border:none; margin:auto; border-radius: 2px; background-color:#3c8dbc" onclick="window.location.href = '/tai_khoan/dang_ky.html'">Đăng ký</button><br />
+        </li>
+      {/if}
+    </ul>
+    <ul class="sidebar-menu">
       <li class="active"> <a href="index.html" style="background-color: #fff; box-shadow:0 0 14px #FFFFFF; color:#3c8dbc; text-transform:capitalize"> <i class="fa fa-globe"></i> <span style="">Lĩnh vực phổ biến</span> </a> </li>
       {foreach $danh_sach_linh_vuc as $linh_vuc}
       {if $linh_vuc.ma_loai_cha==0}
@@ -37,37 +54,17 @@
       {/if}
       {/foreach}
     </ul>
-    <br />
-    <ul class="sidebar-menu">
-    	<li style="border: none; text-align:center">
-         <i class="fa fa-star-o star"></i>
-         <i class="fa fa-ellipsis-h star"></i>
-         <i class="fa fa-ellipsis-h star"></i>
-         <i class="fa fa-star-o star"></i>
-        </li>
-    </ul>
+    
     <style>
     .star{
 		color: #3c8dbc;
 		font-size: 16px;
 	}
+	#dang-ky-btn:hover{
+		background-color: mediumvioletred !important;
+	}
     </style>
     <br />
-    <ul class="sidebar-menu">
-      </li>
-      <li class="active"> <a href="index.html" style="background-color: #fff; box-shadow:0 0 14px #FFFFFF; color:#3c8dbc; text-transform:capitalize"> <i class="fa fa-globe"></i> <span style="">Cá nhân</span> </a> </li>
-      {if $login!=''}
-      <li> <a href="pages/widgets.html"> <i class="fa fa-user"></i> <span>Tài khoản</span> </a> </li>
-      <li class="treeview"> <a href="#"> <i class="fa fa-bar-chart-o"></i> <span>Diễn đàn</span> {if !empty($ds_dien_dan)}<i class="fa fa-angle-left pull-right"></i>{/if} </a> {if $ds_dien_dan != ''}
-        <ul class="treeview-menu">
-          {foreach $ds_dien_dan as $value}
-          <li><a href="/{$value.ma_linh_vuc}/{$value.domain}" style="margin-left:0px !important"><img src="/home/upload/dien_dan/{$value.hinh_dai_dien}" width="16px" height="16px" /> {$value.ten|truncate: 22}</a></li>
-          {/foreach}
-        </ul>
-        {/if} </li>
-      <li> <a href="/thong_bao"> <i class="fa fa-envelope"></i> <span>Thông báo</span> </a> </li>
-      {/if}
-    </ul>
   </section>
   <!-- /.sidebar --> 
 </aside>
