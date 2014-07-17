@@ -149,7 +149,7 @@ function submitChat(){
                		</table>
                     <input type="text" name="msg"  style="margin-left:5px; width:42%" placeholder="Nhập nội dung hội thoại trong diễn đàn..."  id="chat-text" />
                     <a onclick="submitChat()" id="gui" class="btn" style="margin-top:-11px;margin-left:2px;cursor:pointer">Gửi</a>                
-                    <input type="color" name="mausac" style="margin-top:-11px;margin-left:2px;width:30px" title="Màu sắc của tên khi chat"  />
+                    <input type="color" name="mausac" style="margin-top:-11px;margin-left:2px;width:30px" title="Màu sắc của tên khi chat"  value="#0080FF"/>
      
                     </form>
                     <script>
