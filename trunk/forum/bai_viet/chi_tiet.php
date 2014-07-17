@@ -10,6 +10,7 @@ try{
 	include '../classes/xl_bao_cao_binh_luan.php';
 	include '../classes/xl_bao_cao_bai_viet.php';
 	include '../classes/xl_chuyen_muc.php';
+	include '../classes/xl_thanh_vien_dien_dan.php';
 	
 	$title = 'Chi tiết bài viết';	
 	if(empty($_GET['ma'])){
@@ -31,7 +32,7 @@ try{
 	
 	$ma = $_GET['ma'];
 
-	$bai_viet = $dt_xl_bai_viet->doc(array('ma'=>$ma,'ma_dien_dan'=>$ma_dien_dan),"bai_viet.*,(Select ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang, (Select thumbnail from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) thumbnail, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) gioi_tinh, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select loai_thanh_vien from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ma_loai_thanh_vien");
+	$bai_viet = $dt_xl_bai_viet->doc(array('ma'=>$ma,'ma_dien_dan'=>$ma_dien_dan),"bai_viet.*,(Select ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang, (Select thumbnail from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) thumbnail, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) gioi_tinh, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select loai_thanh_vien from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ma_loai_thanh_vien, (Select diem_so from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = bai_viet.ma_nguoi_dang and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) diem_so");
 	if(!$bai_viet)
 	{
 		throw new Exception('Bài viết không tồn tại trog diễn đàn');
@@ -46,12 +47,12 @@ try{
 			$dt_smarty->assign('chuyen_muc_ong_noi',$chuyen_muc_ong_noi);
 		}
 	}
-	
+
 	$dt_xl_bai_viet->cap_nhat_dieu_kien(array('luot_xem'=>($bai_viet['luot_xem']+1)), array('ma'=>$bai_viet['ma'],'ma_dien_dan'=>$ma_dien_dan));
 
-	$ds_binh_luan_cha = $dt_xl_binh_luan->danh_sach($start,$limit,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan,'ma_loai_cha'=>0),'ngay_tao ASC',"binh_luan_bai_viet.*,(Select ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung,(Select thumbnail from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) thumbnail, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) gioi_tinh", PDO::FETCH_ASSOC,'',true);
-
-	$ds_binh_luan_con = $dt_xl_binh_luan->danh_sach(0,0,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao ASC',"binh_luan_bai_viet.*,(Select ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung,(Select thumbnail from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) thumbnail, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung=binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) gioi_tinh",PDO::FETCH_ASSOC,'and ma_loai_cha !=0',false);
+	$ds_binh_luan_cha = $dt_xl_binh_luan->danh_sach($start,$limit,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan,'ma_loai_cha'=>0),'ngay_tao ASC',"binh_luan_bai_viet.*,(Select ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung,(Select thumbnail from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) thumbnail, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap,(Select loai_thanh_vien from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ma_loai_thanh_vien, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) gioi_tinh,(Select diem_so from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) diem_so", PDO::FETCH_ASSOC,'',true);
+	
+	$ds_binh_luan_con = $dt_xl_binh_luan->danh_sach(0,0,array('ma_bai_viet'=>$ma,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao ASC',"binh_luan_bai_viet.*,(Select ten from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) ten_nguoi_dung,(Select thumbnail from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) thumbnail, (Select ngay_gia_nhap from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung=binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ngay_gia_nhap, (Select gioi_tinh from nguoi_dung where nguoi_dung.ma = binh_luan_bai_viet.ma_nguoi_dung) gioi_tinh,(Select loai_thanh_vien from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) ma_loai_thanh_vien,(Select diem_so from thanh_vien_dien_dan where thanh_vien_dien_dan.ma_nguoi_dung = binh_luan_bai_viet.ma_nguoi_dung and thanh_vien_dien_dan.ma_dien_dan = $ma_dien_dan) diem_so",PDO::FETCH_ASSOC,'and ma_loai_cha !=0',false);
 	
 	$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','*',PDO::FETCH_ASSOC,'',false);
 	
@@ -93,5 +94,5 @@ try{
 }catch(Exception $e){
 	$_SESSION['message']['type'] = 'error';
 	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: /$ma_dien_dan");
+	header("Location: /{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}");
 }

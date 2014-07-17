@@ -122,6 +122,14 @@ $(document).ready(function(){
                 <div class="user-profile-tag">Tham gia</div>
                 <div class="user-profile-output"> {date('d-m-Y', strtotime($bai_viet.ngay_gia_nhap))} </div>
               </div>
+              <div class="user-profile-row">
+                <div class="user-profile-tag">Điểm số</div>
+                <div class="user-profile-output"> {$bai_viet.diem_so} </div>
+              </div>
+              <div class="user-profile-row">
+                <div class="user-profile-tag">Cấp bậc</div>
+                <div class="user-profile-output"> <img src="/forum/upload/rankCF/{lay_icon_diem($bai_viet.ma_nguoi_dang,$ma_dien_dan)}" style="height:18px" /> </div>
+              </div>
             </div>
           </div>   
           {if $bai_viet.trang_thai == 1}

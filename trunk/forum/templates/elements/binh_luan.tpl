@@ -31,8 +31,24 @@ $(document).ready(function(){
                     <div class="user-profile-output"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_cha.ma_nguoi_dung}" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a> </div>
                   </div>
                   <div class="user-profile-row">
+                    <div class="user-profile-tag">Quyền</div>
+                    <div class="user-profile-output"> {$quyen[$binh_luan_cha.ma_loai_thanh_vien]} </div>
+                  </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Bài viết</div>
+                    <div class="user-profile-output"> {dem_bai_viet_thanh_vien($ma_dien_dan, $binh_luan_cha.ma_nguoi_dung)} </div>
+                  </div>
+                  <div class="user-profile-row">
                     <div class="user-profile-tag">Tham gia</div>
                     <div class="user-profile-output"> {date('d-m-Y', strtotime($binh_luan_cha.ngay_gia_nhap))} </div>
+                  </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Điểm số</div>
+                    <div class="user-profile-output"> {$binh_luan_cha.diem_so} </div>
+                  </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Cấp bậc</div>
+                    <div class="user-profile-output"> <img src="/forum/upload/rankCF/{lay_icon_diem($binh_luan_cha.ma_nguoi_dung,$ma_dien_dan)}" style="height:18px" /> </div>
                   </div>
                 </div>
               </div>
@@ -166,9 +182,25 @@ $(document).ready(function(){
                     <div class="user-profile-output"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_con.ma_nguoi_dung}" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a> </div>
                   </div>
                   <div class="user-profile-row">
+                    <div class="user-profile-tag">Quyền</div>
+                    <div class="user-profile-output"> {$quyen[$binh_luan_con.ma_loai_thanh_vien]} </div>
+                  </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Bài viết</div>
+                    <div class="user-profile-output"> {dem_bai_viet_thanh_vien($ma_dien_dan, $binh_luan_con.ma_nguoi_dung)} </div>
+                  </div>
+                  <div class="user-profile-row">
                     <div class="user-profile-tag">Tham gia</div>
                     <div class="user-profile-output"> {date('d-m-Y', strtotime($binh_luan_con.ngay_gia_nhap))} </div>
                   </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Điểm số</div>
+                    <div class="user-profile-output"> {$binh_luan_con.diem_so} </div>
+                  </div>
+                  <div class="user-profile-row">
+                    <div class="user-profile-tag">Cấp bậc</div>
+                    <div class="user-profile-output"> <img src="/forum/upload/rankCF/{lay_icon_diem($binh_luan_con.ma_nguoi_dung,$ma_dien_dan)}" style="height:18px" /> </div>
+                    </div>
                 </div>
               </div>
           <div class="feedback-comment">
