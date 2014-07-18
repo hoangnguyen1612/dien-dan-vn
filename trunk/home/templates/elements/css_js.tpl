@@ -28,7 +28,8 @@
 
 <!-- jQuery 2.0.2 -->
 <script type="text/javascript" src="/home/templates/js/jquery-1.10.2.min.js"></script> 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script type="text/javascript" src="/home/templates/js/jquery.min.js"></script> 
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <!-- jQuery UI 1.10.3 -->
 <script src="/home/templates/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 <!-- Bootstrap -->

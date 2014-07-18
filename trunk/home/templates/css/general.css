@@ -1,3 +1,4 @@
+@import url('http://daneden.me/animate/animate.css');
 body {
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -109,16 +110,39 @@ h3.box-title{
 	padding-left: 2%;
 }
 .forum{
-	width: 18%; height: auto; float:left; margin-right: 1.9%; padding:1%;
-	box-shadow: 1px 1px 1px #ccc;
+	width: 270px; 
+	height: auto; 
+	float:left; 
+	margin-right: 50px; 
+	padding:1%;
 	border: 1px solid #f1f1f1;
+	margin-bottom: 50px;
+	border-radius: 5px;
+}
+.forum i{
+	color: #3c8dbc;
+}
+.forum:hover{
+	box-shadow: 0px 0px 3px #3c8dbc;
+}
+.forum img{
 	margin-bottom: 5px;
 }
 .forum .header{
-	text-align: left; word-break:break-all; text-align:center; color: #999; font-size:11px;
+	text-align: left; word-break:break-all; text-align:center; font-size:14px;
+}
+.forum .left{
+	float: left;
+	margin-left: 5px;
+	color: #666;
+}
+.forum .right{
+	float: right;
+	margin-right: 5px;
+	color: #666;
 }
 .forum .header .title{
-	color:#3c8dbc; font-weight:bold; font-size: 15px;
+	color:#3c8dbc; font-weight:bold; font-size: 15px;text-transform:uppercase;
 }
 .disable{
 	cursor: not-allowed;
@@ -258,43 +282,22 @@ h3.box-title{
 #signup_form input[type=text], #signup_form input[type=password]{
 	color: black;
 }
-.btn.custom{
-	background-color: #3c8dbc;
-    border: 1px solid #3c8dbc;
-    border-bottom: 1px solid #2b8d99;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    box-shadow: inset 0 1px 0 0 #74cbd5;
-    -webkit-box-shadow: 0 1px 0 0 #74cbd5 inset ;
-    -moz-box-shadow: 0 1px 0 0 #74cbd5 inset;
-    -ms-box-shadow: 0 1px 0 0 #74cbd5 inset;
-    -o-box-shadow: 0 1px 0 0 #74cbd5 inset;
-    color: white;
-    font-weight: bold;
-    padding: 6px 10px;
-    margin-top: 2px;
-    font-size: 80%;
-    text-align: center;
-    text-shadow: 0 -1px 0 #155c67;
+.btn{
+	width:100px;
+	background: #4FA1CC;
+	color: white;
+	border:0 none;
+	border-radius:1px;
+	cursor:pointer;
+	padding: 5px 5px;
+	margin:10px 5px;
+	box-shadow:none;
+	border-radius: 2px;
 }
-.btn.custom:hover{
-    opacity:.85;
-    cursor: pointer; 
-	background: #3c8dbc;
+.btn:hover{
+	color: #ffffff;
+   box-shadow:0 0 0 2px white,0 0 0 3px #4FA1CC;
 }
-.btn.custom:active{
-    border: 1px solid #1e8291;
-	background: #3c8dbc;
-    box-shadow: 0 0 10px 5px #0b616b inset; 
-    -webkit-box-shadow:0 0 10px 5px #0b616b inset ;
-    -moz-box-shadow: 0 0 10px 5px #0b616b inset;
-    -ms-box-shadow: 0 0 10px 5px #0b616b inset;
-    -o-box-shadow: 0 0 10px 5px #0b616b inset; 
-}
-
 .table.table-mailbox td{
 	font-size: 14px;
 }

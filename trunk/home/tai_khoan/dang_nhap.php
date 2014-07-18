@@ -8,9 +8,6 @@ try{
 		throw new Exception('');
 	}
 	
-	require '../classes/xl_nguoi_dung.php';
-
-	
 	$contentForLayout = $dt_smarty->fetch('nguoi_dung/dang_nhap.tpl');
 	$dt_smarty->assign('contentForLayout', $contentForLayout);
 	

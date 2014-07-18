@@ -34,7 +34,10 @@
       {else if}
       	<li class="active">
         <p style="padding: 10px;">Nếu bạn chưa có tài khoản hãy đăng ký ngay bây giờ!</p>
-  <button id="dang-ky-btn" style="display:block; padding: 5px; width: 100px; color: white; border:none; margin:auto; border-radius: 2px; background-color:#3c8dbc" onclick="window.location.href = '/tai_khoan/dang_ky.html'">Đăng ký</button><br />
+  		<center>
+        <button id="dang-ky-btn" class="btn" onclick="window.location.href = '/tai_khoan/dang_ky.html'">Đăng ký</button>
+        </center>
+        <br />
         </li>
       {/if}
     </ul>
@@ -54,16 +57,7 @@
       {/if}
       {/foreach}
     </ul>
-    
-    <style>
-    .star{
-		color: #3c8dbc;
-		font-size: 16px;
-	}
-	#dang-ky-btn:hover{
-		background-color: mediumvioletred !important;
-	}
-    </style>
+   
     <br />
   </section>
   <!-- /.sidebar --> 

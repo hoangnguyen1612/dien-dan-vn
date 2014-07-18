@@ -1,7 +1,6 @@
 <?php
 try{
 	require '../ini.php';
-	require '../classes/xl_nguoi_dung.php';
 	$url = '/tai_khoan/dang_nhap.html';
 	$_SESSION['data'] = $_POST['data'];
 	
@@ -18,7 +17,6 @@ try{
 	$email = $_POST['data']['email'];
 	$mat_khau = $_POST['data']['mat_khau'];
 	
-	$xl_nguoi_dung = new xl_nguoi_dung;
 	$nguoi_dung = $xl_nguoi_dung->doc(array('email'=>$email));
 	
 	if(!$nguoi_dung)
@@ -36,6 +34,11 @@ try{
 	if($nguoi_dung['trang_thai']==0)
 	{
 		throw new Exception('Tài khoản của bạn đang tạm khóa, vui lòng gửi liên hệ về ban quản trị Diendan.vn để biết thêm thông tin chi tiết');
+	}
+	if(isset($_POST['remember']) && $_POST['remember']=='on')
+	{
+		setcookie('username-forum', $email, time() + 2*24*60*60, '/', NULL);
+		setcookie('password-forum', base64_encode($mat_khau), time() + 2*24*60*60, '/', NULL);
 	}
 	
 	$_SESSION['login'] =$nguoi_dung;

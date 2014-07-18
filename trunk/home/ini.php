@@ -2,15 +2,45 @@
 	require '../../libraries/smarty/Smarty.class.php';
 	require '../../config.php';
 	require '../../libraries/functions.php';
-
+	require_once '../classes/xl_nguoi_dung.php';
 	
 	$dbh = connection();
+	$xl_nguoi_dung = new xl_nguoi_dung;
 	
 	$login = '';
+	
+	if(isset($_COOKIE['username-forum']) && isset($_COOKIE['password-forum']))
+	{
+		$email = $_COOKIE['username-forum'];
+		$mat_khau = base64_decode($_COOKIE['password-forum']);
+		
+		$nguoi_dung = $xl_nguoi_dung->doc(array('email'=>$email));
+
+		if(!$nguoi_dung)
+		{
+			throw new Exception('Tài khoản không tồn tại, vui lòng kiểm tra lại');
+		}
+		if($nguoi_dung['ma_kich_hoat']!=NULL)
+		{
+			throw new Exception('Tài khoản của bạn chưa được kích hoạt, vui lòng kiểm tra hộp thư mail để kích hoạt tài khoản');
+		}
+		if(strcmp(md5($email.$mat_khau), $nguoi_dung['mat_khau']))
+		{
+			throw new Exception('Mật khẩu không đúng, vui lòng kiểm tra lại');
+		}
+		if($nguoi_dung['trang_thai']==0)
+		{
+			throw new Exception('Tài khoản của bạn đang tạm khóa, vui lòng gửi liên hệ về ban quản trị Diendan.vn để biết thêm thông tin chi tiết');
+		}
+		
+		$_SESSION['login'] =$nguoi_dung;
+	}
+	
 	if(isset($_SESSION['login']))
 	{
 		$login = $_SESSION['login'];
 	}
+	
 	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERR_NONE);
 
 	$ds_dien_dan = '';
@@ -54,3 +84,4 @@
 	$dt_smarty->assign('login', $login);
 	$dt_smarty->assign('ds_dien_dan', $ds_dien_dan);
 	$dt_smarty->assign('danh_sach_linh_vuc', $danh_sach_linh_vuc);
+	
