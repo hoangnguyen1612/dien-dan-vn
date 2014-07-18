@@ -1,9 +1,7 @@
 <?php 
 try{
 	require '../ini.php';
-	require '../classes/xl_nguoi_dung.php';
 	require '../../libraries/send_gmail/send_gmail.php';
-	$xl_nguoi_dung = new xl_nguoi_dung;
 	
 	$url = '';
 	$_SESSION['data'] = $_POST['data'];

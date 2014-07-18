@@ -2,15 +2,20 @@
 try{
 	
 	include '../ini.php';
-	require '../classes/xl_nguoi_dung.php';
 	require '../classes/xl_thanh_vien_dien_dan.php';
+
+	$url = '/';
+	if($login=='')
+	{
+		throw new Exception('Vui lòng đăng nhập để thực hiện chức năng này');
+	}
 
 	if(empty($_GET['ma']))
 	{
 		throw new Exception('Tài khoản không tồn tại');
 	}
 	$ma = $_GET['ma'];
-	$xl_nguoi_dung = new xl_nguoi_dung;
+	
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	
 	$nguoi_dung = $xl_nguoi_dung->doc(array('ma'=>$ma));
@@ -39,6 +44,6 @@ try{
 	
 }catch(Exception $e)
 {
-	throwMessage($e);
+	throwMessage($e, $url);
 }
 ?>

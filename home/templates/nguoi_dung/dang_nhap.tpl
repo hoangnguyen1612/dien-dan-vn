@@ -66,15 +66,15 @@
                           <td>&nbsp;</td>
                         </tr>
                         <tr align="right">
-                          <td colspan="2"><input type="checkbox" id="remember" /><label for="remember">&nbsp;&nbsp;Ghi nhớ tôi</label></td></td>
+                          <td colspan="2"><input type="checkbox" name="remember" id="remember" /><label for="remember">&nbsp;&nbsp;Ghi nhớ tôi</label></td></td>
                         </tr>
                         <tr>
                           <td>&nbsp;</td>
                         </tr>
                         <tr>
-                          <td align="center"><input type="submit" value="Đăng Nhập" class="btn btn-info" onclick="return kiem_tra()" />
+                          <td align="center"><input type="submit" value="Đăng Nhập" class="btn" onclick="return kiem_tra()" />
                             &nbsp;&nbsp;&nbsp;
-                            <input type="button" value="Thoát" class="btn btn-info" onclick="window.location.href='/'" /></td>
+                            <input type="button" value="Thoát" class="btn" onclick="window.location.href='/'" /></td>
                         </tr>
                       </table>
                     </form>

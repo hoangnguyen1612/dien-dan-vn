@@ -1,11 +1,9 @@
 <?php 
 try{
 require '../ini.php';
-require '../classes/xl_nguoi_dung.php';
 
 $url = '/';
 
-$xl_nguoi_dung = new xl_nguoi_dung;
 if(empty($_GET['email']))
 {
 	throw new Exception('Địa chỉ email không hợp lệ');
