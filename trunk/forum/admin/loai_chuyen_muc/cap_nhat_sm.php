@@ -17,6 +17,7 @@ try{
 	kiem_tra_gia_tri($_POST['data']['rieng_tu'], array(0,1), 'Trạng thái riêng tư');
 	
 	$ma = $_POST['data']['ma'];
+
 	if(!$xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ma'=>$ma), 'ma'))
 	{
 		throw new Exception('Lỗi! [Mã chuyên mục] không tồn tại, vui lòng kiểm tra lại');

@@ -131,12 +131,6 @@ onload_functions.push('apply_onkeypress_event()');
                 <input type="file" value="" name="file"> <span style="color:red">*File upload không quá 5MB*</span>
              
          </div>
-          <div class="control-group">
-            <label class="control-label" for="filecomment">Chú thích cho tập tin:</label>
-            <div class="controls controls-row">
-              <textarea placeholder="Chú thích" rows="1" name="filecomment" id="filecomment" class="span5"></textarea>
-            </div>
-          </div>
         </fieldset>
       </div>
     </div>

@@ -24,6 +24,8 @@
       {$children = getChildrenFirstForum($chuyen_muc.ma, $ds_chuyen_muc)}
       	{if $children == NULL}
         <tr> <td class="expand footable-first-column">Chuyên mục chưa có chuyên mục con</td> </tr>
+        </tbody>
+        </table>
         {/if}
        {if $children!=NULL}
       {$kt=0}
