@@ -12,7 +12,11 @@
 {showMessage()}
 <script src="/forum/admin/templates/scripts/highcharts/js/highcharts.js"></script>
 <script src="/forum/admin/templates/scripts/highcharts/js/modules/exporting.js"></script>
-	
+<style>
+Style Attribute{
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+</style>
 {literal}
 <script type="text/javascript">
 $(function () {

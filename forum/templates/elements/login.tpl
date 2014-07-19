@@ -58,6 +58,7 @@ jQuery(document).ready(function($) {
 <input type="text" name="data[email]" id="email" />
 <label><i class="icon-unlock-alt"></i> Mật khẩu</label>
 <input name="data[mat_khau]" type="password" id="mat_khau"  />
+<input type="checkbox" name="remember" id="remember"/><label for="remember">Ghi nhớ</label><br />
 <input type="submit" onclick="return kiem_tra();" style="display:block; padding: 5px; width: 100px; color: white; border:none; margin:auto; border-radius: 2px" class="bg-color" value="Đăng nhập" />
 </form>
 </div>

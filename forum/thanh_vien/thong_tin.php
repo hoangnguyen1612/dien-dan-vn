@@ -2,14 +2,12 @@
 try{
 	include '../ini.php';
 	include '../ini_interface.php';
-	include '../classes/xl_nguoi_dung.php';
 	include '../classes/xl_bai_viet.php';
 	include '../classes/xl_cap_bac.php';
 	include '../classes/xl_chuyen_muc.php';
 
 	require '../classes/xl_thanh_vien_dien_dan.php';
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
-	$xl_nguoi_dung = new xl_nguoi_dung;
 	$xl_cap_bac = new xl_cap_bac;
 	$xl_chuyen_muc = new xl_chuyen_muc;
 	kiem_tra_quyen();
