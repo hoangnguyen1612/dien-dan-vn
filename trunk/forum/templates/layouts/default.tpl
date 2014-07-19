@@ -177,7 +177,7 @@ border-top-right-radius: 20px;
             <ul class="dropdown-menu" id="dropdown-menu">
               <!--<li><a title="" href="./ucp.php?i=profile" data-original-title=""><i class="icon-user"></i>Thành Viên</a></li>-->
               <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thong_bao/danh_sach" ><i class="icon-inbox"></i>Tin Nhắn<span class="badge badge-info" id="tbm1" title="{if $sl_thong_bao_moi==0}Không có thông báo mới nào{else if}Có {$sl_thong_bao_moi} thông báo mới{/if}">{$sl_thong_bao_moi}</span></a></li>
-              <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$ma_nguoi_dung}" data-original-title=""><i class="icon-cog"></i>Thông Tin Thành Viên</a></li>
+              <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$ma_nguoi_dung}" data-original-title=""><i class="icon-cog"></i>Thông Tin Cá Nhân</a></li>
               {if $thanh_vien.loai_thanh_vien==0 || $thanh_vien.loai_thanh_vien==1}
               <li><a title="" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin" data-original-title=""><i class="icon-user-md"></i>Quản Trị</a></li>
               {/if}

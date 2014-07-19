@@ -2,6 +2,7 @@
 
 	include '../../../config.php';	 
 	include '../../../libraries/functions.php';
+	
 	$dbh = connection();
 	$dien_dan = get_subdomain();
 	$ma_dien_dan = $dien_dan['ma'];

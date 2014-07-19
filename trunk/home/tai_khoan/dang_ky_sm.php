@@ -87,7 +87,7 @@ try{
 	</head>
 	
 	<body>
-	<span style="font-size: 1em">Xin chào,</span>
+	<span style="font-size: 1em">Xin chào '.$ten.',</span>
 	<p>
 		Bạn đã đăng ký tài khoản tại <span style="color: red; font-weight:bold">diendanvn.com.vn</span>, bạn hãy nhấp vào nút xác nhận bên dưới để kích hoạt tài khoản:
 	</p>

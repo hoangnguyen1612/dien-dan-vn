@@ -99,6 +99,7 @@ function inputNumber(e)
         <li><a class="nav-top-item" href="#" id="thong_ke">Thống Kê</a>
           <ul>
             <li><a href="../thong_ke/tong_quat.php" id="thong_ke_tong_quat.php">Tổng quát</a></li>
+            <li><a href="../thong_ke/thanh_vien.php" id="thong_ke_thanh_vien.php">Thành viên</a></li>
           </ul>
         </li>
         <li><a class="nav-top-item" href="#" id="thanh_vien">Thành Viên</a>

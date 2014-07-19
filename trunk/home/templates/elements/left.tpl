@@ -15,7 +15,7 @@
       <div class="input-group">
         <input type="text" name="tu_khoa" class="form-control" placeholder="Tìm kiếm diễn đàn" value="{$smarty.get.tu_khoa|default:''}" autofocus="autofocus"/>
         <span class="input-group-btn">
-        <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+        <button type='submit' id='search-btn' class="btn btn-flat" style="margin: 0px; width: 29px"><i class="fa fa-search"></i></button>
         </span> </div>
     </form>
     <ul class="sidebar-menu">

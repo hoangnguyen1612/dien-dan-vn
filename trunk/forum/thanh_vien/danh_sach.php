@@ -2,11 +2,9 @@
 try{
 	include '../ini.php';
 	include '../ini_interface.php';
-	include '../classes/xl_nguoi_dung.php';
 	require '../classes/xl_thanh_vien_dien_dan.php';
 	require '../classes/xl_chuyen_muc.php';
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
-	$xl_nguoi_dung = new xl_nguoi_dung;
 	$xl_chuyen_muc = new xl_chuyen_muc;
 	$title = 'Thành viên';
 	kiem_tra_quyen();
@@ -29,7 +27,5 @@ try{
 	
 	include '../end.php';
 }catch(Exception $e){
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: {$_SERVER['HTTP_REFERER']}");
+	throwMessage($e, "/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}");
 }

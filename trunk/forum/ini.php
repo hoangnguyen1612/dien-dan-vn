@@ -2,9 +2,12 @@
 	#Tạo kết nối
 	include '../../config.php';
 	include '../../libraries/functions.php';
+	include '../classes/xl_nguoi_dung.php';
+	
 	//session_destroy();exit;
 	$dbh = connection();
 	$dien_dan = get_subdomain();
+	$xl_nguoi_dung = new xl_nguoi_dung;
 
 	$ma_dien_dan = $dien_dan['ma'];
 
@@ -38,6 +41,33 @@
 	$sl_thong_bao_moi = 0;
 	$ds_dien_dan = '';
 	$quyen = array(0=>'Chủ diễn đàn', 1=>'Quản trị', 2=>'Thành viên');
+	
+	if(isset($_COOKIE['username-forum']) && isset($_COOKIE['password-forum']))
+	{
+		$email = $_COOKIE['username-forum'];
+		$mat_khau = base64_decode($_COOKIE['password-forum']);
+		
+		$nguoi_dung = $xl_nguoi_dung->doc(array('email'=>$email));
+
+		if(!$nguoi_dung)
+		{
+			throw new Exception('Tài khoản không tồn tại, vui lòng kiểm tra lại');
+		}
+		if($nguoi_dung['ma_kich_hoat']!=NULL)
+		{
+			throw new Exception('Tài khoản của bạn chưa được kích hoạt, vui lòng kiểm tra hộp thư mail để kích hoạt tài khoản');
+		}
+		if(strcmp(md5($email.$mat_khau), $nguoi_dung['mat_khau']))
+		{
+			throw new Exception('Mật khẩu không đúng, vui lòng kiểm tra lại');
+		}
+		if($nguoi_dung['trang_thai']==0)
+		{
+			throw new Exception('Tài khoản của bạn đang tạm khóa, vui lòng gửi liên hệ về ban quản trị Diendan.vn để biết thêm thông tin chi tiết');
+		}
+		
+		$_SESSION['login'] =$nguoi_dung;
+	}
 	
 	if(isset($_SESSION['login']))
 	{
