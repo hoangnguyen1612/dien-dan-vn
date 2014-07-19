@@ -28,9 +28,9 @@ try{
 	$dt_smarty->assign('phan_trang',$pt->in_bo_nut());
 	
 	# danh sách
-	$danh_sach = $xl_dien_dan->danh_sach($start, $limit, '', 'ma ASC', '*', PDO::FETCH_ASSOC, '', false);
+	$danh_sach = $xl_dien_dan->danh_sach($start, $limit, '', 'ma ASC', '*, (select concat(ho, " ", ten) from nguoi_dung where ma=ma_nguoi_tao) as ho_ten', PDO::FETCH_ASSOC, '', false);
 	if(isset($_GET['tu_khoa']))	
-		$danh_sach = $xl_dien_dan->danh_sach($start, $limit, '', 'ma ASC', '*', PDO::FETCH_ASSOC, ' where ten like "%'.$tu_khoa.'%"', false);
+		$danh_sach = $xl_dien_dan->danh_sach($start, $limit, '', 'ma ASC', '*, (select concat(ho, " ", ten) from nguoi_dung where ma=ma_nguoi_tao) as ho_ten', PDO::FETCH_ASSOC, ' where ten like "%'.$tu_khoa.'%"', false);
 
 	$dt_smarty->assign('danh_sach', $danh_sach);
 	$contentForLayout = $dt_smarty->fetch('dien_dan/danh_sach.tpl');

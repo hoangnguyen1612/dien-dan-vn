@@ -28,6 +28,7 @@
                 <th>Mã</th>
                 <th>Domain</th>
                 <th>Tên</th>
+                <th>Người tạo</th>
                 <th>Ngày tạo</th>
                 <th>Trạng Thái</th>
                 <th>Thao Tác</th>
@@ -49,6 +50,7 @@
                 <td>{$dien_dan.ma}</td>
                 <td>{$dien_dan.domain}</td>
                 <td style="text-align:left">{$dien_dan.ten}</td>
+                <td><a target="_blank" href="/tai_khoan/{urlencode(base64_encode($dien_dan.ma_nguoi_tao))}-{convert_to_dot($dien_dan.ho_ten)}">{$dien_dan.ho_ten}</a></td>
                 <td >{dmy($dien_dan.ngay_tao)}</td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="trang_thai.php?ma={$dien_dan.ma}" title="Hiển Thị"><img src="/home/admin/templates/images/trang_thai_{$dien_dan.trang_thai}.png" width="20" height="20"></a></td>
                

@@ -3,7 +3,8 @@
   <section class="content-header no-margin">
     <h1> Trang cá nhân </h1>
   </section>
-  {showMessage()} 
+  {showMessage()}
+  <input type="hidden" id="done" value="0" /> 
   <!-- Main content -->
   <section class="content">
     <div class="row">
@@ -12,10 +13,11 @@
           <div class="box-body">
             <div class="row" id="content-user">
               <div id="userphoto" onmouseover="document.getElementById('edit-image').style.display = 'block'"
-                    onmouseout="document.getElementById('edit-image').style.display = 'none'"><img src="/home/upload/nguoi_dung/{$nguoi_dung.hinh_dai_dien}" alt="default avatar"> {if $login.ma = $nguoi_dung.ma}
-                <div id="edit-image" style="width:154px; display:none;height: 40px; position:absolute; top: 125px;">
+                    onmouseout="document.getElementById('edit-image').style.display = 'none'"><img class="avatar" id="avatar" src="/home/upload/nguoi_dung/{$nguoi_dung.hinh_dai_dien}" alt="default avatar"> {if $login.ma = $nguoi_dung.ma}
+                <img src="/home/templates/images/loading1.gif" id="loading-avatar" style="display: none; top:75px; position:absolute; left: 555px; width: 20px" />
+                <div id="edit-image" style="left: 2px;width:150px; display:none; height: 28px; position:relative; top: -30px; background:rgba(78,144,254,.7)">
                   <center>
-                    <a style="line-height: 40px; color:#3c8dbc" id="change" class="topopup" href="#change-image">Cập nhật</a> 
+                    <a style="line-height: 28px; color:white" id="change" class="topopup" href="#change-image">Cập nhật</a> 
                   </center>
                 </div>
                 {/if} </div>
@@ -23,7 +25,6 @@
               <nav id="profiletabs">
                 <ul class="clearfix" style="padding-left: 10px;">
                   <li><a href="#thong_tin" class="sel">Thông tin</a></li>
-                  <li><a href="#ban_be">Bạn bè</a></li>
                   <li><a href="#dien_dan">Diễn đàn</a></li>
                   {if $co==0}
                   <style>
@@ -187,11 +188,15 @@
                   </table>
                 </div>
               </section>
-              <section id="ban_be" class="hidden"> </section>
               <section id="dien_dan" class="hidden">
+              {if $ds_dien_dan!=NULL}
                 <p style="font-weight:bold">Các diễn đàn đã tham gia</p>
-                {foreach $ds_dien_dan as $dien_dan} <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><img style="padding:2px; border: 1px solid #f1f1f1; border-radius:3px" src="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" width="30px" height="30px"/> {$dien_dan.ten}</a><br />
-                {/foreach} </section>
+                {foreach $ds_dien_dan as $dien_dan} <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><img style="padding:2px; border: 1px solid #f1f1f1; border-radius:3px" src="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" width="30px" height="30px"/> <span style="text-transform:uppercase">{$dien_dan.ten}</span></a><br />
+                {/foreach} 
+              {else if}
+              <p style="font-weight:bold">{$nguoi_dung.ten}, chưa tham gia diễn đàn nào!</p>
+              {/if}  
+                </section>
               {if $login.ma = $nguoi_dung.ma}
               <section id="chinh_sua" class="hidden">
                 <form name="form-info" id="form-info">
@@ -295,7 +300,7 @@ top: 38%;" width="30" />
 		  <input name="ImageFile" id="imageInput" type="file" />
 		  <br />
 		  <input type="submit"  id="submit-btn" value="Tải Lên" class="btn btn-info" /><br />
-		  <img src="/home/templates/images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Vui lòng đợi"/>
+		  <img src="/home/templates/images/loading.gif" id="loading-img" style="display:none;" alt="Vui lòng đợi"/>
 		</form>
 		<div id="progressbox">
 		  <div id="progressbar"></div >

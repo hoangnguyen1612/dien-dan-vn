@@ -44,43 +44,43 @@ try{
 	$dbh->beginTransaction();
 	
 	#xử lý bai_viet
-	if($xl_bai_viet->doc(array('ma_dien_dan'=>$ma), 'ma') && $xl_bai_viet->xoa(array('ma_dien_dan'=>$ma))===false)
+	if($xl_bai_viet->doc(array('ma_dien_dan'=>$ma), 'ma_dien_dan') && !$xl_bai_viet->xoa(array('ma_dien_dan'=>$ma)))
 	{
 		throw new Exception('Đã có lỗi khi xóa các bài viết thuộc diễn đàn này');
 	}
 	
 	#xử lý binh_luan
-	if($xl_binh_luan->doc(array('ma_dien_dan'=>$ma), 'ma') && $xl_binh_luan->xoa(array('ma_dien_dan'=>$ma))===false)
+	if($xl_binh_luan->doc(array('ma_dien_dan'=>$ma), 'ma_dien_dan') && !$xl_binh_luan->xoa(array('ma_dien_dan'=>$ma)))
 	{
 		throw new Exception('Đã có lỗi khi xóa các bình luận cho bài viết thuộc diễn đàn này');
 	}
 	
 	#xử lý feedback_binh_luan
-	if($xl_feedback_binh_luan->doc(array('ma_dien_dan'=>$ma), 'ma') && $xl_feedback_binh_luan->xoa(array('ma_dien_dan'=>$ma))===false)
+	if($xl_feedback_binh_luan->doc(array('ma_dien_dan'=>$ma), 'ma') && !$xl_feedback_binh_luan->xoa(array('ma_dien_dan'=>$ma)))
 	{
 		throw new Exception('Đã có lỗi khi xóa các bình chọn cho bình luận trong diễn đàn này');
 	}
 	
 	#xử lý feedback_bai_viet
-	if($xl_feedback_bai_viet->doc(array('ma_dien_dan'=>$ma), 'ma') && $xl_feedback_bai_viet->xoa(array('ma_dien_dan'=>$ma))===false)
+	if($xl_feedback_bai_viet->doc(array('ma_dien_dan'=>$ma), 'ma') && !$xl_feedback_bai_viet->xoa(array('ma_dien_dan'=>$ma)))
 	{
 		throw new Exception('Đã có lỗi khi xóa các bình chọn cho các bài viết thuộc diễn đàn này');
 	}
 	
 	#xử lý báo cáo bài viết
-	if($xl_bao_cao_bai_viet->doc(array('ma_dien_dan'=>$ma), 'ma') && $xl_bao_cao_bai_viet->xoa(array('ma_dien_dan'=>$ma))===false)
+	if($xl_bao_cao_bai_viet->doc(array('ma_dien_dan'=>$ma), 'ma') && !$xl_bao_cao_bai_viet->xoa(array('ma_dien_dan'=>$ma)))
 	{
 		throw new Exception('Đã có lỗi khi xóa các báo cáo bài viết thuộc về diễn đàn này');
 	}
 	
 	#xử lý báo cáo bình luận
-	if($xl_bao_cao_binh_luan->doc(array('ma_dien_dan'=>$ma), 'ma') && $xl_bao_cao_binh_luan->xoa(array('ma_dien_dan'=>$ma))===false)
+	if($xl_bao_cao_binh_luan->doc(array('ma_dien_dan'=>$ma), 'ma') && !$xl_bao_cao_binh_luan->xoa(array('ma_dien_dan'=>$ma)))
 	{
 		throw new Exception('Đã có lỗi khi xóa các báo cáo bình luận thuộc về diễn đàn này');
 	}
 	
 	#xử lý cấu hình
-	if($xl_cau_hinh->doc(array('ma_dien_dan'=>$ma), 'ma') && $xl_cau_hinh->xoa(array('ma_dien_dan'=>$ma))===false)
+	if($xl_cau_hinh->doc(array('ma_dien_dan'=>$ma), 'ma_dien_dan') && !$xl_cau_hinh->xoa(array('ma_dien_dan'=>$ma)))
 	{
 		throw new Exception('Đã có lỗi khi xóa thông tin cấu hình của diễn đàn này');
 	}
@@ -98,7 +98,7 @@ try{
 	}
 	
 	#xử lý thành viên diễn đàn
-	if($xl_thanh_vien_dien_dan->doc(array('ma_dien_dan'=>$ma), 'ma') && !$xl_thanh_vien_dien_dan->xoa(array('ma_dien_dan'=>$ma)))
+	if(!$xl_thanh_vien_dien_dan->xoa(array('ma_dien_dan'=>$ma)))
 	{
 		throw new Exception('Đã có lỗi khi xóa các thành viên thuộc diễn đàn này');
 	}
