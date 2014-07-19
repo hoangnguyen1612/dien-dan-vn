@@ -51,7 +51,5 @@ try{
 	
 
 }catch(Exception $e){
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: {$_SERVER['HTTP_REFERER']}"); 
+	throwMessage($e,"/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}");
 }

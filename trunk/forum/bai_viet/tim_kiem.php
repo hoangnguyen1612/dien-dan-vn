@@ -49,6 +49,5 @@ try{
 
 	
 }catch(Exception $e){
-	echo $e->getMessage();
-	exit;	
+	throwMessage($e,"/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}");
 }

@@ -42,7 +42,5 @@ try{
 	
 
 }catch(Exception $e){
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: {$_SERVER['HTTP_REFERER']}"); 
+	throwMessage($e);
 }

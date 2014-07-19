@@ -5,7 +5,6 @@ try{
 	include '../classes/xl_bai_viet.php';
 	include '../classes/xl_chuyen_muc.php';
 	include '../classes/phan_trang_1.php';
-	include '../classes/xl_nguoi_dung.php';
 
 	$title = 'Bài viết';
 	
@@ -23,6 +22,7 @@ try{
 	$start = $pt->tim_vi_tri_bat_dau();
 	if(isset($_GET['bo_loc'])){
 		if($_GET['bo_loc']!=0 && $_GET['bo_loc'] !=1){
+			$url = "/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/bai_viet/danh_sach?loai={$loai}";
 			throw new Exception('Bộ lọc không đúng dữ liệu');
 		}
 		if($_GET['bo_loc'] == 0){
@@ -98,8 +98,7 @@ try{
 	
 	include '../end.php';
 }catch(Exception $e){
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	echo $e->getMessage();exit;
+
+	throwMessage($e,$url);
 	#header("Location: /$ma_dien_dan");
 }

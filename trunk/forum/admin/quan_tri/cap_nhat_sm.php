@@ -49,10 +49,7 @@ try{
 	#Them thanh cong san pham
 	# Đóng kết nối
 	$dbh = NULL;
-	$_SESSION['msg']= 'Cập nhật thành công quản trị mới';
-	$_SESSION['style_msg'] = 'notification success png_bg';
-	header('Location: them.php');	
-	exit;	
+	throw new Exception('Cập nhật thành công',30);
 }catch (PDOException $e){
 
 	echo $e->getMessage();
@@ -60,8 +57,5 @@ try{
 }catch (Exception $e){
 	# Đóng kết nối
 	$dbh = NULL;
-	#Lay cau du lieu 
-	$_SESSION['msg'] = $e->getMessage();
-	$_SESSION['style_msg'] = 'notification error png_bg';
-	header('Location:'.$_SERVER['HTTP_REFERER']);	
+	throwMessage($e);
 }

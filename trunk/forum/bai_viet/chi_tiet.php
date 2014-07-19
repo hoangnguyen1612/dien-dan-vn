@@ -92,7 +92,5 @@ try{
 	
 	include '../end.php';
 }catch(Exception $e){
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: /{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}");
+	throwMessage($e,"/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}");
 }

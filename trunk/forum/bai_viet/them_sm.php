@@ -4,21 +4,17 @@ try{
 	include '../ini_interface.php';
 	include '../classes/xl_bai_viet.php';
 	include '../classes/xl_thanh_vien_dien_dan.php';
-	if($login == ''){
-		header('Location:/');
-		exit;
-	}
+	kiem_tra_quyen();
 
 	$dt_xl_bai_viet = new xl_bai_viet;
 	
 	$data = $_POST['data'];
+
 	if(empty($data['tieu_de'])){
-		echo 'Vui lòng nhập tên cho bài viết';
-		exit;
+		throw new Exception('Vui lòng nhập tiêu đề');
 	}
 	if(empty($data['noi_dung'])){
-		echo 'Vui lòng nhập nội dung cho bài viết';
-		exit;
+		throw new Exception('Vui lòng nhập nội dung cho bài viết');
 	}
 	
 	$data['ngay_tao'] = date('Y-m-d H:i:s');
@@ -31,10 +27,12 @@ try{
 	if($file != ""){
 		#Kiểm tra file upload lên có đầy đủ ko
 		if($_FILES['file']['error']!=0){
+			
 			throw new Exception('Lỗi trong quá trình upload hình ảnh , vui lòng kiểm tra lại');
 		}
 		# Kiểm tra file lớn hơn 200KB thì báo lỗi
 		if($_FILES['file']['size']>500000){
+			
 			throw new Exception('Dung lượng file lớn , vui lòng thử lại');
 		}
 		
@@ -46,8 +44,8 @@ try{
 	
 	$result = $dt_xl_bai_viet->them($data);
 	if($result === false){
-		echo 'Lỗi khi đăng bài , vui lòng thử lại sao';
-		exit;
+		
+		throw new Exception('Lỗi khi đăng bài , vui lòng thử lại sao');
 	}
 	cong_diem_thanh_vien($login['ma'],$ma_dien_dan,$diem_bai_viet);
 	header("Location:/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/bai_viet/danh_sach?loai=$ma_chuyen_muc");
@@ -55,7 +53,5 @@ try{
 	
 
 }catch(Exception $e){
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: /$ma_dien_dan");
+	throwMessage($e);
 }
