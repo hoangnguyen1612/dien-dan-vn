@@ -169,7 +169,7 @@
 #RMAForm li { padding: 8px; position:relative; }
 #RMAForm label {display: inline-block; margin-top: 8px; font-weight: normal; text-transform: uppercase; text-align: right;  padding: 0 5px 0 0; }
 #RMAForm label.error { width: auto; display: inline-block; margin-top: 8px; color: #F00; text-transform: none; font-weight: normal;}
-#RMAForm textarea { padding: 5px; width: 173px; margin-top: 2px; font-size: 75%;}
+#RMAForm textarea { padding: 5px; width: 173px; margin-top: 2px;}
 #cloneRet .cloneSet { width: 400px; !important }
 
 #RMAForm input[type=text], #RMAForm textarea{

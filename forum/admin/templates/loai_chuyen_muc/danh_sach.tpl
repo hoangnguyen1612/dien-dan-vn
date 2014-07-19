@@ -74,7 +74,7 @@
                 {else if}{$chuyen_muc.ten_loai_cha}{/if}
                 </td>
                 <td class="c" >{$chuyen_muc.thu_tu_hien_thi}</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="cap_nhat_trang_thai.php?ma={$chuyen_muc.ma}" title="Hiển Thị"><img src="/forum/admin/templates/images/trang_thai_{$chuyen_muc.rieng_tu}.png" width="20" height="20"> </a></td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="cap_nhat_trang_thai.php?ma={$chuyen_muc.ma}" title=""><img src="/forum/admin/templates/images/trang_thai_{$chuyen_muc.rieng_tu}.png" width="20" height="20"> </a></td>
                 <td class="r"><!-- Icons --> 
                  <a href="cap_nhat_ttht.php?ma={$chuyen_muc.ma}" title="Chỉnh sửa thứ tự hiển thị"><img alt="Chỉnh sửa thứ tự hiển thị" src="/forum/admin/templates/images/icons/order-icon.png"></a>
                  <a href="cap_nhat.php?ma={$chuyen_muc.ma}" title="Chỉnh sửa"><img alt="Chỉnh sửa" src="/forum/admin/templates/images/icons/pencil.png"></a>

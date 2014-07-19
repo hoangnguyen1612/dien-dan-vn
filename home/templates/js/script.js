@@ -67,6 +67,25 @@ jQuery(function($) {
 			$("#backgroundPopup").fadeOut("normal");  
 			popupStatus = 0;  // and set value to 0
 		}
+
+		if($("#done").val()!=0)
+		{
+			$("#loading-avatar").show();
+			$.ajax({
+				type: "POST",
+				url: "/home/tai_khoan/get_avatar.php",
+				data: {
+					'id':$("#done").val()
+				},
+				success: function(html){
+					if(html)
+					{
+						$("#avatar").attr("src", html);
+					}
+					$("#loading-avatar").hide();
+				}
+			});
+		}
 	}
 	/************** end: functions. **************/
 }); // jQuery End

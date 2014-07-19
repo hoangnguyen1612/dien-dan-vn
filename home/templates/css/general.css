@@ -212,7 +212,7 @@ h3.box-title{
 	margin-left: 10px;
 	margin-bottom: 8px;
 }
-#userphoto img {
+#userphoto img.avatar {
 	width: 154px;
 	height: 154px;
 	display: block;

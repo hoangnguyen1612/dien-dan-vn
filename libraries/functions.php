@@ -299,12 +299,12 @@ function throwMessage(Exception $e, $url='')
 
 function url_encode($str)
 {
-	return rawurlencode(base64_encode($str));
+	return urlencode($str);
 }
 
 function url_decode($str)
 {
-	return rawurldecode(base64_decode($str));
+	return urldecode(base64_decode($str));
 }
 
 

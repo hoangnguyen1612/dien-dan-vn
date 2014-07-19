@@ -14,7 +14,7 @@ try{
 	{
 		throw new Exception('Tài khoản không tồn tại');
 	}
-	$ma = $_GET['ma'];
+	$ma = urldecode(base64_decode($_GET['ma']));
 	
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	

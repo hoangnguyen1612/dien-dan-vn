@@ -89,6 +89,7 @@ if(isset($_POST))
 		echo '</tr>';
 		echo '<tr><td style="color:#3c8dbc; text-align:center">Nếu muốn thay đổi, bạn hãy chọn lại hình ảnh ở trên!</td></tr>';
 		echo '</table>';
+		echo '<script>document.getElementById("done").value = "'.$login['ma'].'"</script>';
 
 		$_SESSION['login']['hinh_dai_dien'] = $NewImageName;
 		$_SESSION['login']['thumbnail'] = $ThumbPrefix.$NewImageName;
