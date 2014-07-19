@@ -22,10 +22,13 @@
       </thead>
       <tbody>
       {$children = getChildrenFirstForum($chuyen_muc.ma, $ds_chuyen_muc)}
+      	{if $children == NULL}
+        <tr> <td class="expand footable-first-column">Chuyên mục chưa có chuyên mục con</td> </tr>
+        {/if}
        {if $children!=NULL}
       {$kt=0}
       	{foreach $children as $key=>$value}
-  
+  		
             {$kt=1}
             	{if empty($thanh_vien) || $thanh_vien.loai_thanh_vien==3}
                     {if $value.rieng_tu==1}
