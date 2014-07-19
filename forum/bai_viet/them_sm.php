@@ -17,6 +17,11 @@ try{
 		throw new Exception('Vui lòng nhập nội dung cho bài viết');
 	}
 	
+
+	if(strlen($data['noi_dung']) < 22){
+		throw new Exception('Nội dung vui lòng nhiều hơn 10 kí tự');
+	}
+	
 	$data['ngay_tao'] = date('Y-m-d H:i:s');
 	$data['ma_nguoi_dang'] = $login['ma'];
 	$data['ma_dien_dan'] = $ma_dien_dan;

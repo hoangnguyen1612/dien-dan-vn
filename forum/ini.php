@@ -7,6 +7,7 @@
 	//session_destroy();exit;
 	$dbh = connection();
 	$dien_dan = get_subdomain();
+	
 	$xl_nguoi_dung = new xl_nguoi_dung;
 
 	$ma_dien_dan = $dien_dan['ma'];

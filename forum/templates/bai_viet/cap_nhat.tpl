@@ -125,26 +125,13 @@ onload_functions.push('apply_onkeypress_event()');
         </ul>
       </div>
       <div class="widget-body tab-pane" id="posting-attach-body-html">
-        <p>Nếu bạn muốn thêm 1 hay nhiều file.</p>
+        <p>Thêm tập tin.</p>
         <fieldset>
           <div class="control-group">
-            <label class="control-label" for="fileupload">Tên file:</label>
-            <div class="fileupload fileupload-new" data-provides="fileupload">
-              <div class="input-append">
-                <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div>
-                <span class="btn btn-file"><span class="fileupload-new">Tìm kiếm</span> <span class="fileupload-exists">Change</span>
-                <input type="file" name="fileupload" id="fileupload" maxlength="262144" value="">
-                </span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload" data-original-title="" title="">Remove</a>
-                <button type="submit" name="add_file" value="Add the file" class="btn" onclick="upload = true;">Thêm tập tin</button>
-              </div>
-            </div>
-            <span class="help-inline"></span> </div>
-          <div class="control-group">
-            <label class="control-label" for="filecomment">Chú thích cho tập tin:</label>
-            <div class="controls controls-row">
-              <textarea placeholder="Chú thích" rows="1" name="filecomment" id="filecomment" class="span5"></textarea>
-            </div>
-          </div>
+            <label class="control-label" for="fileupload">Tên file:</label>   
+                <input type="file" value="" name="file"> <span style="color:red">*File upload không quá 5MB*</span>
+             
+         </div>
         </fieldset>
       </div>
     </div>
