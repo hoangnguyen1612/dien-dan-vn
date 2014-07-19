@@ -8,13 +8,11 @@ try{
 	kiem_tra_quyen();
 	
 	if(!isset($_GET['loai'])){
-		header('Location:'.$_SERVER['HTTP_REFERER']);
-		exit;
+		throw new Exception('Vui lòng nhập loại');
 	}
 	if($_GET['loai']!=0&&$_GET['loai']!=1){
 		
-		header('Location:'.$_SERVER['HTTP_REFERER']);
-		exit;
+		throw new Exception('Vui lòng nhập loại');
 	}
 	$dt_xl_bai_viet = new xl_bai_viet;
 	# khởi tạo đối tượng phân trang
@@ -37,7 +35,5 @@ try{
 	
 	include '../end.php';
 }catch(Exception $e){
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	header("Location: {$_SERVER['HTTP_REFERER']}");
+	throwMessage($e);
 }

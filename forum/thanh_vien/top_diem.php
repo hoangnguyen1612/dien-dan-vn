@@ -28,6 +28,5 @@ try{
 	
 	
 }catch(Exception $e){
-	echo $e->getMessage();
-	exit;
+	throwMessage($e);
 }

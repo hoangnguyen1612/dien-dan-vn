@@ -34,8 +34,5 @@ try{
 	
 	include '../end.php';
 }catch(Exception $e){
-	$_SESSION['message']['type'] = 'error';
-	$_SESSION['message']['content'] =  $e->getMessage();
-	echo $_SESSION['message']['content'];exit;
-	#header("Location: {$_SERVER['HTTP_REFERER']}");
+	throwMessage($e,"/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}");
 }

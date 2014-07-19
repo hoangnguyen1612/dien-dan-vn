@@ -4,7 +4,7 @@ try{
 	require '../ini_interface.php';
 	require '../classes/xl_bai_viet.php';
 	include '../classes/xl_chuyen_muc.php';
-	
+	kiem_tra_quyen();
 	if(empty($_GET['ma'])){
 		throw new Exception('Vui lòng nhập mã bài viết');
 		exit;
@@ -29,6 +29,5 @@ try{
 	
 	include '../end.php';
 }catch(Exception $e){
-	echo $e->getMessage();
-	exit;
+	throwMessage($e,"/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}");
 }
