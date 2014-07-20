@@ -36,6 +36,13 @@ try{
 	
 	
 	$xl_thanh_vien_dien_dan->cap_nhat_dieu_kien(array('loai_thanh_vien'=>2), array('ma_nguoi_dung'=>$ma, 'ma_dien_dan'=>$ma_dien_dan));
+	
+	require '../classes/xl_dien_dan.php';
+	$xl_dien_dan = new xl_dien_dan;
+	$item = $xl_dien_dan->doc(array('ma'=>$ma_dien_dan), 'so_luong_thanh_vien');
+
+	$xl_dien_dan->cap_nhat_dieu_kien(array('so_luong_thanh_vien'=>$item['so_luong_thanh_vien']+1), array('ma'=>$ma_dien_dan)); 
+	
 	$dbh->commit();
 	
 	

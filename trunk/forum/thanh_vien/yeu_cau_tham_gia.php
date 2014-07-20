@@ -12,7 +12,7 @@ try{
 	require '../classes/xl_thanh_vien_dien_dan.php';
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	
-	$danh_sach = $xl_thanh_vien_dien_dan->danh_sach(0, 0, array('loai_thanh_vien'=>3), 'ngay_gia_nhap DESC', 'ma_nguoi_dung, (select concat(ho,concat(" ", ten)) from nguoi_dung where ma = ma_nguoi_dung) as ho_ten, (select thumbnail from nguoi_dung where ma = ma_nguoi_dung) as thumbnail, (select gioi_tinh from nguoi_dung where ma = ma_nguoi_dung) as gioi_tinh', PDO::FETCH_ASSOC, '', false);
+	$danh_sach = $xl_thanh_vien_dien_dan->danh_sach(0, 0, array('ma_dien_dan'=>$ma_dien_dan, 'loai_thanh_vien'=>3), 'ngay_gia_nhap DESC', 'ma_nguoi_dung, (select concat(ho,concat(" ", ten)) from nguoi_dung where ma = ma_nguoi_dung) as ho_ten, (select hinh_dai_dien from nguoi_dung where ma = ma_nguoi_dung) as hinh_dai_dien, (select gioi_tinh from nguoi_dung where ma = ma_nguoi_dung) as gioi_tinh', PDO::FETCH_ASSOC, '', false);
 
 	$dt_smarty->assign('danh_sach', $danh_sach);
 		

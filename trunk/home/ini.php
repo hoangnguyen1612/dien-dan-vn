@@ -9,6 +9,22 @@
 	
 	$login = '';
 	
+	/* test owner forum
+	echo "<meta charset='utf-8'></meta>";
+		//$sql = 'select ma, ma_nguoi_tao, ten, (select concat(ho, " ", ten) from nguoi_dung where ma_nguoi_tao = ma) as ho_ten from dien_dan';
+	$sql = 'select ma, ma_nguoi_tao from dien_dan where domain != "qh-online-solutions"';
+	$sth = $dbh->prepare($sql);
+	$sth->execute(array());
+	$ds = $sth->fetchAll(PDO::FETCH_KEY_PAIR);
+	
+	foreach($ds as $key=>$value)
+	{
+		$sql = "insert into `thanh_vien_dien_dan` value('$key', '$value', 0, '2014-07-20', 1, NULL, '', 0, NULL)";
+		$sth = $dbh->prepare($sql);
+		$sth->execute(array());
+	}
+	echo 111;exit;*/
+	
 	if(isset($_COOKIE['username-forum']) && isset($_COOKIE['password-forum']))
 	{
 		$email = $_COOKIE['username-forum'];
