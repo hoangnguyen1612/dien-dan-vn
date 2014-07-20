@@ -73,10 +73,10 @@ if(isset($_POST))
 	if(cropImage($CurWidth,$CurHeight,$ThumbSquareSize,$thumb_DestRandImageName,$CreatedImage,$Quality,$ImageType))
 	{
 		//Create a square Thumbnail right after, this time we are using cropImage() function
-		if(!cropImage($CurWidth,$CurHeight,100,$DestRandImageName,$CreatedImage,$Quality,$ImageType))
-		{
-			echo 'Lỗi khi tạo thumbnail';
-		}
+		//if(!cropImage($CurWidth,$CurHeight,100,$DestRandImageName,$CreatedImage,$Quality,$ImageType))
+		//{
+		//	echo 'Lỗi khi tạo thumbnail';
+		//}
 		/*
 		We have succesfully resized and created thumbnail image
 		We can now output image to user's browser or store information in the database

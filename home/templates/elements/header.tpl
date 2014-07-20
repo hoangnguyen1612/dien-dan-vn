@@ -92,7 +92,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/tai_khoan/{$login.ma}-{convert_to_dot(noi_chuoi($login.ho, $login.ten, ' '))}" class="btn btn-default"style="border: 1px solid #ddd; background-color: #fafafa">Tài khoản</a>
+                                        <a href="/tai_khoan/{urlencode(base64_encode($login.ma))}-{convert_to_dot(noi_chuoi($login.ho, $login.ten, ' '))}" class="btn btn-default"style="border: 1px solid #ddd; background-color: #fafafa">Tài khoản</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="/tai_khoan/dang_xuat.html" class="btn btn-default" style="border: 1px solid #ddd; background-color: #fafafa">Đăng xuất</a>

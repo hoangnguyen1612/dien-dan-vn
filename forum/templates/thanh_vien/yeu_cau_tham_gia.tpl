@@ -10,7 +10,7 @@
           {if !empty($danh_sach)}
            {foreach $danh_sach as $thanh_vien}
                <div class="thumbnail">
-                    <img src="/home/upload/nguoi_dung/{if $thanh_vien.thumbnail!=NULL}{$thanh_vien.thumbnail}{else if $thanh_vien.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" />
+                    <img src="/home/upload/nguoi_dung/{if $thanh_vien.hinh_dai_dien!=NULL}{$thanh_vien.hinh_dai_dien}{else if $thanh_vien.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" />
                </div>
                <div class="fullname">
                     <a href="" class="topictitle">{$thanh_vien.ho_ten }</a><br />

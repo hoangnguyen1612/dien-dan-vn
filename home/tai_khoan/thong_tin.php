@@ -7,12 +7,12 @@ try{
 	$url = '/';
 	if($login=='')
 	{
-		throw new Exception('Vui lòng đăng nhập để thực hiện chức năng này');
+		throw new Exception();
 	}
 
 	if(empty($_GET['ma']))
 	{
-		throw new Exception('Tài khoản không tồn tại');
+		throw new Exception();
 	}
 	$ma = urldecode(base64_decode($_GET['ma']));
 	
