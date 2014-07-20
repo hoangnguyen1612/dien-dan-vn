@@ -19,7 +19,7 @@ try{
 	
 	$ds_bai_viet_moi_nhat = $dt_xl_bai_viet->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC','bai_viet.*,(Select ten from nguoi_dung where nguoi_dung.ma = bai_viet.ma_nguoi_dang) ten_nguoi_dang',PDO::FETCH_ASSOC,'',false);
 
-	$ds_top_diem_thanh_vien = $dt_xl_thanh_vien_dien_dan->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'diem_so DESC','thanh_vien_dien_dan.*,(Select ten from nguoi_dung where nguoi_dung.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'',false);
+	$ds_top_diem_thanh_vien = $dt_xl_thanh_vien_dien_dan->danh_sach(0,10,array('ma_dien_dan'=>$ma_dien_dan),'diem_so DESC','thanh_vien_dien_dan.*,(Select ten from nguoi_dung where nguoi_dung.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_nguoi_dung',PDO::FETCH_ASSOC,'and loai_thanh_vien !=3',false);
 	
 	$dt_smarty->assign('ds_top_diem_thanh_vien',$ds_top_diem_thanh_vien); 
 	
