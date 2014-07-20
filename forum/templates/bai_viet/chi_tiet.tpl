@@ -104,7 +104,7 @@ $(document).ready(function(){
           <div class="span3 hidden-phone" id="profile25">
             <div class="user-profile-tab">
               <div class="user-profile-avatar">
-                <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $bai_viet.thumbnail!=NULL}{$bai_viet.thumbnail}{else if $bai_viet.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" alt="User avatar"></a> </div>
+                <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $bai_viet.hinh_dai_dien!=NULL}{$bai_viet.hinh_dai_dien}{else if $bai_viet.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" alt="User avatar"></a> </div>
               </div>
               <div class="user-profile-row">
                 <div class="user-profile-tag">Tên</div>
