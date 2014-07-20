@@ -69,8 +69,8 @@ function submitChat(){
 <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
       <thead>
         <tr>
-          <th class="large20" data-hide="phone"><i class="icon-bar-chart"></i>Thành viên tích cực </th>
-          <th class="large100" data-hide="phone"><i class="icon-bar-chart"></i>Thống kê bài viết </th>
+          <th class="large20" data-hide="phone"><i class="icon-bar-chart"></i> Thành Viên Tích Cực </th>
+          <th class="large100" data-hide="phone"><i class="icon-bar-chart"></i> Thống kê bài viết </th>
         </tr>
       </thead>
       <tbody>

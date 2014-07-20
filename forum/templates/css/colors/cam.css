@@ -11,7 +11,7 @@ a:hover{
 	color:#F47221;
 }
 .bg-color{background-color: #F47221}
-.text-color{color: #F47221}
+.text-color{color: #F47221 !important;}
 
 .subheader {
     border-top: 4px solid #F47221 !important;

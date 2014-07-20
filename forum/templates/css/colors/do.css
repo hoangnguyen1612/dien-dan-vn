@@ -11,7 +11,7 @@ a:hover{
 	color:#D91A2A;
 }
 .bg-color{background-color: #D91A2A}
-.text-color{color: #D91A2A}
+.text-color{color: #D91A2A !important;}
 
 footer .navList a {
   color: #D91A2A !important;

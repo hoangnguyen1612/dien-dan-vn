@@ -142,7 +142,7 @@ border-top-right-radius: 20px;
             <li class="line">|</li>
             <li class="nav-icon"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/phan_hoi/them" data-original-title="" title="" style="color:{$mang_mau_sac[2]}"><span class="has-sub"><i class="icon-thumbs-up"></i></span> Phản hồi</a> </li>
             <li class="line">|</li>
-             <li class="nav-icon"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac" data-original-title="" title="" style="color:blue"><span class="has-sub"><i class="icon-bar-chart"></i></span> Cấp bậc</a> </li>
+             <li class="nav-icon"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac" data-original-title="" title="" style="color:{$mang_mau_sac[3]}"><span class="has-sub"><i class="icon-bar-chart"></i></span> Cấp bậc</a> </li>
           </ul>
           <div id="navBtn" class="" data-toggle="collapse" data-target=".nav-collapse">MENU<i class="icon  icon-list"></i></div>
         </nav>
