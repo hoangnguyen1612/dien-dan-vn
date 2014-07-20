@@ -13,7 +13,7 @@ a:hover{
 	color:#E82A50;
 }
 .bg-color{background-color: #E82A50}
-.text-color{color: #E82A50}
+.text-color{color: #E82A50 !important;}
 
 .subheader {
     border-top: 4px solid #E82A50 !important;

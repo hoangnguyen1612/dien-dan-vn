@@ -14,15 +14,11 @@ try{
 	kiem_tra_rong($_POST['data']['ten'], 'Tên chuyên mục');
 	kiem_tra_gia_tri($_POST['data']['rieng_tu'], array(0,1), 'Trạng thái riêng tư');
 	
-	$ten = $_POST['data']['ten'];
-	if($xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ten'=>$ten), 'ma'))
-	{
-		throw new Exception('Lỗi! [Tên chuyên mục] đã tồn tại, vui lòng kiểm tra lại');
-	}
-	
 	$rieng_tu = $_POST['data']['rieng_tu'];
 	$ghi_chu = '';
 	$ma_loai_cha = 0;
+	$ten = $_POST['data']['ten'];
+	
 	if(isset($_POST['data']['ghi_chu']))
 	{
 		$ghi_chu = $_POST['data']['ghi_chu'];
@@ -32,6 +28,11 @@ try{
 	{ 
 		kiem_tra_la_so($_POST['data']['ma_loai_cha'], 'Mã loại cha');
 		$ma_loai_cha = $_POST['data']['ma_loai_cha'];
+	
+		if($xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ten'=>$ten, 'ma_loai_cha'=>$ma_loai_cha), 'ma'))
+		{
+			throw new Exception('Lỗi! [Tên chuyên mục] đã tồn tại, vui lòng kiểm tra lại');
+		}
 		
 		if(!$tv = $xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan), 'ma, ma_loai_cha', PDO::FETCH_ASSOC, " and ma = '$ma_loai_cha'"))
 		{

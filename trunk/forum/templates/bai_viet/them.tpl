@@ -84,7 +84,7 @@ onload_functions.push('apply_onkeypress_event()');
           </div>
           <label class="control-label" for="subject">Tiêu đề bài viết:</label>
           <div class="controls controls-row">
-            <input type="text" class="span6" placeholder="Tiêu đề bài viết" name="data[tieu_de]" id="tieu_de" maxlength="60" tabindex="2" value="">
+            <input type="text" class="span6" placeholder="Tiêu đề bài viết" name="data[tieu_de]" id="tieu_de" maxlength="200" tabindex="2" value="">
           </div>
           <script src="./styles/BBOOTS/template/editor.js"></script>
           <div class="space10"></div>

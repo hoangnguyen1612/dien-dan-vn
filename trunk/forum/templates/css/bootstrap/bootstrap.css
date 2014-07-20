@@ -255,7 +255,7 @@ a {
 
 a:hover,
 a:focus {
-  color: black;
+  color: black !important;
   text-decoration: none;
 }
 

@@ -125,7 +125,10 @@ try{
 	';
 		
 		
-	send_gmail('nt.hoang1612@gmail.com', 'hoangit1612', $email, $ho.' '.$ten, 'Kích hoạt tài khoản', $mail, NAME_WEBSITE);
+	if(send_gmail('nt.hoang1612@gmail.com', 'hoangit1612', $email, $ho.' '.$ten, 'Kích hoạt tài khoản', $mail, NAME_WEBSITE)!=1)
+	{
+		throw new Exception('Địa chỉ Email không hợp lệ');
+	}
 
 	unset($_SESSION['data']);
 	

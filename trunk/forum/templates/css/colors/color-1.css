@@ -148,7 +148,7 @@ footer {
 }
 
 .bg-color{background-color: #169FE6}
-.text-color{color: #169FE6}
+.text-color{color: #169FE6 !important;}
 
 
 /* --------------------------------------------------------------
