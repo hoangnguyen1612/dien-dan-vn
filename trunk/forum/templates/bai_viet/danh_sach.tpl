@@ -103,11 +103,16 @@
           <i class="icon-user"></i> bởi <a href="/29/sinh-vien-hutech/thanh_vien/thong_tin?ma_thanh_vien=EIG1dndwHsw7bbs" style="color: #AA0000;" class="username-coloured" data-original-title="" title="">{$bai_viet_danh_dau.ho_ten}</a>&nbsp;&nbsp; <i class="icon-time"></i> <small>{$bai_viet_danh_dau.ngay_tao}</small></td>
         <td class="center">{$bai_viet_danh_dau.so_luong_binh_luan} Trả lời <br>
           {$bai_viet_danh_dau.luot_xem} Lượt xem</td>
+         {$binh_luan_danh_dau = binh_luan_moi_nhat($bai_viet_danh_dau.ma,$ma_dien_dan)}
+        	{if $binh_luan_danh_dau != NULL}
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_danh_dau[0].ma_nguoi_dung}" data-original-title="" title="">{get_ho_ten($binh_luan_danh_dau[0].ma_nguoi_dung)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến bài viết" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet_danh_dau.ma}#{$binh_luan_danh_dau[0].ma}{$bai_viet_danh_dau.ma}"><i class="mobile-post icon-signout"></i></a> <br>
+          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($binh_luan_danh_dau[0].ngay_tao))}</small></td>
+          {else}
+          	<td class="center footable-last-column">Chưa có bình luận nào</td>
+          	{/if}
         
         
-        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/29/sinh-vien-hutech/thanh_vien/thong_tin?ma_thanh_vien=EIG1dndwHsw7bbs" data-original-title="" title="">{$bai_viet_danh_dau.ho_ten}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến Hùng" href="/29/sinh-vien-hutech/thanh_vien/thong_tin?ma_thanh_vien=EIG1dndwHsw7bbs"><i class="mobile-post icon-signout"></i></a> <br>
-          <i class="icon-time"></i> <small>{$bai_viet_danh_dau.ngay_tao}</small></td>
-      </tr>
+      	
         {/foreach}
         {else}
         <tr>
@@ -155,8 +160,17 @@
         <td class="center">{$bai_viet_moi_nhat.so_luong_binh_luan} Trả lời <br>
           {$bai_viet_moi_nhat.luot_xem} Lượt xem</td>
            <td class="center">{time_since(time() - strtotime($bai_viet_moi_nhat.ngay_tao))}</td>
-        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet_moi_nhat.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi_nhat.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
-          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_moi_nhat.ngay_tao))}</small></td>
+       
+       {$binh_luan_moi = binh_luan_moi_nhat($bai_viet_moi_nhat.ma,$ma_dien_dan)}
+        	{if $binh_luan_moi != NULL}
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_moi[0].ma_nguoi_dung}" data-original-title="" title="">{get_ho_ten($binh_luan_moi[0].ma_nguoi_dung)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến bài viết" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet_moi_nhat.ma}#{$binh_luan_moi[0].ma}{$bai_viet_moi_nhat.ma}"><i class="mobile-post icon-signout"></i></a> <br>
+          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($binh_luan_moi[0].ngay_tao))}</small></td>
+          {else}
+          	<td class="center footable-last-column">Chưa có bình luận nào</td>
+          	{/if}
+       
+       
+       
       </tr>
       {/foreach}
       </tbody>
@@ -195,8 +209,17 @@
           {$bai_viet_yeu_thich_nhat.luot_xem} Lượt xem</td>
            <td class="center">{$bai_viet_yeu_thich_nhat.thich} <i class="icon-thumbs-up-alt" style="color:crimson"></i> <br>
           {$bai_viet_yeu_thich_nhat.luot_xem} Lượt xem</td>
-        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_yeu_thich_nhat.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet_yeu_thich_nhat.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_yeu_thich_nhat.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_yeu_thich_nhat.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
-          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_yeu_thich_nhat.ngay_tao))}</small></td>
+          
+          
+         {$binh_luan_yeu_thich = binh_luan_moi_nhat($bai_viet_yeu_thich_nhat.ma,$ma_dien_dan)}
+        	{if $binh_luan_yeu_thich != NULL}
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_yeu_thich[0].ma_nguoi_dung}" data-original-title="" title="">{get_ho_ten($binh_luan_yeu_thich[0].ma_nguoi_dung)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến bài viết" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet_yeu_thich_nhat.ma}#{$binh_luan_yeu_thich[0].ma}{$bai_viet_yeu_thich_nhat.ma}"><i class="mobile-post icon-signout"></i></a> <br>
+          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($binh_luan_yeu_thich[0].ngay_tao))}</small></td>
+          	{else}
+          	<td class="center footable-last-column">Chưa có bình luận nào</td>
+          	{/if}
+        
+        
       </tr>
       {/foreach}
       </tbody>
@@ -237,9 +260,13 @@
         <td class="center">{$bai_viet.so_luong_binh_luan} Trả lời <br>
           {$bai_viet.luot_xem} Lượt xem</td>
         
-        
-        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet.ma_nguoi_dang}"><i class="mobile-post icon-signout"></i></a> <br>
-          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet.ngay_tao))}</small></td>
+        {$binh_luan_theo_loai = binh_luan_moi_nhat($bai_viet.ma,$ma_dien_dan)}
+        	{if $binh_luan_theo_loai != NULL}
+        <td class="center footable-last-column"><i class="icon-user"></i> bởi <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_theo_loai[0].ma_nguoi_dung}" data-original-title="" title="">{get_ho_ten($binh_luan_theo_loai[0].ma_nguoi_dung)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến bài viết" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet.ma}#{$binh_luan_theo_loai[0].ma}{$bai_viet.ma}"><i class="mobile-post icon-signout"></i></a> <br>
+          <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($binh_luan_theo_loai[0].ngay_tao))}</small></td>
+          {else}
+          	<td class="center footable-last-column">Chưa có bình luận nào</td>
+          	{/if}
       </tr>
       {/foreach}
       </tbody>

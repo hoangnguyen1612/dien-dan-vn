@@ -17,3 +17,8 @@ function trang_thai_binh_luan($ma_binh_luan,$ma_dien_dan){
 	return $binh_luan['trang_thai'];
 	
 }
+function binh_luan_moi_nhat($ma_bai_viet,$ma_dien_dan){
+	$xl_binh_luan = new xl_binh_luan;
+	$binh_luan = $xl_binh_luan->danh_sach(0,1,array('ma_bai_viet'=>$ma_bai_viet,'ma_dien_dan'=>$ma_dien_dan),'ma DESC','*',PDO::FETCH_ASSOC,'',false);
+	return $binh_luan;
+}

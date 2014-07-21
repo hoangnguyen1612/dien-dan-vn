@@ -5,6 +5,7 @@ try{
 	include '../classes/xl_bai_viet.php';
 	include '../classes/xl_chuyen_muc.php';
 	include '../classes/phan_trang_1.php';
+	include '../classes/xl_binh_luan.php';
 
 	$title = 'Bài viết';
 	
@@ -15,6 +16,7 @@ try{
 	$loai = $_GET['loai'];
 	$dt_xl_bai_viet = new xl_bai_viet;
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
+	$dt_xl_binh_luan = new xl_binh_luan;
 	$limit = 10;
 	# khởi tạo đối tượng phân trang
 	$pt = new phan_trang('page',$limit);	
@@ -53,6 +55,8 @@ try{
 	}else{
 	$ds_bai_viet_theo_loai = $dt_xl_bai_viet->danh_sach($start,$limit,array('ma_loai_chuyen_muc'=>$loai,'ma_dien_dan'=>$ma_dien_dan),'ngay_tao DESC',"bai_viet.*,(Select ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan",PDO::FETCH_ASSOC,'',true);
 	}
+	
+	
 	$ds_bai_viet_danh_dau = $dt_xl_bai_viet->danh_sach(0,0,array('ma_dien_dan'=>$ma_dien_dan,'stick'=>1,'ma_loai_chuyen_muc'=>$loai),'ngay_tao DESC','bai_viet.*,(Select ten from nguoi_dung where bai_viet.ma_nguoi_dang = nguoi_dung.ma) ho_ten,(Select count(ma) from binh_luan_bai_viet where bai_viet.ma = binh_luan_bai_viet.ma_bai_viet) so_luong_binh_luan',PDO::FETCH_ASSOC,'',false);
 
 	
