@@ -69,6 +69,30 @@ class xl_chung{
 		$sth = $dbh->prepare($sql);
 		return $sth->execute($du_lieu);
 	}
+	#
+	function them_va_lay_id($du_lieu)
+	{
+	
+		global $dbh;
+		
+		$chuoi_cot = '';
+		$chuoi_gia_tri  = '';
+		
+		foreach($du_lieu as $key=>$value)
+		{
+			$chuoi_cot .= "`{$key}`,";
+			$chuoi_gia_tri .= ":{$key},";
+		}
+		
+		$chuoi_cot = trim($chuoi_cot, ',');
+		$chuoi_gia_tri = trim($chuoi_gia_tri, ',');
+		
+		$sql = "INSERT INTO `{$this->bang}` ({$chuoi_cot}) VALUES ({$chuoi_gia_tri})";
+		$sth = $dbh->prepare($sql);
+		$result = $sth->execute($du_lieu);
+		$id_vua_them = $dbh->lastInsertId();
+		return array($result,$id_vua_them);
+	}
 	
 	#xóa
 	function xoa($dieu_kien, $them_cau_truy_van = '')

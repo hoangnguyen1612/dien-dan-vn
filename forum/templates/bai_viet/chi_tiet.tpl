@@ -82,7 +82,7 @@ $(document).ready(function(){
         </div>
       </div>
       <div class="pull-left">
-        <form method="get" id="topic-search" action="./search.php" class="hidden-phone">
+        <form method="get" id="topic-search" action="" class="hidden-phone">
           <fieldset>
             <div class="input-append input-icon left"> <i class="icon-search"></i>
               <input type="text" class="span10" size="9" name="keywords" id="search_keywords" placeholder="Tìm kiếm bài viết">

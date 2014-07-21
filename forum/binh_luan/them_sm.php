@@ -31,13 +31,12 @@ try{
 	$data['ma_nguoi_dung'] = $login['ma'];
 	$data['ma_dien_dan'] = $ma_dien_dan;
 
-	$result = $dt_xl_binh_luan->them($data);
-	if($result === false){
-		throw new Exception('Lỗi khi đăng bài , vui lòng thử lại sau');
-		
-	}
+	$result = $dt_xl_binh_luan->them_va_lay_id($data);
+	
+	$id_binh_luan_vua_them = $result[1];
+	
 	$ma_bai_viet = $data['ma_bai_viet'];
-	header("Location:/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/bai_viet/chi_tiet?ma=$ma_bai_viet");
+	header("Location:".$_SERVER['HTTP_REFERER']."#$id_binh_luan_vua_them$ma_bai_viet");
 	exit;
 	
 

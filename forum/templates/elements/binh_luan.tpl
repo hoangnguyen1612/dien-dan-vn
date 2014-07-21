@@ -24,7 +24,7 @@ $(document).ready(function(){
           <div class="span3 hidden-phone" id="profile26">
                 <div class="user-profile-tab">
                   <div class="user-profile-avatar">
-                    <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_cha.ma_nguoi_dung}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_cha.thumbnail!=NULL}{$binh_luan_cha.thumbnail}{else if $binh_luan_cha.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
+                    <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_cha.ma_nguoi_dung}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_cha.hinh_dai_dien!=NULL}{$binh_luan_cha.hinh_dai_dien}{else if $binh_luan_cha.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
                   </div>
                   <div class="user-profile-row">
                     <div class="user-profile-tag">Tên</div>
@@ -175,7 +175,7 @@ $(document).ready(function(){
           <div class="span3 hidden-phone" id="profile26">
                 <div class="user-profile-tab">
                   <div class="user-profile-avatar">
-                    <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_con.ma_nguoi_dung}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_con.thumbnail!=NULL}{$binh_luan_con.thumbnail}{else if $binh_luan_con.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
+                    <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_con.ma_nguoi_dung}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_con.hinh_dai_dien!=NULL}{$binh_luan_con.hinh_dai_dien}{else if $binh_luan_con.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
                   </div>
                   <div class="user-profile-row">
                     <div class="user-profile-tag">Tên</div>

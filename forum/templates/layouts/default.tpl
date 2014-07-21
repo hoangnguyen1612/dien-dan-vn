@@ -84,6 +84,7 @@ head.ready(function() {
 });
 </script>
 {/literal}
+
 </head>
 <body id="phpbb" class="section-index ltr">
 <button id="home-btn" title="Thanh điều khiển" class="toggle-menu menu-left push-body" style="
@@ -152,18 +153,18 @@ border-top-right-radius: 20px;
       </div>
       <div class="crumbs">
         <ul class="sub-crumb hidden-phone">
-          <li class="active"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><i class="icon-flag"></i> Trang chủ</a></li>
+          <li class="active text-color"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"><i class="icon-flag"></i> Trang chủ</a></li>
           {if isset($chuyen_muc_ong_noi)}
-          <li class="active"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_ong_noi.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_ong_noi.ten}</a></li>
+          <li class="active text-color"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_ong_noi.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_ong_noi.ten}</a></li>
           {/if}
           {if isset($chuyen_muc_cha)}
-          <li class="active"> &nbsp;<a  href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_cha.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_cha.ten}</a></li>
+          <li class="active text-color"> &nbsp;<a  href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc_cha.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc_cha.ten}</a></li>
           {/if}
           {if isset($chuyen_muc)}
-          <li class="active"> &nbsp;<a  href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc.ten}</a></li>
+          <li class="active text-color"> &nbsp;<a  href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc.ma}"><i class="icon-long-arrow-right"></i>{$chuyen_muc.ten}</a></li>
           {/if}
           {if isset($bai_viet)}
-          <li class="active"> &nbsp;<a  href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet.ma}"><i class="icon-long-arrow-right"></i>{$bai_viet.tieu_de|truncate:100}</a></li>
+          <li class="active text-color"> &nbsp;<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet.ma}" title="{$bai_viet.tieu_de}"><i class="icon-long-arrow-right"></i>{$bai_viet.tieu_de|truncate:50}</a></li>
           {/if}
         </ul>
         <ul class="top-menu">
@@ -215,7 +216,7 @@ border-top-right-radius: 20px;
                     
                 
               </select>
-              <button type="submit" class="btn" style="margin-bottom: 10px;">Đi</button>
+              <button type="submit" class="btn">Đi</button>
             </fieldset>
           </form>
         </div>
@@ -265,6 +266,14 @@ border-top-right-radius: 20px;
 	}
 </script> 
 <a class="back-to-top text-color" title="Về đầu trang"><i class="icon-circle-arrow-up"></i></a>
+{literal} 
+<script>
+    // some function that depends on bootstrap and jquery
+	head.ready(function () {
+	   $.fn.tooltip&&$('[rel="tooltip"]').tooltip();$.fn.popover&&$('[rel="popover"]').popover();$(".selectpicker").selectpicker();$(".selectpicker").tooltip("disable");$(".btn-group [title]").tooltip({container:"body"});twitterFetcher.fetch("391407906655965184","example1",3,true,false);var totop=$("#totop");totop.click(function(){$("html, body").stop(true,true).animate({scrollTop:0},500);return false});$(window).scroll(function(){if($(this).scrollTop()>600){totop.fadeIn()}else{totop.fadeOut()}});$("button[data-loading-text]").click(function(){var e=$(this);e.button("loading");setTimeout(function(){e.button("reset")},3e3)});$("#nav-listen").on("show hide",function(e){if($(e.target).attr("id")!="nav-listen"){return}$("#nav-shown").toggleClass("icon-list icon-align-justify",200)});$("#target-col").on("show hide",function(e){if($(e.target).attr("id")!="target-col"){return}$("#target-shown").toggleClass("icon-arrow-up icon-arrow-down",200)});jQuery(function(e){e("a").tooltip({html:true,container:"body"})});$(".btn-group [title]").tooltip({container:"body"})
+    });
+</script> 
+{/literal} 
 </body>
 </html>
 <script>
