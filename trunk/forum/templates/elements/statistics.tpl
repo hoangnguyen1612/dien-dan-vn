@@ -21,7 +21,7 @@ setInterval(function(){ $("#chatlogs").load("/{$dien_dan.ma_linh_vuc}/{$dien_dan
 		$("#vietvbb_topstats_s_content").html("");
 		for(i=0; i<=arr[2]-1 ; i++){	
 	
-			$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Total Thanks"> '+so_luong[i]+' </em> <span class="topx-content-menu"><img src="/forum/upload/rankCF/'+cap_bac[i]+'" style="width:20px;height:20px ;margin-right:3px"/><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font color="#2dba97">'+thanh_vien[i]+'</font></a> </span></div>');		
+			$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Số lượng bài viết"> '+so_luong[i]+' </em> <span class="topx-content-menu"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac"><img src="/forum/upload/rankCF/'+cap_bac[i]+'" style="width:20px;height:20px ;margin-right:3px"/></a><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font color="#2dba97">'+thanh_vien[i]+'</font></a> </span></div>');		
 		}
      });
 	  }
@@ -35,7 +35,7 @@ setInterval(function(){ $("#chatlogs").load("/{$dien_dan.ma_linh_vuc}/{$dien_dan
 		var i;
 		$("#vietvbb_topstats_s_content").html("");
 		for(i=0; i<=arr[3]-1 ; i++){	
-			$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Total Thanks"> '+ diem_so[i] +' </em> <span class="topx-content-menu"> <img src="/forum/upload/rankCF/'+icon[i]+'" style="width:20px;height:20px ;margin-right:3px"/><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font color="#2dba97">'+ thanh_vien[i]+'</font></a> </span></div>');		
+			$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Top điểm số"> '+ diem_so[i] +' </em> <span class="topx-content-menu"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac"> <img src="/forum/upload/rankCF/'+icon[i]+'" style="width:20px;height:20px ;margin-right:3px"/></a><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font color="#2dba97">'+ thanh_vien[i]+'</font></a> </span></div>');		
 		}
      });
 	  }
@@ -75,7 +75,7 @@ function submitChat(){
       </thead>
       <tbody>
         <tr>
-          <td title="No unread posts" class="expand footable-first-column" ><div class="left-mainbox">
+          <td class="expand footable-first-column" ><div class="left-mainbox">
               <div class="mainbox">
                 <ul class="tabs">
                   <li class="current" style="list-style:none"> <span style="padding: 0px 5px;">
@@ -89,7 +89,7 @@ function submitChat(){
                 <div style="display:block;background: url(vietvbb/topx/list.gif) no-repeat top left; border-top: 0px none; padding: 0px;">
                   <div class="topx-content" id="vietvbb_topstats_s_content">
                   {foreach $ds_top_diem_thanh_vien as $thanh_vien}
-                    <div class="topx-bit" style="margin-bottom:2px"><em title="Total Thanks"> {$thanh_vien.diem_so} </em> <span class="topx-content-menu"> <img src="/forum/upload/rankCF/{lay_icon_diem($thanh_vien.ma_nguoi_dung,$thanh_vien.ma_dien_dan)}" style="width:20px;height:20px ;margin-right:3px"/><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$thanh_vien.ma_nguoi_dung}" title=""><font size="-1" color="#2dba97">{$thanh_vien.ten_nguoi_dung}</font></a> </span>
+                 <div class="topx-bit" style="margin-bottom:2px"><em title="Top điểm số"> {$thanh_vien.diem_so} </em> <span class="topx-content-menu"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac"> <img src="/forum/upload/rankCF/{lay_icon_diem($thanh_vien.ma_nguoi_dung,$thanh_vien.ma_dien_dan)}" style="width:20px;height:20px ;margin-right:3px"/></a><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$thanh_vien.ma_nguoi_dung}" title=""><font size="-1" color="#2dba97">{$thanh_vien.ten_nguoi_dung}</font></a> </span>
                     
                      </div>
                     {/foreach}

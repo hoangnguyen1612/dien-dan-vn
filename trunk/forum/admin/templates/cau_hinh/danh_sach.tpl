@@ -54,14 +54,17 @@
 					 $("#c3").change(function(){
 						document.getElementById("phan_hoi").value = document.getElementById("c3").value;
 					});
+					 $("#c4").change(function(){
+						document.getElementById("cap_bac").value = document.getElementById("c4").value;
+					});
                 });
                 </script>
                 </td>
                 </tr>
                 <tr>
                 <td>Cấp bậc</td>
-                <td style="text-align:left"><input type="color"  id="c3" style="cursor:pointer" value="{$mang_mau_sac[3]}" />
-                &nbsp;&nbsp;<input type="text" name="phan_hoi" class="text-input" style="width: 70px; margin-top: -2px;" id="cap_bac" value="{$mang_mau_sac[3]}" />
+                <td style="text-align:left"><input type="color"  id="c4" style="cursor:pointer" value="{$mang_mau_sac[3]}" />
+                &nbsp;&nbsp;<input type="text" name="cap_bac" class="text-input" style="width: 70px; margin-top: -2px;" id="cap_bac" value="{$mang_mau_sac[3]}" />
                 </td>
                 </tr>
            <tr><td colspan="2" align="center"><input type="submit" value="Cập nhật" class="button" style="margin-left:300px"/> </tr>                   

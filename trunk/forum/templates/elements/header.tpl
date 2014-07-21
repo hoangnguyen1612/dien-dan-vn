@@ -1,9 +1,9 @@
 <header class="header" role="banner"> <!-- Header block -->
   <div class="topArea"> <!-- Logo block -->
     <div class="leftArea">
-      <div id="logo" style="width: 100px; height:100px;"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="{$dien_dan.ten}"><img src="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" width="100" height="100"/></a></div>
+      <div id="logo" style="width: 100px; height:100px;"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" ><img src="/home/upload/dien_dan/{$dien_dan.hinh_dai_dien}" width="100" height="100"/></a></div>
       <div class="logo-transition" style="margin-left: 110px; margin-top: -90px; float:left;">
-      <a class="logo" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="{$dien_dan.ten}" data-original-title="" style="text-transform:uppercase;font-size:28px"><span class="text-color">{$dien_dan.ten}</span></a> 
+      <a class="logo" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}"  data-original-title="" style="text-transform:uppercase;font-size:28px"><span class="text-color">{$dien_dan.ten}</span></a> 
       <span class="site-info">{$dien_dan.slogan}&nbsp;<i class="icon-umbrella icon-large"></i></span>
       </div>
       <div class="clearfix"></div>

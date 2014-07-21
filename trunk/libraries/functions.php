@@ -323,6 +323,9 @@ function kiem_tra_quyen()
 	{
 		throw new Exception('Bạn chưa là thành viên của diễn đàn, vui lòng quay lại sau');
 	}
+	if($thanh_vien['trang_thai'] == 0){
+		throw new Exception('Tài khoản của bạn đã bị khóa');
+	}
 }
 
 function tim_kiem_chuoi($str1, $str2)
