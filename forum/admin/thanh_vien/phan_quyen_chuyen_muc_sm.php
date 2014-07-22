@@ -2,7 +2,7 @@
 try{
 	require '../ini.php';
 	
-	quan_tri('thanh_vien_phan_quyen');
+	quan_tri('thanh_vien_phan_quyen_chuyen_muc');
 	
 	if(empty($_POST['ma_nguoi_dung']))
 	{

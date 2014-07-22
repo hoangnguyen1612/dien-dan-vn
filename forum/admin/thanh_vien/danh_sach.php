@@ -5,7 +5,7 @@ try{
 	include '../../classes/xl_nguoi_dung.php';
 	include '../../classes/phan_trang.php';
 	
-	quan_tri('thanh_vien_danh_sach');
+	quan_tri('thanh_vien_cap_nhat');
 	
 	$dt_phan_trang = new phan_trang;
 	$dt_xl_nguoi_dung = new xl_nguoi_dung;
@@ -15,13 +15,18 @@ try{
 	if(isset($_GET['tu_khoa'])){
 		
 		$tu_khoa = $_GET['tu_khoa'];		
-			$ds_thanh_vien = $xl_thanh_vien_dien_dan->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_dien_dan ASC','thanh_vien_dien_dan.*,(Select ho from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ho_thanh_vien,(Select ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,"and ten_thanh_vien like '%$tu_khoa%' and loai_thanh_vien != 0",true);
+			$ds_thanh_vien = $xl_thanh_vien_dien_dan->danh_sach($start,10,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_dien_dan ASC','thanh_vien_dien_dan.*,(Select ho from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ho_thanh_vien,(Select ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,"and ten_thanh_vien like '%$tu_khoa%' and loai_thanh_vien != 0",true);
 	}else{
 		
-		$ds_thanh_vien = $xl_thanh_vien_dien_dan->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_dien_dan ASC','thanh_vien_dien_dan.*,(Select ho from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ho_thanh_vien,(Select ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,'and loai_thanh_vien != 0',true);
+		$ds_thanh_vien = $xl_thanh_vien_dien_dan->danh_sach($start,10,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_dien_dan ASC','thanh_vien_dien_dan.*,(Select ho from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ho_thanh_vien,(Select ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,'and loai_thanh_vien != 0',true);
 		
 	}
 	$sl_thanh_vien = $xl_thanh_vien_dien_dan->dem(array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma_nguoi_dung',PDO::FETCH_ASSOC,'');
+	
+	$quyen = '';
+	$tv = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$ma_nguoi_dung, 'ma_dien_dan'=>$ma_dien_dan), 'quyen');
+	$quyen = $tv['quyen'];
+	$dt_smarty->assign('quyen', $quyen);
 	
 	$dt_smarty->assign('loai_thanh_vien', array(0=>'Chủ trang web',1=>'Admin diễn đàn',2=>'Thành viên',3=>'Mới'));
 	$dt_smarty->assign('cap_nhat_thanh_vien', array(1=>'Admin diễn đàn',2=>'Thành viên'));
@@ -41,6 +46,6 @@ try{
 	
 	$dbh = NULL;
 }catch(Exception $e){
-	throwMessage($e);
+	throwMessage($e, "/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin");
 }
 ?>

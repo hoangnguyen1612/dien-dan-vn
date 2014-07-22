@@ -11,6 +11,9 @@
 <div class="content-box-content">
   <div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
     {showMessage()}
+    <p>
+    	<b>Phân quyền chức năng cho thành viên: <a target="_blank" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($ma_tv)}">{$ho_ten}</a></b>
+    </p>
     <form action="phan_quyen_sm.php" method="post">
       <table class="table">
         <thead>
@@ -37,8 +40,9 @@
                  	{$chon = 'checked'}
                  {/if}
                  <tr>
-                    <td width="250px"><label for='{$file}'>{$v}</label></td>
-                    <td><input type='checkbox' value='{$file}' id='{$file}' name='item[]' {$chon} />
+                    <td width="250px"><label for='{$file}'>{if is_array($v)}{$v[0]}{else if}{$v}{/if}</label></td>
+                    <td width="100px"><input type='checkbox' value='{$file}' id='{$file}' name='item[]' {$chon} /></td>
+                    <td>{if is_array($v)}<i>{$v[1]}</i>{/if}</td>
                 </tr> 
             {/foreach}
            </table>
