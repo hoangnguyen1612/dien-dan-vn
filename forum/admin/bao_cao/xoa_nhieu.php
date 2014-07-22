@@ -2,8 +2,9 @@
 try{
 	require '../ini.php';
 	require '../../classes/xl_bao_cao_bai_viet.php';
+	require '../../classes/xl_chuyen_muc.php';
 	$dt_bao_cao_bai_viet = new xl_bao_cao_bai_viet;
-	
+	$xl_chuyen_muc  = new xl_chuyen_muc;
 	# Kiểm tra mã báo cáo
 	if(empty($_POST['data'])){
 		throw new Exception('Vui lòng chọn báo cáo cần xóa');	
@@ -12,14 +13,26 @@ try{
 	
 	# Tạo vòng lặp , xóa từng báo cáo
 	foreach($_POST['data'] as $ma){
-		# Kiểm tra logic
-		# Kiểm tra mã sữa có tồn tại ko 
-		$bao_cao = $dt_bao_cao_bai_viet->doc(array('ma_dien_dan'=>$ma_dien_dan,'ma'=>$ma));
+		$ma = post_decode($ma);
+		$quyen_chuyen_muc = quyen_chuyen_muc();
+		$bao_cao = $dt_bao_cao_bai_viet->doc(array('ma_dien_dan'=>$ma_dien_dan,'ma'=>$ma),'(Select ma_loai_chuyen_muc from bai_viet where ma_bai_viet = bai_viet.ma) as ma_loai_chuyen_muc');
 		if ($bao_cao == NULL) {
 			throw new Exception('Báo cáo không tồn tại');	
 		}
-		$dt_bao_cao_bai_viet->xoa(array('ma_dien_dan'=>$ma_dien_dan,'ma'=>$ma));
+		if($thanh_vien['loai_thanh_vien'] == 1){
+			if(strpos($quyen_chuyen_muc['ma'],$bao_cao['ma_loai_chuyen_muc'])===false){
+				$str_ko_xoa_dc .= "$ma,";
+				continue;
+			}				
+		}
+		if(!$dt_bao_cao_bai_viet->xoa(array('ma_dien_dan'=>$ma_dien_dan,'ma'=>$ma))){
+				$str_ko_xoa_dc .= "$ma,";
+		}
 
+	}
+	if($str_ko_xoa_dc != ''){
+		$str_ko_xoa_dc = rtrim($str_ko_xoa_dc,',');
+		throw new Exception("Các mã sau không xóa được :".$str_ko_xoa_dc);
 	}
 	$dbh=NULL;
 	throw new Exception('Xóa thành công',30);

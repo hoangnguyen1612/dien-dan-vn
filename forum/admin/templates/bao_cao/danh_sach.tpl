@@ -59,7 +59,7 @@
                 <tr {if $bao_cao.trang_thai == 0}style="background: #ffffff"{else if}style="background: #f1f1f1"{/if}>
                 <td>{if $thanh_vien.loai_thanh_vien!=0 && tim_kiem_chuoi($qcm, $bao_cao.ma_loai_chuyen_muc)!==false}<img src="/forum/admin/templates/images/role.png" title="Bạn có quyền xử lý báo cáo vi phạm này" /> {/if}</td>
                 
-                <td><input name="data[]" type="checkbox" value="{$bao_cao.ma}"></td>
+                <td><input name="data[]" type="checkbox" value="{post_encode($bao_cao.ma)}"></td>
                 <td><a target="_blank" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bao_cao.ma_bai_viet}">{$bao_cao.tieu_de}</a></td>
                 <td><a target="_blank" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($bao_cao.ma_nguoi_dang)}">{get_ho_ten($bao_cao.ma_nguoi_dang)}</a></td>
                 <td><a target="_blank" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($bao_cao.ma_nguoi_bao_cao)}">{get_ho_ten($bao_cao.ma_nguoi_bao_cao)}</a></td>

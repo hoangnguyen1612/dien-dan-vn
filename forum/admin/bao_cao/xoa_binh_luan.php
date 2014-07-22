@@ -9,7 +9,7 @@ try{
 		throw new Exception('Vui lòng nhập mã báo cáo');	
 	}			
 	
-	$ma = $_GET['ma'];
+	$ma = url_decode($_GET['ma']);
 	
 	$bao_cao = $dt_xl_bao_cao_binh_luan->doc(array('ma_dien_dan'=>$ma_dien_dan,'ma'=>$ma));
 	if ($bao_cao == NULL) {
