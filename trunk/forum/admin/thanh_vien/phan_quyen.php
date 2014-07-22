@@ -11,23 +11,24 @@ try{
 	{
 		throw new Exception('Lỗi! [Mã thành viên] rỗng, vui lòng thử lại');
 	}
-	$ma_nguoi_dung = $_GET['ma'];
-	$ma_nguoi_dung = url_decode($ma_nguoi_dung); 
-	
-	if(!$tv = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$ma_nguoi_dung, 'ma_dien_dan'=>$ma_dien_dan), 'ma_nguoi_dung, quyen'))
+	$ma = $_GET['ma'];
+	$ma = url_decode($ma); 
+
+	if(!$tv = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$ma, 'ma_dien_dan'=>$ma_dien_dan), 'quyen'))
 	{
 		throw new Exception('Lỗi! [Mã thành viên] không tồn tại trong diễn đàn, vui lòng thử lại');
 	}
 	
-$thu_muc = array('thong_ke'=>'Thống kê', 'loai_chuyen_muc'=>'Chuyên mục', 'cau_hinh'=>'Cấu hình', 'thanh_vien'=>'Thành viên', 'cau_hinh'=>'Cấu hình');
+	$thu_muc = array('thong_ke'=>'Thống kê', 'loai_chuyen_muc'=>'Chuyên mục', 'thanh_vien'=>'Thành viên', 'cau_hinh'=>'Cấu hình');
 	$thao_tac = array(
-		'thong_ke'=>array('tong_quat'=>'Tổng quát'),
-		'loai_chuyen_muc'=>array('danh_sach'=>'Danh sách', 'them'=>'Thêm', 'cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa'),
-		'thanh_vien'=>array('danh_sach'=>'Danh sách', 'cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa', 'phan_quyen'=>'Phân quyền'),
-		'bao_cao'=>array('danh_sach_bai_viet'=>'Danh sách bài viết', 'danh_sach_binh_luan'=>'Danh sách bình luận','xoa'=>'Xóa','gui_thong_bao'=>'Gửi thông báo đến người viết báo cáo','gui_thong_bao_binh_luan'=>'Gửi thông báo đến người viết báo cáo bình luận','gui_thong_bao_den_nguoi_viet'=>'Gửi cảnh cáo đến người viết bài','gui_thong_bao_den_nguoi_viet_binh_luan'=>'Gửi cảnh cáo đến người bình luận','cap_nhat_trang_thai_bai_viet'=>'Cập nhật trạng thái bài viết','cap_nhat_trang_thai_binh_luan'=>'Cập nhật trạng thái bình luận','cap_nhat_tai_khoan'=>'Cập nhật trạng thái tài khoản'),
-		'cau_hinh'=>array('danh_sach'=>'Danh sách','cap_nhat_mau_sac'=>'Cập nhật màu sắc menu','danh_sach_thong_so'=>'Danh sách thông số','cap_nhat_thong_so'=>'Cập nhật thông số')
+		'thong_ke'=>array('tong_quat'=>array('Tổng quát','* Thống kê top các diễn đàn có lượt truy cập nhiều nhất và các diễn đàn nhận được điểm phản hồi cao nhất'), 'thanh_vien'=>array('Thành viên', '* Thống kê số lượng bài viết của các thành viên, các bình luận đúng, bình luận giúp ích và điểm số')),
+		'loai_chuyen_muc'=>array('them'=>'Thêm', 'cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa'),
+		'thanh_vien'=>array('cap_nhat'=>'Cập nhật', 'xoa'=>'Xóa', 'phan_quyen'=>array('Phân quyền chức năng', '* Phân quyền chức năng cho phép thành viên có thể thao tác thêm xóa sửa dữ liệu của các chuyên mục, thông tin của diễn đàn, danh sách các thành viên trong diễn đàn...'), 'phan_quyen_chuyen_muc'=>array('Phân quyền chuyên mục', '* Phân quyền chuyên mục cho phép thành viên có thể bổ nhiệm quản trị viên cho bất kỳ một chuyên mục nào đó trong diễn đàn. Người quản trị viên này sẽ có quyền xử lý các vấn đề liên quan đến bài viết và bình luận thuộc về chuyên mục mà họ được cấp quyền')),
+		'cau_hinh'=>array('cap_nhat_mau_sac'=>array('Cập nhật màu sắc menu', '* Cập nhật màu sắc cho thanh menu ở trang chủ'), 'cap_nhat_thong_so'=>array('Cập nhật thông số', '* Các thông số bao gồm: câu khẩu hiệu của diễn đàn (slogan), mô tả về diễn đàn, hình đại diện cho diễn đàn'))
 	);
 	
+	$dt_smarty->assign('ma_tv', $ma);
+	$dt_smarty->assign('ho_ten', get_ho_ten($ma));
 	$dt_smarty->assign('thu_muc', $thu_muc);
 	$dt_smarty->assign('thao_tac', $thao_tac);
 	$dt_smarty->assign('quyen', $tv['quyen']);
@@ -42,5 +43,5 @@ $thu_muc = array('thong_ke'=>'Thống kê', 'loai_chuyen_muc'=>'Chuyên mục', 
 	
 	include '../end.php';
 }catch(Exception $e){
-	throwMessage($e);
+	throwMessage($e, "/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin");
 }

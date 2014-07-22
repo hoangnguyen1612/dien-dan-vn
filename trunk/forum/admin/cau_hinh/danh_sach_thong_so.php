@@ -4,7 +4,7 @@ try{
 	include '../ini_interface.php';
 	require '../../classes/xl_dien_dan.php';
 	require '../../classes/xl_linh_vuc.php';
-	quan_tri('cau_hinh_danh_sach_thong_so');
+	quan_tri('cau_hinh_cap_nhat_thong_so');
 	$xl_dien_dan = new xl_dien_dan;
 	$xl_linh_vuc = new xl_linh_vuc;
 	

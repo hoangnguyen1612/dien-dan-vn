@@ -4,8 +4,9 @@ try{
 	include ('../ini_interface.php');
 	include ('../../classes/xl_bai_viet.php');
 
-	$xl_bai_viet = new xl_bai_viet;
+	quan_tri('thong_ke_thanh_vien');
 
+	$xl_bai_viet = new xl_bai_viet;
 	
 	$ds = $xl_bai_viet->danh_sach(0, 10, array('ma_dien_dan'=>$ma_dien_dan), 'count(ma) DESC', 'ma_nguoi_dang, (select concat(ho, " ", ten) from nguoi_dung where ma = ma_nguoi_dang) as ten, count(ma_nguoi_dang) as tong', PDO::FETCH_ASSOC, ' group by ma_nguoi_dang', false);
 

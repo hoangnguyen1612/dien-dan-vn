@@ -4,7 +4,7 @@ try{
 	include '../ini_interface.php';
 	include '../../classes/xl_chuyen_muc.php';
 
-	quan_tri('thanh_vien_phan_quyen');
+	quan_tri('thanh_vien_phan_quyen_chuyen_muc');
 
 	if(empty($_GET['ma']))
 	{
@@ -45,5 +45,5 @@ try{
 	
 	include '../end.php';
 }catch(Exception $e){
-	throwMessage($e);
+	throwMessage($e, "/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin");
 }

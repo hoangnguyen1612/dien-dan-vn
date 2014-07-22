@@ -4,6 +4,9 @@ try{
 	include '../ini_interface.php';
 	require '../../classes/xl_bai_viet.php';
 	require '../../classes/xl_bo_dem.php';
+	
+	quan_tri('thong_ke_tong_quat');
+	
 	$title = '';
 	$so_luong_truy_cap = '';
 	$so_luong_bai_viet = '';
@@ -27,8 +30,6 @@ try{
 	
 	$ngay = date('d/m', strtotime('- 6days')).' - '. date('d/m');
 	$dt_smarty->assign('ngay', $ngay);
-	
-	quan_tri('thong_ke_tong_quat');
 	
 	$contentForLayout = $dt_smarty->fetch('thong_ke/tong_quat.tpl');
 	
