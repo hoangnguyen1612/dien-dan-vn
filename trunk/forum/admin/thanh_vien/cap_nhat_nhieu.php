@@ -1,11 +1,9 @@
 <?php
 try{
 	include "../ini.php";
-	include "../../classes/xl_thanh_vien_dien_dan.php";
 	
 	quan_tri('thanh_vien_cap_nhat');
 	
-	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	#debug($_POST);
 	if(empty($_POST['item'])){
 		throw new Exception('Vui lòng chọn thành viên cần cập nhật');	
@@ -21,8 +19,8 @@ try{
 
 	$ma_dien_dan = $_SESSION['dien_dan']['ma'];
 	foreach($_POST['item'] as $id){
-		$ma = url_decode(trim($id));
-		$tv = $dt_xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$ma,'ma_dien_dan'=> $ma_dien_dan), 'ma_nguoi_dung, quyen, loai_thanh_vien');
+		$ma = urldecode(base64_decode(trim($id)));
+		$tv = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$ma,'ma_dien_dan'=> $ma_dien_dan), 'ma_nguoi_dung, quyen, loai_thanh_vien');
 	
 		if($tv['loai_thanh_vien'] == 0){
 			$str .= "$ma,";
@@ -34,9 +32,9 @@ try{
 		} 
 		
 		if($loai_thanh_vien==2 && $tv['quyen']!=NULL)
-			$result = $dt_xl_thanh_vien_dien_dan->cap_nhat_dieu_kien(array('loai_thanh_vien'=>$loai_thanh_vien, 'quyen'=>NULL), array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma));
+			$result = $xl_thanh_vien_dien_dan->cap_nhat_dieu_kien(array('loai_thanh_vien'=>$loai_thanh_vien, 'quyen'=>NULL), array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma));
 		else
-			$result = $dt_xl_thanh_vien_dien_dan->cap_nhat_dieu_kien(array('loai_thanh_vien'=>$loai_thanh_vien), array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma));
+			$result = $xl_thanh_vien_dien_dan->cap_nhat_dieu_kien(array('loai_thanh_vien'=>$loai_thanh_vien), array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma));
 	
 		if($result===false){
 			$str .= "$ma,";

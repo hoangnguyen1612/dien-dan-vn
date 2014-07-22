@@ -16,7 +16,7 @@ try{
 	{
 		throw new Exception('Thành viên không tồn tại');
 	}
-	$ma = $_GET['ma_thanh_vien'];
+	$ma = url_decode($_GET['ma_thanh_vien']);
 	if($ma_nguoi_dung==$ma)
 	{
 		$nguoi_dung = $login;
@@ -47,5 +47,5 @@ try{
 
 	include '../end.php';
 }catch(Exception $e){
-	throwMessage($e);
+	throwMessage($e, '/');
 }

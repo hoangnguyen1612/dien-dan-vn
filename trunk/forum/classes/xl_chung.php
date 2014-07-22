@@ -192,7 +192,7 @@ class xl_chung{
 			{
 				$chuoi_ds = "SELECT {$ds_cot} {$chuoi} {$them_cau_truy_van} ORDER BY {$sap_xep} LIMIT $vi_tri, $so_luong";
 			}
-		
+
 			$sth = $dbh->prepare($chuoi_ds);
 			$sth->execute($du_lieu);
 			return $sth->fetchAll($dinh_dang);

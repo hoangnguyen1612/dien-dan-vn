@@ -50,14 +50,15 @@
 			<tbody>       
                {foreach $ds_thanh_vien as $tv}   
                 <tr>
-                <td><input name="item[]" type="checkbox" value="{url_encode($tv.ma_nguoi_dung)}"></td>
+                <td><input name="item[]" type="checkbox" value="{urlencode(base64_encode($tv.ma_nguoi_dung))}"></td>
                 <td >{$tv.ho_thanh_vien} {$tv.ten_thanh_vien}</td>
                 <td >{$loai_thanh_vien[$tv.loai_thanh_vien]}</td>
-                <td class="c"><a href="cap_nhat_trang_thai.php?ma={url_encode($tv.ma_nguoi_dung)}" title="Gia nhập"><img src="/forum/admin/templates/images/trang_thai_{$tv.trang_thai}.png" width="20" height="20"> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td class="c"><a href="cap_nhat_trang_thai.php?ma={urlencode(base64_encode($tv.ma_nguoi_dung))}" title="Gia nhập"><img src="/forum/admin/templates/images/trang_thai_{$tv.trang_thai}.png" width="20" height="20"> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td class="c">{_date($tv.ngay_gia_nhap)}</td>
                 <td class="r"><!-- Icons -->
                 {if $owner==1 && $tv.loai_thanh_vien==1}
-                 <a href="phan_quyen.php?ma={url_encode($tv.ma_nguoi_dung)}" title="Phân Quyền"><img alt="Phân Quyền" src="/forum/admin/templates/images/role.png"></a>&nbsp;&nbsp;&nbsp;
+                 <a href="phan_quyen.php?ma={urlencode(base64_encode($tv.ma_nguoi_dung))}" title="Phân Quyền Chức Năng"><img alt="Phân Quyền" src="/forum/admin/templates/images/role.png"></a>&nbsp;&nbsp;&nbsp;
+                 <a href="phan_quyen_chuyen_muc.php?ma={urlencode(base64_encode($tv.ma_nguoi_dung))}" title="Phân Quyền Chuyên Mục"><img alt="Phân Quyền" src="/forum/admin/templates/images/role_1.png" ></a>&nbsp;&nbsp;&nbsp;
                  {/if}
                  <!--<a href="cap_nhat.php?ma={$thanh_vien.ma_nguoi_dung}" title="Edit"><img alt="Cập nhật" src="/forum/admin/templates/images/icons/pencil.png"></a>
 &nbsp;&nbsp;&nbsp;  -->             
