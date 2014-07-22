@@ -23,10 +23,17 @@ try{
 		throw new Exception('Lỗi! [Mã thành viên] không tồn tại trong diễn đàn, vui lòng thử lại');
 	}
 	
-
+	require '../../classes/xl_quan_tri_chuyen_muc.php';
+	$xl_quan_tri_chuyen_muc = new xl_quan_tri_chuyen_muc;
+	
+	if($xl_quan_tri_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma_nguoi_dung)))
+	{
+		$xl_quan_tri_chuyen_muc->xoa(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma_nguoi_dung));		
+	}
 	foreach($ds_quyen as $key=>$value)
 	{
 		$quyen.=$value.',';
+		$xl_quan_tri_chuyen_muc->them(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma_nguoi_dung, 'ma_chuyen_muc'=>$value));
 	}
 
 	if(!$xl_thanh_vien_dien_dan->cap_nhat_dieu_kien(array('quyen_chuyen_muc'=>$quyen), array('ma_nguoi_dung'=>$ma_nguoi_dung, 'ma_dien_dan'=>$ma_dien_dan)))

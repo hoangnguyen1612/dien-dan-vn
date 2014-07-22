@@ -7,7 +7,7 @@
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		
-		<title>Quản Trị Hutech | Đăng Nhập</title>
+		<title>Quản Trị {$dien_dan.ten}</title>
 		
 		<!--                       CSS                       -->
 	  
@@ -73,7 +73,7 @@
 			</div> <!-- End #logn-top -->
 			
 			<div id="login-content">
-				
+				{showMessage()}
 				<form action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin/quan_tri/dang_nhap_sm.php" method="post">
 				
 					<div class="{$smarty.session.style_msg_login}">
@@ -84,7 +84,7 @@
 				
 					<p>
 						<label>Tên đăng nhập</label>
-						<input class="text-input" type="text" name = "data[ten_dang_nhap]" value="{$smarty.cookies.ten_dang_nhap|default:''}"/>
+						<input class="text-input" type="text" name = "data[email]" value="{$smarty.cookies.ten_dang_nhap|default:''}"/>
 					</p>
 					<div class="clear"></div>
 					<p>

@@ -106,7 +106,7 @@ function change(){
                 </td>
                
                 <td><!-- Icons --> 
-                  <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={url_encode($bai_viet.ma)}" target="_blank" title="Xem"><img src="/forum/admin/templates/images/search.png" width="16" alt="Xem"></a>
+                  <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={($bai_viet.ma)}" target="_blank" title="Xem"><img src="/forum/admin/templates/images/search.png" width="16" alt="Xem"></a>
                   {if $thanh_vien.loai_thanh_vien==0 || tim_kiem_chuoi($qcm, $bai_viet.ma_loai_chuyen_muc)!==false}
                   	<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin/bai_viet/xoa.php?ma={url_encode($bai_viet.ma)}" onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này không ?')" title="xóa"><img src="/forum/admin/templates/images/icons/cross.png" alt="Delete"></a>
                   {/if} 
