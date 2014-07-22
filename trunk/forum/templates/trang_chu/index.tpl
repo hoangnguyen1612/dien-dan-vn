@@ -58,7 +58,7 @@
         {$bai_viet_moi = bai_viet_moi($ma_dien_dan, $key)}
         <td class="center footable-last-column"> {if $bai_viet_moi!=0} 
         <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet_moi.ma}" title="{$bai_viet_moi.tieu_de}" class="text-color">{$bai_viet_moi.tieu_de|truncate:30}</a><br />
-        <i class="icon-user"></i> bởi <a class="text-color" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi.ma_nguoi_dang}" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi.ma_nguoi_dang}"> <i class="mobile-post icon-signout"></i></a> <br>
+        <i class="icon-user"></i> bởi <a class="text-color" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($bai_viet_moi.ma_nguoi_dang)}" data-original-title="" title="">{get_ho_ten($bai_viet_moi.ma_nguoi_dang)}</a> <a rel="tooltip" data-placement="right" data-original-title="Đi đến {get_ho_ten($bai_viet_moi.ma_nguoi_dang)}" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($bai_viet_moi.ma_nguoi_dang)}"> <i class="mobile-post icon-signout"></i></a> <br>
           <i class="icon-time"></i> <small>{date('H:i d-m-Y',strtotime($bai_viet_moi.ngay_tao))}</small> {else if} 
           0 bài viết
           {/if} </td>

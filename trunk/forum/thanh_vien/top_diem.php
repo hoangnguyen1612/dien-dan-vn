@@ -18,7 +18,7 @@ try{
 		$chuoi_icon .= lay_icon_diem($thanh_vien['ma_nguoi_dung'],$ma_dien_dan).',';
 		$chuoi_thanh_vien .= $thanh_vien['ten_nguoi_dung'].',';
 		$chuoi_diem_so .= $thanh_vien['diem_so'].',';
-		$chuoi_ma_thanh_vien .= $thanh_vien['ma_nguoi_dung'].',';
+		$chuoi_ma_thanh_vien .= url_encode($thanh_vien['ma_nguoi_dung']).',';
 	}
 	$chuoi_thanh_vien = trim($chuoi_thanh_vien,',');
 	$chuoi_diem_so = trim($chuoi_diem_so,',');

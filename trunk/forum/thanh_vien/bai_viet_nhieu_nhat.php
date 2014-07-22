@@ -19,7 +19,7 @@ try{
 		$chuoi_cap_bac .= $cap_bac.',';
 		$chuoi_thanh_vien .= $thanh_vien['ten_nguoi_dang'].',';
 		$chuoi_so_luong_bai_viet .= $thanh_vien['so_luong'].',';
-		$chuoi_ma_thanh_vien .= $thanh_vien['ma_nguoi_dang'].',';
+		$chuoi_ma_thanh_vien .= url_encode($thanh_vien['ma_nguoi_dang']).',';
 	}
 	$chuoi_cap_bac = trim($chuoi_cap_bac,',');
 	$chuoi_thanh_vien = trim($chuoi_thanh_vien,',');

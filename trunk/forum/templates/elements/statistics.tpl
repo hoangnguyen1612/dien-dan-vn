@@ -1,3 +1,4 @@
+
 <script>
 $(document).ready(function(){
 	 $(function() {
@@ -9,6 +10,8 @@ setInterval(function(){ $("#chatlogs").load("/{$dien_dan.ma_linh_vuc}/{$dien_dan
 
 	
   $("#vietvbb_topstats_s").change(function(){
+	 
+	  
 	  if($("#vietvbb_topstats_s").val()=="bai_viet_nhieu_nhat"){
     $.get("/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/bai_viet_nhieu_nhat",function(data,status){
 	
@@ -16,12 +19,12 @@ setInterval(function(){ $("#chatlogs").load("/{$dien_dan.ma_linh_vuc}/{$dien_dan
 		var thanh_vien = arr[0].split(",");
 		var so_luong = arr[1].split(","); 
 		var ma_thanh_vien = arr[3].split(",");
+		
 		var cap_bac = arr[4].split(",");
 		var i;
 		$("#vietvbb_topstats_s_content").html("");
 		for(i=0; i<=arr[2]-1 ; i++){	
-	
-			$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Số lượng bài viết"> '+so_luong[i]+' </em> <span class="topx-content-menu"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac"><img src="/forum/upload/rankCF/'+cap_bac[i]+'" style="width:20px;height:20px ;margin-right:3px"/></a><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font color="#2dba97">'+thanh_vien[i]+'</font></a> </span></div>');		
+	$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Số lượng bài viết"> '+so_luong[i]+' </em> <span class="topx-content-menu"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac"><img src="/forum/upload/rankCF/'+cap_bac[i]+'" style="width:20px;height:20px ;margin-right:3px"/></a><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font size="-1" color="#2dba97">'+thanh_vien[i]+'</font></a> </span></div>');		
 		}
      });
 	  }
@@ -35,9 +38,9 @@ setInterval(function(){ $("#chatlogs").load("/{$dien_dan.ma_linh_vuc}/{$dien_dan
 		var i;
 		$("#vietvbb_topstats_s_content").html("");
 		for(i=0; i<=arr[3]-1 ; i++){	
-			$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Top điểm số"> '+ diem_so[i] +' </em> <span class="topx-content-menu"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac"> <img src="/forum/upload/rankCF/'+icon[i]+'" style="width:20px;height:20px ;margin-right:3px"/></a><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font color="#2dba97">'+ thanh_vien[i]+'</font></a> </span></div>');		
+			$("#vietvbb_topstats_s_content").append('<div class="topx-bit" style="margin-bottom:2px"><em title="Top điểm số"> '+ diem_so[i] +' </em> <span class="topx-content-menu"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac"> <img src="/forum/upload/rankCF/'+icon[i]+'" style="width:20px;height:20px ;margin-right:3px"/></a><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien='+ma_thanh_vien[i]+'" title=""><font size="-1"  color="#2dba97">'+ thanh_vien[i]+'</font></a> </span></div>');		
 		}
-     });
+     }); 
 	  }
   });
 });
@@ -66,6 +69,7 @@ function submitChat(){
 	$("#chat-text").val("");
 }
 </script>
+
 <table class="footable table table-striped table-bordered table-white table-primary table-hover default footable-loaded">
       <thead>
         <tr>
@@ -89,7 +93,7 @@ function submitChat(){
                 <div style="display:block;background: url(vietvbb/topx/list.gif) no-repeat top left; border-top: 0px none; padding: 0px;">
                   <div class="topx-content" id="vietvbb_topstats_s_content">
                   {foreach $ds_top_diem_thanh_vien as $thanh_vien}
-                 <div class="topx-bit" style="margin-bottom:2px"><em title="Top điểm số"> {$thanh_vien.diem_so} </em> <span class="topx-content-menu"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac"> <img src="/forum/upload/rankCF/{lay_icon_diem($thanh_vien.ma_nguoi_dung,$thanh_vien.ma_dien_dan)}" style="width:20px;height:20px ;margin-right:3px"/></a><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$thanh_vien.ma_nguoi_dung}" title=""><font size="-1" color="#2dba97">{$thanh_vien.ten_nguoi_dung}</font></a> </span>
+                 <div class="topx-bit" style="margin-bottom:2px"><em title="Top điểm số"> {$thanh_vien.diem_so} </em> <span class="topx-content-menu"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/cap_bac/danh_sach_cap_bac"> <img src="/forum/upload/rankCF/{lay_icon_diem($thanh_vien.ma_nguoi_dung,$thanh_vien.ma_dien_dan)}" style="width:20px;height:20px ;margin-right:3px"/></a><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($thanh_vien.ma_nguoi_dung)}" title=""><font size="-1" color="#2dba97">{$thanh_vien.ten_nguoi_dung}</font></a> </span>
                     
                      </div>
                     {/foreach}
@@ -108,7 +112,7 @@ function submitChat(){
                     <div class="topx-bit" style="margin-bottom:2px" >Chưa có bài viết nào trong diễn đàn</div>
                     {/if}
          			{foreach $ds_bai_viet_moi_nhat as $bai_viet_moi_nhat}
-                  <div class="topx-bit" style="margin-bottom:2px"> <em> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$bai_viet_moi_nhat.ma_nguoi_dang}" title=""> <font size="-2" color="#2dba97">{$bai_viet_moi_nhat.ten_nguoi_dang}</font> </a> </em> <span class="topx-content-tab"> <img src="/forum/templates/images/icons/post_new.gif" border="0" alt=""> &nbsp; <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet_moi_nhat.ma}">{$bai_viet_moi_nhat.tieu_de}</a> </span>   
+                  <div class="topx-bit" style="margin-bottom:2px"> <em> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($bai_viet_moi_nhat.ma_nguoi_dang)}" title=""> <font size="-2" color="#2dba97">{$bai_viet_moi_nhat.ten_nguoi_dang}</font> </a> </em> <span class="topx-content-tab"> <img src="/forum/templates/images/icons/post_new.gif" border="0" alt=""> &nbsp; <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={$bai_viet_moi_nhat.ma}">{$bai_viet_moi_nhat.tieu_de}</a> </span>   
                   </div>
                     {/foreach}
                     
