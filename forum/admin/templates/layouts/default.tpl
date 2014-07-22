@@ -114,8 +114,8 @@ function inputNumber(e)
         </li>
          <li><a class="nav-top-item" href="#" id="bao_cao">Báo Cáo Sai Phạm </a>
           <ul>
-            <li><a href="../bao_cao/danh_sach.php" id="bao_cao_sai_pham.php">Danh Sách Bài Viết</a></li>
-            <li><a href="../bao_cao/danh_sach_binh_luan.php" id="bao_cao_sai_pham.php">Danh Sách Bình Luận</a></li>
+            <li><a href="../bao_cao/bai_viet.php" id="bao_cao_bai_viet.php">Danh Sách Bài Viết</a></li>
+            <li><a href="../bao_cao/binh_luan.php" id="bao_cao_binh_luan.php">Danh Sách Bình Luận</a></li>
           </ul>
       
         </li>

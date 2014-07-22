@@ -175,6 +175,51 @@ function quan_tri($value)
 	}
 }
 
+function quan_tri_chuyen_muc($chuyen_muc)
+{
+	global $dbh, $thanh_vien, $ma_dien_dan, $xl_thanh_vien_dien_dan;
+
+	if($thanh_vien['loai_thanh_vien']==0)
+	{
+		return;
+	}
+	if($thanh_vien['loai_thanh_vien']==2)
+	{
+		throw new Exception('Bạn không có quyền thực hiện thao tác này');
+	}
+	
+	
+	$tv = $xl_thanh_vien_dien_dan->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$thanh_vien['ma_nguoi_dung']));
+	
+	if(strpos($tv['quyen_chuyen_muc'], $chuyen_muc)===false)
+	{
+		throw new Exception('Bạn không có quyền thực hiện thao tác này');
+	}
+}
+
+function quyen_chuyen_muc()
+{
+	global $dbh, $xl_chuyen_muc, $ma_dien_dan, $xl_thanh_vien_dien_dan, $ma_nguoi_dung;
+	
+	$quyen_chuyen_muc = '';
+	$tv = $xl_thanh_vien_dien_dan->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma_nguoi_dung), 'quyen_chuyen_muc');
+
+	if(!empty($tv['quyen_chuyen_muc']))
+	{
+		$item = rtrim($tv['quyen_chuyen_muc'], ',');
+		$list = explode(',', $item);
+		
+		foreach($list as $key)
+		{
+			$ten = $xl_chuyen_muc->doc(array('ma'=>$key), 'ten');
+			$quyen_chuyen_muc .= $ten['ten'].', ';
+		}
+		
+		$quyen_chuyen_muc = rtrim($quyen_chuyen_muc, ', ');
+	}	
+	return array('ma'=>$tv['quyen_chuyen_muc'], 'ten'=>$quyen_chuyen_muc);
+}
+
 function _date($date)
 {
 	return date('d-m-Y', strtotime($date));
@@ -299,7 +344,7 @@ function throwMessage(Exception $e, $url='')
 
 function url_encode($str)
 {
-	return urlencode($str);
+	return urlencode(base64_encode($str));
 }
 
 function url_decode($str)
@@ -307,6 +352,15 @@ function url_decode($str)
 	return urldecode(base64_decode($str));
 }
 
+function post_encode($str)
+{
+	return (base64_encode($str));
+}
+
+function post_decode($str)
+{
+	return (base64_decode($str));
+}
 
 function kiem_tra_quyen()
 {

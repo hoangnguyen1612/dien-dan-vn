@@ -2,6 +2,9 @@
 
 	include '../../../config.php';	 
 	include '../../../libraries/functions.php';
+	require '../../classes/xl_thanh_vien_dien_dan.php';
+	
+	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	
 	$dbh = connection();
 	$dien_dan = get_subdomain();
@@ -21,10 +24,7 @@
 	$ma_nguoi_dung = $login['ma'];
 	
 	# loại thành viên
-	$sql = 'select * from thanh_vien_dien_dan where ma_dien_dan = :ma_dien_dan and ma_nguoi_dung = :ma_nguoi_dung limit 0,1';
-	$sth = $dbh->prepare($sql);
-	$sth->execute(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$login['ma']));
-	$thanh_vien = $sth->fetch(PDO::FETCH_ASSOC);
+	$thanh_vien = $xl_thanh_vien_dien_dan->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$ma_nguoi_dung));
 
 	if($thanh_vien['loai_thanh_vien']!=0 && $thanh_vien['loai_thanh_vien']!=1)
 	{

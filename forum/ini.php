@@ -105,7 +105,8 @@
 	# 3 gui canh cao den thanh vien dien dan
 	# 4 Gui thong bao khoa tai khoan
 	# 5 Gui thong bao kich hoat tai khoan
-	$thong_bao_icon = array(0=>'plus-sign', 1=>'thumbs-up-alt', 2=>'info-sign', 3=>'exclamation-sign',4=>'remove-sign',5=>'ok-sign');
+	# 6 Duoc chon lam quan tri vien
+	$thong_bao_icon = array(0=>'plus-sign', 1=>'thumbs-up-alt', 2=>'info-sign', 3=>'exclamation-sign', 4=>'remove-sign', 5=>'ok-sign', 6=>'user');
 	
 	
 	#bo_dem

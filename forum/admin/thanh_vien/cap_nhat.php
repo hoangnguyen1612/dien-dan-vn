@@ -2,11 +2,9 @@
 try{
 	include '../ini.php';
 	include '../ini_interface.php';
-	include '../../../home/classes/xl_thanh_vien_dien_dan.php';
 	
 	quan_tri('thanh_vien_cap_nhat');
 	
-	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
 	if(empty($_GET['ma'])){
 		$_SESSION['msg']='Vui lòng nhập mã thành viên ';
 		$_SESSION['style_msg'] = 'notification error png_bg';
@@ -14,7 +12,7 @@ try{
 		exit;	
 	}
 	#### Kiểm tra tồn tại thành viên trong diễn đàn ##########
-	$thanh_vien = $dt_xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$_GET['ma'],'ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'thanh_vien_dien_dan.*,(Select ho_ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,'');
+	$thanh_vien = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$_GET['ma'],'ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'thanh_vien_dien_dan.*,(Select ho_ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,'');
 	if($thanh_vien == NULL){
 		$_SESSION['msg']='Mã loại thành viên không tồn tại';
 		$_SESSION['style_msg'] = 'notification error png_bg';

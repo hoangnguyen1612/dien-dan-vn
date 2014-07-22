@@ -2,15 +2,11 @@
 try{
 
 	include '../ini.php';
-	include '../../../home/classes/xl_thanh_vien_dien_dan.php';
 	
 	quan_tri('thanh_vien_cap_nhat');
 	
 	# gan mang? data cho bien $data
 	$data = $_POST['data'];
-	
-	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
-
 	
 	#Kiểm tra dữ liệu thô
 		#Kiểm tra dữ liệu bắt buộc phải có
@@ -25,7 +21,7 @@ try{
 		throw new Exception('Vui lòng nhập trạng thái');
 	}
 	#############Kiểm tra mã thành viên có tồn tại ko ###############
-	$thanh_vien = $dt_xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$data['ma_nguoi_dung'],'ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'thanh_vien_dien_dan.*,(Select ho_ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,'');
+	$thanh_vien = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$data['ma_nguoi_dung'],'ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'thanh_vien_dien_dan.*,(Select ho_ten from nguoi_dung l2 where l2.ma = thanh_vien_dien_dan.ma_nguoi_dung) ten_thanh_vien',PDO::FETCH_ASSOC,'');
 	if($thanh_vien == NULL){
 		$_SESSION['msg']='Mã loại thành viên không tồn tại';
 		$_SESSION['style_msg'] = 'notification error png_bg';
@@ -37,7 +33,7 @@ try{
 	$ma_dien_dan = $_SESSION['dien_dan']['ma'];
 	$ma_nguoi_dung = $data['ma_nguoi_dung'];
 
-	$thanh_vien = $dt_xl_thanh_vien_dien_dan->cap_nhat_truy_van($data,"ma_nguoi_dung = '$ma_nguoi_dung' and ma_dien_dan = '$ma_dien_dan' ");
+	$thanh_vien = $xl_thanh_vien_dien_dan->cap_nhat_truy_van($data,"ma_nguoi_dung = '$ma_nguoi_dung' and ma_dien_dan = '$ma_dien_dan' ");
 
 	if($thanh_vien === false){
 		throw new Exception('Lỗi trong quá trình lưu dữ liệu , vui lòng thử lại');

@@ -1,13 +1,8 @@
 <?php
 try{
-//	print_r($_POST);exit;
 	require '../ini.php';
-	require '../../../home/classes/xl_thanh_vien_dien_dan.php';
 	
 	quan_tri('thanh_vien_cap_nhat');
-
-	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
-
 	
 	#Kiểm tra dữ liệu thô
 		#Kiểm tra dữ liệu bắt buộc phải có
@@ -16,12 +11,12 @@ try{
 	}	
 	#######Kiểm tra logic########
 	$ma_nguoi_dung = url_decode($_GET['ma']); 
-	$thanh_vien = $dt_xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$ma_nguoi_dung,'ma_dien_dan'=>$ma_dien_dan));
+	$thanh_vien = $xl_thanh_vien_dien_dan->doc(array('ma_nguoi_dung'=>$ma_nguoi_dung,'ma_dien_dan'=>$ma_dien_dan));
 	if($thanh_vien == NULL){
 		throw new Exception('Thành viên không tồn tại');
 	}
 	
-	$result = $dt_xl_thanh_vien_dien_dan->cap_nhat_trang_thai_1('trang_thai',"ma_nguoi_dung = '$ma_nguoi_dung' and ma_dien_dan = '$ma_dien_dan'");
+	$result = $xl_thanh_vien_dien_dan->cap_nhat_trang_thai_1('trang_thai',"ma_nguoi_dung = '$ma_nguoi_dung' and ma_dien_dan = '$ma_dien_dan'");
 	if($result === false){
 		throw new Exception('Đã có lỗi trong quá trình lưu dữ liệu , vui lòng thử lại');
 	}
