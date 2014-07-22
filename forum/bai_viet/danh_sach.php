@@ -6,12 +6,13 @@ try{
 	include '../classes/xl_chuyen_muc.php';
 	include '../classes/phan_trang_1.php';
 	include '../classes/xl_binh_luan.php';
+	include '../classes/xl_thanh_vien_dien_dan.php';
 
 	$title = 'Bài viết';
 	
 	
 	if(!isset($_GET['loai'])){
-		throw new Exception('Vui lòng loại chuyên mục');
+		throw new Exception('Vui lòng chọn loại chuyên mục');
 	}
 	$loai = $_GET['loai'];
 	$dt_xl_bai_viet = new xl_bai_viet;
@@ -84,12 +85,11 @@ try{
 	$dt_smarty->assign('trang_hien_tai',$trang_hien_tai);
 	$dt_smarty->assign('chuyen_muc', $chuyen_muc);
 	
+	require '../classes/xl_quan_tri_chuyen_muc.php';
+	$xl_quan_tri_chuyen_muc = new xl_quan_tri_chuyen_muc;
 	
-	
-	
-	
-	
-	
+	$quan_tri_vien = $xl_quan_tri_chuyen_muc->danh_sach(0, 0, array('ma_dien_dan'=>$ma_dien_dan, 'ma_chuyen_muc'=>$loai), 'ma_chuyen_muc ASC', 'ma_nguoi_dung, (select concat(ho, " ", ten) from nguoi_dung where ma = ma_nguoi_dung) as ho_ten', PDO::FETCH_ASSOC, '', false);
+	$dt_smarty->assign('quan_tri_vien', $quan_tri_vien);
 
 	
 	$dt_smarty->assign('ds_bai_viet_theo_loai', $ds_bai_viet_theo_loai[0]);

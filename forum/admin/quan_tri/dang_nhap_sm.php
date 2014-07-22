@@ -1,63 +1,73 @@
 <?php
 try{
-	require '../ini.php';
-	require '../../../home/classes/xl_nguoi_dung.php';
-	require '../../../home/classes/xl_thanh_vien_dien_dan.php';
+	require '../../../libraries/functions.php';
+	require '../../../config.php';
+
 	$dbh = connection();
-	$data = $_POST['data'];
-	if(empty($data['ten_dang_nhap'])){
-		echo 'Vui lòng nhập tên';
-		exit;
-	}
-	if(empty($data['mat_khau'])){
-		echo 'Vui lòng nhập mật khẩu';
-		exit;
-	}
-	if(isset($_SESSION['login']))
-	{
-		if(isset($_SESSION['thanh_vien']))
-		{
-			if($_SESSION['thanh_vien']['loai_thanh_vien']==0 || $_SESSION['thanh_vien']['loai_thanh_vien']==1)
-			{
-				header("Location: /{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin/thong_ke/tong_quat.php");
-				exit;
-			}
-		}
-	}
-	$dt_xl_nguoi_dung = new xl_nguoi_dung;
-	$dt_xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
-	$ten_dang_nhap = $data['ten_dang_nhap'];
-	$mat_khau = md5($data['ten_dang_nhap'].$data['mat_khau']);
-	$dang_nhap = $dt_xl_nguoi_dung->doc(array('email'=>$ten_dang_nhap,'mat_khau'=>$mat_khau));
-	if($dang_nhap == NULL){
-		throw new Exception('Lỗi đăng nhập !!! Vui lòng thử lại');
-	}
-$thanh_vien = $dt_xl_thanh_vien_dien_dan->doc(array('ma_dien_dan'=>$_SESSION['dien_dan']['ma'],'ma_nguoi_dung'=>$dang_nhap['ma']),'*',PDO::FETCH_ASSOC,'AND (loai_thanh_vien = 0 or loai_thanh_vien = 1)');
-
-	if($thanh_vien == NULL){
-		throw new Exception('Bạn không có quyền thực hiện chức năng này'); 
-	}
-	$_SESSION[SALT.'dang_nhap'] = 1 ;
-	$dbh = NULL;
-	$_SESSION['login'] = $dang_nhap;
-	$_SESSION['thanh_vien'] = $thanh_vien;
+	$dien_dan = get_subdomain();
+	$ma_dien_dan = $dien_dan['ma'];
 	
-	if(isset($_POST['remember'])){
-		setcookie('ten_dang_nhap',$data['ten_dang_nhap'],time()+ 7*24*60*60,'/');
-		setcookie('mat_khau',base64_encode($data['mat_khau']),time()+ 7*24*60*60,'/');
-	} 
+	$url = $_SERVER['HTTP_REFERER'];
+	
+	require '../../classes/xl_nguoi_dung.php';
+	require '../../classes/xl_thanh_vien_dien_dan.php';
+	$xl_nguoi_dung = new xl_nguoi_dung;
+	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;
+	
+	if(empty($_POST['data']['email']))
+	{
+		throw new Exception('Địa chỉ email không được để trống');
+	}
+	
+	if(empty($_POST['data']['mat_khau']))
+	{
+		throw new Exception('Mật khẩu không được để trống');
+	}
+	
+	$email = $_POST['data']['email'];
+	$mat_khau = $_POST['data']['mat_khau'];
+	
+	$nguoi_dung = $xl_nguoi_dung->doc(array('email'=>$email));
+	
+	if(!$nguoi_dung)
+	{
+		throw new Exception('Tài khoản không tồn tại, vui lòng kiểm tra lại');
+	}
+	if($nguoi_dung['ma_kich_hoat']!=NULL)
+	{
+		throw new Exception('Tài khoản của bạn chưa được kích hoạt, vui lòng kiểm tra hộp thư mail để kích hoạt tài khoản');
+	}
+	if(strcmp(md5($email.$mat_khau), $nguoi_dung['mat_khau']))
+	{
+		throw new Exception('Mật khẩu không đúng, vui lòng kiểm tra lại');
+	}
+	if($nguoi_dung['trang_thai']==0)
+	{
+		throw new Exception('Tài khoản của bạn đang tạm khóa, vui lòng gửi liên hệ về ban quản trị Diendan.vn để biết thêm thông tin chi tiết');
+	}
+	
+	$thanh_vien = $xl_thanh_vien_dien_dan->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$nguoi_dung['ma']));
 
-	header("Location: /{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin/thong_ke/tong_quat.php");	
-	exit;	
+	if($thanh_vien['loai_thanh_vien']!=0 && $thanh_vien['loai_thanh_vien']!=1)
+	{
+		throw new Exception('You have not permission at here!!!');
+	}
+	
+	$_SESSION['login'] =$nguoi_dung;
+	
+
+	if(isset($_POST['remember']) && $_POST['remember']=='on')
+	{
+		setcookie('username-forum', $email, time() + 2*24*60*60, '/', NULL);
+		setcookie('password-forum', base64_encode($mat_khau), time() + 2*24*60*60, '/', NULL);
+	}
+	
+	$url = "/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin/thong_ke/tong_quat.php";
+	throw new Exception();
 }catch (PDOException $e){
 
 	echo $e->getMessage();
 		
 }catch (Exception $e){
-	# Đóng kết nối
-	$dbh = NULL;
-	#Lay cau du lieu 
-	$_SESSION['msg_login'] = $e->getMessage();
-	$_SESSION['style_msg_login'] = 'notification information png_bg';
-	header("Location: /{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin/quan_tri/dang_nhap.php");		
+	throwMessage($e, $url);	
 }

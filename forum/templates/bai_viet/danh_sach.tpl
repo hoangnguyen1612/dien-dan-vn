@@ -300,15 +300,23 @@
       </div>
     </div>
     <!--  change the attribute "none" to "block" to display the forum permission -->
-    <div style="display:none;">
+    <div style="display:block;">
       <div class="side-segment">
-        <h3>Forum permissions</h3>
+        <h3>Điều hành của diễn đàn</h3>
       </div>
-      <p>You <strong>cannot</strong> post new Bài viết in this forum<br>
-        You <strong>cannot</strong> reply to Bài viết in this forum<br>
-        You <strong>cannot</strong> edit your posts in this forum<br>
-        You <strong>cannot</strong> delete your posts in this forum<br>
-        You <strong>cannot</strong> post attachments in this forum<br>
+      <p>
+      <table>
+      <tr>
+      <td width="200px">
+      	<img src="/forum/templates/images/icons/misc/star-icon.png" title="Chủ diễn đàn" />&nbsp;&nbsp;&nbsp;<a title="Chủ diễn đàn" class="text-color" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($dien_dan.ma_nguoi_tao)}">{get_ho_ten($dien_dan.ma_nguoi_tao)}</a>
+      </td>
+      	{foreach $quan_tri_vien as $qt}
+        <td>
+        	<img src="/forum/upload/rankCF/{lay_icon_diem($qt.ma_nguoi_dung, $ma_dien_dan)}" style="height:18px" />&nbsp;&nbsp;&nbsp;<a class="text-color" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($qt.ma_nguoi_dung)}" title="Quản trị viên">{$qt.ho_ten}</a>
+        </td>
+        {/foreach}
+       </tr>
+       </table> 
       </p>
     </div>
     <!--  change the attribute "none" to "block" to display the forum permission --> 

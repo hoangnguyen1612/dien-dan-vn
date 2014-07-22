@@ -8,8 +8,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		
 		<title>Quản Trị DienDanVN</title>
-		
-		<!--                       CSS                       -->
 	  
 		<!-- Reset Stylesheet -->
 		<link rel="stylesheet" href="/home/admin/templates/css/reset.css" type="text/css" media="screen" />
@@ -83,23 +81,20 @@
 					</div>
 				{/if}	
 					<p>
-						<label>Username</label>
+						<label>Tên đăng nhập</label>
 						<input class="text-input" type="text" name="ten_dang_nhap"
                         value="{if isset($smarty.cookies.username)}{$smarty.cookies.username}{/if}"/>
 					</p>
 					<div class="clear"></div>
 					<p>
-						<label>Password</label>
+						<label>Mật khẩu</label>
 						<input class="text-input" type="password" name="mat_khau"
                         value="{if isset($smarty.cookies.password)}{base64_decode($smarty.cookies.password)}{/if}"/>
 					</p>
 					<div class="clear"></div>
-					<p id="remember-password">
-						<input type="checkbox" name="remember" />Remember me
-					</p>
 					<div class="clear"></div>
 					<p>
-						<input class="button" type="submit" value="Sign In" />
+						<input class="button" type="submit" value="Đăng nhập" />
 					</p>
 					
 				</form>
