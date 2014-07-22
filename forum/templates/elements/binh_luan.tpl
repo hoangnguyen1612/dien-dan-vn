@@ -24,11 +24,11 @@ $(document).ready(function(){
           <div class="span3 hidden-phone" id="profile26">
                 <div class="user-profile-tab">
                   <div class="user-profile-avatar">
-                    <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_cha.ma_nguoi_dung}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_cha.hinh_dai_dien!=NULL}{$binh_luan_cha.hinh_dai_dien}{else if $binh_luan_cha.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
+                    <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($binh_luan_cha.ma_nguoi_dung)}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_cha.hinh_dai_dien!=NULL}{$binh_luan_cha.hinh_dai_dien}{else if $binh_luan_cha.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
                   </div>
                   <div class="user-profile-row">
                     <div class="user-profile-tag">Tên</div>
-                    <div class="user-profile-output"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_cha.ma_nguoi_dung}" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a> </div>
+                    <div class="user-profile-output"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($binh_luan_cha.ma_nguoi_dung)}" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a> </div>
                   </div>
                   <div class="user-profile-row">
                     <div class="user-profile-tag">Quyền</div>
@@ -80,7 +80,7 @@ $(document).ready(function(){
               </div>
             </div>
             <div class="row-fluid">
-              <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post"></a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a></strong> <i class="icon-time"></i> {date('h:i d/m/Y',strtotime($binh_luan_cha.ngay_tao))} </div>
+              <div class="pull-left timepost"> <a href="../thanh_vien/thong_tin?ma_thanh_vien={url_encode($binh_luan_cha.ma_nguoi_dung)}" title="" data-original-title="Post"></a> bởi <strong><a href="../thanh_vien/thong_tin?ma_thanh_vien={url_encode($binh_luan_cha.ma_nguoi_dung)}" data-original-title="" title="">{$binh_luan_cha.ten_nguoi_dung}</a></strong> <i class="icon-time"></i> {date('h:i d/m/Y',strtotime($binh_luan_cha.ngay_tao))} </div>
             </div>
             <div class="space10"></div>
             {if $binh_luan_cha.trang_thai == 1}
@@ -175,11 +175,11 @@ $(document).ready(function(){
           <div class="span3 hidden-phone" id="profile26">
                 <div class="user-profile-tab">
                   <div class="user-profile-avatar">
-                    <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_con.ma_nguoi_dung}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_con.hinh_dai_dien!=NULL}{$binh_luan_con.hinh_dai_dien}{else if $binh_luan_con.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
+                    <div class="avatar-frame"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($binh_luan_con.ma_nguoi_dung)}" data-original-title="" title=""><img src="/home/upload/nguoi_dung/{if $binh_luan_con.hinh_dai_dien!=NULL}{$binh_luan_con.hinh_dai_dien}{else if $binh_luan_con.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100" height="100" title="Random avatar" alt="Random avatar"></a> </div>
                   </div>
                   <div class="user-profile-row">
                     <div class="user-profile-tag">Tên</div>
-                    <div class="user-profile-output"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$binh_luan_con.ma_nguoi_dung}" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a> </div>
+                    <div class="user-profile-output"> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($binh_luan_con.ma_nguoi_dung)}" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a> </div>
                   </div>
                   <div class="user-profile-row">
                     <div class="user-profile-tag">Quyền</div>
@@ -219,7 +219,7 @@ $(document).ready(function(){
                   </div>
                 </div>
                 <div class="row-fluid">
-                  <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post"></a> bởi <strong><a href="./memberlist.php?mode=viewprofile&amp;u=104" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a></strong>&nbsp; <i class="icon-time"></i>{date('h:i d/m/Y',strtotime($binh_luan_con.ngay_tao))}</div>
+                  <div class="pull-left timepost"> <a href="./viewtopic.php?p=26#p26" title="" data-original-title="Post"></a> bởi <strong><a href="../thanh_vien/thong_tin?ma_thanh_vien={url_encode($binh_luan_con.ma_nguoi_dung)}" data-original-title="" title="">{$binh_luan_con.ten_nguoi_dung}</a></strong>&nbsp; <i class="icon-time"></i>{date('h:i d/m/Y',strtotime($binh_luan_con.ngay_tao))}</div>
                 </div>
                 <div class="space18"></div>
                 {if $binh_luan_con.trang_thai == 1}

@@ -11,7 +11,7 @@
                   <div class="text">Quyền: </div>
                   <span class="recent-detail">Chủ diễn đàn</span> </li>
                  <div style="display:inline-block;width:360px;margin-top:10px; margin-left:50px">
-                 <span class="imageframe imageframe-glow avatar-frame"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$chu_dien_dan.ma_nguoi_dung}"><img src="/home/upload/nguoi_dung/{if $chu_dien_dan.hinh_dai_dien!=NULL}{$chu_dien_dan.hinh_dai_dien}{else if $chu_dien_dan.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100px" height="100px" style="float:left"/></a></span>
+                 <span class="imageframe imageframe-glow avatar-frame"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($chu_dien_dan.ma_nguoi_dung)}"><img src="/home/upload/nguoi_dung/{if $chu_dien_dan.hinh_dai_dien!=NULL}{$chu_dien_dan.hinh_dai_dien}{else if $chu_dien_dan.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100px" height="100px" style="float:left"/></a></span>
                 <div style="margin-left:10px">
                  	<div class="ten"><i class="icon-user"></i> Tên: {$chu_dien_dan.ho_nguoi_dung} {$chu_dien_dan.ten_nguoi_dung}</div>
                     <div class="diemso"><i class="icon-bar-chart"></i> Điểm số: {$chu_dien_dan.diem_so}</div>
@@ -34,7 +34,7 @@
                   {if $danh_sach_quan_tri !=NULL}
                   {foreach $danh_sach_quan_tri as $quan_tri}
                   <div style="display:inline-block;width:360px;margin-top:10px; margin-left:50px">
-                 <span class="imageframe imageframe-glow avatar-frame"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$quan_tri.ma_nguoi_dung}"><img src="/home/upload/nguoi_dung/{if $quan_tri.hinh_dai_dien!=NULL}{$quan_tri.hinh_dai_dien}{else if $quan_tri.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100px" height="100px" style="float:left"/></a></span>
+                 <span class="imageframe imageframe-glow avatar-frame"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($quan_tri.ma_nguoi_dung)}"><img src="/home/upload/nguoi_dung/{if $quan_tri.hinh_dai_dien!=NULL}{$quan_tri.hinh_dai_dien}{else if $quan_tri.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100px" height="100px" style="float:left"/></a></span>
                 <div style="margin-left:10px">
                  	<div class="ten"><i class="icon-user"></i> Tên: {$quan_tri.ho_nguoi_dung} {$quan_tri.ten_nguoi_dung}</div>
                     <div class="diemso"><i class="icon-bar-chart"></i> Điểm số: {$quan_tri.diem_so}</div>
@@ -50,7 +50,7 @@
                 {if $danh_sach_thanh_vien !=NULL}
                   {foreach $danh_sach_thanh_vien as $thanh_vien}
                   <div style="display:inline-block;width:360px;margin-top:10px; margin-left:50px">
-                 <span class="imageframe imageframe-glow avatar-frame"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={$thanh_vien.ma_nguoi_dung}"><img src="/home/upload/nguoi_dung/{if $thanh_vien.hinh_dai_dien!=NULL}{$thanh_vien.hinh_dai_dien}{else if $thanh_vien.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100px" height="100px" style="float:left"/></a></span>
+                 <span class="imageframe imageframe-glow avatar-frame"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/thanh_vien/thong_tin?ma_thanh_vien={url_encode($thanh_vien.ma_nguoi_dung)}"><img src="/home/upload/nguoi_dung/{if $thanh_vien.hinh_dai_dien!=NULL}{$thanh_vien.hinh_dai_dien}{else if $thanh_vien.gioi_tinh==0}no_avatar_male.jpg{else if}no_avatar_female.jpg{/if}" width="100px" height="100px" style="float:left"/></a></span>
                 <div style="margin-left:10px">
                  	<div class="ten"><i class="icon-user"></i> Tên: {$thanh_vien.ho_nguoi_dung} {$thanh_vien.ten_nguoi_dung}</div>
                     <div class="diemso"><i class="icon-bar-chart"></i> Điểm số: {$thanh_vien.diem_so}</div>
