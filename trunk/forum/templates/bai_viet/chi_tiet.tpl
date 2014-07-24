@@ -159,8 +159,9 @@ $(document).ready(function(){
             <ul class="inline pull-right hidden-phone">
             {if $login != '' && $thanh_vien != '' && $thanh_vien.loai_thanh_vien != 3}
            <li> <span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="like btn btn-mini" title="Thích"><i class="icon-thumbs-up-alt thich-bai-viet"   {if $thich_bai_viet == NULL} style="color:black;font-size:1.2em;cursor:pointer"{else} style="color:crimson;font-size:1.2em;cursor:pointer"{/if}></i></a></li>
-           	
-              <li><a class="btn btn-mini" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bao_cao/them?ma={$bai_viet.ma}&loai=0" title="Báo cáo sai phạm" data-original-title="Báo cáo sai phạm" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)!= NULL} onclick="return false" {/if} ><i class="icon-exclamation-sign" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)== NULL} style="color:black" {else} style="color:crimson" {/if}></i></a></li>
+          {if $ma_nguoi_dung != $bai_viet.ma_nguoi_dang} 	
+              <li><a class="btn btn-mini" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bao_cao/them?ma={$bai_viet.ma}&loai=0" title="{if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)== NULL}Báo cáo sai phạm{else if}Đã báo cáo bài viết vi phạm{/if}" data-original-title="Báo cáo sai phạm" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)!= NULL} onclick="return false" {/if} ><i class="icon-exclamation-sign" {if trang_thai_bao_cao_bai_viet($bai_viet.ma,$ma_nguoi_dung,$ma_dien_dan)== NULL} style="color:black" {else} style="color:crimson" {/if}></i></a></li>
+          {/if}    
               {if $ma_nguoi_dung == $bai_viet.ma_nguoi_dang}<li><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/cap_nhat?ma={$bai_viet.ma}" class="btn btn-mini" title="Chỉnh sửa bài viết"><i class="icon-pencil" style="color:black;font-size:1.2em;cursor:pointer"></i></a></li>{/if}
               {else}
               	<li><span class="so_luong_thich_bai_viet">{$bai_viet.thich}</span> <a class="btn btn-mini" data-original-title="Lượt thích" onclick="return false" title="Thích"><i class="icon-thumbs-up-alt" style="color:black;font-size:1.2em"></i></a></li>

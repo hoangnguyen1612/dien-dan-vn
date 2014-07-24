@@ -41,12 +41,20 @@
                     <div class="input-group">
                       <input type="text" name="noi_dung_tb" value="{$smarty.get.noi_dung_tb|default:''}" class="form-control input-sm" placeholder="Tìm kiếm theo nội dung thông báo">
                       <div class="input-group-btn">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                        <button type="submit" style="" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                         &nbsp;&nbsp;
                         <button type="button" class="btn btn-sm btn-primary" 
-                                                                style="border-bottom-left-radius: 3px;
+                                                                style="width: 80px; border-bottom-left-radius: 3px;
 border-top-left-radius: 3px;" onClick="window.location.href='/thong_bao'">Tất cả</button>
 					 </form>
+                     <style>
+                     .btn{
+					 	width: 30px;
+						height: 30px;
+						margin: 0px;
+						padding: 0px;
+					 }
+                     </style>
                       </div>
                     </div>
            
@@ -92,9 +100,13 @@ border-top-left-radius: 3px;" onClick="window.location.href='/thong_bao'">Tất 
             <!-- /.row --> 
           </div>
           <!-- /.box-body -->
-          <div class="box-footer clearfix">
+          <div class="box-footer clearfix" id="nut">
             <div class="pull-right"> <small>Hiển thị {$from}-{$to} trong tổng số {$tong}</small> {$phan_trang} </div>
           </div>
+          <style>
+          #nut .btn-primary{
+			  line-height: 30px;}
+          </style>
           {/if} </div>
         <!-- /.box --> 
       </div>

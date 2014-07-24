@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-07-23 01:07:54
+<?php /* Smarty version Smarty-3.1.14, created on 2014-07-24 14:06:46
          compiled from "..\templates\trang_chu\index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2103553cea87aeed991-95724996%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2097753d0b0860e9585-33966653%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2103553cea87aeed991-95724996',
+  'nocache_hash' => '2097753d0b0860e9585-33966653',
   'function' => 
   array (
   ),
@@ -22,9 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_53cea87b042675_02645819',
+  'unifunc' => 'content_53d0b0862cfd17_42486614',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_53cea87b042675_02645819')) {function content_53cea87b042675_02645819($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\wamp\\www\\dien-dan-vn\\libraries\\smarty\\plugins\\modifier.truncate.php';
+<?php if ($_valid && !is_callable('content_53d0b0862cfd17_42486614')) {function content_53d0b0862cfd17_42486614($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\wamp\\www\\dien-dan-vn\\libraries\\smarty\\plugins\\modifier.truncate.php';
 ?><!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
 

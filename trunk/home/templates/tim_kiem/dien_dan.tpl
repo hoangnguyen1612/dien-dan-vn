@@ -47,8 +47,8 @@
                     <p>
                         <i class="fa fa-users"></i>&nbsp;Số lượng thành viên: {$dien_dan.so_luong_thanh_vien}<br />
                         <i class="fa fa-clock-o"></i>&nbsp; Ngày tham gia: {ngay_thang_nam($dien_dan.ngay_tao)}<br />
-                        <i class="fa fa-bar-chart-o"></i>&nbsp;Lượt xem: {$dien_dan.luot_xem|truncate:40}<br />
-                        <i class="fa  fa-thumbs-o-up"></i>&nbsp;&nbsp;Đánh giá: {$dien_dan.feedback|truncate:40}%
+                        <i class="fa fa-bar-chart-o"></i>&nbsp;Lượt xem: {$dien_dan.luot_xem}<br />
+                        <i class="fa  fa-thumbs-o-up"></i>&nbsp;&nbsp;Đánh giá: {$dien_dan.feedback}%
                     </p>
                    </td>
                   </tr>
@@ -77,9 +77,15 @@
 					}
                 </style>
 
-                <div class="pull-right" style="margin:auto; width: 60%">
+                <div id="nut" class="pull-right" style="margin:auto; width: 60%">
                     {$phan_trang}
                 </div>
+                <style>
+                	#nut .btn-primary{
+						width: 30px !important;
+						height: 30px !important;
+					}
+                </style>
             </div>
             <!-- /.row --> 
           </div>

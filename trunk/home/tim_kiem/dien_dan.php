@@ -35,7 +35,7 @@ try{
 			case 3: $dieu_kien = ' order by feedback DESC';break;
 		}
 	}
-	$sql = "SELECT d.ten, luot_xem, feedback, so_luong_thanh_vien, ngay_tao, hinh_dai_dien, ma_linh_vuc, domain
+	$sql = "SELECT d.ten, (select count(*) from bo_dem where bo_dem.ma_dien_dan = d.ma) as luot_xem, feedback, so_luong_thanh_vien, ngay_tao, hinh_dai_dien, ma_linh_vuc, domain
 			FROM  `dien_dan` d
 			LEFT JOIN  `linh_vuc` l ON d.ma_linh_vuc = l.ma
 			WHERE MATCH(d.ten) AGAINST('$tu_khoa' in boolean mode) OR MATCH(l.ten) AGAINST('$tu_khoa' in boolean mode)
@@ -46,7 +46,6 @@ try{
 	$sth = $dbh->prepare($sql);
 	$sth->execute(array());
 	$danh_sach = $sth->fetchAll(PDO::FETCH_ASSOC);
-	
 	
 	## tính tổng số record
 	$sql = "SELECT count(*)

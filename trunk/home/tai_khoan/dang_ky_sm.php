@@ -125,7 +125,7 @@ try{
 	';
 		
 		
-	send_gmail('nt.hoang1612@gmail.com', 'hoangit1612', $email, $ho.' '.$ten, 'Kích hoạt tài khoản', $mail, NAME_WEBSITE);
+	send_gmail('diendanvn10@gmail.com', 'hoangit1612', $email, $ho.' '.$ten, 'Kích hoạt tài khoản tại Diễn Đàn Việt Nam', $mail, NAME_WEBSITE);
 	
 
 	unset($_SESSION['data']);

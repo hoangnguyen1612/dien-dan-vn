@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-07-23 01:07:55
+<?php /* Smarty version Smarty-3.1.14, created on 2014-07-24 14:04:53
          compiled from "D:\wamp\www\dien-dan-vn\home\templates\elements\left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2611953cea87b165b12-76323093%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2167853d0b015add2b9-75495055%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4899ca540b2f93282a4d968b63b4ef52213a8983' => 
     array (
       0 => 'D:\\wamp\\www\\dien-dan-vn\\home\\templates\\elements\\left.tpl',
-      1 => 1405835284,
+      1 => 1406052597,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2611953cea87b165b12-76323093',
+  'nocache_hash' => '2167853d0b015add2b9-75495055',
   'function' => 
   array (
   ),
@@ -26,9 +26,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_53cea87b231dc8_16308562',
+  'unifunc' => 'content_53d0b015bd3639_10778649',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_53cea87b231dc8_16308562')) {function content_53cea87b231dc8_16308562($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\wamp\\www\\dien-dan-vn\\libraries\\smarty\\plugins\\modifier.truncate.php';
+<?php if ($_valid && !is_callable('content_53d0b015bd3639_10778649')) {function content_53d0b015bd3639_10778649($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\wamp\\www\\dien-dan-vn\\libraries\\smarty\\plugins\\modifier.truncate.php';
 ?><aside class="left-side sidebar-offcanvas"> 
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar"> 
@@ -55,7 +55,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </form>
     <ul class="sidebar-menu">
       </li>
-      <li class="active"> <a href="index.html" style="background-color: #fff; box-shadow:0 0 14px #FFFFFF; color:#3c8dbc; text-transform:capitalize"> <i class="fa fa-globe"></i> <span style="">Cá nhân</span> </a> </li>
+      <li class="active"> <a href="#" style="background-color: #fff; box-shadow:0 0 14px #FFFFFF; color:#3c8dbc; text-transform:capitalize"> <i class="fa fa-globe"></i> <span style="">Cá nhân</span> </a> </li>
       <?php if ($_smarty_tpl->tpl_vars['login']->value!=''){?>
       <li> <a href="/tai_khoan/<?php echo urlencode(base64_encode($_smarty_tpl->tpl_vars['login']->value['ma']));?>
 -<?php echo convert_to_dot(noi_chuoi($_smarty_tpl->tpl_vars['login']->value['ho'],$_smarty_tpl->tpl_vars['login']->value['ten'],' '));?>
