@@ -47,7 +47,7 @@ try{
 		throw new Exception('Lỗi! Các thành viên có mã sau không cập nhật được: '.$str);
 	}
 }catch(Exception $e){
-	throwMessage($e, "/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin");
+	throwMessage($e);
 }
 
 	

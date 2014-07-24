@@ -17,11 +17,11 @@ try{
 	}
 	
 	$ds_chuyen_muc = '';
-	if(kiem_tra_co_con($ma, $ma_dien_dan)==NULL)
+	$kt = kiem_tra_co_con($ma, $ma_dien_dan);
+	if($kt==0)
 	{
 		$ds_chuyen_muc = $xl_chuyen_muc->danh_sach(0,0,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'thu_tu_hien_thi ASC', '*', PDO::FETCH_ASSOC, '', false);;
 	}
-
 	
 	
     $dt_smarty->assign('ds_chuyen_muc',$ds_chuyen_muc);

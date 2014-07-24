@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-07-23 01:07:55
+<?php /* Smarty version Smarty-3.1.14, created on 2014-07-24 14:04:53
          compiled from "D:\wamp\www\dien-dan-vn\home\templates\elements\header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2157453cea87b0a23c3-90955416%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1872953d0b0159fd612-18774756%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2157453cea87b0a23c3-90955416',
+  'nocache_hash' => '1872953d0b0159fd612-18774756',
   'function' => 
   array (
   ),
@@ -24,9 +24,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_53cea87b158721_23643783',
+  'unifunc' => 'content_53d0b015ad1e71_49583720',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_53cea87b158721_23643783')) {function content_53cea87b158721_23643783($_smarty_tpl) {?><header class="header">
+<?php if ($_valid && !is_callable('content_53d0b015ad1e71_49583720')) {function content_53d0b015ad1e71_49583720($_smarty_tpl) {?><header class="header">
             <a href="/" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 Diendan.vn

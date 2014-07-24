@@ -84,13 +84,13 @@ onload_functions.push('apply_onkeypress_event()');
           </div>
           <label class="control-label" for="subject">Tiêu đề bài viết:</label>
           <div class="controls controls-row">
-            <input type="text" class="span6" placeholder="Tiêu đề bài viết" name="data[tieu_de]" id="tieu_de" maxlength="200" tabindex="2" value="">
+            <input type="text" class="span6" placeholder="Tiêu đề bài viết" name="data[tieu_de]" id="tieu_de" maxlength="200" tabindex="2" value="{$smarty.session.data.tieu_de|default:''}">
           </div>
           <script src="./styles/BBOOTS/template/editor.js"></script>
           <div class="space10"></div>
           <div class="row-fluid">
             <div class="span8" style="width:100%">
-              <textarea rows="10" name="data[noi_dung]" id="noi_dung" tabindex="4" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();" placeholder="Post it up!" class="span12 ckeditor" ></textarea>
+              <textarea rows="10" name="data[noi_dung]" id="noi_dung" tabindex="4" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();" placeholder="Post it up!" class="span12 ckeditor" >{$smarty.session.data.noi_dung|default:''}</textarea>
             </div>
           </div>
           <div class="space10"></div>

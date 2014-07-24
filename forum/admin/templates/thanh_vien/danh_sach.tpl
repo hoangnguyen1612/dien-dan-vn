@@ -65,9 +65,7 @@
                  {if ($owner==1 || tim_kiem_chuoi($quyen, 'thanh_vien_phan_quyen_chuyen_muc')!==false) && $tv.loai_thanh_vien==1}
                  <a href="phan_quyen_chuyen_muc.php?ma={url_encode($tv.ma_nguoi_dung)}" title="Phân Quyền Chuyên Mục"><img alt="Phân Quyền" src="/forum/admin/templates/images/role_1.png" ></a>&nbsp;&nbsp;&nbsp;
                  {/if}
-          		{if $owner==1 || tim_kiem_chuoi($quyen, 'thanh_vien_xoa')!==false}
-                 <a href="xoa.php?ma={$tv.ma_nguoi_dung}" onclick="return confirm('Bạn có chắc chắn muốn xóa {$tv.ten_thanh_vien} không ?')" title="Delete"><img style="cursor:pointer" alt="Xóa" src="/forum/admin/templates/images/icons/cross.png"> </a>
-                 {/if}
+          		
                  </td>
               </tr>      
  				{/foreach} 

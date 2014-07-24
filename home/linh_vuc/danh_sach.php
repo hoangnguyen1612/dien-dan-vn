@@ -12,7 +12,7 @@ try{
 	$xl_dien_dan = new xl_dien_dan;
 	$xl_linh_vuc = new xl_linh_vuc;
 	
-	$danh_sach = $xl_dien_dan->danh_sach(0, 0, array('ma_linh_vuc'=>$ma), 'ma DESC', '*', PDO::FETCH_ASSOC, '', false);
+	$danh_sach = $xl_dien_dan->danh_sach(0, 0, array('ma_linh_vuc'=>$ma), 'ma DESC', 'dien_dan.*, (select count(*) from bo_dem where bo_dem.ma_dien_dan = dien_dan.ma) as luot_xem', PDO::FETCH_ASSOC, '', false);
 	$dt_smarty->assign('danh_sach', $danh_sach);
 	
 	$ten = $xl_linh_vuc->doc(array('ma'=>$ma), 'ten');

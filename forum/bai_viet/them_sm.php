@@ -9,6 +9,7 @@ try{
 	$dt_xl_bai_viet = new xl_bai_viet;
 	
 	$data = $_POST['data'];
+	$_SESSION['data'] = $data;
 
 	if(empty($data['tieu_de'])){
 		throw new Exception('Vui lòng nhập tiêu đề');

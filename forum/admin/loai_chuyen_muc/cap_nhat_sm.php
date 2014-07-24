@@ -77,9 +77,12 @@ try{
 	$data['ma_loai_cha'] = $ma_loai_cha;
 	$data['thu_tu_hien_thi'] = $thu_tu_hien_thi;
 
-	$xl_chuyen_muc->cap_nhat_dieu_kien($data, array('ma'=>$ma));
+	$sql = "UPDATE `loai_chuyen_muc` SET `ten` = '$ten',`rieng_tu` = $rieng_tu,`ghi_chu` = '$ghi_chu',`ma_loai_cha` = '$ma_loai_cha',`thu_tu_hien_thi` = $thu_tu_hien_thi WHERE `ma` = '$ma' LIMIT 1";
+	$con =  mysqli_connect("localhost","root","","dien_dan_vn");
+	$con->set_charset("utf8");
+	mysqli_query($con, $sql);
 
-	//unset($_SESSION['data']);
+	unset($_SESSION['data']);
 	
 	if(isset($_POST['save-and-exit']))
 	{
