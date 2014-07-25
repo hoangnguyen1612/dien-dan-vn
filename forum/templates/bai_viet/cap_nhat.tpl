@@ -38,47 +38,47 @@ onload_functions.push('apply_onkeypress_event()');
             <label class="control-label" for="icon">Icon bài viết:</label>
             <div class="controls controls-row">
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon" value="0" checked="checked" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon" value="0" {if $bai_viet.icon == 0} checked="checked" {/if} tabindex="1">
                 <label for="icon">Không</label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-1" value="fire" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-1" value="fire" {if $bai_viet.icon == fire} checked="checked" {/if} tabindex="1">
                 <label for="icon-1"><img src="/forum/templates/images/icons/misc/fire.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-5" value="star" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-5" value="star" {if $bai_viet.icon == star} checked="checked" {/if} tabindex="1">
                 <label for="icon-5"><img src="/forum/templates/images/icons/misc/star.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-6" value="radioactive" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-6" value="radioactive"  {if $bai_viet.icon == radioactive} checked="checked" {/if} tabindex="1">
                 <label for="icon-6"><img src="/forum/templates/images/icons/misc/radioactive.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-4" value="heart" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-4" value="heart" {if $bai_viet.icon == heart} checked="checked" {/if} tabindex="1">
                 <label for="icon-4"><img src="/forum/templates/images/icons/misc/heart.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-7" value="thinking" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-7" value="thinking" {if $bai_viet.icon == thinking} checked="checked" {/if} tabindex="1">
                 <label for="icon-7"><img src="/forum/templates/images/icons/misc/thinking.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-9" value="question" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-9" value="question" {if $bai_viet.icon == question} checked="checked" {/if} tabindex="1">
                 <label for="icon-9"><img src="/forum/templates/images/icons/misc/question.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-10" value="alert" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-10" value="alert" {if $bai_viet.icon == alert} checked="checked" {/if} tabindex="1">
                 <label for="icon-10"><img src="/forum/templates/images/icons/misc/alert.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-8" value="info" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-8" value="info" {if $bai_viet.icon == info} checked="checked" {/if} tabindex="1">
                 <label for="icon-8"><img src="/forum/templates/images/icons/misc/info.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-2" value="redface" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-2" value="redface" {if $bai_viet.icon == redface} checked="checked" {/if} tabindex="1">
                 <label for="icon-2"><img src="/forum/templates/images/icons/misc/redface.gif" width="16" height="16" alt="" title=""></label>
               </div>
               <div class="radio">
-                <input type="radio" name="data[icon]" id="icon-3" value="mrgreen" tabindex="1">
+                <input type="radio" name="data[icon]" id="icon-3" value="mrgreen" {if $bai_viet.icon == mrgreen} checked="checked" {/if} tabindex="1">
                 <label for="icon-3"><img src="/forum/templates/images/icons/misc/mrgreen.gif" width="16" height="16" alt="" title=""></label>
               </div>
             </div>
