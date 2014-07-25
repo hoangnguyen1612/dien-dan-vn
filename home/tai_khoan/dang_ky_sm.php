@@ -89,7 +89,7 @@ try{
 	<body>
 	<span style="font-size: 1em">Xin chào '.$ten.',</span>
 	<p>
-		Bạn đã đăng ký tài khoản tại <span style="color: red; font-weight:bold">diendanvn.com.vn</span>, bạn hãy nhấp vào nút xác nhận bên dưới để kích hoạt tài khoản:
+		Bạn đã đăng ký tài khoản tại <span style="color: red; font-weight:bold">diendan.vn</span>, bạn hãy nhấp vào nút xác nhận bên dưới để kích hoạt tài khoản:
 	</p>
 	<p style="margin-left: 20%"><a href="http:diendan.vn/tai_khoan/kich_hoat?email='.$email.'&code='.$ma_kich_hoat.'"
 	
@@ -110,15 +110,14 @@ try{
 		
 		</p>
 	<p>
-		Cảm ơn bạn đã đăng ký tài khoản tại website của chúng tôi. Để biết thêm thông tin, vui lòng nhấp <a href="" style="color: #15A285">vào đây</a>
-		để gửi những thắc mắc của bạn về ban quản trị của website.
+		Cảm ơn bạn đã đăng ký tài khoản tại website của chúng tôi.
 	</p>
 	<p>
 		Chúc bạn một ngày tốt lành!
 	</p>
 	<p>
 		Trân trọng!<br />
-		<span style="color: red; font-weight:bold">diendanvn.com.vn</span>
+		<span style="color: red; font-weight:bold">diendan.vn</span>
 	</p>
 	</body>
 	</html>

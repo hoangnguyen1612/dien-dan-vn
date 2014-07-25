@@ -82,11 +82,11 @@
           {foreach $danh_sach as $feedback}
           	<div class="feedback">
           	<div class="image">
-             <img src="/home/upload/nguoi_dung/{$feedback.hinh_dai_dien}" width="70" />
+             <a href="/tai_khoan/{url_encode($feedback.ma_nguoi_dung)}-{convert_to_dot($feedback.ho_ten)}"><img src="/home/upload/nguoi_dung/{$feedback.hinh_dai_dien}" width="70" /></a>
             </div>
             <div class="content">
              <p class="logo">
-              <strong><span>{$feedback.ho_ten}</span></strong> vào lúc {date('H:i', strtotime($feedback.ngay_tao))} ngày {date('d-m-Y', strtotime($feedback.ngay_tao))}
+              <strong><span><a class="text-color" href="/tai_khoan/{url_encode($feedback.ma_nguoi_dung)}-{convert_to_dot($feedback.ho_ten)}">{$feedback.ho_ten}</a></span></strong> vào lúc {date('H:i', strtotime($feedback.ngay_tao))} ngày {date('d-m-Y', strtotime($feedback.ngay_tao))}
              </p>
              <p>{nl2br($feedback.noi_dung)}</p>
             </div>

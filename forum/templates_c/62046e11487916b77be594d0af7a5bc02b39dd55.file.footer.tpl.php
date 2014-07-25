@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-07-23 01:08:06
+<?php /* Smarty version Smarty-3.1.14, created on 2014-07-25 20:10:12
          compiled from "D:\wamp\www\dien-dan-vn\forum\templates\elements\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:383953cea886f343c6-36007190%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '62046e11487916b77be594d0af7a5bc02b39dd55' => 
     array (
       0 => 'D:\\wamp\\www\\dien-dan-vn\\forum\\templates\\elements\\footer.tpl',
-      1 => 1405385239,
+      1 => 1406293807,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_53cea88701a3f9_58781863',
   'variables' => 
   array (
     'dien_dan' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_53cea88701a3f9_58781863',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_53cea88701a3f9_58781863')) {function content_53cea88701a3f9_58781863($_smarty_tpl) {?><footer role="contentinfo"> <!-- Footer block -->
             
@@ -43,7 +43,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <li><a href="/<?php echo $_smarty_tpl->tpl_vars['dien_dan']->value['ma_linh_vuc'];?>
 /<?php echo $_smarty_tpl->tpl_vars['dien_dan']->value['domain'];?>
 /phan_hoi/them" data-original-title="" title=""><i class="icon-comments"></i> Phản hồi</a></li>
-                    <li><a href="#" data-original-title="" title=""><i class="icon-bar-chart"></i> Thống kê</a></li>
                    
                   </ul>
                 </div>

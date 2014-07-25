@@ -13,13 +13,15 @@
           <div class="box-body">
             <div class="row" id="content-user">
               <div id="userphoto" onmouseover="document.getElementById('edit-image').style.display = 'block'"
-                    onmouseout="document.getElementById('edit-image').style.display = 'none'"><img class="avatar" id="avatar" src="/home/upload/nguoi_dung/{$nguoi_dung.hinh_dai_dien}" alt="default avatar"> {if $login.ma = $nguoi_dung.ma}
+                    onmouseout="document.getElementById('edit-image').style.display = 'none'"><img class="avatar" id="avatar" src="/home/upload/nguoi_dung/{$nguoi_dung.hinh_dai_dien}" alt="default avatar"> {if $login.ma == $nguoi_dung.ma}
                 <img src="/home/templates/images/loading1.gif" id="loading-avatar" style="display: none; top:75px; position:absolute; left: 555px; width: 20px" />
+                
                 <div id="edit-image" style="left: 2px;width:150px; display:none; height: 28px; position:relative; top: -30px; background:rgba(78,144,254,.7)">
                   <center>
                     <a style="line-height: 28px; color:white" id="change" class="topopup" href="#change-image">Cập nhật</a> 
                   </center>
                 </div>
+                
                 {/if} </div>
               <h1 class="user-name"><i class="fa fa-star-o"></i>&nbsp;&nbsp;{$nguoi_dung.ho} {$nguoi_dung.ten}&nbsp;&nbsp;<i class="fa fa-star-o"></i></h1>
               <nav id="profiletabs">
@@ -197,7 +199,7 @@
               <p style="font-weight:bold">{$nguoi_dung.ten}, chưa tham gia diễn đàn nào!</p>
               {/if}  
                 </section>
-              {if $login.ma = $nguoi_dung.ma}
+              {if $login.ma == $nguoi_dung.ma}
               <section id="chinh_sua" class="hidden">
                 <form name="form-info" id="form-info">
                   <table width="100%" id="mytable" cellpadding="5">

@@ -75,13 +75,6 @@
 			<div id="login-content">
 				{showMessage()}
 				<form action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin/quan_tri/dang_nhap_sm.php" method="post">
-				
-					<div class="{$smarty.session.style_msg_login}">
-						<div>
-					{$smarty.session.msg_login}
-						</div>
-					</div>
-				
 					<p>
 						<label>Tên đăng nhập</label>
 						<input class="text-input" type="text" name = "data[email]" value="{$smarty.cookies.ten_dang_nhap|default:''}"/>

@@ -81,6 +81,7 @@ jQuery(function($) {
 					if(html)
 					{
 						$("#avatar").attr("src", html);
+						$(".img-circle").attr("src", html);
 					}
 					$("#loading-avatar").hide();
 				}

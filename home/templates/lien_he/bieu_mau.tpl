@@ -16,10 +16,10 @@
             <div class="row" style="margin-left: 30px; margin-right:30px;">
 				<form action="them_sm.php" method="post" name="Form">
                 	<div class="form-group">
-                        <input type="text" class="form-control" id="ho_ten" name="data[ho_ten]" placeholder="Họ tên:" value="{$smarty.session.data.ho_ten|default:''}"/>
+                        <input type="text" class="form-control" id="ho_ten" name="data[ho_ten]" placeholder="Họ tên:" value="{if isset ($smarty.session.data.ho_ten)}{$smarty.session.data.ho_ten}{else if}{noi_chuoi($login.ho, $login.ten)|default:''}{/if}"/>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="email" name="data[email]" placeholder="Địa chỉ email:" value="{$smarty.session.data.email|default:''}"/>
+                        <input type="email" class="form-control" id="email" name="data[email]" placeholder="Địa chỉ email:" value="{if isset ($smarty.session.data.email)}{$smarty.session.data.email}{else if}{$login.email|default:''}{/if}"/>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="tieu_de" name="data[tieu_de]" placeholder="Tiêu đề:" value="{$smarty.session.data.tieu_de|default:''}"/>
@@ -40,8 +40,8 @@
 					</script>
                     <div style="clear:both"></div>
                     <div style="margin-top:10px;">
-                    	<input type="submit" value="Gửi liên hệ" class="btn custom btn-info" onclick="return kt_lien_he()" />&nbsp;&nbsp;
-                        <input type="button" id="reset" value="Nhập lại" class="btn custom btn-info" />
+                    	<input type="submit" value="Gửi liên hệ" class="btn" onclick="return kt_lien_he()" />&nbsp;&nbsp;
+                        <input type="button" id="reset" value="Nhập lại" class="btn" />
                     </div>
                 </form>
                 <script>
