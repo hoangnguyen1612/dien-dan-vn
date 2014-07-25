@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-07-23 01:08:06
+<?php /* Smarty version Smarty-3.1.14, created on 2014-07-25 17:17:48
          compiled from "D:\wamp\www\dien-dan-vn\forum\templates\elements\login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2422453cea886e268c3-65014547%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e84ee3c8f983cc423f019d345ff6e778518dcae1' => 
     array (
       0 => 'D:\\wamp\\www\\dien-dan-vn\\forum\\templates\\elements\\login.tpl',
-      1 => 1405948039,
+      1 => 1406283465,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_53cea886ec48b2_57671440',
   'variables' => 
   array (
     'login' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'value' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_53cea886ec48b2_57671440',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_53cea886ec48b2_57671440')) {function content_53cea886ec48b2_57671440($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\wamp\\www\\dien-dan-vn\\libraries\\smarty\\plugins\\modifier.truncate.php';
 ?><link rel="stylesheet" type="text/css" href="/forum/templates/css/jPushMenu.css" />
@@ -59,7 +59,7 @@ jQuery(document).ready(function($) {
   </div>
 </div>
 <div class="main">
-  <p><a href="/tai_khoan/<?php echo $_smarty_tpl->tpl_vars['login']->value['ma'];?>
+  <p><a href="/tai_khoan/<?php echo url_encode($_smarty_tpl->tpl_vars['login']->value['ma']);?>
 -<?php echo convert_to_dot(noi_chuoi($_smarty_tpl->tpl_vars['login']->value['ho'],$_smarty_tpl->tpl_vars['login']->value['ten'],' '));?>
 "><i class="icon-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Tài khoản</a></p>
 </div>

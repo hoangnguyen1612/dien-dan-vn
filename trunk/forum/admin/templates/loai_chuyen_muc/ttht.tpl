@@ -15,7 +15,8 @@
     <form method="post" action="cap_nhat_ttht_sm.php" name="fthem" onsubmit="return get()">
       <fieldset>
         <p>
-          <label class="admin_tieu_de">Bạn hãy click chuột để kéo và thả các chuyên mục mà bạn muốn sắp xếp. Thứ tự hiển thị các chuyên mục sẽ được sắp xếp theo thứ tự trên xuống dưới!</label>
+          <label>Cập nhật thứ tự hiển thị cho chuyên mục: <a target="_blank" href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$chuyen_muc.ma}">{$chuyen_muc.ten}</a></label>
+          <i>* Bạn hãy click chuột để kéo và thả các chuyên mục mà bạn muốn sắp xếp. Thứ tự hiển thị các chuyên mục sẽ được sắp xếp theo thứ tự trên xuống dưới!</i>
         <ul id="sortable">
         {foreach $ds as $c}
           <li class="ui-state-default bg-color" id="{$c.ma}">{$c.thu_tu_hien_thi}. {$c.ten}<span style="float:right; font-size: 70px" class="ui-icon ui-icon-arrowthick-2-n-s"></li>

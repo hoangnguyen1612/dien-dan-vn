@@ -44,7 +44,7 @@
           {/if}
       {/if}
       <tr>
-        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/styles/BBOOTS/imageset/forum_read.gif); background-repeat: no-repeat;" ></i> <a class="feed-icon-forum hidden-phone" title="" href="../bai_viet/index.php?loai={$key}" data-original-title="Bình chọn diễn đàn"> <img src="/forum/templates/images/icons/misc/star-icon.png" /></a> <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$key}" class="forumtitle" data-original-title="" title="" style="text-transform:capitalize">{$value.ten}</a><br>
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/styles/BBOOTS/imageset/forum_read.gif); background-repeat: no-repeat;" ></i>  <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/danh_sach?loai={$key}" class="forumtitle" data-original-title="" title="" style="text-transform:capitalize">{$value.ten}</a><br>
           <small>{$value.ghi_chu|default:''}</small><br />
           {$child = getChildrenFirstForum($key, $ds_chuyen_muc)}
           {if $child!=NULL}

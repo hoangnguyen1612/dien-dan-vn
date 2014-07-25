@@ -24,15 +24,15 @@ try{
 		$ghi_chu = $_POST['data']['ghi_chu'];
 	}
 	
+	if($xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ten'=>$ten), 'ma'))
+	{
+		throw new Exception('Lỗi! [Tên chuyên mục] đã tồn tại, vui lòng kiểm tra lại');
+	}
+	
 	if(!empty($_POST['data']['ma_loai_cha']))
 	{ 
 		kiem_tra_la_so($_POST['data']['ma_loai_cha'], 'Mã loại cha');
 		$ma_loai_cha = $_POST['data']['ma_loai_cha'];
-	
-		if($xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ten'=>$ten, 'ma_loai_cha'=>$ma_loai_cha), 'ma'))
-		{
-			throw new Exception('Lỗi! [Tên chuyên mục] đã tồn tại, vui lòng kiểm tra lại');
-		}
 		
 		if(!$tv = $xl_chuyen_muc->doc(array('ma_dien_dan'=>$ma_dien_dan), 'ma, ma_loai_cha', PDO::FETCH_ASSOC, " and ma = '$ma_loai_cha'"))
 		{

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2014-07-23 01:08:06
+<?php /* Smarty version Smarty-3.1.14, created on 2014-07-25 20:20:47
          compiled from "..\templates\trang_chu\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1720453cea8866cbc92-76950456%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e5b92dd942a14706a2827e08842ff3efd9d8d3ed' => 
     array (
       0 => '..\\templates\\trang_chu\\index.tpl',
-      1 => 1406052481,
+      1 => 1406294442,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_53cea8868ea0d1_99358350',
   'variables' => 
   array (
     'ds_chuyen_muc' => 0,
@@ -32,8 +34,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'kt' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_53cea8868ea0d1_99358350',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_53cea8868ea0d1_99358350')) {function content_53cea8868ea0d1_99358350($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_truncate')) include 'D:\\wamp\\www\\dien-dan-vn\\libraries\\smarty\\plugins\\modifier.truncate.php';
 ?><div id="page-body">
@@ -97,8 +97,7 @@ $_smarty_tpl->tpl_vars['value']->_loop = true;
           <?php }?>
       <?php }?>
       <tr>
-        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/styles/BBOOTS/imageset/forum_read.gif); background-repeat: no-repeat;" ></i> <a class="feed-icon-forum hidden-phone" title="" href="../bai_viet/index.php?loai=<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
-" data-original-title="Bình chọn diễn đàn"> <img src="/forum/templates/images/icons/misc/star-icon.png" /></a> <a href="/<?php echo $_smarty_tpl->tpl_vars['dien_dan']->value['ma_linh_vuc'];?>
+        <td class="expand footable-first-column"><span class="footable-toggle"></span> <i class="row-icon" style="background-image: url(/forum/templates/styles/BBOOTS/imageset/forum_read.gif); background-repeat: no-repeat;" ></i>  <a href="/<?php echo $_smarty_tpl->tpl_vars['dien_dan']->value['ma_linh_vuc'];?>
 /<?php echo $_smarty_tpl->tpl_vars['dien_dan']->value['domain'];?>
 /bai_viet/danh_sach?loai=<?php echo $_smarty_tpl->tpl_vars['key']->value;?>
 " class="forumtitle" data-original-title="" title="" style="text-transform:capitalize"><?php echo $_smarty_tpl->tpl_vars['value']->value['ten'];?>

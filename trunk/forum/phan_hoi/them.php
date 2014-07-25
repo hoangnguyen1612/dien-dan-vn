@@ -5,7 +5,7 @@ try{
 	include '../classes/xl_feedback_dien_dan.php';
 	include '../classes/phan_trang_1.php';
 	
-	$limit = 4;
+	$limit = 5;
 	$pt = new phan_trang('page',$limit);	
 	$pt->so_pt_tren_mot_trang = $limit;
 	$start = $pt->tim_vi_tri_bat_dau();

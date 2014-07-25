@@ -25,17 +25,17 @@
                             <i class="fa fa-info-circle"></i> <span>Về chúng tôi</span>
                         </a>
                     </li>
+                    <li class="dropdown messages-menu">
+                            <a href="/lien_he/bieu_mau.html" class="dropdown-toggle header-user">
+                                <i class="fa fa-twitter"></i> <span>Liên hệ</span>
+                            </a>
+                    	</li> 
                     {if $login!=''}
                     	<li class="dropdown messages-menu">
                             <a href="/dien_dan/dang_ky.html" class="dropdown-toggle header-user">
                                 <i class="fa fa-globe"></i> <span>Đăng ký diễn đàn</span>
                             </a>
-                    	</li>
-                        <li class="dropdown messages-menu">
-                            <a href="/lien_he/bieu_mau.html" class="dropdown-toggle header-user">
-                                <i class="fa fa-twitter"></i> <span>Liên hệ</span>
-                            </a>
-                    	</li>  
+                    	</li> 
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
@@ -92,7 +92,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/tai_khoan/{urlencode(base64_encode($login.ma))}-{convert_to_dot(noi_chuoi($login.ho, $login.ten, ' '))}" class="btn btn-default"style="border: 1px solid #ddd; background-color: #fafafa">Tài khoản</a>
+                                        <a href="/tai_khoan/{urlencode(base64_encode($login.ma))}-{convert_to_dot(noi_chuoi($login.ho, $login.ten, ' '))}" class="btn btn-default" style="border: 1px solid #ddd; background-color: #fafafa">Tài khoản</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="/tai_khoan/dang_xuat.html" class="btn btn-default" style="border: 1px solid #ddd; background-color: #fafafa">Đăng xuất</a>

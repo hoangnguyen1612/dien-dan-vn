@@ -27,7 +27,7 @@ jQuery(document).ready(function($) {
   </div>
 </div>
 <div class="main">
-  <p><a href="/tai_khoan/{$login.ma}-{convert_to_dot(noi_chuoi($login.ho, $login.ten, ' '))}"><i class="icon-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Tài khoản</a></p>
+  <p><a href="/tai_khoan/{url_encode($login.ma)}-{convert_to_dot(noi_chuoi($login.ho, $login.ten, ' '))}"><i class="icon-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;Tài khoản</a></p>
 </div>
 <div class="main">
   <p><a href="/thong_bao"><i class="icon-envelope"></i>&nbsp;&nbsp;&nbsp;&nbsp;Thông báo</a></p>

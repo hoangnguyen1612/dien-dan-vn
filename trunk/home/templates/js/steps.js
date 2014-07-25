@@ -153,27 +153,13 @@
             $("#" + stepName + "commands").append("<a href='#RMAForm' id='" + stepName + "Next'><button class='next' type='button'>Kế tiếp</button></a>");
 
             $("#" + stepName + "Next").bind("click", function(e) {
-
+				var kt = 1;
 				var validator = $("#RMAForm").validate({
 					 rules: { 
 							'data[ten_dien_dan]': {
 								required: true,
 								minlength: 3,
-								maxlength: 25,
-								remote: 
-									{
-										url: "/home/dien_dan/kiem_tra.php",
-										type: "POST",
-										cache: false,
-										data: {
-										  ten_dien_dan: function() {
-											return $( "#ten_dien_dan" ).val();
-										  },
-										  linh_vuc: function() {
-											return $( "#lv" ).val();
-										  }
-										}
-									}		
+								maxlength: 25,	
 							},
 							'data[slogan]': {
 								required: true,
@@ -189,7 +175,6 @@
 								required:" Vui lòng nhập tên diễn đàn",
 								minlength: ' Tên diễn đàn phải có tối thiểu 3 ký tự',
 								maxlength: ' Tên diễn đàn chỉ tối đa 25 ký tự',
-								remote: ' Tên diễn đàn này đã tồn tại, vui lòng chọn tên diễn đàn khác'
 							},
 							'data[slogan]': {
 								minlength: ' Câu khẩu hiệu của diễn đàn phải có ít nhất 10 ký tự',
@@ -202,8 +187,32 @@
 						},
 						
 				})
+			
+				$(':input[name="data[ten_dien_dan]"]').rules("add",
+				{
+					"remote":
+					{
+						url: "kiem_tra.php",
+						type: "POST",
+						data: 
+						{
+							ten_dien_dan: function()
+							{
+							  return $('#RMAForm :input[name="data[ten_dien_dan]"]').val();
+							},	
+							linh_vuc: function()
+							{
+							  return $('#RMAForm :input[name="data[chon_linh_vuc]"]').val();
+							}
+						},
+					},
+					"messages":
+					{
+						remote: "Tên diễn đàn thuộc lĩnh vực bạn chọn đã tồn tại, vui lòng thay đổi tên diễn đàn hoặc chọn lại lĩnh vực"
+					}
+				});
 
-				if($("#RMAForm").validate().form())
+				if($("#RMAForm").validate().form() && kt!=0)
 				{		
 				
 					$("#" + stepName).hide();

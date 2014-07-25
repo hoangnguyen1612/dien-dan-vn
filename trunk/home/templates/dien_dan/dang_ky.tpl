@@ -34,15 +34,12 @@
                       
                             </select>                 
                             <script>
-                        window.onload = function()
-                        {
-                            document.getElementById("lv").value = document.getElementById("ma_linh_vuc").value;
-                        }
-                        
-                        function change()
-                        {
-                            document.getElementById("lv").value = document.getElementById("ma_linh_vuc").value;
-                        }
+							var lv = $("#ma_linh_vuc").val();
+                        	$("#lv").val(lv);
+							
+							$("#ma_linh_vuc").change(function(){
+								$("#lv").val(this.value);
+							});
                       </script></td>
                         </tr>
                         <tr>
