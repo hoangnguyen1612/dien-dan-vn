@@ -77,12 +77,12 @@
 				<form action="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin/quan_tri/dang_nhap_sm.php" method="post">
 					<p>
 						<label>Tên đăng nhập</label>
-						<input class="text-input" type="text" name = "data[email]" value="{$smarty.cookies.ten_dang_nhap|default:''}"/>
+						<input class="text-input" type="text" name = "data[email]" value="{$smarty.session.data.email|default:''}"/>
 					</p>
 					<div class="clear"></div>
 					<p>
 						<label>Mật khẩu</label>
-						<input class="text-input" type="password" name = "data[mat_khau]" value="{base64_decode($smarty.cookies.mat_khau)|default:''}"/>
+						<input class="text-input" type="password" name = "data[mat_khau]" value=""/>
 					</p>
 					<div class="clear"></div>
 					<p id="remember-password">

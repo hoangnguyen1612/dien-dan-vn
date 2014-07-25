@@ -110,8 +110,12 @@ try{
 	}
 	
 	#end
+	if(!empty($item['hinh_dai_dien']))
+	{
+		unlink('../../upload/dien_dan/'.$item['hinh_dai_dien']);
+	}
+	
 	$dbh->commit();
-	//unlink('../upload/dien_dan/'.$item['hinh_dai_dien']);
 	
 	throw new Exception('Đã xóa dữ liệu thuộc diễn đàn này thành công', 30);
 }catch(PDOException $e)

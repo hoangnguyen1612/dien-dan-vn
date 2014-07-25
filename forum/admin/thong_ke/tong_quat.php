@@ -42,7 +42,7 @@ try{
 	include '../end.php';
 }catch(Exception $e)
 {
-	throwMessage($e);
+	throwMessage($e, "/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin");
 }
 
 ?>

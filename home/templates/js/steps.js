@@ -208,7 +208,7 @@
 					},
 					"messages":
 					{
-						remote: "Tên diễn đàn thuộc lĩnh vực bạn chọn đã tồn tại, vui lòng thay đổi tên diễn đàn hoặc chọn lại lĩnh vực"
+						remote: "Tên diễn đàn này đã tồn tại, vui lòng thay đổi tên diễn đàn khác"
 					}
 				});
 

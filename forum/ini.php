@@ -73,6 +73,15 @@
 	if(isset($_SESSION['login']))
 	{
 		$login = $_SESSION['login'];
+		$item = $xl_nguoi_dung->doc(array('ma'=>$login['ma']), 'trang_thai');
+		$login['trang_thai'] = $item['trang_thai'];
+		if($login['trang_thai']==0)
+		{
+			unset($_SESSION['login']);
+			throw new Exception('Tài khoản của bạn đang tạm khóa, vui lòng gửi liên hệ về ban quản trị Diendan.vn để biết thêm thông tin chi tiết');
+		}
+		
+		
 		$ma_nguoi_dung = $login['ma'];
 		
 		# loại thành viên

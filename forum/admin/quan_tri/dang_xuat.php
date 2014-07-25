@@ -1,6 +1,10 @@
 <?php
 	session_start();
 	unset($_SESSION['login']);
+	if(isset($_SESSION['message']))
+	{
+		unset($_SESSION['message']);
+	}
 	if(!empty($_COOKIE['username-forum']) && !empty($_COOKIE['password-forum']))
 	{
 		setcookie('username-forum', $email, time() - (2*24*60*60), '/', NULL);

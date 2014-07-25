@@ -6,7 +6,7 @@ try{
 	include '../../classes/phan_trang_admin.php';
 	
 	# số phần tử trên 1 trang
-	$limit = 5;
+	$limit = 10;
 	$xl_nguoi_dung = new xl_nguoi_dung;
 	
 	# khởi tạo đối tượng phân trang

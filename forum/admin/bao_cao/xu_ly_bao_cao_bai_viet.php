@@ -22,6 +22,11 @@ try{
 	{
 		throw new Exception('Mã báo cáo bài viết không hợp lệ');
 	}
+	
+	if($bao_cao['trang_thai']==1)
+	{
+		throw new Exception('Báo cáo bài viết này đã được xử lý');
+	}
 
 	quan_tri_chuyen_muc($bao_cao['ma_loai_chuyen_muc']);
 	
