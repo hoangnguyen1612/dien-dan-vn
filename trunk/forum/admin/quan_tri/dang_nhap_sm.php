@@ -24,6 +24,8 @@ try{
 		throw new Exception('Mật khẩu không được để trống');
 	}
 	
+	$_SESSION['data'] = $_POST['data'];
+	
 	$email = $_POST['data']['email'];
 	$mat_khau = $_POST['data']['mat_khau'];
 	
@@ -47,13 +49,17 @@ try{
 	}
 	
 	$thanh_vien = $xl_thanh_vien_dien_dan->doc(array('ma_dien_dan'=>$ma_dien_dan, 'ma_nguoi_dung'=>$nguoi_dung['ma']));
+	if(!$thanh_vien)
+	{
+		throw new Exception('You have not permission at here!');
+	}
 
 	if($thanh_vien['loai_thanh_vien']!=0 && $thanh_vien['loai_thanh_vien']!=1)
 	{
-		throw new Exception('You have not permission at here!!!');
+		throw new Exception('You have not permission at here!');
 	}
 	
-	$_SESSION['login'] =$nguoi_dung;
+	$_SESSION['login'] = $nguoi_dung;
 	
 
 	if(isset($_POST['remember']) && $_POST['remember']=='on')
@@ -62,6 +68,7 @@ try{
 		setcookie('password-forum', base64_encode($mat_khau), time() + 2*24*60*60, '/', NULL);
 	}
 	
+	unset($_SESSION['data']);
 	$url = "/{$dien_dan['ma_linh_vuc']}/{$dien_dan['domain']}/admin/thong_ke/tong_quat.php";
 	throw new Exception();
 }catch (PDOException $e){

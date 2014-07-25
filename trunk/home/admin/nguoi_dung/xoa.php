@@ -104,10 +104,15 @@ try{
 		throw new Exception('Đã có lỗi khi xóa người dùng này');
 	}
 	
-	
+	if(!empty($item['hinh_dai_dien']))
+	{
+		if(file_exists("../../upload/nguoi_dung/{$item['hinh_dai_dien']}"))
+		{
+			unlink('../../upload/nguoi_dung/'.$item['hinh_dai_dien']);	
+		}
+	}
 	#end
 	$dbh->commit();
-	//unlink('../upload/dien_dan/'.$item['hinh_dai_dien']);
 	
 	throw new Exception('Đã xóa dữ liệu thuộc người dùng này thành công', 30);
 }catch(PDOException $e)

@@ -22,6 +22,11 @@ try{
 	{
 		throw new Exception('Mã báo cáo bình luận không hợp lệ');
 	}
+	if($bao_cao['trang_thai']==1)
+	{
+		throw new Exception('Báo cáo bình luận này đã được xử lý');
+	}
+	
 	quan_tri_chuyen_muc($bao_cao['ma_loai_chuyen_muc']);
 	
 	$ds_xl = $xl_loai_xu_ly_vi_pham_binh_luan->danh_sach(0, 0, '','ma ASC', '*', PDO::FETCH_KEY_PAIR, '', false);

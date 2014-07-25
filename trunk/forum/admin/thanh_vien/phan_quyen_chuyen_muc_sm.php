@@ -8,13 +8,14 @@ try{
 	{
 		throw new Exception('Lỗi! [Mã thành viên] không hợp lệ');
 	}
-	if(empty($_POST['item']))
+	
+	$ds_quyen = '';
+	if(!empty($_POST['item']))
 	{
-		throw new Exception('Lỗi! Bạn cần phải chọn chuyên mục để phân quyền không hợp lệ');
+		$ds_quyen = $_POST['item'];
 	}
 	$ma_nguoi_dung = $_POST['ma_nguoi_dung'];
 	$ma_nguoi_dung = urldecode(base64_decode($ma_nguoi_dung)); 
-	$ds_quyen = $_POST['item'];
 	$quyen = '';
 	
 	$xl_thanh_vien_dien_dan = new xl_thanh_vien_dien_dan;

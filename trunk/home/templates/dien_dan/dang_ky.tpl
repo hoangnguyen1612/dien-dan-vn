@@ -72,6 +72,8 @@
                             success: function(result) {
                                 $("#ma_linh_vuc").find('option').remove();
                                 $("#ma_linh_vuc").append(result);
+								var lv1 = $("#ma_linh_vuc").val();
+								document.getElementById("lv").value = lv1;
                                 change();
                             }
                         });
@@ -86,7 +88,14 @@
                           <td><label>Tên diễn đàn</label>
                             <span class="red">*</span><br />
                             <input class="required form-control" id="ten_dien_dan" name="data[ten_dien_dan]" type="text" value="{$smarty.session.data.ten_dien_dan|default:''}"/>
-                            <input type="hidden" name="data[chon_linh_vuc]" id="lv" class="required" />
+                            <script>
+							window.onload = function()
+							{	
+								var lv1 = $("#ma_linh_vuc").val();
+								document.getElementById("lv").value = lv1;
+							}
+                            </script>
+                            <input type="hidden" name="data[chon_linh_vuc]" id="lv" />
                             </td>
                         </tr>
                         <tr>

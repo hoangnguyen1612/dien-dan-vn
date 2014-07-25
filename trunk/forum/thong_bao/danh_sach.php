@@ -6,7 +6,7 @@ try{
 	
 	$xl_thong_bao = new xl_thong_bao;
 	$danh_sach = '';
-	$danh_sach = $xl_thong_bao->danh_sach(0, 0, array('gui_den'=>$login['ma'], 'ma_dien_dan'=>$ma_dien_dan), 'ngay_tao DESC', '*', PDO::FETCH_ASSOC, '', false);
+	$danh_sach = $xl_thong_bao->danh_sach(0, 0, array('gui_den'=>$login['ma'], 'ma_dien_dan'=>$ma_dien_dan), 'ngay_tao ASC', '*', PDO::FETCH_ASSOC, '', false);
 
 	$dt_smarty->assign('danh_sach', $danh_sach);
 	$contentForLayout = $dt_smarty->fetch('thong_bao/danh_sach.tpl');

@@ -46,7 +46,7 @@
 			<tbody>       
                {foreach $danh_sach as $nguoi_dung}   
                 <tr>
-                <td >{$nguoi_dung.ho} {$nguoi_dung.ten}</td>
+                <td ><a target="_blank" href="/tai_khoan/{urlencode(base64_encode($nguoi_dung.ma))}-{convert_to_dot(noi_chuoi($nguoi_dung.ho, $nguoi_dung.ten, ' '))}">{$nguoi_dung.ho} {$nguoi_dung.ten}</a></td>
                 <td class="c"><img src="/home/admin/templates/images/gioi_tinh_{$nguoi_dung.gioi_tinh}.png" /></td>
                 <td class="c">{_date($nguoi_dung.ngay_tham_gia)}</td>
                 <td class="c"><a href="cap_nhat_trang_thai.php?ma={($nguoi_dung.ma)}" title="{if $nguoi_dung.trang_thai==0}Đã khóa tài khoản{else if}Đang được kích hoạt{/if}"><img src="/forum/admin/templates/images/trang_thai_{$nguoi_dung.trang_thai}.png" width="20" height="20"> </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>

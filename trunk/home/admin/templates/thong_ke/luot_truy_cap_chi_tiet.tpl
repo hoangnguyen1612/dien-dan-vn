@@ -4,7 +4,7 @@
 	<ul class="content-box-tabs">
     	<li><a href="luot_truy_cap.php" >Lượt truy cập 7 ngày gần nhất</a></li>
         <li><a href="luot_truy_cap_nhieu_nhat.php" >Lượt truy cập nhiều nhất</a></li>
-		<li><a href="#" class="default-tab">Phản hồi chi tiết</a></li>
+		<li><a href="#" class="default-tab">Lượt truy cập chi tiết</a></li>
 	</ul>
 	<div class="clear"></div>
 	

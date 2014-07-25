@@ -1,6 +1,6 @@
 <div class="content-box-header">
 					
-	<h3>Loại bài viết [Danh sách]</h3>
+	<h3>Chuyên mục [Danh sách]</h3>
 	
 	<ul class="content-box-tabs">
 		<li><a href="#" class="default-tab">Danh sách</a></li>

@@ -42,7 +42,7 @@ function change(){
 		  <table class="table">
 <thead>
               <tr>
-                <th><input class="check-all" type="checkbox"></th>
+                {if $thanh_vien.loai_thanh_vien==0}<th><input class="check-all" type="checkbox"></th>{/if}
                 <th>Tiêu Đề</th>
                 <th>Ngày Tạo</th>
                 <th>Tên chuyên mục</th>
@@ -52,7 +52,10 @@ function change(){
             </thead>
 		  <tfoot>
 			  <tr>
-				<td colspan="7"><div class="bulk-actions align-left"><img src="/forum/admin/templates/images/arrow_ltr.png" /> <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')">
+				<td colspan="7"><div class="bulk-actions align-left">
+                {if $thanh_vien.loai_thanh_vien==0}
+                <img src="/forum/admin/templates/images/arrow_ltr.png" /> 
+                <input name="xoa_muc_chon" class="button" type="submit" value="Xóa Các Mục Đã Chọn" onclick="return confirm('Bạn có chắc chắn muốn xóa không ?')">			  {/if}
               
                  <select class="selectpicker"  id="ma_chuyen_muc" onchange="change()" name="ma_chuyen_muc">
                		<option value="0" selected="selected">Chọn chuyên mục để hiển thị bài viết</option>
@@ -93,7 +96,7 @@ function change(){
                  style="background: #fff"
                 {else if}
                 {if  tim_kiem_chuoi($qcm, $bai_viet.ma_loai_chuyen_muc)===false}style="background: #f1f1f1"{else if} style="background: #fff"{/if}{/if}>
-                <td><input name="data[]" type="checkbox" value="{post_encode($bai_viet.ma)}"></td>
+                {if $thanh_vien.loai_thanh_vien==0}<td><input name="data[]" type="checkbox" value="{post_encode($bai_viet.ma)}"></td>{/if}
                 <td>{$bai_viet.tieu_de}</td>
                 <td style="text-align:left">{date('d-m-Y', strtotime($bai_viet.ngay_tao))}</td>
                 <td style="text-transform:capitalize">{ten_chuyen_muc($bai_viet.ma_loai_chuyen_muc,$dien_dan.ma)}</td>
@@ -108,7 +111,7 @@ function change(){
                 <td><!-- Icons --> 
                   <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/bai_viet/chi_tiet?ma={($bai_viet.ma)}" target="_blank" title="Xem"><img src="/forum/admin/templates/images/search.png" width="16" alt="Xem"></a>
                   {if $thanh_vien.loai_thanh_vien==0 || tim_kiem_chuoi($qcm, $bai_viet.ma_loai_chuyen_muc)!==false}
-                  	<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin/bai_viet/xoa.php?ma={url_encode($bai_viet.ma)}" onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này không ?')" title="xóa"><img src="/forum/admin/templates/images/icons/cross.png" alt="Delete"></a>
+                  	<a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin/bai_viet/xoa.php?ma={url_encode($bai_viet.ma)}" onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này không ?')" title="xóa"><img src="/forum/admin/templates/images/icons/cross.png" alt="Xóa"></a>
                   {/if} 
                 </td>
               </tr>

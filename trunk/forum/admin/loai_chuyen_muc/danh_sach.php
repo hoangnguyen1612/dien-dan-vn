@@ -5,13 +5,13 @@ try{
 	include '../../classes/xl_chuyen_muc.php';
 	include '../../classes/phan_trang.php';
 	
-	quan_tri('loai_chuyen_muc_danh_sach');
+	quan_tri('loai_chuyen_muc_cap_nhat');
 	
 	$dt_phan_trang = new phan_trang;
 	$dt_xl_chuyen_muc = new xl_chuyen_muc;
 	$vi_tri_bat_dau = $dt_phan_trang->tim_trang_hien_tai();
 	
-	$start = $dt_phan_trang->tim_vi_tri_query($vi_tri_bat_dau,4);
+	$start = $dt_phan_trang->tim_vi_tri_query($vi_tri_bat_dau,10);
 	
 	if(isset($_GET['tu_khoa'])){
 		$tu_khoa = $_GET['tu_khoa'];
@@ -20,22 +20,22 @@ try{
 		{	
 			$ma_loai_cha = $_GET['ma_loai_cha'];
 			$_SESSION['data']['ma_loai_cha'] = $ma_loai_cha;
-			$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma ASC','loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,"and ten like '%$tu_khoa%' and ma_loai_cha like '%$ma_loai_cha%'",true);
+			$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach($start,10,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,"and ten like '%$tu_khoa%' and ma_loai_cha like '%$ma_loai_cha%'",true);
 		}
 		else
 		{
-			$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma ASC','loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,"and ten like '%$tu_khoa%'",true);
+			$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach($start,10,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,"and ten like '%$tu_khoa%'",true);
 		}
 	}else{
 		if(!empty($_GET['ma_loai_cha']))
 		{	
 			$ma_loai_cha = $_GET['ma_loai_cha'];
 			$_SESSION['data']['ma_loai_cha'] = $ma_loai_cha;
-			$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma ASC','loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,"and ma_loai_cha like '%$ma_loai_cha%'",true);
+			$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach($start,10,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,"and ma_loai_cha like '%$ma_loai_cha%'",true);
 		}
 		else
 		{
-			$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach($start,4,array('ma_dien_dan'=>$_SESSION['dien_dan']['ma']),'ma ASC','loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,"",true);
+			$ds_chuyen_muc = $dt_xl_chuyen_muc->danh_sach($start,10,array('ma_dien_dan'=>$ma_dien_dan),'ma ASC','loai_chuyen_muc.*,(Select ten from loai_chuyen_muc l2 where l2.ma = loai_chuyen_muc.ma_loai_cha) ten_loai_cha',PDO::FETCH_ASSOC,"",true);
 		}
 	}
 	
@@ -46,7 +46,7 @@ try{
 	$dt_smarty->assign('ds_chuyen_muc', $ds_chuyen_muc[0]);	
 	
 	#############Chuẩn bị bộ nút #####################
-	$bo_nut = $dt_phan_trang->bo_nut_phan_trang($ds_chuyen_muc[1],$vi_tri_bat_dau,4);
+	$bo_nut = $dt_phan_trang->bo_nut_phan_trang($ds_chuyen_muc[1],$vi_tri_bat_dau,10);
 	$dt_smarty->assign('bo_nut', $bo_nut);
 	
 	

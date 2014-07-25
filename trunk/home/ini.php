@@ -34,18 +34,26 @@
 
 		if(!$nguoi_dung)
 		{
+			setcookie('username-forum', $email, time() - (2*24*60*60), '/', NULL);
+			setcookie('password-forum', base64_encode($mat_khau), time() - (2*24*60*60), '/', NULL);
 			throw new Exception('Tài khoản không tồn tại, vui lòng kiểm tra lại');
 		}
 		if($nguoi_dung['ma_kich_hoat']!=NULL)
 		{
+			setcookie('username-forum', $email, time() - (2*24*60*60), '/', NULL);
+			setcookie('password-forum', base64_encode($mat_khau), time() - (2*24*60*60), '/', NULL);
 			throw new Exception('Tài khoản của bạn chưa được kích hoạt, vui lòng kiểm tra hộp thư mail để kích hoạt tài khoản');
 		}
 		if(strcmp(md5($email.$mat_khau), $nguoi_dung['mat_khau']))
 		{
+			setcookie('username-forum', $email, time() - (2*24*60*60), '/', NULL);
+			setcookie('password-forum', base64_encode($mat_khau), time() - (2*24*60*60), '/', NULL);
 			throw new Exception('Mật khẩu không đúng, vui lòng kiểm tra lại');
 		}
 		if($nguoi_dung['trang_thai']==0)
 		{
+			setcookie('username-forum', $email, time() - (2*24*60*60), '/', NULL);
+			setcookie('password-forum', base64_encode($mat_khau), time() - (2*24*60*60), '/', NULL);
 			throw new Exception('Tài khoản của bạn đang tạm khóa, vui lòng gửi liên hệ về ban quản trị Diendan.vn để biết thêm thông tin chi tiết');
 		}
 		
@@ -55,6 +63,14 @@
 	if(isset($_SESSION['login']))
 	{
 		$login = $_SESSION['login'];
+		
+		$item = $xl_nguoi_dung->doc(array('ma'=>$login['ma']), 'trang_thai');
+		$login['trang_thai'] = $item['trang_thai'];
+		if($login['trang_thai']==0)
+		{
+			unset($_SESSION['login']);
+			throw new Exception('Tài khoản của bạn đang tạm khóa, vui lòng gửi liên hệ về ban quản trị Diendan.vn để biết thêm thông tin chi tiết');
+		}
 	}
 	
 	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERR_NONE);

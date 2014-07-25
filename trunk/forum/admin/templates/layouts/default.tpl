@@ -80,18 +80,18 @@ function inputNumber(e)
   <div id="sidebar">
     <div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
       
-      <h1 id="sidebar-title"><a href="#">{$dien_dan.ten}</a></h1>
+      <h1 id="sidebar-title"><a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin">{$dien_dan.ten}</a></h1>
       
       <!-- Logo (221px wide) --> 
-      <a href="#" style="display:block; margin: 0px"><!--<img id="logo" src="/home/upload/dien_dan/thumb/{$dien_dan.hinh_dai_dien}" width="60px" height="60px" alt="Simpla Admin logo" style="border-radius: 3px; margin: 10px 0px 10px 85px" />--><br />
+      <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}/admin" style="display:block; margin: 0px"><!--<img id="logo" src="/home/upload/dien_dan/thumb/{$dien_dan.hinh_dai_dien}" width="60px" height="60px" alt="Simpla Admin logo" style="border-radius: 3px; margin: 10px 0px 10px 85px" />--><br />
       <div style="font-size: 23px;; font-weight:bold; text-transform:uppercase; color:white; text-align:center; width: 100%; word-break:break-word">{$dien_dan.ten}</div>
       </a>
       <div class="clear"></div>
       <br />
       <br />
       <!-- Sidebar Profile links -->
-      <div id="profile-links"> Chào, <a href="#" title="Edit your profile">{$smarty.session.login.ten|default:''}</a><br/>
-        Last login: 12-3-2014 <br />
+      <div id="profile-links"> Chào, <a href="#" title="Edit your profile">{$smarty.session.login.ten|default:''}</a>
+      <!--<br/>Lần đăng nhập cuối: 12-3-2014 <br />-->
         <br/>
         <a href="/{$dien_dan.ma_linh_vuc}/{$dien_dan.domain}" title="View the Site" target="_blank">Xem trang</a> | <a href="../quan_tri/dang_xuat.php" title="Đăng xuất">Đăng xuất</a> </div>
       <ul id="main-nav">
